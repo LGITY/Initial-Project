@@ -1,0 +1,605 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		123DC63720D01D1800DEA753 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 123DC63620D01D1800DEA753 /* ViewController.swift */; };
+		123DC63A20D01D1800DEA753 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 123DC63820D01D1800DEA753 /* Main.storyboard */; };
+		123DC63C20D01D1D00DEA753 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 123DC63B20D01D1D00DEA753 /* Assets.xcassets */; };
+		123DC63F20D01D1D00DEA753 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 123DC63D20D01D1D00DEA753 /* LaunchScreen.storyboard */; };
+		123DC64A20D01D1D00DEA753 /* Plus_OneTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 123DC64920D01D1D00DEA753 /* Plus_OneTests.swift */; };
+		123DC65520D01D1D00DEA753 /* Plus_OneUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 123DC65420D01D1D00DEA753 /* Plus_OneUITests.swift */; };
+		123DC66320D0367800DEA753 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 123DC66220D0367800DEA753 /* SignUpViewController.swift */; };
+		123DC67820D03ACE00DEA753 /* MainNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 123DC67720D03ACE00DEA753 /* MainNavigationController.swift */; };
+		123DC67A20D03C2F00DEA753 /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 123DC67920D03C2F00DEA753 /* StartViewController.swift */; };
+		124CB0C920D08D4500856E5D /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 124CB0C820D08D4500856E5D /* LogInViewController.swift */; };
+		124CB0D120D08DDB00856E5D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 124CB0D020D08DDB00856E5D /* AppDelegate.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		123DC64620D01D1D00DEA753 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 123DC62920D01D1800DEA753 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 123DC63020D01D1800DEA753;
+			remoteInfo = "Plus One";
+		};
+		123DC65120D01D1D00DEA753 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 123DC62920D01D1800DEA753 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 123DC63020D01D1800DEA753;
+			remoteInfo = "Plus One";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		123DC63120D01D1800DEA753 /* Plus One.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Plus One.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		123DC63620D01D1800DEA753 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		123DC63920D01D1800DEA753 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		123DC63B20D01D1D00DEA753 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		123DC63E20D01D1D00DEA753 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		123DC64020D01D1D00DEA753 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		123DC64520D01D1D00DEA753 /* Plus OneTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Plus OneTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		123DC64920D01D1D00DEA753 /* Plus_OneTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Plus_OneTests.swift; sourceTree = "<group>"; };
+		123DC64B20D01D1D00DEA753 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		123DC65020D01D1D00DEA753 /* Plus OneUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Plus OneUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		123DC65420D01D1D00DEA753 /* Plus_OneUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Plus_OneUITests.swift; sourceTree = "<group>"; };
+		123DC65620D01D1D00DEA753 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		123DC66220D0367800DEA753 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		123DC67720D03ACE00DEA753 /* MainNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainNavigationController.swift; sourceTree = "<group>"; };
+		123DC67920D03C2F00DEA753 /* StartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
+		124CB0C820D08D4500856E5D /* LogInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
+		124CB0D020D08DDB00856E5D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		123DC62E20D01D1800DEA753 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		123DC64220D01D1D00DEA753 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		123DC64D20D01D1D00DEA753 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		123DC62820D01D1800DEA753 = {
+			isa = PBXGroup;
+			children = (
+				123DC63320D01D1800DEA753 /* Plus One */,
+				123DC64820D01D1D00DEA753 /* Plus OneTests */,
+				123DC65320D01D1D00DEA753 /* Plus OneUITests */,
+				123DC63220D01D1800DEA753 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		123DC63220D01D1800DEA753 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				123DC63120D01D1800DEA753 /* Plus One.app */,
+				123DC64520D01D1D00DEA753 /* Plus OneTests.xctest */,
+				123DC65020D01D1D00DEA753 /* Plus OneUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		123DC63320D01D1800DEA753 /* Plus One */ = {
+			isa = PBXGroup;
+			children = (
+				123DC63620D01D1800DEA753 /* ViewController.swift */,
+				123DC63820D01D1800DEA753 /* Main.storyboard */,
+				123DC63B20D01D1D00DEA753 /* Assets.xcassets */,
+				123DC63D20D01D1D00DEA753 /* LaunchScreen.storyboard */,
+				123DC64020D01D1D00DEA753 /* Info.plist */,
+				123DC66220D0367800DEA753 /* SignUpViewController.swift */,
+				124CB0C820D08D4500856E5D /* LogInViewController.swift */,
+				123DC67720D03ACE00DEA753 /* MainNavigationController.swift */,
+				123DC67920D03C2F00DEA753 /* StartViewController.swift */,
+				124CB0D020D08DDB00856E5D /* AppDelegate.swift */,
+			);
+			path = "Plus One";
+			sourceTree = "<group>";
+		};
+		123DC64820D01D1D00DEA753 /* Plus OneTests */ = {
+			isa = PBXGroup;
+			children = (
+				123DC64920D01D1D00DEA753 /* Plus_OneTests.swift */,
+				123DC64B20D01D1D00DEA753 /* Info.plist */,
+			);
+			path = "Plus OneTests";
+			sourceTree = "<group>";
+		};
+		123DC65320D01D1D00DEA753 /* Plus OneUITests */ = {
+			isa = PBXGroup;
+			children = (
+				123DC65420D01D1D00DEA753 /* Plus_OneUITests.swift */,
+				123DC65620D01D1D00DEA753 /* Info.plist */,
+			);
+			path = "Plus OneUITests";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		123DC63020D01D1800DEA753 /* Plus One */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 123DC65920D01D1D00DEA753 /* Build configuration list for PBXNativeTarget "Plus One" */;
+			buildPhases = (
+				123DC62D20D01D1800DEA753 /* Sources */,
+				123DC62E20D01D1800DEA753 /* Frameworks */,
+				123DC62F20D01D1800DEA753 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Plus One";
+			productName = "Plus One";
+			productReference = 123DC63120D01D1800DEA753 /* Plus One.app */;
+			productType = "com.apple.product-type.application";
+		};
+		123DC64420D01D1D00DEA753 /* Plus OneTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 123DC65C20D01D1D00DEA753 /* Build configuration list for PBXNativeTarget "Plus OneTests" */;
+			buildPhases = (
+				123DC64120D01D1D00DEA753 /* Sources */,
+				123DC64220D01D1D00DEA753 /* Frameworks */,
+				123DC64320D01D1D00DEA753 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				123DC64720D01D1D00DEA753 /* PBXTargetDependency */,
+			);
+			name = "Plus OneTests";
+			productName = "Plus OneTests";
+			productReference = 123DC64520D01D1D00DEA753 /* Plus OneTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		123DC64F20D01D1D00DEA753 /* Plus OneUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 123DC65F20D01D1D00DEA753 /* Build configuration list for PBXNativeTarget "Plus OneUITests" */;
+			buildPhases = (
+				123DC64C20D01D1D00DEA753 /* Sources */,
+				123DC64D20D01D1D00DEA753 /* Frameworks */,
+				123DC64E20D01D1D00DEA753 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				123DC65220D01D1D00DEA753 /* PBXTargetDependency */,
+			);
+			name = "Plus OneUITests";
+			productName = "Plus OneUITests";
+			productReference = 123DC65020D01D1D00DEA753 /* Plus OneUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		123DC62920D01D1800DEA753 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0940;
+				LastUpgradeCheck = 0940;
+				ORGANIZATIONNAME = "Brad Levin";
+				TargetAttributes = {
+					123DC63020D01D1800DEA753 = {
+						CreatedOnToolsVersion = 9.4;
+					};
+					123DC64420D01D1D00DEA753 = {
+						CreatedOnToolsVersion = 9.4;
+						TestTargetID = 123DC63020D01D1800DEA753;
+					};
+					123DC64F20D01D1D00DEA753 = {
+						CreatedOnToolsVersion = 9.4;
+						TestTargetID = 123DC63020D01D1800DEA753;
+					};
+				};
+			};
+			buildConfigurationList = 123DC62C20D01D1800DEA753 /* Build configuration list for PBXProject "Plus One" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 123DC62820D01D1800DEA753;
+			productRefGroup = 123DC63220D01D1800DEA753 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				123DC63020D01D1800DEA753 /* Plus One */,
+				123DC64420D01D1D00DEA753 /* Plus OneTests */,
+				123DC64F20D01D1D00DEA753 /* Plus OneUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		123DC62F20D01D1800DEA753 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				123DC63F20D01D1D00DEA753 /* LaunchScreen.storyboard in Resources */,
+				123DC63C20D01D1D00DEA753 /* Assets.xcassets in Resources */,
+				123DC63A20D01D1800DEA753 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		123DC64320D01D1D00DEA753 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		123DC64E20D01D1D00DEA753 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		123DC62D20D01D1800DEA753 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				123DC67820D03ACE00DEA753 /* MainNavigationController.swift in Sources */,
+				123DC66320D0367800DEA753 /* SignUpViewController.swift in Sources */,
+				123DC63720D01D1800DEA753 /* ViewController.swift in Sources */,
+				124CB0C920D08D4500856E5D /* LogInViewController.swift in Sources */,
+				124CB0D120D08DDB00856E5D /* AppDelegate.swift in Sources */,
+				123DC67A20D03C2F00DEA753 /* StartViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		123DC64120D01D1D00DEA753 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				123DC64A20D01D1D00DEA753 /* Plus_OneTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		123DC64C20D01D1D00DEA753 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				123DC65520D01D1D00DEA753 /* Plus_OneUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		123DC64720D01D1D00DEA753 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 123DC63020D01D1800DEA753 /* Plus One */;
+			targetProxy = 123DC64620D01D1D00DEA753 /* PBXContainerItemProxy */;
+		};
+		123DC65220D01D1D00DEA753 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 123DC63020D01D1800DEA753 /* Plus One */;
+			targetProxy = 123DC65120D01D1D00DEA753 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		123DC63820D01D1800DEA753 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				123DC63920D01D1800DEA753 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		123DC63D20D01D1D00DEA753 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				123DC63E20D01D1D00DEA753 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		123DC65720D01D1D00DEA753 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		123DC65820D01D1D00DEA753 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		123DC65A20D01D1D00DEA753 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = C7C8Z86327;
+				INFOPLIST_FILE = "Plus One/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "LGIT.Plus-One";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		123DC65B20D01D1D00DEA753 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = C7C8Z86327;
+				INFOPLIST_FILE = "Plus One/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "LGIT.Plus-One";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		123DC65D20D01D1D00DEA753 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = C7C8Z86327;
+				INFOPLIST_FILE = "Plus OneTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "LGIT.Plus-OneTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Plus One.app/Plus One";
+			};
+			name = Debug;
+		};
+		123DC65E20D01D1D00DEA753 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = C7C8Z86327;
+				INFOPLIST_FILE = "Plus OneTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "LGIT.Plus-OneTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Plus One.app/Plus One";
+			};
+			name = Release;
+		};
+		123DC66020D01D1D00DEA753 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = C7C8Z86327;
+				INFOPLIST_FILE = "Plus OneUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "LGIT.Plus-OneUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "Plus One";
+			};
+			name = Debug;
+		};
+		123DC66120D01D1D00DEA753 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = C7C8Z86327;
+				INFOPLIST_FILE = "Plus OneUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "LGIT.Plus-OneUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "Plus One";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		123DC62C20D01D1800DEA753 /* Build configuration list for PBXProject "Plus One" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				123DC65720D01D1D00DEA753 /* Debug */,
+				123DC65820D01D1D00DEA753 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		123DC65920D01D1D00DEA753 /* Build configuration list for PBXNativeTarget "Plus One" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				123DC65A20D01D1D00DEA753 /* Debug */,
+				123DC65B20D01D1D00DEA753 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		123DC65C20D01D1D00DEA753 /* Build configuration list for PBXNativeTarget "Plus OneTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				123DC65D20D01D1D00DEA753 /* Debug */,
+				123DC65E20D01D1D00DEA753 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		123DC65F20D01D1D00DEA753 /* Build configuration list for PBXNativeTarget "Plus OneUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				123DC66020D01D1D00DEA753 /* Debug */,
+				123DC66120D01D1D00DEA753 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 123DC62920D01D1800DEA753 /* Project object */;
+}
