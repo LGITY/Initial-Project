@@ -12,12 +12,14 @@ import UIKit
 class SignUpViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
+        signUp.isEnabled = false
         firstNameField.delegate = self
         lastNameField.delegate = self
         ageField.delegate = self
         emailField.delegate = self
         usernameField.delegate = self
         passwordField.delegate = self
+//        print(checkFields())
     }
 
     @IBOutlet weak var firstNameField: UITextField!
@@ -26,11 +28,41 @@ class SignUpViewController: UIViewController {
     @IBOutlet weak var emailField: UITextField!
     @IBOutlet weak var usernameField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
+    @IBOutlet weak var signUp: UIButton!
+    
+    
+    func checkFields () -> Bool {
+        
+    
+    let varList = [firstNameField, lastNameField, ageField, emailField, usernameField, passwordField]
+    for field in varList {
+        if field?.text! == "" {
+                print("sup chach")
+                return false
+            }
+        }
+        return true
+    }
+    
+    func setSignUp () {
+        
+    if checkFields() == false {
+    
+        signUp.isEnabled = false
+    }
+    else {
+        signUp.isEnabled = true
+        }
+    }
+
+
     
     @IBAction func signUpTapped(_ sender: Any) {
-        var infoDict = ["First Name": firstNameField.text!, "Last Name": lastNameField.text!, "Age": ageField.text!, "Email": emailField.text!, "Username": usernameField.text!, "Password": passwordField.text!]
+        
+
+        let infoDict = ["First Name": firstNameField.text!, "Last Name": lastNameField.text!, "Age": ageField.text!, "Email": emailField.text!, "Username": usernameField.text!, "Password": passwordField.text!]
         print(infoDict)
-        print(infoDict["Password"])
+        print("faaack")
         
     }
     
@@ -41,6 +73,7 @@ class SignUpViewController: UIViewController {
         emailField.resignFirstResponder()
         usernameField.resignFirstResponder()
         passwordField.resignFirstResponder()
+        setSignUp()
         
     }
 }

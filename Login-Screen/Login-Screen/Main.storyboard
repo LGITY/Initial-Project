@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="fYS-gL-VdC">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14112" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="fYS-gL-VdC">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -233,6 +233,7 @@
                         <outlet property="firstNameField" destination="UHa-IN-BWG" id="nxl-CE-4Y4"/>
                         <outlet property="lastNameField" destination="h89-t6-r4P" id="9xX-cp-tJo"/>
                         <outlet property="passwordField" destination="tYb-6o-YtG" id="jNb-9Y-DRF"/>
+                        <outlet property="signUp" destination="nyM-T0-xy8" id="zN2-Nr-Jag"/>
                         <outlet property="usernameField" destination="H0U-o8-ush" id="bTA-SR-Oo8"/>
                         <segue destination="eyj-lz-rKn" kind="show" id="cuI-Sz-HYV"/>
                     </connections>
