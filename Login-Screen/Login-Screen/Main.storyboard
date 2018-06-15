@@ -52,6 +52,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Welcome Back" id="YaO-lM-pgu"/>
                     <connections>
+                        <outlet property="logIn" destination="NmF-Aw-LBc" id="PoI-Zf-Hg3"/>
                         <outlet property="passwordField" destination="hX5-ET-LAZ" id="YW4-KE-Zzv"/>
                         <outlet property="usernameField" destination="lYo-WM-HrT" id="eK2-ZF-4MZ"/>
                         <segue destination="eyj-lz-rKn" kind="show" id="JzH-J6-fg3"/>
@@ -291,7 +292,7 @@
         <image name="plusonelogofulltrans" width="2100" height="1500"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="cuI-Sz-HYV"/>
+        <segue reference="Sg7-9M-UP8"/>
         <segue reference="lvG-cy-99q"/>
         <segue reference="X5O-dy-mPa"/>
     </inferredMetricsTieBreakers>

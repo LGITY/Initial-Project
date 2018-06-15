@@ -12,24 +12,56 @@ import UIKit
 class LogInViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
-    usernameField.delegate = self as! UITextFieldDelegate
-    passwordField.delegate = self as! UITextFieldDelegate
+    usernameField.delegate = self
+    passwordField.delegate = self
+    logIn.isEnabled = false
     }
     
     @IBOutlet weak var usernameField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
+    @IBOutlet weak var logIn: UIButton!
+    
 
-
-    @IBAction func LogInTapped(_ sender: Any) {
-        var infoDict = ["Username": usernameField.text!, "Password": passwordField.text!]
+    func checkFields () -> Bool {
+        
+        
+        let varList = [usernameField, passwordField]
+        for field in varList {
+            if field?.text! == "" {
+                print("sup chach")
+                return false
+            }
+        }
+        return true
     }
     
+    func setSignUp () {
+        
+        if checkFields() == false {
+            
+            logIn.isEnabled = false
+        }
+        else {
+            logIn.isEnabled = true
+        }
+    }
+
+    @IBAction func LogInTapped(_ sender: Any) {
+        let infoDict = ["Username": usernameField.text!, "Password": passwordField.text!]
+    }
+    
+        override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+            usernameField.resignFirstResponder()
+            passwordField.resignFirstResponder()
+            setSignUp()
+    }
 }
 
 
 extension LogInViewController : UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
+        setSignUp()
         return true
     }
 }
