@@ -23,8 +23,6 @@ class LogInViewController: UIViewController {
     
 
     func checkFields () -> Bool {
-        
-        
         let varList = [usernameField, passwordField]
         for field in varList {
             if field?.text! == "" {
@@ -36,18 +34,12 @@ class LogInViewController: UIViewController {
     }
     
     func setSignUp () {
-        
-        if checkFields() == false {
-            
-            logIn.isEnabled = false
-        }
-        else {
-            logIn.isEnabled = true
-        }
+        logIn.isEnabled = checkFields()
     }
 
     @IBAction func LogInTapped(_ sender: Any) {
         let infoDict = ["Username": usernameField.text!, "Password": passwordField.text!]
+        print(infoDict)
     }
     
         override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {

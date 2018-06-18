@@ -32,27 +32,18 @@ class SignUpViewController: UIViewController {
     
     
     func checkFields () -> Bool {
-        
-    
-    let varList = [firstNameField, lastNameField, ageField, emailField, usernameField, passwordField]
-    for field in varList {
-        if field?.text! == "" {
+        let varList = [firstNameField, lastNameField, ageField, emailField, usernameField, passwordField]
+        for field in varList {
+            if field?.text! == "" {
                 print("sup chach")
                 return false
+                }
             }
+            return true
         }
-        return true
-    }
     
     func setSignUp () {
-        
-    if checkFields() == false {
-    
-        signUp.isEnabled = false
-    }
-    else {
-        signUp.isEnabled = true
-        }
+        signUp.isEnabled = checkFields()
     }
 
 
