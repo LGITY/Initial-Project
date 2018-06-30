@@ -21,6 +21,7 @@
 		7010084D20E0BD01008872FC /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7010084C20E0BD00008872FC /* GoogleService-Info.plist */; };
 		7010084E20E0BD01008872FC /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7010084C20E0BD00008872FC /* GoogleService-Info.plist */; };
 		7010084F20E0BD01008872FC /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7010084C20E0BD00008872FC /* GoogleService-Info.plist */; };
+		7058F7DF20E7675A00F860A2 /* ComposeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7058F7DE20E7675A00F860A2 /* ComposeViewController.swift */; };
 		AFD3F65EDA6440940EB0B776 /* Pods_Login_Screen.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCDC1A8ABA630DE6B84D94B9 /* Pods_Login_Screen.framework */; };
 /* End PBXBuildFile section */
 
@@ -62,6 +63,7 @@
 		1239257420D2EFB0002D68D1 /* StartViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
 		479C0BD47DFC3E77074C57D8 /* Pods-Login-Screen.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Login-Screen.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Login-Screen/Pods-Login-Screen.debug.xcconfig"; sourceTree = "<group>"; };
 		7010084C20E0BD00008872FC /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		7058F7DE20E7675A00F860A2 /* ComposeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComposeViewController.swift; sourceTree = "<group>"; };
 		AFEFDB0402D68BD02FA8CC85 /* Pods_Login_ScreenTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Login_ScreenTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B787BE82168F5E8A0DDBC155 /* Pods_Login_ScreenUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Login_ScreenUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FCDC1A8ABA630DE6B84D94B9 /* Pods_Login_Screen.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Login_Screen.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -130,6 +132,7 @@
 				1239253E20D2EF08002D68D1 /* AppDelegate.swift */,
 				1239254020D2EF08002D68D1 /* ViewController.swift */,
 				1239256C20D2EF45002D68D1 /* Main.storyboard */,
+				7058F7DE20E7675A00F860A2 /* ComposeViewController.swift */,
 				1239254520D2EF0C002D68D1 /* Assets.xcassets */,
 				1239254720D2EF0C002D68D1 /* LaunchScreen.storyboard */,
 				1239254A20D2EF0C002D68D1 /* Info.plist */,
@@ -310,11 +313,13 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Login-Screen/Pods-Login-Screen-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -353,6 +358,7 @@
 				1239254120D2EF08002D68D1 /* ViewController.swift in Sources */,
 				1239253F20D2EF08002D68D1 /* AppDelegate.swift in Sources */,
 				1239257520D2EFB0002D68D1 /* StartViewController.swift in Sources */,
+				7058F7DF20E7675A00F860A2 /* ComposeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
