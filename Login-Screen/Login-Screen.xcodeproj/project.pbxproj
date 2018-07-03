@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1217C37220EB2D3C0081B004 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7010084C20E0BD00008872FC /* GoogleService-Info.plist */; };
+		1217C37320EB2D3D0081B004 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7010084C20E0BD00008872FC /* GoogleService-Info.plist */; };
 		1239253F20D2EF08002D68D1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1239253E20D2EF08002D68D1 /* AppDelegate.swift */; };
 		1239254120D2EF08002D68D1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1239254020D2EF08002D68D1 /* ViewController.swift */; };
 		1239254620D2EF0C002D68D1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1239254520D2EF0C002D68D1 /* Assets.xcassets */; };
@@ -19,8 +21,6 @@
 		1239257320D2EFA9002D68D1 /* MainNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1239257220D2EFA9002D68D1 /* MainNavigationController.swift */; };
 		1239257520D2EFB0002D68D1 /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1239257420D2EFB0002D68D1 /* StartViewController.swift */; };
 		7010084D20E0BD01008872FC /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7010084C20E0BD00008872FC /* GoogleService-Info.plist */; };
-		7010084E20E0BD01008872FC /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7010084C20E0BD00008872FC /* GoogleService-Info.plist */; };
-		7010084F20E0BD01008872FC /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7010084C20E0BD00008872FC /* GoogleService-Info.plist */; };
 		7058F7DF20E7675A00F860A2 /* ComposeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7058F7DE20E7675A00F860A2 /* ComposeViewController.swift */; };
 		AFD3F65EDA6440940EB0B776 /* Pods_Login_Screen.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCDC1A8ABA630DE6B84D94B9 /* Pods_Login_Screen.framework */; };
 /* End PBXBuildFile section */
@@ -290,7 +290,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7010084E20E0BD01008872FC /* GoogleService-Info.plist in Resources */,
+				1217C37220EB2D3C0081B004 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -298,7 +298,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7010084F20E0BD01008872FC /* GoogleService-Info.plist in Resources */,
+				1217C37320EB2D3D0081B004 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
