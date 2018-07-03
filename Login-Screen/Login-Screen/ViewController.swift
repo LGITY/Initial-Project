@@ -12,7 +12,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 
     @IBOutlet weak var tableView: UITableView!
     
-    var postData = ["M1", "M2", "M3"]
+    var postData = ["M1", "M2", "M3", "M4"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
