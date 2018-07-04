@@ -36,6 +36,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             
             
             //Code to execute when a child is added in "Posts"
+            
             //Take the value from the snapshot and add it to the post data array at the top of this class
             
             //set post to just be the value of the snapshot (post data); attempts to assign the value to a String if not null
