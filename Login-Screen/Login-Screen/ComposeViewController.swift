@@ -26,6 +26,9 @@ class ComposeViewController: UIViewController, UIPickerViewDataSource, UIPickerV
     //variable for the data to be populated in picker
     var pickerDataSource = [String]()
     
+    //variable to store the picker's choice
+    var pickerChoice = ""
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -63,8 +66,12 @@ class ComposeViewController: UIViewController, UIPickerViewDataSource, UIPickerV
     @IBAction func addPost(_ sender: Any) {
         //TODO: Post DATA to Firebase, dismiss the popup
         
+        //Creates variable that will be written to Firebase, any specifications of the post should be visible in this variable
+        let post = ["Description" : textView.text,
+                    "Activity" : pickerChoice] as [String : Any]
+        
         //Writes data to Firebase
-        ref?.child("Posts").childByAutoId().setValue(textView.text)
+        ref?.child("Posts").childByAutoId().setValue(post)
         
         //Closes view controller
         presentingViewController?.dismiss(animated: true, completion: nil)
@@ -90,6 +97,11 @@ class ComposeViewController: UIViewController, UIPickerViewDataSource, UIPickerV
     //returns each piece of data to be inserted in the row
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         return pickerDataSource[row]
+    }
+    
+    //function runs every time the picker is changed to have a different choice selected; sets the global variable pickerChoice to the current choice
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        pickerChoice = pickerDataSource[row]
     }
     
     

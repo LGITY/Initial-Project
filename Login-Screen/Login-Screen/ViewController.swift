@@ -40,12 +40,15 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             //Take the value from the snapshot and add it to the post data array at the top of this class
             
             //set post to just be the value of the snapshot (post data); attempts to assign the value to a String if not null
-            let post = snapshot.value as? String
+            let post = snapshot.value as? [String: AnyObject]
             
             //testing to make sure there is data in post
             if let actualPost = post {
+                let apa = actualPost["Activity"] as! String
+                let apd = actualPost["Description"] as! String
+                let finalPost = apa + ":\t" + apd
                 //appends the post to the end of our post data array
-                self.postData.append(actualPost)
+                self.postData.append(finalPost)
                 
                 //reloads table to refresh data
                 self.tableView.reloadData()
