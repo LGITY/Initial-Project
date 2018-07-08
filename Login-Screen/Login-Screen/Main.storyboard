@@ -510,7 +510,6 @@
                                         </state>
                                         <connections>
                                             <action selector="signInTapped:" destination="GKR-27-Eb8" eventType="touchUpInside" id="INh-xD-KPO"/>
-                                            <segue destination="z1u-PS-oQE" kind="show" identifier="goToHome" id="rJs-3E-4rM"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -539,7 +538,7 @@
                         <outlet property="signinButton" destination="mUA-rh-WPl" id="QMq-2N-h9e"/>
                         <outlet property="signinLabel" destination="ICW-RP-wCb" id="Hdf-I7-ItI"/>
                         <outlet property="signinSelector" destination="uHM-Ud-E2O" id="NFd-VH-Yeu"/>
-                        <segue destination="z1u-PS-oQE" kind="show" id="fas-IS-ZpA"/>
+                        <segue destination="z1u-PS-oQE" kind="show" identifier="goToHome" id="fas-IS-ZpA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="h1E-kO-qoI" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -597,7 +596,6 @@
         <image name="plusonelogofulltrans" width="2100" height="1500"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="rJs-3E-4rM"/>
         <segue reference="Bh9-RQ-0QT"/>
         <segue reference="lvG-cy-99q"/>
         <segue reference="X5O-dy-mPa"/>
