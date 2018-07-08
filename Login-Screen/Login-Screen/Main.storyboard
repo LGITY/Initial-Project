@@ -432,10 +432,10 @@
             </objects>
             <point key="canvasLocation" x="-918" y="417"/>
         </scene>
-        <!--View Controller2-->
+        <!--goToHome-->
         <scene sceneID="2RU-sr-MXF">
             <objects>
-                <viewController storyboardIdentifier="ViewController2" id="GKR-27-Eb8" customClass="ViewController2" customModule="Login_Screen" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ViewController2" title="goToHome" id="GKR-27-Eb8" customClass="ViewController2" customModule="Login_Screen" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="nbl-no-6cg">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -454,6 +454,9 @@
                                             <segment title="Sign In"/>
                                             <segment title="Register"/>
                                         </segments>
+                                        <connections>
+                                            <action selector="signinSelectorTapped:" destination="GKR-27-Eb8" eventType="valueChanged" id="8Cz-rk-EHK"/>
+                                        </connections>
                                     </segmentedControl>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sign In" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ICW-RP-wCb">
                                         <rect key="frame" x="161.5" y="58" width="52" height="20.5"/>
@@ -506,8 +509,8 @@
                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>
-                                            <action selector="sigininButtonTapped:" destination="GKR-27-Eb8" eventType="touchUpInside" id="6vB-aB-T4a"/>
-                                            <segue destination="z1u-PS-oQE" kind="show" id="dNO-jz-i9N"/>
+                                            <action selector="signInTapped:" destination="GKR-27-Eb8" eventType="touchUpInside" id="INh-xD-KPO"/>
+                                            <segue destination="z1u-PS-oQE" kind="show" identifier="goToHome" id="rJs-3E-4rM"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -531,9 +534,12 @@
                         <viewLayoutGuide key="safeArea" id="Cvh-DX-g8j"/>
                     </view>
                     <connections>
-                        <outlet property="emailTextField" destination="Qkj-wV-84Z" id="FAQ-XR-h1D"/>
+                        <outlet property="emailTextField" destination="Qkj-wV-84Z" id="Kla-Ey-8qZ"/>
+                        <outlet property="passwordTextField" destination="9ix-a7-jDE" id="nyd-2W-Fct"/>
+                        <outlet property="signinButton" destination="mUA-rh-WPl" id="QMq-2N-h9e"/>
+                        <outlet property="signinLabel" destination="ICW-RP-wCb" id="Hdf-I7-ItI"/>
                         <outlet property="signinSelector" destination="uHM-Ud-E2O" id="NFd-VH-Yeu"/>
-                        <segue destination="z1u-PS-oQE" kind="show" identifier="goToHome" id="yfV-yX-C4C"/>
+                        <segue destination="z1u-PS-oQE" kind="show" id="fas-IS-ZpA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="h1E-kO-qoI" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -591,7 +597,7 @@
         <image name="plusonelogofulltrans" width="2100" height="1500"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="yfV-yX-C4C"/>
+        <segue reference="rJs-3E-4rM"/>
         <segue reference="Bh9-RQ-0QT"/>
         <segue reference="lvG-cy-99q"/>
         <segue reference="X5O-dy-mPa"/>
