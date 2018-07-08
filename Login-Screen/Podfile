@@ -10,5 +10,7 @@ target 'Login-Screen' do
   # Pods for Login-Screen
   pod 'Firebase/Core'
   pod 'Firebase/Database'
+  pod 'Firebase/Auth'
+  
 
 end
