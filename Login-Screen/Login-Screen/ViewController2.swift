@@ -85,7 +85,7 @@ UIViewController {
                 
                 // sign into existing user on firebase
                 //if it works it makes user, if not it makes error
-                Auth.auth().signIn(withEmail: email, link: pass, completion: { (user, error) in
+                Auth.auth().signIn(withEmail: email, password: pass, completion: { (user, error) in
                     //makes sure the user isnt nill
                     
                     if user != nil {
