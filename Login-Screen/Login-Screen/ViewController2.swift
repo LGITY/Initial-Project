@@ -39,6 +39,7 @@ UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        //Change the labels based n whether we're signing in or registering
         if isSignIn {
             print("signIn")
             self.signinLabel?.text = "Sign In"
@@ -59,26 +60,7 @@ UIViewController {
             
         }
     
-//    @IBAction func signinSelectorChanged(_ sender: UISegmentedControl) {
-//        print("suckadick")
-//
-//        //Switch it when the button is tapped
-//        isSignIn = !isSignIn
-//
-//        // Change the Sign in label and and button accordingly
-//        if isSignIn {
-//            signinLabel.text = "Sign In"
-//            signinButton.setTitle( "Sign In", for: .normal)
-//        }
-//        else {
-//            // if the signIn portion isn't toggled everything should say register
-//            signinLabel.text = "Register"
-//            signinButton.setTitle("Register", for: .normal)
-//        }
-        
-        
-        
-//    }
+
     @IBAction func signinSelectorTapped(_ sender: Any) {
         
         print("suckadick")
@@ -94,6 +76,7 @@ UIViewController {
 
     @IBAction func signInTapped(_ sender: UIButton) {
         print("herenow")
+        //check if the text fields aren't empty
         if let email = emailTextField.text, let pass = passwordTextField.text {
             
             
@@ -101,6 +84,7 @@ UIViewController {
                 print("sdafjl")
                 
                 // sign into existing user on firebase
+                //if it works it makes user, if not it makes error
                 Auth.auth().signIn(withEmail: email, link: pass, completion: { (user, error) in
                     //makes sure the user isnt nill
                     
@@ -126,12 +110,15 @@ UIViewController {
                 
                 print(email)
                 print(pass)
+                //make a new user using email and store it as user, if it fails make error
                 Auth.auth().createUser(withEmail: email, password: pass) { (user, error) in
                     // ...
                     if let u = user {
                         //user is found go to home screen
                         print("heee")
-                        self.performSegue(withIdentifier: "goToHome", sender: self)
+                       
+                        //go to next screen
+                    self.performSegue(withIdentifier: "goToHome", sender: self)
                     }
                     else {
                         print("hooo")
