@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14112" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="GKR-27-Eb8">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="im2-Qz-u82">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -22,24 +22,14 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="mqQ-jg-fB7">
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="PostCell" id="44x-bq-xLA">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="44x-bq-xLA" id="SJX-t9-R2A">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                </prototypes>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="Rtu-13-3iq" firstAttribute="trailing" secondItem="mqQ-jg-fB7" secondAttribute="trailing" id="8bu-qL-vr2"/>
-                            <constraint firstItem="mqQ-jg-fB7" firstAttribute="leading" secondItem="Rtu-13-3iq" secondAttribute="leading" id="EdB-5t-hDr"/>
-                            <constraint firstItem="mqQ-jg-fB7" firstAttribute="top" secondItem="Rtu-13-3iq" secondAttribute="top" id="oqE-Wc-ilB"/>
-                            <constraint firstItem="Rtu-13-3iq" firstAttribute="bottom" secondItem="mqQ-jg-fB7" secondAttribute="bottom" id="uKQ-DG-sn6"/>
+                            <constraint firstItem="mqQ-jg-fB7" firstAttribute="bottom" secondItem="Rtu-13-3iq" secondAttribute="bottom" id="2qj-SC-pO0"/>
+                            <constraint firstItem="mqQ-jg-fB7" firstAttribute="leading" secondItem="pdz-sN-LtU" secondAttribute="leading" id="6eo-3b-BG6"/>
+                            <constraint firstAttribute="trailing" secondItem="mqQ-jg-fB7" secondAttribute="trailing" id="pYk-q4-FVJ"/>
+                            <constraint firstItem="mqQ-jg-fB7" firstAttribute="top" secondItem="Rtu-13-3iq" secondAttribute="top" id="sfN-Q0-Q1o"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Rtu-13-3iq"/>
                     </view>

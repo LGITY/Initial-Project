@@ -12,14 +12,17 @@ import FirebaseDatabase
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet weak var tableView: UITableView!
-    
     //Reference that links up the database
     var ref: DatabaseReference!
     
     //Database Handle that specifies the listener connection
     var databaseHandle: DatabaseHandle?
     
+    //for the descriptions
     var postData = [String]()
+    
+    //for the image names
+    var imageData = [String]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,6 +30,12 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         //Set up Table View Controller
         tableView.delegate = self
         tableView.dataSource = self
+        
+        //Creates the nib for the table view to reference
+        let nibName = UINib(nibName: "PostCell", bundle: nil)
+        
+        //registers the nib for use with the table view
+        tableView.register(nibName, forCellReuseIdentifier: "PostCell")
         
         //Set firebase database reference
         ref = Database.database().reference()
@@ -46,9 +55,9 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             if let actualPost = post {
                 let apa = actualPost["Activity"] as! String
                 let apd = actualPost["Description"] as! String
-                let finalPost = apa + ":\t" + apd
                 //appends the post to the end of our post data array
-                self.postData.append(finalPost)
+                self.postData.append(apd)
+                self.imageData.append(apa)
                 
                 //reloads table to refresh data
                 self.tableView.reloadData()
@@ -68,9 +77,18 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "PostCell")
-        cell?.textLabel?.text = postData[indexPath.row]
-        return cell!
+        
+        //dequeus the cell that we created and styled in the xib file for reuse
+        let cell = tableView.dequeueReusableCell(withIdentifier: "PostCell", for: indexPath) as! PostCell
+        
+        //this constructs the cell based on the parameters of the specific post's data
+        cell.commonInit(imageData[indexPath.item], description: postData[indexPath.item])
+        return cell
+    }
+    
+    //returns the height of the cell
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 130
     }
 
 
