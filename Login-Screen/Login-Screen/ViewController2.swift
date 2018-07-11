@@ -113,7 +113,7 @@ UIViewController {
                 //make a new user using email and store it as user, if it fails make error
                 Auth.auth().createUser(withEmail: email, password: pass) { (user, error) in
                     // ...
-                    if let u = user {
+                    if user != nil {
                         //user is found go to home screen
                         print("heee")
                        
