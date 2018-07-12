@@ -75,7 +75,7 @@ UIViewController {
         // Change the Sign in label and and button accordingly
        
     }
-    let error_dict = ["The email address is badly formatted." : "Invalid Email", "There is no user record corresponding to this identifier. The user may have been deleted." : "Wrong username or password", "The email address is already in use by another account.": "Email is already being used", "The password must be 6 characters long or more.": "Password must be 6 characters or more"]
+    let error_dict = ["The email address is badly formatted." : "Invalid Email", "There is no user record corresponding to this identifier. The user may have been deleted." : "Wrong email or password", "The email address is already in use by another account.": "Email is already being used", "The password must be 6 characters long or more.": "Password must be 6 characters or more"]
 
     @IBAction func signInTapped(_ sender: UIButton) {
         print("herenow")
