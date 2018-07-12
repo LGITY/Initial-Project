@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="im2-Qz-u82">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14112" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="GKR-27-Eb8">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -512,6 +512,13 @@
                                     <constraint firstItem="tF6-4k-aRf" firstAttribute="leading" secondItem="7cQ-9o-Vo7" secondAttribute="leading" constant="10" id="ooi-NK-oit"/>
                                 </constraints>
                             </stackView>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="error" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="RAw-80-MJz">
+                                <rect key="frame" x="139" y="508" width="97" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -524,6 +531,7 @@
                     </view>
                     <connections>
                         <outlet property="emailTextField" destination="Qkj-wV-84Z" id="Kla-Ey-8qZ"/>
+                        <outlet property="error_message" destination="RAw-80-MJz" id="09o-Dx-7mc"/>
                         <outlet property="passwordTextField" destination="9ix-a7-jDE" id="nyd-2W-Fct"/>
                         <outlet property="signinButton" destination="mUA-rh-WPl" id="QMq-2N-h9e"/>
                         <outlet property="signinLabel" destination="ICW-RP-wCb" id="Hdf-I7-ItI"/>

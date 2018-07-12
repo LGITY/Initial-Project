@@ -22,6 +22,7 @@ UIViewController {
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var signinButton: UIButton!
+    @IBOutlet weak var error_message: UITextField!
     
     
     
@@ -39,6 +40,8 @@ UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        error_message.isHidden = true
+        
         //Change the labels based n whether we're signing in or registering
         if isSignIn {
             print("signIn")
@@ -90,11 +93,13 @@ UIViewController {
                     
                     if user != nil {
                         //found a user, go to the home screen
+                        self.error_message.isHidden = true
                         self.performSegue(withIdentifier: "goToHome", sender: self)
                         print("hello")
                     }
                     else {
-                        
+                        self.error_message.isHidden = false
+                        self.error_message.text = error.debugDescription
                         print("goodbye")
                         //check error and show message
                     }
@@ -118,10 +123,12 @@ UIViewController {
                         print("heee")
                        
                         //go to next screen
+                    self.error_message.isHidden = true
                     self.performSegue(withIdentifier: "goToHome", sender: self)
                     }
                     else {
-                        print("hooo")
+                        self.error_message.isHidden = false
+                        self.error_message.text = error.debugDescription
                         // Error: check error and show message
                     }
                 }
