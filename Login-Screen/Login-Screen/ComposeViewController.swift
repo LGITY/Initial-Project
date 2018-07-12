@@ -25,9 +25,9 @@ class ComposeViewController: UIViewController, UIPickerViewDataSource, UIPickerV
     
     //variable for the data to be populated in picker
     var pickerDataSource = [String]()
-    
+    //var pickerDataSource = ["Blah", "Blah Blah"]
     //variable to store the picker's choice
-    var pickerChoice = ""
+    var pickerChoice = "Basketball"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,19 +41,14 @@ class ComposeViewController: UIViewController, UIPickerViewDataSource, UIPickerV
         
         //picker populated through Firebase by retrieiving data
         //TODO: Go to the Code with Chris/Firebase documentation to read data from the Firebase Server
-        ref?.child("Activities").observe(.childAdded, with: { (snapshot) in
-            //This code is executed in order to pull the available activities from the server. It takes the value from the snapshot and adds it to the pickerDataSource array at the top of this class
-            
-            //set post to just be the value of the snapshot (post data); attempts to assign the value to a String if not null
-            let post = snapshot.value as? String
-            
-            //testing to make sure there is data in post
-            if let actualPost = post {
-                //appends the post to the end of our post data array
-                self.pickerDataSource.append(actualPost)
+        ref?.child("Activities").observeSingleEvent(of: .value) { snapshot in
+            for child in snapshot.children {
+                let achild = child as! DataSnapshot
+                let ch = achild.value as! String
+                self.pickerDataSource.append(ch)
             }
-        })
-        
+            self.activityPicker.reloadAllComponents()
+        }
     }
 
     override func didReceiveMemoryWarning() {
