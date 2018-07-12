@@ -38,8 +38,16 @@ UIViewController {
         return true
     }
     
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        emailTextField.resignFirstResponder()
+        passwordTextField.resignFirstResponder()
+    }
+    
+
     override func viewDidLoad() {
         super.viewDidLoad()
+        emailTextField.delegate = self
+        passwordTextField.delegate = self
         error_message.isHidden = true
         
         //Change the labels based n whether we're signing in or registering
@@ -75,7 +83,7 @@ UIViewController {
         // Change the Sign in label and and button accordingly
        
     }
-    let error_dict = ["The email address is badly formatted." : "Invalid Email", "There is no user record corresponding to this identifier. The user may have been deleted." : "Wrong email or password", "The email address is already in use by another account.": "Email is already being used", "The password must be 6 characters long or more.": "Password must be 6 characters or more"]
+    let error_dict = ["The email address is badly formatted." : "Invalid Email", "There is no user record corresponding to this identifier. The user may have been deleted." : "Wrong email or password", "The email address is already in use by another account.": "Email is already being used", "The password must be 6 characters long or more.": "Password must be 6 characters or more", "The password is invalid or the user does not have a password." : "Invalid Password"]
 
     @IBAction func signInTapped(_ sender: UIButton) {
         print("herenow")
@@ -143,7 +151,15 @@ UIViewController {
     
         
     }
-    
+
+extension ViewController2:
+UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField:
+        UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+}
 
 
 
