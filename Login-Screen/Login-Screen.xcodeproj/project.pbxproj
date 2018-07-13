@@ -22,6 +22,7 @@
 		1239257520D2EFB0002D68D1 /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1239257420D2EFB0002D68D1 /* StartViewController.swift */; };
 		129FC1BC20F1B7C2000E0CB9 /* ViewController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 129FC1BB20F1B7C2000E0CB9 /* ViewController2.swift */; };
 		7010084D20E0BD01008872FC /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7010084C20E0BD00008872FC /* GoogleService-Info.plist */; };
+		704272F320F8653300D11DBA /* LoginFormatted.swift in Sources */ = {isa = PBXBuildFile; fileRef = 704272F220F8653300D11DBA /* LoginFormatted.swift */; };
 		7058F7DF20E7675A00F860A2 /* ComposeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7058F7DE20E7675A00F860A2 /* ComposeViewController.swift */; };
 		70A82EE620F569CE00699D4C /* PostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70A82EE420F569CE00699D4C /* PostCell.swift */; };
 		70A82EE720F569CE00699D4C /* PostCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 70A82EE520F569CE00699D4C /* PostCell.xib */; };
@@ -67,6 +68,7 @@
 		129FC1BB20F1B7C2000E0CB9 /* ViewController2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController2.swift; sourceTree = "<group>"; };
 		479C0BD47DFC3E77074C57D8 /* Pods-Login-Screen.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Login-Screen.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Login-Screen/Pods-Login-Screen.debug.xcconfig"; sourceTree = "<group>"; };
 		7010084C20E0BD00008872FC /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		704272F220F8653300D11DBA /* LoginFormatted.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginFormatted.swift; sourceTree = "<group>"; };
 		7058F7DE20E7675A00F860A2 /* ComposeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComposeViewController.swift; sourceTree = "<group>"; };
 		70A82EE420F569CE00699D4C /* PostCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCell.swift; sourceTree = "<group>"; };
 		70A82EE520F569CE00699D4C /* PostCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PostCell.xib; sourceTree = "<group>"; };
@@ -139,6 +141,7 @@
 				1239253E20D2EF08002D68D1 /* AppDelegate.swift */,
 				1239254020D2EF08002D68D1 /* ViewController.swift */,
 				1239256C20D2EF45002D68D1 /* Main.storyboard */,
+				704272F220F8653300D11DBA /* LoginFormatted.swift */,
 				7058F7DE20E7675A00F860A2 /* ComposeViewController.swift */,
 				1239254520D2EF0C002D68D1 /* Assets.xcassets */,
 				1239254720D2EF0C002D68D1 /* LaunchScreen.storyboard */,
@@ -376,6 +379,7 @@
 				129FC1BC20F1B7C2000E0CB9 /* ViewController2.swift in Sources */,
 				1239257120D2EFA2002D68D1 /* LogInViewController.swift in Sources */,
 				1239256F20D2EF99002D68D1 /* SignUpViewController.swift in Sources */,
+				704272F320F8653300D11DBA /* LoginFormatted.swift in Sources */,
 				1239254120D2EF08002D68D1 /* ViewController.swift in Sources */,
 				70A82EE620F569CE00699D4C /* PostCell.swift in Sources */,
 				1239253F20D2EF08002D68D1 /* AppDelegate.swift in Sources */,
