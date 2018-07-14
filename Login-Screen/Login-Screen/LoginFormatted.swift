@@ -37,11 +37,13 @@ class LoginFormatted: UIViewController {
     //log in button outlet
     @IBOutlet weak var loginButton: UIButton!
     
-    //forgot p, pp, and tos outlets
+    //forgot p, pp, sign up, and tos outlets
     @IBOutlet weak var forgotPassword: UIButton!
     @IBOutlet weak var privacyPolicy: UIButton!
     @IBOutlet weak var termsOfService: UIButton!
-    
+    @IBOutlet weak var signUpStackView: UIStackView!
+    @IBOutlet weak var signUpLabel: UILabel!
+    @IBOutlet weak var signUpButton: UIButton!
     
     
     override func viewDidLoad() {
@@ -61,12 +63,12 @@ class LoginFormatted: UIViewController {
         
         //load username
         loadTextView(usernameTextField, box: usernameBox, im: usernameImage)
-        usernameImage.image = #imageLiteral(resourceName: "envelope")
+        usernameImage.image = #imageLiteral(resourceName: "envelopeNew")
         usernameTextField.attributedPlaceholder = NSAttributedString(string: "email address", attributes: [NSAttributedStringKey.foregroundColor: UIColor.white])
         
         //load password
         loadTextView(passwordTextField, box: passwordBox, im: passwordImage)
-        passwordImage.image = #imageLiteral(resourceName: "lock")
+        passwordImage.image = #imageLiteral(resourceName: "locked (1)")
         passwordImage.contentMode = .scaleAspectFit
         passwordTextField.attributedPlaceholder = NSAttributedString(string: "password", attributes: [NSAttributedStringKey.foregroundColor: UIColor.white])
         
@@ -74,15 +76,15 @@ class LoginFormatted: UIViewController {
         loginButton.layer.cornerRadius = 15
         
         //load facebook
-        //loads the surrounding box for the username
+        //loads the surrounding box for facebook
         facebookBox.backgroundColor = UIColor(red:0.23, green:0.35, blue:0.6, alpha:1)
         facebookBox.layer.borderWidth = 2
-        facebookBox.layer.borderColor = UIColor(red:0.11, green:0.17, blue:0.27, alpha:1).cgColor
+        facebookBox.layer.borderColor = UIColor(red:0.23, green:0.35, blue:0.6, alpha:1).cgColor
         facebookBox.layer.cornerRadius = 15
         facebookBox.layer.masksToBounds = true
-        //loads the mail logo next to the username
+        //loads the facebook logo next to the button
         facebookImage.contentMode = .scaleAspectFit
-        facebookImage.image = #imageLiteral(resourceName: "facebook")
+        facebookImage.image = #imageLiteral(resourceName: "facebookNew")
     }
     
     func loadTextView(_ textView: UITextField, box: UIView, im: UIImageView) {
