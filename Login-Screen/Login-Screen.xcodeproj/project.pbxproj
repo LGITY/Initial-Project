@@ -24,6 +24,11 @@
 		7010084D20E0BD01008872FC /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7010084C20E0BD00008872FC /* GoogleService-Info.plist */; };
 		704272F320F8653300D11DBA /* LoginFormatted.swift in Sources */ = {isa = PBXBuildFile; fileRef = 704272F220F8653300D11DBA /* LoginFormatted.swift */; };
 		7058F7DF20E7675A00F860A2 /* ComposeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7058F7DE20E7675A00F860A2 /* ComposeViewController.swift */; };
+		7083AD8E20FC5325005D72B1 /* ForgotPassword.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7083AD8D20FC5325005D72B1 /* ForgotPassword.swift */; };
+		7083AD9020FC540B005D72B1 /* TermsOfService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7083AD8F20FC540B005D72B1 /* TermsOfService.swift */; };
+		7083AD9220FC5435005D72B1 /* PrivacyPolicy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7083AD9120FC5435005D72B1 /* PrivacyPolicy.swift */; };
+		7083AD9420FC54B9005D72B1 /* SignUp1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7083AD9320FC54B9005D72B1 /* SignUp1.swift */; };
+		7083AD9620FC54D5005D72B1 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7083AD9520FC54D5005D72B1 /* Home.swift */; };
 		70A82EE620F569CE00699D4C /* PostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70A82EE420F569CE00699D4C /* PostCell.swift */; };
 		70A82EE720F569CE00699D4C /* PostCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 70A82EE520F569CE00699D4C /* PostCell.xib */; };
 		AFD3F65EDA6440940EB0B776 /* Pods_Login_Screen.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCDC1A8ABA630DE6B84D94B9 /* Pods_Login_Screen.framework */; };
@@ -70,6 +75,11 @@
 		7010084C20E0BD00008872FC /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		704272F220F8653300D11DBA /* LoginFormatted.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginFormatted.swift; sourceTree = "<group>"; };
 		7058F7DE20E7675A00F860A2 /* ComposeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComposeViewController.swift; sourceTree = "<group>"; };
+		7083AD8D20FC5325005D72B1 /* ForgotPassword.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPassword.swift; sourceTree = "<group>"; };
+		7083AD8F20FC540B005D72B1 /* TermsOfService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsOfService.swift; sourceTree = "<group>"; };
+		7083AD9120FC5435005D72B1 /* PrivacyPolicy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyPolicy.swift; sourceTree = "<group>"; };
+		7083AD9320FC54B9005D72B1 /* SignUp1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUp1.swift; sourceTree = "<group>"; };
+		7083AD9520FC54D5005D72B1 /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
 		70A82EE420F569CE00699D4C /* PostCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCell.swift; sourceTree = "<group>"; };
 		70A82EE520F569CE00699D4C /* PostCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PostCell.xib; sourceTree = "<group>"; };
 		AFEFDB0402D68BD02FA8CC85 /* Pods_Login_ScreenTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Login_ScreenTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -138,9 +148,11 @@
 			isa = PBXGroup;
 			children = (
 				70A82EE320F569B400699D4C /* Cell */,
+				7083AD9720FC54E7005D72B1 /* LoginAccessible */,
 				1239253E20D2EF08002D68D1 /* AppDelegate.swift */,
 				1239254020D2EF08002D68D1 /* ViewController.swift */,
 				1239256C20D2EF45002D68D1 /* Main.storyboard */,
+				7083AD9520FC54D5005D72B1 /* Home.swift */,
 				704272F220F8653300D11DBA /* LoginFormatted.swift */,
 				7058F7DE20E7675A00F860A2 /* ComposeViewController.swift */,
 				1239254520D2EF0C002D68D1 /* Assets.xcassets */,
@@ -182,6 +194,17 @@
 				B787BE82168F5E8A0DDBC155 /* Pods_Login_ScreenUITests.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		7083AD9720FC54E7005D72B1 /* LoginAccessible */ = {
+			isa = PBXGroup;
+			children = (
+				7083AD8D20FC5325005D72B1 /* ForgotPassword.swift */,
+				7083AD8F20FC540B005D72B1 /* TermsOfService.swift */,
+				7083AD9320FC54B9005D72B1 /* SignUp1.swift */,
+				7083AD9120FC5435005D72B1 /* PrivacyPolicy.swift */,
+			);
+			path = LoginAccessible;
 			sourceTree = "<group>";
 		};
 		70A82EE320F569B400699D4C /* Cell */ = {
@@ -375,16 +398,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7083AD9020FC540B005D72B1 /* TermsOfService.swift in Sources */,
 				1239257320D2EFA9002D68D1 /* MainNavigationController.swift in Sources */,
+				7083AD9220FC5435005D72B1 /* PrivacyPolicy.swift in Sources */,
 				129FC1BC20F1B7C2000E0CB9 /* ViewController2.swift in Sources */,
 				1239257120D2EFA2002D68D1 /* LogInViewController.swift in Sources */,
 				1239256F20D2EF99002D68D1 /* SignUpViewController.swift in Sources */,
 				704272F320F8653300D11DBA /* LoginFormatted.swift in Sources */,
+				7083AD9620FC54D5005D72B1 /* Home.swift in Sources */,
 				1239254120D2EF08002D68D1 /* ViewController.swift in Sources */,
 				70A82EE620F569CE00699D4C /* PostCell.swift in Sources */,
 				1239253F20D2EF08002D68D1 /* AppDelegate.swift in Sources */,
 				1239257520D2EFB0002D68D1 /* StartViewController.swift in Sources */,
+				7083AD9420FC54B9005D72B1 /* SignUp1.swift in Sources */,
 				7058F7DF20E7675A00F860A2 /* ComposeViewController.swift in Sources */,
+				7083AD8E20FC5325005D72B1 /* ForgotPassword.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

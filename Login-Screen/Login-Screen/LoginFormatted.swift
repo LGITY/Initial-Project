@@ -30,6 +30,10 @@ class LoginFormatted: UIViewController {
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var passwordImage: UIImageView!
     
+    //Login error outlet
+    @IBOutlet weak var loginError: UILabel!
+    
+    
     //facebook outlets
     @IBOutlet weak var facebookBox: UIView!
     @IBOutlet weak var facebookImage: UIImageView!
@@ -102,6 +106,9 @@ class LoginFormatted: UIViewController {
         //loads the facebook logo next to the button
         facebookImage.contentMode = .scaleAspectFit
         facebookImage.image = #imageLiteral(resourceName: "facebookNew")
+        
+        //Hides error text
+        loginError.text = ""
     }
     
     
