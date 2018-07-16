@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import Foundation
+import Firebase
 
 class LoginFormatted: UIViewController {
     
@@ -45,8 +47,23 @@ class LoginFormatted: UIViewController {
     @IBOutlet weak var signUpLabel: UILabel!
     @IBOutlet weak var signUpButton: UIButton!
     
+    func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+        //method needed to be done to allow Fibrebase API
+        
+        // Override point for customization after application launch.
+        FirebaseApp.configure()
+        return true
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        usernameTextField.resignFirstResponder()
+        passwordTextField.resignFirstResponder()
+    }
+    
     
     override func viewDidLoad() {
+        usernameTextField.delegate = self
+        passwordTextField.delegate = self
         super.viewDidLoad()
         
         //LOADS BACKGROUND
@@ -87,6 +104,7 @@ class LoginFormatted: UIViewController {
         facebookImage.image = #imageLiteral(resourceName: "facebookNew")
     }
     
+    
     func loadTextView(_ textView: UITextField, box: UIView, im: UIImageView) {
         //loads the surrounding box for the username
         box.backgroundColor = UIColor(red:0.11, green:0.17, blue:0.27, alpha:1)
@@ -118,6 +136,8 @@ class LoginFormatted: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    
+    
 
     /*
     // MARK: - Navigation
@@ -128,5 +148,33 @@ class LoginFormatted: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    
+    let error_dict = ["The email address is badly formatted." : "Invalid Email", "There is no user record corresponding to this identifier. The user may have been deleted." : "Wrong email or password", "The email address is already in use by another account.": "Email is already being used", "The password must be 6 characters long or more.": "Password must be 6 characters or more", "The password is invalid or the user does not have a password." : "Invalid Password", "The Internet connection appears to be offline." : "Check Internet Connection"]
+    @IBAction func logInTapped(_ sender: Any) {
+        if let email = usernameTextField.text, let pass = passwordTextField.text {
+            Auth.auth().signIn(withEmail: email, password: pass, completion: {(user, error) in
+                if user != nil {
+                    print("ok")
+                    // in the future we will use self.performSegue() to have it move to the next screen
+                }
+                else {
+                    print("not ok")
+                    let errorMessage = self.error_dict[(error?.localizedDescription)!]
+                    print(errorMessage)
+                }
+                
+            }
+            )
+        }
+    }
+    
+}
 
+extension LoginFormatted:
+UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField:
+        UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
 }
