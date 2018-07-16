@@ -162,12 +162,13 @@ class LoginFormatted: UIViewController {
             Auth.auth().signIn(withEmail: email, password: pass, completion: {(user, error) in
                 if user != nil {
                     print("ok")
+                    self.performSegue(withIdentifier: "goHome", sender: self)
                     // in the future we will use self.performSegue() to have it move to the next screen
                 }
                 else {
                     print("not ok")
                     let errorMessage = self.error_dict[(error?.localizedDescription)!]
-                    print(errorMessage)
+                    self.loginError.text = errorMessage
                 }
                 
             }

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="8Y1-5u-rjD">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14112" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="8Y1-5u-rjD">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -698,7 +698,6 @@
                                         </state>
                                         <connections>
                                             <action selector="logInTapped:" destination="8Y1-5u-rjD" eventType="touchUpInside" id="OfX-w9-PLh"/>
-                                            <segue destination="v4N-cl-nme" kind="show" id="42k-x6-T6I"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0nk-rj-aCr">
@@ -904,6 +903,7 @@
                         <outlet property="usernameBox" destination="mfe-AF-NbS" id="6h3-P1-jgG"/>
                         <outlet property="usernameImage" destination="8w7-Et-IbM" id="3qq-o3-QBR"/>
                         <outlet property="usernameTextField" destination="TGJ-m3-Yf5" id="jo1-By-fxz"/>
+                        <segue destination="v4N-cl-nme" kind="show" identifier="goHome" id="Zy8-lb-qZG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iRg-RI-9Lm" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1103,7 +1103,7 @@
                                     <navigationItem id="Fwe-nG-TMP">
                                         <barButtonItem key="leftBarButtonItem" title="&lt;" id="qed-y7-y4e">
                                             <connections>
-                                                <segue destination="8Y1-5u-rjD" kind="show" id="DbX-cv-EM4"/>
+                                                <segue destination="8Y1-5u-rjD" kind="show" id="e23-lU-0nK"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
@@ -1163,7 +1163,7 @@
         <image name="plusonelogofulltrans" width="2100" height="1500"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="evF-Tb-3tg"/>
+        <segue reference="e23-lU-0nK"/>
         <segue reference="Sg7-9M-UP8"/>
         <segue reference="lvG-cy-99q"/>
         <segue reference="X5O-dy-mPa"/>
