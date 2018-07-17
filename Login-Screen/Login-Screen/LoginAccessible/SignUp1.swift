@@ -173,7 +173,7 @@ class SignUp1: UIViewController {
         else {
             termsPressed = true
         }
-                
+        
         if termsButton.currentImage == checkImage {
             termsButton.setImage(#imageLiteral(resourceName: "checked"), for: .normal)
         }
@@ -188,11 +188,14 @@ class SignUp1: UIViewController {
     
     let error_dict = ["The email address is badly formatted." : "Invalid Email", "There is no user record corresponding to this identifier. The user may have been deleted." : "Wrong email or password", "The email address is already in use by another account.": "Email is already being used", "The password must be 6 characters long or more.": "Password must be 6 characters or more", "The password is invalid or the user does not have a password." : "Invalid Password", "The Internet connection appears to be offline." : "Check Internet Connection"]
     
+    var errorMessage = ""
     @IBAction func nextPressed(_ sender: Any) {
         if let email = emailTextView.text, let pass = passwordTextView.text, let user = usernameTextView.text, let confirm = confirmPasswordTextView.text {
             if pass == confirm {
                 print(termsPressed)
                 if termsPressed {
+                    
+                    if user.range(of: " ") == nil {
                     
                 
                 Auth.auth().createUser(withEmail: email, password: pass, completion: {(user, error) in
@@ -204,19 +207,31 @@ class SignUp1: UIViewController {
                     else {
                         print("not ok")
                         
-                        let errorMessage = self.error_dict[(error?.localizedDescription)!]
-                        print(errorMessage)
+                        self.errorMessage = self.error_dict[(error?.localizedDescription)!]!
+                        print(self.errorMessage)
                     }
                     
                     
                     }
+
                     
                 
                 )
+                        
+
                 }
+                    else {
+                        self.errorMessage = "Invalid Username"
+                        print(errorMessage)
+                    }
+
+                }
+
+                }
+
                 
             }
-            
+        
             
             
         }
@@ -234,7 +249,7 @@ class SignUp1: UIViewController {
     }
     */
 
-}
+
 
 extension SignUp1:
 UITextFieldDelegate {
