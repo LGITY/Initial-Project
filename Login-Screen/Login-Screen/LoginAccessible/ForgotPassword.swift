@@ -9,11 +9,32 @@
 import UIKit
 
 class ForgotPassword: UIViewController {
-
+    @IBOutlet weak var background: UIImageView!
+    @IBOutlet weak var backgroundColor: UIView!
+    @IBOutlet weak var navigationBar: UINavigationBar!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        loadNavigationBar()
+        loadbackground()
 
         // Do any additional setup after loading the view.
+    }
+    
+    func loadbackground() {
+//        let layer = UIView(frame: CGRect(x: -2, y: -2, width: 752, height: 1209))
+        backgroundColor.backgroundColor = UIColor(red:0.03, green:0.12, blue:0.18, alpha:0.7)
+//        layer.layer.borderWidth = 10
+//        layer.layer.borderColor = UIColor.white.cgColor
+//        self.view.addSubview(layer)
+        background.image = #imageLiteral(resourceName: "remi-jacquaint-519310-unsplash")
+        background.contentMode = .scaleAspectFill
+    }
+    
+    func loadNavigationBar() {
+        navigationBar.setBackgroundImage(UIImage(), for: .default)
+        navigationBar.shadowImage = UIImage()
+        navigationBar.isTranslucent = true
     }
 
     override func didReceiveMemoryWarning() {
