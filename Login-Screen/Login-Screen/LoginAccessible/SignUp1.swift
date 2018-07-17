@@ -9,16 +9,154 @@
 import UIKit
 
 class SignUp1: UIViewController {
-
+    
+    //background and header outlets
+    @IBOutlet weak var backgroundImage: UIImageView!
+    @IBOutlet weak var backgroundColor: UIView!
+    @IBOutlet weak var logo: UIImageView!
+    @IBOutlet weak var signUpLabel: UILabel!
+    
+    //email address outlets
+    @IBOutlet weak var emailAddressBox: UIView!
+    @IBOutlet weak var emailTextView: UITextField!
+    @IBOutlet weak var emailImage: UIImageView!
+    
+    //username outlets
+    @IBOutlet weak var usernameBox: UIView!
+    @IBOutlet weak var usernameTextView: UITextField!
+    @IBOutlet weak var usernameImage: UIImageView!
+    
+    //password outlets
+    @IBOutlet weak var passwordBox: UIView!
+    @IBOutlet weak var passwordTextView: UITextField!
+    @IBOutlet weak var passwordImage: UIImageView!
+    
+    //confirm password outlets
+    @IBOutlet weak var confirmPasswordBox: UIView!
+    @IBOutlet weak var confirmPasswordTextView: UITextField!
+    @IBOutlet weak var confirmPasswordImage: UIImageView!
+    
+    //terms of service verification outlets & the confirming variable for the check box
+    @IBOutlet weak var termsButton: UIButton!
+    @IBOutlet weak var termsOuterStack: UIStackView!
+    @IBOutlet weak var termsInnerStack: UIStackView!
+    @IBOutlet weak var termsLabel: UILabel!
+    @IBOutlet weak var viewTermsButton: UIButton!
+    let checkImage = #imageLiteral(resourceName: "unchecked")
+    
+    //status dot outlets and dot stack outlet
+    @IBOutlet weak var dotStack: UIStackView!
+    @IBOutlet weak var dotFirst: UIView!
+    @IBOutlet weak var dotSecond: UIView!
+    @IBOutlet weak var dotThird: UIView!
+    @IBOutlet weak var dotLast: UIView!
+    
+    
+    //next button outlet
+    @IBOutlet weak var nextButton: UIButton!
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        //LOADS BACKGROUND
+        loadBackground()
+        
+        //loads logo
+        logo.image = #imageLiteral(resourceName: "plusonelogofulltrans")
+        logo.contentMode = .scaleAspectFit
+        
+        //load login label
+        signUpLabel.text = "Sign Up"
+        signUpLabel.textAlignment = .center
+        signUpLabel.textColor = UIColor.white
+        
+        //load email address creation
+        loadTextView(emailTextView, box: emailAddressBox, im: emailImage)
+        emailImage.image = #imageLiteral(resourceName: "envelopeNew")
+        emailTextView.attributedPlaceholder = NSAttributedString(string: "email address", attributes: [NSAttributedStringKey.foregroundColor: UIColor.white])
+        
+        //load username creation
+        loadTextView(usernameTextView, box: usernameBox, im: usernameImage)
+        usernameImage.image = #imageLiteral(resourceName: "man")
+        usernameTextView.attributedPlaceholder = NSAttributedString(string: "username", attributes: [NSAttributedStringKey.foregroundColor: UIColor.white])
+        
+        //load password creation
+        loadTextView(passwordTextView, box: passwordBox, im: passwordImage)
+        passwordImage.image = #imageLiteral(resourceName: "locked (1)")
+        passwordTextView.attributedPlaceholder = NSAttributedString(string: "password", attributes: [NSAttributedStringKey.foregroundColor: UIColor.white])
+        
+        //load confirm password
+        loadTextView(confirmPasswordTextView, box: confirmPasswordBox, im: confirmPasswordImage)
+        confirmPasswordImage.image = #imageLiteral(resourceName: "verified")
+        confirmPasswordTextView.attributedPlaceholder = NSAttributedString(string: "confirm password", attributes: [NSAttributedStringKey.foregroundColor: UIColor.white])
+        
+        //load next button
+        nextButton.layer.cornerRadius = 15
+        
+        //load dots
+        loadDots()
+        
+    }
+    
+    func loadDots() {
+        
+        //add green dot
+        dotFirst.backgroundColor = UIColor(red:0.03, green:1, blue:0.52, alpha:1)
+        dotFirst.layer.cornerRadius = dotFirst.frame.size.width/2
+        
+        //adds grey dots
+        let dotArray = [dotSecond, dotThird, dotLast] as! [UIView]
+        for dot in dotArray {
+            dot.backgroundColor = UIColor.lightGray
+            dot.layer.cornerRadius = dot.frame.size.width/2
+        }
+    }
+    
+    func loadBackground() {
+        //BACKGROUND
+        //Sets up the background layer; creates a background rectangle, shades it in, and then adds the image in the background to fill the whole thing
+        //let layer = UIView(frame: CGRect(x: -967, y: -214, width: 2337, height: 1547))
+        backgroundColor.backgroundColor = UIColor(red:0.03, green:0.12, blue:0.18, alpha:0.7)
+        //self.view.addSubview(layer)
+        backgroundImage.image = #imageLiteral(resourceName: "sign-up-background")
+        backgroundImage.contentMode = .scaleAspectFill
+    }
+    
+    func loadTextView(_ textView: UITextField, box: UIView, im: UIImageView) {
+        //loads the surrounding box for the username
+        box.backgroundColor = UIColor(red:0.11, green:0.17, blue:0.27, alpha:1)
+        box.layer.borderWidth = 2
+        box.layer.borderColor = UIColor(red:0.11, green:0.17, blue:0.27, alpha:1).cgColor
+        box.layer.cornerRadius = 15
+        box.layer.masksToBounds = true
+        
+        //loads the mail logo next to the username
+        im.contentMode = .scaleAspectFit
+        
+        //loads the textfield for the username
+        textView.backgroundColor = UIColor.clear
+        textView.borderStyle = .none
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    //terms of service button
+    @IBAction func termsButton(_ sender: Any) {
+        if termsButton.currentImage == checkImage {
+            termsButton.setImage(#imageLiteral(resourceName: "checked"), for: .normal)
+        }
+        else {
+            termsButton.setImage(#imageLiteral(resourceName: "unchecked"), for: .normal)
+        }
+    }
+    
+    @IBAction func signIn(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
     }
     
     /*
