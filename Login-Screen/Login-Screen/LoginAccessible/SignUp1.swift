@@ -7,8 +7,11 @@
 //
 
 import UIKit
+import Foundation
+import Firebase
 
 class SignUp1: UIViewController {
+    var termsPressed = false
     
     //background and header outlets
     @IBOutlet weak var backgroundImage: UIImageView!
@@ -56,10 +59,25 @@ class SignUp1: UIViewController {
     @IBOutlet weak var nextButton: UIButton!
     
     
+    func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+        //method needed to be done to allow Fibrebase API
+        
+        // Override point for customization after application launch.
+        FirebaseApp.configure()
+        return true
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        emailTextView.resignFirstResponder()
+        usernameTextView.resignFirstResponder()
+        passwordTextView.resignFirstResponder()
+        confirmPasswordTextView.resignFirstResponder()
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+//        termsPressed = false
         //LOADS BACKGROUND
         loadBackground()
         
@@ -139,6 +157,8 @@ class SignUp1: UIViewController {
         textView.backgroundColor = UIColor.clear
         textView.borderStyle = .none
     }
+    
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -147,6 +167,13 @@ class SignUp1: UIViewController {
     
     //terms of service button
     @IBAction func termsButton(_ sender: Any) {
+        if termsPressed {
+            termsPressed = false
+        }
+        else {
+            termsPressed = true
+        }
+                
         if termsButton.currentImage == checkImage {
             termsButton.setImage(#imageLiteral(resourceName: "checked"), for: .normal)
         }
@@ -159,6 +186,44 @@ class SignUp1: UIViewController {
         dismiss(animated: true, completion: nil)
     }
     
+    let error_dict = ["The email address is badly formatted." : "Invalid Email", "There is no user record corresponding to this identifier. The user may have been deleted." : "Wrong email or password", "The email address is already in use by another account.": "Email is already being used", "The password must be 6 characters long or more.": "Password must be 6 characters or more", "The password is invalid or the user does not have a password." : "Invalid Password", "The Internet connection appears to be offline." : "Check Internet Connection"]
+    
+    @IBAction func nextPressed(_ sender: Any) {
+        if let email = emailTextView.text, let pass = passwordTextView.text, let user = usernameTextView.text, let confirm = confirmPasswordTextView.text {
+            if pass == confirm {
+                print(termsPressed)
+                if termsPressed {
+                    
+                
+                Auth.auth().createUser(withEmail: email, password: pass, completion: {(user, error) in
+                    if user != nil {
+                        print("madeUser")
+                        self.performSegue(withIdentifier: "signIn2", sender: self)
+                    }
+                    
+                    else {
+                        print("not ok")
+                        
+                        let errorMessage = self.error_dict[(error?.localizedDescription)!]
+                        print(errorMessage)
+                    }
+                    
+                    
+                    }
+                    
+                
+                )
+                }
+                
+            }
+            
+            
+            
+        }
+        
+    }
+    
+    
     /*
     // MARK: - Navigation
 
@@ -169,4 +234,16 @@ class SignUp1: UIViewController {
     }
     */
 
+}
+
+extension SignUp1:
+UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField:
+        UITextField) -> Bool {
+        emailTextView.resignFirstResponder()
+        usernameTextView.resignFirstResponder()
+        passwordTextView.resignFirstResponder()
+        confirmPasswordTextView.resignFirstResponder()
+        return true
+    }
 }

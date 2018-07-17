@@ -1032,7 +1032,7 @@
                                         </state>
                                         <connections>
                                             <action selector="logInTapped:" destination="8Y1-5u-rjD" eventType="touchUpInside" id="UZ9-x3-wM3"/>
-                                            <segue destination="wrk-cN-tfw" kind="presentation" id="AMp-gk-MJi"/>
+                                            <action selector="nextPressed:" destination="dte-aG-zcH" eventType="touchUpInside" id="k1X-i3-4dg"/>
                                         </connections>
                                     </button>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="b7w-7i-31R">
@@ -1329,6 +1329,7 @@
                         <outlet property="usernameImage" destination="P1O-ti-cbV" id="1Sp-vu-8Em"/>
                         <outlet property="usernameTextView" destination="1HB-nm-aLz" id="Fem-Oi-GGS"/>
                         <outlet property="viewTermsButton" destination="ohU-Ge-6Pc" id="RNu-8z-giv"/>
+                        <segue destination="wrk-cN-tfw" kind="show" identifier="signIn2" id="2sO-CX-94Y"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FvX-7W-l2Z" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1351,6 +1352,7 @@
                                         <barButtonItem key="rightBarButtonItem" title="Done" id="UEp-lc-uCq">
                                             <connections>
                                                 <action selector="done:" destination="gTB-3u-Cd6" id="USG-sn-y5g"/>
+                                                <segue destination="dte-aG-zcH" kind="show" id="KKe-Wb-hlu"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
@@ -1547,8 +1549,9 @@
         <image name="unchecked" width="64" height="64"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Lzc-uk-Lc2"/>
-        <segue reference="evF-Tb-3tg"/>
+        <segue reference="Q7A-Tl-bNP"/>
+        <segue reference="KKe-Wb-hlu"/>
+        <segue reference="e23-lU-0nK"/>
         <segue reference="Sg7-9M-UP8"/>
         <segue reference="lvG-cy-99q"/>
         <segue reference="X5O-dy-mPa"/>
