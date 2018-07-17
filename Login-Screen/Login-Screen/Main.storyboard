@@ -7,6 +7,7 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
+        <capability name="Baseline standard spacing" minToolsVersion="9.0"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -570,11 +571,43 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="hif-uq-HdF">
-                                <rect key="frame" x="-0.5" y="0.0" width="375" height="667"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dCa-pS-UkH">
-                                <rect key="frame" x="-0.5" y="0.0" width="375" height="667"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="plusonelogofulltrans" translatesAutoresizingMaskIntoConstraints="NO" id="hq9-xP-oBj">
+                                        <rect key="frame" x="0.0" y="19" width="375" height="211"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="211" id="raa-WP-UMX"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Enter your email and we will send you a link to change your password" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sBy-6M-rSs">
+                                        <rect key="frame" x="45" y="226" width="299" height="104"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="104" id="LvW-cj-2QX"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2id-Bw-c7t">
+                                        <rect key="frame" x="38" y="377" width="299" height="101"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </view>
+                                </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="2id-Bw-c7t" firstAttribute="top" secondItem="sBy-6M-rSs" secondAttribute="bottom" constant="47" id="1xy-hf-zeQ"/>
+                                    <constraint firstItem="sBy-6M-rSs" firstAttribute="leading" secondItem="dCa-pS-UkH" secondAttribute="leading" constant="45" id="3Fg-Mx-3af"/>
+                                    <constraint firstItem="2id-Bw-c7t" firstAttribute="centerX" secondItem="hq9-xP-oBj" secondAttribute="centerX" id="8oW-Dt-pIM"/>
+                                    <constraint firstItem="2id-Bw-c7t" firstAttribute="leading" secondItem="dCa-pS-UkH" secondAttribute="leading" constant="38" id="8qb-j5-N5y"/>
+                                    <constraint firstAttribute="trailing" secondItem="hq9-xP-oBj" secondAttribute="trailing" id="DgG-R0-WqS"/>
+                                    <constraint firstAttribute="bottom" secondItem="2id-Bw-c7t" secondAttribute="bottom" constant="189" id="EiU-Qk-EP9"/>
+                                    <constraint firstItem="hq9-xP-oBj" firstAttribute="leading" secondItem="dCa-pS-UkH" secondAttribute="leading" id="Owg-J2-tt1"/>
+                                    <constraint firstItem="2id-Bw-c7t" firstAttribute="top" secondItem="dCa-pS-UkH" secondAttribute="top" constant="377" id="bU1-1Q-CNm"/>
+                                    <constraint firstItem="hq9-xP-oBj" firstAttribute="top" secondItem="dCa-pS-UkH" secondAttribute="top" constant="19" id="rd4-Yk-s1w"/>
+                                </constraints>
                             </view>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UCE-Iy-mEH">
                                 <rect key="frame" x="0.0" y="20" width="375" height="44"/>
@@ -588,19 +621,28 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Forgot Password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vnm-M1-ExZ">
+                                <rect key="frame" x="166" y="209" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="32"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="UCE-Iy-mEH" firstAttribute="top" secondItem="9gq-Mo-r2E" secondAttribute="top" id="2Hs-Zk-feH"/>
+                            <constraint firstItem="hq9-xP-oBj" firstAttribute="baseline" secondItem="vnm-M1-ExZ" secondAttribute="firstBaseline" constant="20" symbolType="layoutAnchor" id="5Le-gn-9by"/>
                             <constraint firstItem="dCa-pS-UkH" firstAttribute="centerX" secondItem="9gq-Mo-r2E" secondAttribute="centerX" id="6cU-8z-GCi"/>
                             <constraint firstItem="hif-uq-HdF" firstAttribute="centerX" secondItem="9gq-Mo-r2E" secondAttribute="centerX" id="CpR-ZB-5Xp"/>
                             <constraint firstItem="dCa-pS-UkH" firstAttribute="width" secondItem="UE9-p6-4cr" secondAttribute="width" id="Ejz-bj-qYe"/>
+                            <constraint firstItem="vnm-M1-ExZ" firstAttribute="top" secondItem="hq9-xP-oBj" secondAttribute="bottom" constant="-58" id="KxC-jI-MCP"/>
                             <constraint firstItem="hif-uq-HdF" firstAttribute="width" secondItem="UE9-p6-4cr" secondAttribute="width" id="Rz4-OU-ewp"/>
                             <constraint firstItem="hif-uq-HdF" firstAttribute="centerY" secondItem="UE9-p6-4cr" secondAttribute="centerY" id="YJp-Vn-bmc"/>
                             <constraint firstItem="dCa-pS-UkH" firstAttribute="height" secondItem="UE9-p6-4cr" secondAttribute="height" id="Z4o-Xb-XNt"/>
                             <constraint firstItem="UCE-Iy-mEH" firstAttribute="width" secondItem="UE9-p6-4cr" secondAttribute="width" id="dUF-4U-Hyw"/>
                             <constraint firstItem="UCE-Iy-mEH" firstAttribute="centerX" secondItem="9gq-Mo-r2E" secondAttribute="centerX" id="gxo-5U-q8A"/>
                             <constraint firstItem="hif-uq-HdF" firstAttribute="height" secondItem="UE9-p6-4cr" secondAttribute="height" id="jZC-FD-BIB"/>
+                            <constraint firstItem="vnm-M1-ExZ" firstAttribute="centerX" secondItem="hq9-xP-oBj" secondAttribute="centerX" id="rqq-8j-9A5"/>
                             <constraint firstItem="dCa-pS-UkH" firstAttribute="centerY" secondItem="UE9-p6-4cr" secondAttribute="centerY" id="z5h-ru-jwh"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="9gq-Mo-r2E"/>
@@ -608,12 +650,16 @@
                     <connections>
                         <outlet property="background" destination="hif-uq-HdF" id="cIf-B8-Qiy"/>
                         <outlet property="backgroundColor" destination="dCa-pS-UkH" id="vDC-9i-TRG"/>
+                        <outlet property="emailBox" destination="2id-Bw-c7t" id="xhE-8P-sOV"/>
+                        <outlet property="forgotPasswordLabel" destination="vnm-M1-ExZ" id="R64-q4-lfj"/>
+                        <outlet property="logo" destination="hq9-xP-oBj" id="w3Y-I7-gop"/>
+                        <outlet property="message" destination="sBy-6M-rSs" id="oJ7-ip-jHO"/>
                         <outlet property="navigationBar" destination="UCE-Iy-mEH" id="Y7W-ge-paD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yXr-o0-UNF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2732" y="2971"/>
+            <point key="canvasLocation" x="-2732" y="2970.7646176911549"/>
         </scene>
         <!--Login Formatted-->
         <scene sceneID="MdG-3S-9Lj">

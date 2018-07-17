@@ -12,16 +12,22 @@ class ForgotPassword: UIViewController {
     @IBOutlet weak var background: UIImageView!
     @IBOutlet weak var backgroundColor: UIView!
     @IBOutlet weak var navigationBar: UINavigationBar!
+    @IBOutlet weak var logo: UIImageView!
+    @IBOutlet weak var forgotPasswordLabel: UILabel!
+    @IBOutlet weak var message: UILabel!
+    @IBOutlet weak var emailBox: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         loadNavigationBar()
-        loadbackground()
+        loadBackground()
+        loadForgotPassword()
+        loadMessage()
 
         // Do any additional setup after loading the view.
     }
     
-    func loadbackground() {
+    func loadBackground() {
 //        let layer = UIView(frame: CGRect(x: -2, y: -2, width: 752, height: 1209))
         backgroundColor.backgroundColor = UIColor(red:0.03, green:0.12, blue:0.18, alpha:0.7)
 //        layer.layer.borderWidth = 10
@@ -30,6 +36,36 @@ class ForgotPassword: UIViewController {
         background.image = #imageLiteral(resourceName: "remi-jacquaint-519310-unsplash")
         background.contentMode = .scaleAspectFill
     }
+    
+    func loadLogo() {
+        logo.image = #imageLiteral(resourceName: "plusonelogofulltrans")
+        logo.contentMode = .scaleAspectFit
+    }
+    
+    
+    func loadForgotPassword() {
+        forgotPasswordLabel.text = "Forgot Password"
+        forgotPasswordLabel.textAlignment = .center
+        forgotPasswordLabel.textColor = UIColor.white
+        forgotPasswordLabel.sizeToFit()
+        forgotPasswordLabel.font = UIFont(name: "Futura-Bold", size: 32)
+    }
+    
+    func loadMessage() {
+        message.textAlignment = .center
+        message.textColor = UIColor.white
+        
+    }
+    
+    func loadEmailBox() {
+        emailBox.alpha = 0.70
+        emailBox.backgroundColor = UIColor(red:0.11, green:0.17, blue:0.27, alpha:1)
+        emailBox.layer.borderWidth = 12
+        emailBox.layer.borderColor = UIColor(red:0.11, green:0.17, blue:0.27, alpha:0.7).cgColor
+        self.view.addSubview(emailBox)
+    }
+    
+
     
     func loadNavigationBar() {
         navigationBar.setBackgroundImage(UIImage(), for: .default)
