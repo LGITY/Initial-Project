@@ -58,6 +58,8 @@ class SignUp1: UIViewController {
     //next button outlet
     @IBOutlet weak var nextButton: UIButton!
     
+    //Firebase database reference
+    var ref: DatabaseReference!
     
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         //method needed to be done to allow Fibrebase API
@@ -186,10 +188,15 @@ class SignUp1: UIViewController {
         dismiss(animated: true, completion: nil)
     }
     
-    let error_dict = ["The email address is badly formatted." : "Invalid Email", "There is no user record corresponding to this identifier. The user may have been deleted." : "Wrong email or password", "The email address is already in use by another account.": "Email is already being used", "The password must be 6 characters long or more.": "Password must be 6 characters or more", "The password is invalid or the user does not have a password." : "Invalid Password", "The Internet connection appears to be offline." : "Check Internet Connection"]
+    let error_dict = ["The email address is badly formatted." : "Invalid email address", "There is no user record corresponding to this identifier. The user may have been deleted." : "Incorrect email or password", "The email address is already in use by another account.": "Email address already taken", "The password must be 6 characters long or more.": "Password must be at least 6 characters", "The password is invalid or the user does not have a password." : "Invalid password", "The Internet connection appears to be offline." : "Could not connect to Internet"]
     
     var errorMessage = ""
     @IBAction func nextPressed(_ sender: Any) {
+        
+        //reference implementation for Firebase Database
+        ref = Database.database().reference()
+        
+        
         if let email = emailTextView.text, let pass = passwordTextView.text, let user = usernameTextView.text, let confirm = confirmPasswordTextView.text {
             if pass == confirm {
                 print(termsPressed)
@@ -202,6 +209,11 @@ class SignUp1: UIViewController {
                     if user != nil {
                         print("madeUser")
                         self.performSegue(withIdentifier: "signIn2", sender: self)
+                        
+                        //creates user in database, stores username
+                        let valArray = ["username" : self.usernameTextView.text] as! [String: String]
+                        self.ref?.child("Users").child((user?.user.uid)!).setValue(valArray)
+
                     }
                     
                     else {
@@ -210,8 +222,6 @@ class SignUp1: UIViewController {
                         self.errorMessage = self.error_dict[(error?.localizedDescription)!]!
                         print(self.errorMessage)
                     }
-                    
-                    
                     }
 
                     
