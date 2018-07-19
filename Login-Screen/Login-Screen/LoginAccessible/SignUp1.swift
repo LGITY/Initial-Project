@@ -39,6 +39,9 @@ class SignUp1: UIViewController {
     @IBOutlet weak var confirmPasswordTextView: UITextField!
     @IBOutlet weak var confirmPasswordImage: UIImageView!
     
+    //Error label outlet
+    @IBOutlet weak var errorLabel: UILabel!
+    
     //terms of service verification outlets & the confirming variable for the check box
     @IBOutlet weak var termsButton: UIButton!
     @IBOutlet weak var termsOuterStack: UIStackView!
@@ -60,6 +63,9 @@ class SignUp1: UIViewController {
     
     //Firebase database reference
     var ref: DatabaseReference!
+    
+    //array of users already created
+    var userArray = [String]()
     
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         //method needed to be done to allow Fibrebase API
@@ -118,6 +124,21 @@ class SignUp1: UIViewController {
         //load dots
         loadDots()
         
+        //load error message
+        errorLabel.isHidden = true
+        
+        //reference implementation for Firebase Database
+        ref = Database.database().reference()
+        
+        //imports already created usernames to userArray
+        self.ref?.child("Users").observeSingleEvent(of: .value, with: { (snapshot) in
+            for child in snapshot.children {
+                let bchild = child as! DataSnapshot
+                let achild = bchild.value as! [String: String]
+                var username = achild["username"] as! String
+                self.userArray.append(username)
+            }
+        })
     }
     
     func loadDots() {
@@ -177,76 +198,72 @@ class SignUp1: UIViewController {
         }
         
         if termsButton.currentImage == checkImage {
-            termsButton.setImage(#imageLiteral(resourceName: "checked"), for: .normal)
+            termsButton.setImage(#imageLiteral(resourceName: "CheckedBox copy2"), for: .normal)
         }
         else {
             termsButton.setImage(#imageLiteral(resourceName: "unchecked"), for: .normal)
         }
+        termsButton.contentMode = .scaleAspectFit
     }
     
-    @IBAction func signIn(_ sender: Any) {
-        dismiss(animated: true, completion: nil)
-    }
-    
-    let error_dict = ["The email address is badly formatted." : "Invalid email address", "There is no user record corresponding to this identifier. The user may have been deleted." : "Incorrect email or password", "The email address is already in use by another account.": "Email address already taken", "The password must be 6 characters long or more.": "Password must be at least 6 characters", "The password is invalid or the user does not have a password." : "Invalid password", "The Internet connection appears to be offline." : "Could not connect to Internet"]
+    let error_dict = ["The email address is badly formatted." : "Invalid email address", "There is no user record corresponding to this identifier. The user may have been deleted." : "Incorrect email or password", "The email address is already in use by another account.": "Email address already taken", "The password must be 6 characters long or more.": "Password must be at least 6 characters", "The password is invalid or the user does not have a password." : "Invalid password", "The Internet connection appears to be offline." : "Could not connect to Internet", "Username taken" : "Username already taken! Try another.", "Terms unpressed" : "Please accept the terms and conditions", "Passwords inconsistent" : "Passwords do not match"]
     
     var errorMessage = ""
     @IBAction func nextPressed(_ sender: Any) {
-        
-        //reference implementation for Firebase Database
-        ref = Database.database().reference()
-        
-        
+        var userCreated = false
         if let email = emailTextView.text, let pass = passwordTextView.text, let user = usernameTextView.text, let confirm = confirmPasswordTextView.text {
             if pass == confirm {
                 print(termsPressed)
                 if termsPressed {
-                    
+                    //checks if username is available or not
                     if user.range(of: " ") == nil {
-                    
-                
-                Auth.auth().createUser(withEmail: email, password: pass, completion: {(user, error) in
-                    if user != nil {
-                        print("madeUser")
-                        self.performSegue(withIdentifier: "signIn2", sender: self)
-                        
-                        //creates user in database, stores username
-                        let valArray = ["username" : self.usernameTextView.text] as! [String: String]
-                        self.ref?.child("Users").child((user?.user.uid)!).setValue(valArray)
-
+                        print(userArray.count)
+                        if !userArray.contains(self.usernameTextView.text!) {
+                        Auth.auth().createUser(withEmail: email, password: pass, completion: {(user, error) in
+                            if user != nil {
+                                //makes user on authentication tab on firebase
+                                print("madeUser")
+                                self.performSegue(withIdentifier: "signIn2", sender: self)
+                                
+                                //creates the user with the username specified in the database
+                                let valArray = ["username" : self.usernameTextView.text] as! [String: String]
+                                self.ref?.child("Users").child((user?.user.uid)!).setValue(valArray)
+                                userCreated = true
+                            }
+                            else {
+                                print("not ok")
+                                self.errorMessage = self.error_dict[(error?.localizedDescription)!]!
+                                self.errorLabel.isHidden = false
+                                self.reloadInputViews()
+                            }
+                        })
                     }
-                    
                     else {
-                        print("not ok")
-                        
-                        self.errorMessage = self.error_dict[(error?.localizedDescription)!]!
-                        print(self.errorMessage)
-                    }
-                    }
-
-                    
-                
-                )
-                        
-
+                        self.errorMessage = self.error_dict["Username taken"]!
+                        }
                 }
-                    else {
-                        self.errorMessage = "Invalid Username"
-                        print(errorMessage)
-                    }
-
+                else {
+                    self.errorMessage = self.error_dict["Invalid Username"]!
                 }
-
-                }
-
-                
             }
-        
-            
-            
+                else {
+                    self.errorMessage = self.error_dict["Terms unpressed"]!
+                }
         }
-        
-    }
+            else {
+                self.errorMessage = self.error_dict["Passwords inconsistent"]!
+            }
+        }
+        errorLabel.text = self.errorMessage
+        if !userCreated {
+            print(self.errorMessage)
+            errorLabel.isHidden = false
+        }
+        reloadInputViews()
+        //self.reloadInputViews()
+}
+}
+
     
     
     /*
