@@ -188,6 +188,33 @@ class SignUp1: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        moveTextField(textField: textField, moveDistance: 125, up: true)
+    }
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        moveTextField(textField: textField, moveDistance: 125, up: false)
+    }
+    
+    func moveTextField(textField: UITextField, moveDistance: Int, up: Bool) {
+        let moveDuration = 0.2
+        //this is an inline if statement that checks if up is true or not
+        let movement : CGFloat = CGFloat(up ? moveDistance: -moveDistance)
+        
+        UIView.beginAnimations("animateTextField", context: nil)
+        UIView.setAnimationBeginsFromCurrentState(true)
+        UIView.setAnimationDuration(moveDuration)
+        //self.view.frame = CGRectOffset(self.view.frame, 0, movement)
+        self.view.frame = self.view.frame.offsetBy(dx: 0, dy: movement)
+        //self.view.frame.origin.y += textField.frame.origin.y
+        UIView.commitAnimations()
+    }
+    
+    func textFieldShouldClear(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+    
     //terms of service button
     @IBAction func termsButton(_ sender: Any) {
         if termsPressed {
