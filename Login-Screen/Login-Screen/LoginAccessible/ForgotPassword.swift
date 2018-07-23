@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import Firebase
+import Foundation
 
 class ForgotPassword: UIViewController {
     @IBOutlet weak var background: UIImageView!
@@ -23,6 +25,18 @@ class ForgotPassword: UIViewController {
     
     //send button outlet
     @IBOutlet weak var sendButton: UIButton!
+    
+    var emailArray = [String]()
+    var userArray = [String]()
+    var ref: DatabaseReference!
+    
+    func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+        //method needed to be done to allow Fibrebase API
+        
+        // Override point for customization after application launch.
+        FirebaseApp.configure()
+        return true
+    }
     
     override func viewDidLoad() {
         emailTextView.delegate = self
@@ -41,8 +55,19 @@ class ForgotPassword: UIViewController {
         //load send button
         sendButton.layer.cornerRadius = 15
         
-        // Do any additional setup after loading the view.
+        self.ref?.child("Users").observeSingleEvent(of: .value, with: { (snapshot) in
+            for child in snapshot.children {
+                let bchild = child as! DataSnapshot
+                let achild = bchild.value as! [String: String]
+                var email = achild["email"] as! String
+                self.emailArray.append(email)
+            }
+        })
+        print(emailArray)
     }
+        
+        // Do any additional setup after loading the view.
+    
     
     @IBAction func send(_ sender: Any) {
         dismiss(animated: true, completion: nil)
@@ -151,6 +176,29 @@ class ForgotPassword: UIViewController {
         dismiss(animated: true, completion: nil)
     }
     
+    @IBAction func sendPressed(_ sender: Any) {
+        print(self.emailArray)
+        var error_message = ""
+        if self.emailArray.contains(emailTextView.text!){
+            print("heloooo")
+
+        
+            Auth.auth().sendPasswordReset(withEmail: self.emailTextView.text!) { error in
+            }
+//            perform segue
+            }
+        else {
+            print("bad")
+        }
+        
+
+    
+    }
+
+}
+
+
+    
     /*
     // MARK: - Navigation
 
@@ -161,7 +209,7 @@ class ForgotPassword: UIViewController {
     }
     */
 
-}
+
 
 extension ForgotPassword:
 UITextFieldDelegate {

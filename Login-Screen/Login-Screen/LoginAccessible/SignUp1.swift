@@ -66,6 +66,8 @@ class SignUp1: UIViewController {
     
     //array of users already created
     var userArray = [String]()
+    var emailArray = [String]()
+
     
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         //method needed to be done to allow Fibrebase API
@@ -88,7 +90,7 @@ class SignUp1: UIViewController {
         passwordTextView.delegate = self
         confirmPasswordTextView.delegate = self
         super.viewDidLoad()
-        print("djklafkj")
+        print(userArray)
         
 //        termsPressed = false
         //LOADS BACKGROUND
@@ -142,6 +144,22 @@ class SignUp1: UIViewController {
                 let achild = bchild.value as! [String: String]
                 var username = achild["username"] as! String
                 self.userArray.append(username)
+            }
+        })
+        
+        //reference implementation for Firebase Database
+        ref = Database.database().reference()
+        
+        //variable to store the emails in (prolly best for this to be an instance variable)
+        
+        
+        //imports already created usernames to userArray
+        self.ref?.child("Users").observeSingleEvent(of: .value, with: { (snapshot) in
+            for child in snapshot.children {
+                let bchild = child as! DataSnapshot
+                let achild = bchild.value as! [String: String]
+                var email = achild["email"] as! String
+                self.emailArray.append(email)
             }
         })
     }
@@ -303,7 +321,7 @@ class SignUp1: UIViewController {
                                 self.performSegue(withIdentifier: "signIn2", sender: self)
                                 
                                 //creates the user with the username specified in the database
-                                let valArray = ["username" : self.usernameTextView.text] as! [String: String]
+                                let valArray =  ["username" : self.usernameTextView.text,"email" : self.emailTextView.text] as! [String: String]
                                 self.ref?.child("Users").child((user?.user.uid)!).setValue(valArray)
                                 userCreated = true
                             }

@@ -624,6 +624,7 @@
                                             <action selector="logInTapped:" destination="8Y1-5u-rjD" eventType="touchUpInside" id="fEp-ZI-vGK"/>
                                             <action selector="nextPressed:" destination="dte-aG-zcH" eventType="touchUpInside" id="rwT-25-Ara"/>
                                             <action selector="send:" destination="gTB-3u-Cd6" eventType="touchUpInside" id="W6J-uB-s8X"/>
+                                            <action selector="sendPressed:" destination="gTB-3u-Cd6" eventType="touchUpInside" id="X2u-QQ-XOn"/>
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter your email and we will send you a link to change your password" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sBy-6M-rSs">
@@ -698,11 +699,12 @@
                         <outlet property="message" destination="sBy-6M-rSs" id="oJ7-ip-jHO"/>
                         <outlet property="navigationBar" destination="UCE-Iy-mEH" id="Y7W-ge-paD"/>
                         <outlet property="sendButton" destination="FJm-G2-Z2H" id="G6c-td-X0Z"/>
+                        <segue destination="8Y1-5u-rjD" kind="show" identifier="toHome" id="8vv-lE-Bzv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yXr-o0-UNF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2732" y="2970.7646176911549"/>
+            <point key="canvasLocation" x="-4513" y="2782"/>
         </scene>
         <!--Login Formatted-->
         <scene sceneID="MdG-3S-9Lj">
@@ -813,7 +815,7 @@
                                             <color key="titleColor" red="0.60392156862745094" green="0.60392156862745094" blue="0.60392156862745094" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
                                         <connections>
-                                            <segue destination="gTB-3u-Cd6" kind="presentation" id="3ck-hZ-RdT"/>
+                                            <segue destination="gTB-3u-Cd6" kind="show" id="Pu0-Kq-Czw"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lfi-c5-FnD">
@@ -1625,8 +1627,8 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="Lzc-uk-Lc2"/>
-        <segue reference="KKe-Wb-hlu"/>
-        <segue reference="4w9-KA-3Oc"/>
+        <segue reference="LzP-pd-VOo"/>
+        <segue reference="8vv-lE-Bzv"/>
         <segue reference="Sg7-9M-UP8"/>
         <segue reference="lvG-cy-99q"/>
         <segue reference="X5O-dy-mPa"/>
