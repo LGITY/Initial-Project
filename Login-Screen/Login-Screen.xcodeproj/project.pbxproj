@@ -31,7 +31,6 @@
 		7083AD9620FC54D5005D72B1 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7083AD9520FC54D5005D72B1 /* Home.swift */; };
 		70A82EE620F569CE00699D4C /* PostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70A82EE420F569CE00699D4C /* PostCell.swift */; };
 		70A82EE720F569CE00699D4C /* PostCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 70A82EE520F569CE00699D4C /* PostCell.xib */; };
-		70F6BE4121004DD300ED6356 /* AppIcon.appiconset in Resources */ = {isa = PBXBuildFile; fileRef = 70F6BE4021004DD300ED6356 /* AppIcon.appiconset */; };
 		70F6BE4321004E4800ED6356 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 70F6BE4221004E4800ED6356 /* Images.xcassets */; };
 		AFD3F65EDA6440940EB0B776 /* Pods_Login_Screen.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCDC1A8ABA630DE6B84D94B9 /* Pods_Login_Screen.framework */; };
 /* End PBXBuildFile section */
@@ -84,7 +83,6 @@
 		7083AD9520FC54D5005D72B1 /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
 		70A82EE420F569CE00699D4C /* PostCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCell.swift; sourceTree = "<group>"; };
 		70A82EE520F569CE00699D4C /* PostCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PostCell.xib; sourceTree = "<group>"; };
-		70F6BE4021004DD300ED6356 /* AppIcon.appiconset */ = {isa = PBXFileReference; lastKnownFileType = folder; name = AppIcon.appiconset; path = ../../../../AppIcon.appiconset/ios/AppIcon.appiconset; sourceTree = "<group>"; };
 		70F6BE4221004E4800ED6356 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		AFEFDB0402D68BD02FA8CC85 /* Pods_Login_ScreenTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Login_ScreenTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B787BE82168F5E8A0DDBC155 /* Pods_Login_ScreenUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Login_ScreenUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -159,7 +157,6 @@
 				7083AD9520FC54D5005D72B1 /* Home.swift */,
 				704272F220F8653300D11DBA /* LoginFormatted.swift */,
 				7058F7DE20E7675A00F860A2 /* ComposeViewController.swift */,
-				70F6BE4021004DD300ED6356 /* AppIcon.appiconset */,
 				1239254520D2EF0C002D68D1 /* Assets.xcassets */,
 				1239254720D2EF0C002D68D1 /* LaunchScreen.storyboard */,
 				1239254A20D2EF0C002D68D1 /* Info.plist */,
@@ -333,7 +330,6 @@
 				70F6BE4321004E4800ED6356 /* Images.xcassets in Resources */,
 				70A82EE720F569CE00699D4C /* PostCell.xib in Resources */,
 				1239254620D2EF0C002D68D1 /* Assets.xcassets in Resources */,
-				70F6BE4121004DD300ED6356 /* AppIcon.appiconset in Resources */,
 				1239256D20D2EF45002D68D1 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -588,7 +584,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = TL9BB86JQV;
+				DEVELOPMENT_TEAM = C7C8Z86327;
 				INFOPLIST_FILE = "Login-Screen/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -609,7 +605,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = TL9BB86JQV;
+				DEVELOPMENT_TEAM = C7C8Z86327;
 				INFOPLIST_FILE = "Login-Screen/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (

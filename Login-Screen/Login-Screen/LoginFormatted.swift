@@ -66,6 +66,7 @@ class LoginFormatted: UIViewController {
     
     
     override func viewDidLoad() {
+        print("dklkklkl")
         usernameTextField.delegate = self
         passwordTextField.delegate = self
         super.viewDidLoad()
@@ -144,10 +145,19 @@ class LoginFormatted: UIViewController {
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
+        let globalPoint = textField.superview?.convert(textField.frame.origin, to: nil)
+        print(globalPoint)
+
         moveTextField(textField: textField, moveDistance: 125, up: true)
     }
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
+        let screenHeight = UIScreen.main.bounds.height
+        print(screenHeight)
+        let globalPoint = textField.superview?.convert(textField.frame.origin, to: nil)
+        print(CFDictionaryGetValue(globalPoint?.dictionaryRepresentation, "Y"))
+        print(globalPoint?.dictionaryRepresentation)
+
         moveTextField(textField: textField, moveDistance: 125, up: false)
     }
     

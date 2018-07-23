@@ -84,6 +84,7 @@ class SignUp1: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        print("djklafkj")
         
 //        termsPressed = false
         //LOADS BACKGROUND
@@ -189,10 +190,15 @@ class SignUp1: UIViewController {
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
+        let globalPoint = textField.superview?.convert(textField.frame.origin, to: nil)
+        print(globalPoint)
         moveTextField(textField: textField, moveDistance: 125, up: true)
     }
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
+        let globalPoint = textField.superview?.convert(textField.frame.origin, to: nil)
+        print(globalPoint)
+
         moveTextField(textField: textField, moveDistance: 125, up: false)
     }
     
