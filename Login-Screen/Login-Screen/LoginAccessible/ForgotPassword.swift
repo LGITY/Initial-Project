@@ -25,6 +25,7 @@ class ForgotPassword: UIViewController {
     @IBOutlet weak var sendButton: UIButton!
     
     override func viewDidLoad() {
+        emailTextView.delegate = self
         super.viewDidLoad()
         loadNavigationBar()
         loadBackground()
@@ -45,6 +46,10 @@ class ForgotPassword: UIViewController {
     
     @IBAction func send(_ sender: Any) {
         dismiss(animated: true, completion: nil)
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        emailTextView.resignFirstResponder()
     }
     
     
@@ -101,9 +106,45 @@ class ForgotPassword: UIViewController {
         navigationBar.isTranslucent = true
     }
 
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    func getPos(textField: UITextField) -> Double{
+        let screenHeight = UIScreen.main.bounds.height
+        let globalPoint = textField.superview?.convert(textField.frame.origin, to: nil)
+        let pos = Int((globalPoint?.y)!)
+        let sorted_pos = Double(pos)/4.5
+        return sorted_pos
+        
+    }
+    lazy var email_pos: Double = getPos(textField: emailTextView)
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        var sorted_pos = Int(email_pos)
+        moveTextField(textField: textField, moveDistance: sorted_pos, up: true)
+    }
+    
+    //    func CFDictionaryGetValue(_: CFDictionary!, _: UnsafeRawPointer!) -> UnsafeRawPointer!
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+
+        var sorted_pos = Int(email_pos)
+        moveTextField(textField: textField, moveDistance: sorted_pos, up: false)
+    }
+    
+    func moveTextField(textField: UITextField, moveDistance: Int, up: Bool) {
+        let moveDuration = 0.2
+        //this is an inline if statement that checks if up is true or not
+        let movement : CGFloat = CGFloat(up ? moveDistance: -moveDistance)
+        
+        UIView.beginAnimations("animateTextField", context: nil)
+        UIView.setAnimationBeginsFromCurrentState(true)
+        UIView.setAnimationDuration(moveDuration)
+        //self.view.frame = CGRectOffset(self.view.frame, 0, movement)
+        self.view.frame = self.view.frame.offsetBy(dx: 0, dy: movement)
+        UIView.commitAnimations()
     }
     
     @IBAction func done(_ sender: Any) {
@@ -120,4 +161,13 @@ class ForgotPassword: UIViewController {
     }
     */
 
+}
+
+extension ForgotPassword:
+UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField:
+        UITextField) -> Bool {
+        emailTextView.resignFirstResponder()
+        return true
+    }
 }

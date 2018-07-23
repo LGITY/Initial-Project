@@ -83,6 +83,10 @@ class SignUp1: UIViewController {
     }
     
     override func viewDidLoad() {
+        emailTextView.delegate = self
+        usernameTextView.delegate = self
+        passwordTextView.delegate = self
+        confirmPasswordTextView.delegate = self
         super.viewDidLoad()
         print("djklafkj")
         
@@ -189,17 +193,56 @@ class SignUp1: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    func textFieldDidEndEditing(_ textField: UITextField) {
+    func getPos(textField: UITextField) -> Double{
+        let screenHeight = UIScreen.main.bounds.height
         let globalPoint = textField.superview?.convert(textField.frame.origin, to: nil)
-        print(globalPoint)
-        moveTextField(textField: textField, moveDistance: 125, up: true)
+        let pos = Int((globalPoint?.y)!)
+        let sorted_pos = Double(pos)/4.5
+        return sorted_pos
+        
+    }
+    lazy var email_pos: Double = getPos(textField: emailTextView)
+    lazy var user_pos: Double = getPos(textField: usernameTextView)
+    lazy var pass_pos: Double = getPos(textField: passwordTextView)
+    lazy var confirm_pos: Double = getPos(textField: confirmPasswordTextView)
+    
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        var sorted_pos = 0
+        if textField == emailTextView {
+            sorted_pos = Int(email_pos)
+        }
+        else if textField == usernameTextView {
+            sorted_pos = Int(user_pos)
+        }
+        else if textField == passwordTextView {
+            sorted_pos = Int(pass_pos)
+        }
+        else {
+            sorted_pos = Int(confirm_pos)
+        }
+        
+        moveTextField(textField: textField, moveDistance: sorted_pos, up: true)
     }
     
+    //    func CFDictionaryGetValue(_: CFDictionary!, _: UnsafeRawPointer!) -> UnsafeRawPointer!
+    
     func textFieldDidBeginEditing(_ textField: UITextField) {
-        let globalPoint = textField.superview?.convert(textField.frame.origin, to: nil)
-        print(globalPoint)
-
-        moveTextField(textField: textField, moveDistance: 125, up: false)
+        var sorted_pos = 0
+        if textField == emailTextView {
+            sorted_pos = Int(email_pos)
+        }
+        else if textField == usernameTextView {
+            sorted_pos = Int(user_pos)
+        }
+        else if textField == passwordTextView {
+            sorted_pos = Int(pass_pos)
+        }
+        else {
+            sorted_pos = Int(confirm_pos)
+        }
+        
+        moveTextField(textField: textField, moveDistance: sorted_pos, up: false)
     }
     
     func moveTextField(textField: UITextField, moveDistance: Int, up: Bool) {
@@ -212,7 +255,6 @@ class SignUp1: UIViewController {
         UIView.setAnimationDuration(moveDuration)
         //self.view.frame = CGRectOffset(self.view.frame, 0, movement)
         self.view.frame = self.view.frame.offsetBy(dx: 0, dy: movement)
-        //self.view.frame.origin.y += textField.frame.origin.y
         UIView.commitAnimations()
     }
     
@@ -220,6 +262,8 @@ class SignUp1: UIViewController {
         textField.resignFirstResponder()
         return true
     }
+    
+    
     
     //terms of service button
     @IBAction func termsButton(_ sender: Any) {

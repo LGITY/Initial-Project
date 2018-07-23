@@ -10,7 +10,9 @@ import UIKit
 import Foundation
 import Firebase
 
+
 class LoginFormatted: UIViewController {
+    
     
     //background and logo outlets
     @IBOutlet weak var background: UIImageView!
@@ -50,6 +52,8 @@ class LoginFormatted: UIViewController {
     @IBOutlet weak var signUpStackView: UIStackView!
     @IBOutlet weak var signUpLabel: UILabel!
     @IBOutlet weak var signUpButton: UIButton!
+    
+    
     
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         //method needed to be done to allow Fibrebase API
@@ -144,21 +148,50 @@ class LoginFormatted: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    func textFieldDidEndEditing(_ textField: UITextField) {
-        let globalPoint = textField.superview?.convert(textField.frame.origin, to: nil)
-        print(globalPoint)
 
-        moveTextField(textField: textField, moveDistance: 125, up: true)
+    
+//    func CFDictionaryGetValue(_: CFDictionary!, _: UnsafeRawPointer!) -> UnsafeRawPointer!
+    
+    func getPos(textField: UITextField) -> Double{
+        let screenHeight = UIScreen.main.bounds.height
+        let globalPoint = textField.superview?.convert(textField.frame.origin, to: nil)
+        let pos = Int((globalPoint?.y)!)
+        let sorted_pos = Double(pos)/4.5
+        return sorted_pos
+        
+    }
+    lazy var user_pos: Double = getPos(textField: usernameTextField)
+    lazy var pass_pos: Double = getPos(textField: passwordTextField)
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        print("user_pos: ", user_pos)
+        print("pass_pos: ", pass_pos)
+        var sorted_pos = 0
+        if textField == usernameTextField {
+            print("user")
+            sorted_pos = Int(user_pos)
+        }
+            
+        else {
+            print("pass")
+            sorted_pos = Int(pass_pos)
+        }
+        moveTextField(textField: textField, moveDistance: sorted_pos, up: true)
     }
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
-        let screenHeight = UIScreen.main.bounds.height
-        print(screenHeight)
-        let globalPoint = textField.superview?.convert(textField.frame.origin, to: nil)
-        print(CFDictionaryGetValue(globalPoint?.dictionaryRepresentation, "Y"))
-        print(globalPoint?.dictionaryRepresentation)
-
-        moveTextField(textField: textField, moveDistance: 125, up: false)
+        
+        var sorted_pos = 0
+        if textField == usernameTextField {
+            print("user")
+            sorted_pos = Int(user_pos)
+        }
+            
+        else {
+            print("pass")
+            sorted_pos = Int(pass_pos)
+        }
+        moveTextField(textField: textField, moveDistance: Int(sorted_pos), up: false)
+        
     }
     
     func moveTextField(textField: UITextField, moveDistance: Int, up: Bool) {
