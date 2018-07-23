@@ -197,7 +197,7 @@ class SignUp1: UIViewController {
         let screenHeight = UIScreen.main.bounds.height
         let globalPoint = textField.superview?.convert(textField.frame.origin, to: nil)
         let pos = Int((globalPoint?.y)!)
-        let sorted_pos = Double(pos)/4.5
+        let sorted_pos = Double(pos)/5.5
         return sorted_pos
         
     }
