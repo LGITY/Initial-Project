@@ -144,6 +144,7 @@ class SignUp1: UIViewController {
                 let achild = bchild.value as! [String: String]
                 var username = achild["username"] as! String
                 self.userArray.append(username)
+                print("userArray count: ", self.userArray.count)
             }
         })
         
@@ -160,6 +161,7 @@ class SignUp1: UIViewController {
                 let achild = bchild.value as! [String: String]
                 var email = achild["email"] as! String
                 self.emailArray.append(email)
+                print("emailArray count: ", self.emailArray.count)
             }
         })
     }

@@ -51,6 +51,7 @@ class ForgotPassword: UIViewController {
         emailImage.image = #imageLiteral(resourceName: "envelopeNew")
         emailImage.contentMode = .scaleAspectFit
         emailTextView.attributedPlaceholder = NSAttributedString(string: "email address", attributes: [NSAttributedStringKey.foregroundColor: UIColor.white])
+        ref = Database.database().reference()
         
         //load send button
         sendButton.layer.cornerRadius = 15
@@ -60,22 +61,25 @@ class ForgotPassword: UIViewController {
                 let bchild = child as! DataSnapshot
                 let achild = bchild.value as! [String: String]
                 var email = achild["email"] as! String
+                print(email)
                 self.emailArray.append(email)
+                print(self.emailArray.count)
             }
         })
-        print(emailArray)
+        
     }
         
         // Do any additional setup after loading the view.
     
     
     @IBAction func send(_ sender: Any) {
-        dismiss(animated: true, completion: nil)
+//        dismiss(animated: true, completion: nil)
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         emailTextView.resignFirstResponder()
     }
+    
     
     
     func loadBackground() {
@@ -173,7 +177,7 @@ class ForgotPassword: UIViewController {
     }
     
     @IBAction func done(_ sender: Any) {
-        dismiss(animated: true, completion: nil)
+//        dismiss(animated: true, completion: nil)
     }
     
     @IBAction func sendPressed(_ sender: Any) {
@@ -182,10 +186,10 @@ class ForgotPassword: UIViewController {
         if self.emailArray.contains(emailTextView.text!){
             print("heloooo")
 
-        
+            self.performSegue(withIdentifier: "toHome", sender: self)
             Auth.auth().sendPasswordReset(withEmail: self.emailTextView.text!) { error in
             }
-//            perform segue
+            
             }
         else {
             print("bad")
