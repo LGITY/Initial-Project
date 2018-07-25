@@ -327,6 +327,14 @@ class SignUp1: UIViewController {
     @IBAction func nextPressed(_ sender: Any) {
         var userCreated = false
         if let email = emailTextView.text, let pass = passwordTextView.text, let user = usernameTextView.text, let confirm = confirmPasswordTextView.text {
+            if email != ""{
+                if user != "" {
+                    if pass != "" {
+                        
+                    
+                
+                
+            
             if pass == confirm {
 //                print(termsPressed)
                 if termsPressed {
@@ -337,6 +345,8 @@ class SignUp1: UIViewController {
                             info["email"] = email
                             info["username"] = user
                             info["password"] = pass
+                            self.performSegue(withIdentifier: "toSignUp2", sender: self)
+                            
                             
 //                        Auth.auth().createUser(withEmail: email, password: pass, completion: {(user, error) in
 //                            if user != nil {
@@ -371,6 +381,12 @@ class SignUp1: UIViewController {
         }
             else {
                 self.errorMessage = self.error_dict["Passwords inconsistent"]!
+            }
+                    }
+                    else {
+                        self.error
+                    }
+                }
             }
         }
         errorLabel.text = self.errorMessage
