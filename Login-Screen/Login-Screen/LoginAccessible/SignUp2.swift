@@ -45,10 +45,25 @@ class SignUp2: UIViewController, UINavigationControllerDelegate, UIImagePickerCo
     @IBOutlet weak var signInStack: UIStackView!
     @IBOutlet weak var alreadyAccountLabel: UILabel!
     @IBOutlet weak var signInButton: UIButton!
+    var info: Dictionary<String, String> = [:]
     
+
+    
+    
+    
+    func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+        //method needed to be done to allow Fibrebase API
+        
+        // Override point for customization after application launch.
+        FirebaseApp.configure()
+        return true
+    }
     
     override func viewDidLoad() {
+        print("signUp2 info: ", info)
         super.viewDidLoad()
+        firstTextView.delegate = self
+        lastTextView.delegate = self
         
         //loads the background image
         loadBackground()
@@ -98,10 +113,64 @@ class SignUp2: UIViewController, UINavigationControllerDelegate, UIImagePickerCo
         
         // Do any additional setup after loading the view.
     }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        firstTextView.resignFirstResponder()
+        lastTextView.resignFirstResponder()
+    
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func getPos(textField: UITextField) -> Double{
+        let screenHeight = UIScreen.main.bounds.height
+        let globalPoint = textField.superview?.convert(textField.frame.origin, to: nil)
+        let pos = Int((globalPoint?.y)!)
+        let sorted_pos = Double(pos)/4.5
+        return sorted_pos
+        
+    }
+    lazy var first_pos: Double = getPos(textField: firstTextView)
+    lazy var last_pos: Double = getPos(textField: lastTextView)
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        var sorted_pos = 0
+        if textField == firstTextView {
+            sorted_pos = Int(first_pos)
+        }
+        else {
+            sorted_pos = Int(last_pos)
+        }
+        moveTextField(textField: textField, moveDistance: sorted_pos, up: true)
+    }
+    
+    //    func CFDictionaryGetValue(_: CFDictionary!, _: UnsafeRawPointer!) -> UnsafeRawPointer!
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        var sorted_pos = 0
+        if textField == firstTextView {
+            sorted_pos = Int(first_pos)
+        }
+        else {
+            sorted_pos = Int(last_pos)
+        }
+        moveTextField(textField: textField, moveDistance: sorted_pos, up: false)
+    }
+    
+    func moveTextField(textField: UITextField, moveDistance: Int, up: Bool) {
+        let moveDuration = 0.2
+        //this is an inline if statement that checks if up is true or not
+        let movement : CGFloat = CGFloat(up ? moveDistance: -moveDistance)
+        
+        UIView.beginAnimations("animateTextField", context: nil)
+        UIView.setAnimationBeginsFromCurrentState(true)
+        UIView.setAnimationDuration(moveDuration)
+        //self.view.frame = CGRectOffset(self.view.frame, 0, movement)
+        self.view.frame = self.view.frame.offsetBy(dx: 0, dy: movement)
+        UIView.commitAnimations()
     }
     
     @IBAction func profPicButton(_ sender: Any) {
@@ -178,4 +247,14 @@ class SignUp2: UIViewController, UINavigationControllerDelegate, UIImagePickerCo
     }
     */
 
+}
+
+extension SignUp2:
+UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField:
+        UITextField) -> Bool {
+        firstTextView.resignFirstResponder()
+        lastTextView.resignFirstResponder()
+        return true
+    }
 }

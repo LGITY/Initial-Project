@@ -42,11 +42,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Login-Screen/LoginAccessible/SignUp1.swift"
-            timestampString = "554152376.780331"
+            timestampString = "554239771.3986"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "294"
-            endingLineNumber = "294"
+            startingLineNumber = "310"
+            endingLineNumber = "310"
             landmarkName = "termsButton(_:)"
             landmarkType = "7">
          </BreakpointContent>

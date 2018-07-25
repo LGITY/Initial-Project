@@ -10,6 +10,12 @@ import UIKit
 import Foundation
 import Firebase
 
+struct Store {
+    var email: String
+    var username: String
+    var password: String
+}
+
 class SignUp1: UIViewController {
     var termsPressed = false
     
@@ -85,13 +91,20 @@ class SignUp1: UIViewController {
         confirmPasswordTextView.resignFirstResponder()
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let destinationController = segue.destination as? SignUp2 {
+            destinationController.info = info
+        }
+            
+        }
+    
     override func viewDidLoad() {
         emailTextView.delegate = self
         usernameTextView.delegate = self
         passwordTextView.delegate = self
         confirmPasswordTextView.delegate = self
         super.viewDidLoad()
-        print(userArray)
+//        print(userArray)
         
 //        termsPressed = false
         //LOADS BACKGROUND
@@ -145,7 +158,7 @@ class SignUp1: UIViewController {
                 let achild = bchild.value as! [String: String]
                 var username = achild["username"] as! String
                 self.userArray.append(username)
-                print("userArray count: ", self.userArray.count)
+//                print("userArray count: ", self.userArray.count)
             }
         })
         
@@ -162,7 +175,7 @@ class SignUp1: UIViewController {
                 let achild = bchild.value as! [String: String]
                 var email = achild["email"] as! String
                 self.emailArray.append(email)
-                print("emailArray count: ", self.emailArray.count)
+//                print("emailArray count: ", self.emailArray.count)
             }
         })
     }
@@ -284,10 +297,13 @@ class SignUp1: UIViewController {
         return true
     }
     
-    
+    func getInfo() -> Dictionary<String, String> {
+        return info
+    }
     
     //terms of service button
     @IBAction func termsButton(_ sender: Any) {
+        print (info)
         if termsPressed {
             termsPressed = false
         }
@@ -307,34 +323,39 @@ class SignUp1: UIViewController {
     let error_dict = ["The email address is badly formatted." : "Invalid email address", "There is no user record corresponding to this identifier. The user may have been deleted." : "Incorrect email or password", "The email address is already in use by another account.": "Email address already taken", "The password must be 6 characters long or more.": "Password must be at least 6 characters", "The password is invalid or the user does not have a password." : "Invalid password", "The Internet connection appears to be offline." : "Could not connect to Internet", "Username taken" : "Username already taken! Try another.", "Terms unpressed" : "Please accept the terms and conditions", "Passwords inconsistent" : "Passwords do not match"]
     
     var errorMessage = ""
+     var info: Dictionary  = ["email": "", "username" : "", "password": ""]
     @IBAction func nextPressed(_ sender: Any) {
         var userCreated = false
         if let email = emailTextView.text, let pass = passwordTextView.text, let user = usernameTextView.text, let confirm = confirmPasswordTextView.text {
             if pass == confirm {
-                print(termsPressed)
+//                print(termsPressed)
                 if termsPressed {
                     //checks if username is available or not
                     if user.range(of: " ") == nil {
-                        print(userArray.count)
+//                        print(userArray.count)
                         if !userArray.contains(self.usernameTextView.text!) {
-                        Auth.auth().createUser(withEmail: email, password: pass, completion: {(user, error) in
-                            if user != nil {
-                                //makes user on authentication tab on firebase
-                                print("madeUser")
-                                self.performSegue(withIdentifier: "signIn2", sender: self)
-                                
-                                //creates the user with the username specified in the database
-                                let valArray =  ["username" : self.usernameTextView.text,"email" : self.emailTextView.text] as! [String: String]
-                                self.ref?.child("Users").child((user?.user.uid)!).setValue(valArray)
-                                userCreated = true
-                            }
-                            else {
-                                print("not ok")
-                                self.errorMessage = self.error_dict[(error?.localizedDescription)!]!
-                                self.errorLabel.isHidden = false
-                                self.reloadInputViews()
-                            }
-                        })
+                            info["email"] = email
+                            info["username"] = user
+                            info["password"] = pass
+                            
+//                        Auth.auth().createUser(withEmail: email, password: pass, completion: {(user, error) in
+//                            if user != nil {
+//                                //makes user on authentication tab on firebase
+//                                print("madeUser")
+//                                self.performSegue(withIdentifier: "signIn2", sender: self)
+//
+//                                //creates the user with the username specified in the database
+//                                let valArray =  ["username" : self.usernameTextView.text,"email" : self.emailTextView.text] as! [String: String]
+//                                self.ref?.child("Users").child((user?.user.uid)!).setValue(valArray)
+//                                userCreated = true
+//                            }
+//                            else {
+//                                print("not ok")
+//                                self.errorMessage = self.error_dict[(error?.localizedDescription)!]!
+//                                self.errorLabel.isHidden = false
+//                                self.reloadInputViews()
+//                            }
+//                        })
                     }
                     else {
                         self.errorMessage = self.error_dict["Username taken"]!
@@ -354,12 +375,15 @@ class SignUp1: UIViewController {
         }
         errorLabel.text = self.errorMessage
         if !userCreated {
-            print(self.errorMessage)
+//            print(self.errorMessage)
             errorLabel.isHidden = false
         }
         reloadInputViews()
         //self.reloadInputViews()
 }
+    
+
+
 }
 
     
