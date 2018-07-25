@@ -55,6 +55,7 @@ class SignUp1: UIViewController {
     @IBOutlet weak var dotFirst: UIView!
     @IBOutlet weak var dotSecond: UIView!
     @IBOutlet weak var dotThird: UIView!
+    @IBOutlet weak var dotFourth: UIView!
     @IBOutlet weak var dotLast: UIView!
     
     
@@ -173,7 +174,7 @@ class SignUp1: UIViewController {
         dotFirst.layer.cornerRadius = dotFirst.frame.size.width/2
         
         //adds grey dots
-        let dotArray = [dotSecond, dotThird, dotLast] as! [UIView]
+        let dotArray = [dotSecond, dotThird, dotFourth, dotLast] as! [UIView]
         for dot in dotArray {
             dot.backgroundColor = UIColor.lightGray
             dot.layer.cornerRadius = dot.frame.size.width/2
