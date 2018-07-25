@@ -384,9 +384,15 @@ class SignUp1: UIViewController {
             }
                     }
                     else {
-                        self.error
+                        self.errorMessage = "Invalid Email"
                     }
                 }
+                else {
+                    self.errorMessage = "Invalid Username"
+                }
+            }
+            else {
+                self.errorMessage = "Inalid Password"
             }
         }
         errorLabel.text = self.errorMessage
