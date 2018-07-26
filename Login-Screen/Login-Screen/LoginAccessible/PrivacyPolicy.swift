@@ -10,11 +10,54 @@ import UIKit
 
 class PrivacyPolicy: UIViewController {
 
+    //background outlets
+    @IBOutlet weak var backgroundView: UIView!
+    @IBOutlet weak var navBar: UINavigationBar!
+    @IBOutlet weak var scrollView: UIScrollView!
+    
+    //first header outlets
+    @IBOutlet weak var head1: UILabel!
+    @IBOutlet weak var subHead1: UILabel!
+    @IBOutlet weak var label1: UILabel!
+    
+    //second header outlets
+    @IBOutlet weak var header2: UILabel!
+    @IBOutlet weak var subHeader2: UILabel!
+    @IBOutlet weak var label2: UILabel!
+    @IBOutlet weak var subHeader3: UILabel!
+    @IBOutlet weak var label3: UILabel!
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        //load background
+        backgroundView.backgroundColor = UIColor(red:0.11, green:0.17, blue:0.27, alpha:1.0)
+        
+        //load navigation bar
+        loadNavigationBar()
+        
+        //load all text
+        loadText()
+        
+        
         // Do any additional setup after loading the view.
+    }
+    
+    func loadNavigationBar() {
+        navBar.setBackgroundImage(UIImage(), for: .default)
+        navBar.shadowImage = UIImage()
+        navBar.isTranslucent = true
+    }
+    
+    func loadText() {
+        let arr = [label1, label2, label3, subHead1, subHeader2, subHeader3, head1, header2]
+        
+        for t in arr {
+            t?.textColor = UIColor.white
+        }
+        
     }
 
     override func didReceiveMemoryWarning() {

@@ -178,6 +178,11 @@ class SignUp1: UIViewController {
 //                print("emailArray count: ", self.emailArray.count)
             }
         })
+        
+        //loads email textView capability to check when changed
+        emailTextView.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
+
+
     }
     
     func loadDots() {
@@ -218,6 +223,9 @@ class SignUp1: UIViewController {
         //loads the textfield for the username
         textView.backgroundColor = UIColor.clear
         textView.borderStyle = .none
+        
+        //allows the textView to know everytime it is edited even by one letter. Calls the method textFieldDidChange every time edited
+        textView.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
     }
     
     
@@ -240,6 +248,59 @@ class SignUp1: UIViewController {
     lazy var pass_pos: Double = getPos(textField: passwordTextView)
     lazy var confirm_pos: Double = getPos(textField: confirmPasswordTextView)
     
+
+    @objc func textFieldDidChange(_ textField: UITextField) {
+        //checks to see if the text field is for the email
+        if textField == emailTextView {
+            do {
+                //defines a regular expression that should match a valid email
+                let regex =  try NSRegularExpression(pattern: "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}")
+                
+                //if there are matches to the above regular expression, change the image to blue
+                if regex.matches(in: emailTextView.text!, range: NSRange(emailTextView.text!.startIndex..., in: emailTextView.text!)).count > 0 && !emailArray.contains(emailTextView.text!) {
+                    emailImage.image = #imageLiteral(resourceName: "MailIconBlueTrans")
+                }
+                    
+                // if not, change the image to grey
+                else {
+                    emailImage.image = #imageLiteral(resourceName: "envelopeNew")
+                }
+            }
+                
+            // deal with potential error
+            catch let error {
+                print(error)
+                return
+            }
+        }
+        
+        if textField == usernameTextView {
+            if usernameTextView.text!.count > 0 && !userArray.contains(usernameTextView.text!) {
+                usernameImage.image = #imageLiteral(resourceName: "MailIconBlueTrans")
+            }
+            else {
+                usernameImage.image = #imageLiteral(resourceName: "man")
+            }
+        }
+        
+        if textField == passwordTextView {
+            if passwordTextView.text!.count > 5 {
+                passwordImage.image = #imageLiteral(resourceName: "MailIconBlueTrans")
+            }
+            else {
+                passwordImage.image = #imageLiteral(resourceName: "locked (1)")
+            }
+        }
+        
+        if textField == confirmPasswordTextView {
+            if confirmPasswordTextView.text!.count > 5 {
+                confirmPasswordImage.image = #imageLiteral(resourceName: "MailIconBlueTrans")
+            }
+            else {
+                confirmPasswordImage.image = #imageLiteral(resourceName: "verified")
+            }
+        }
+    }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
         var sorted_pos = 0
@@ -255,7 +316,7 @@ class SignUp1: UIViewController {
         else {
             sorted_pos = Int(confirm_pos)
         }
-        
+
         moveTextField(textField: textField, moveDistance: sorted_pos, up: true)
     }
     
