@@ -9,6 +9,8 @@
 import UIKit
 import Foundation
 import Firebase
+import FBSDKCoreKit
+import FBSDKLoginKit
 
 
 class LoginFormatted: UIViewController {
@@ -60,12 +62,19 @@ class LoginFormatted: UIViewController {
         
         // Override point for customization after application launch.
         FirebaseApp.configure()
+        FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
         return true
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         usernameTextField.resignFirstResponder()
         passwordTextField.resignFirstResponder()
+    }
+    
+    func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
+        let handled = FBSDKApplicationDelegate.sharedInstance().application(app, open: url, options: options)
+        
+        return handled
     }
     
     
@@ -236,6 +245,47 @@ class LoginFormatted: UIViewController {
                 
             }
             )
+        }
+    }
+    
+    @IBAction func facebookPressed(_ sender: Any) {
+        let fbLoginManager = FBSDKLoginManager()
+        fbLoginManager.logIn(withReadPermissions: ["public_profile", "email"], from: self) { (result, error) in
+            if let error = error {
+                print("Failed to login: \(error.localizedDescription)")
+                return
+            }
+            
+            guard let accessToken = FBSDKAccessToken.current() else {
+                print("Failed to get access token")
+                return
+            }
+            
+            let credential = FacebookAuthProvider.credential(withAccessToken: accessToken.tokenString)
+            
+            // Perform login by calling Firebase APIs
+            Auth.auth().signIn(with: credential, completion: { (user, error) in
+                if let error = error {
+                    print("Login error: \(error.localizedDescription)")
+                    let alertController = UIAlertController(title: "Login Error", message: error.localizedDescription, preferredStyle: .alert)
+                    let okayAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+                    alertController.addAction(okayAction)
+                    self.present(alertController, animated: true, completion: nil)
+                    
+                    return
+                }
+                
+                // Present the main view
+                //Might want to take this code out
+                //Possible sigAbort
+//                if let viewController = self.storyboard?.instantiateViewController(withIdentifier: "MainView") {
+//                    UIApplication.shared.keyWindow?.rootViewController = viewController
+//                    self.dismiss(animated: true, completion: nil)
+//            }
+                
+                
+            })
+            
         }
     }
     

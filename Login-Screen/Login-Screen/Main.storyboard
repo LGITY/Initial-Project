@@ -860,6 +860,7 @@
                                                     <color key="titleColor" red="0.96383162280000001" green="1" blue="0.94929118629999998" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
                                                 <connections>
+                                                    <action selector="facebookPressed:" destination="8Y1-5u-rjD" eventType="touchUpInside" id="EcN-VB-XXP"/>
                                                     <segue destination="hOD-JL-D3n" kind="show" id="cab-Ac-RGZ"/>
                                                 </connections>
                                             </button>
@@ -2147,8 +2148,8 @@
         <image name="unchecked" width="64" height="64"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Q7A-Tl-bNP"/>
-        <segue reference="VLQ-Ew-s2g"/>
+        <segue reference="Lzc-uk-Lc2"/>
+        <segue reference="LzP-pd-VOo"/>
         <segue reference="4w9-KA-3Oc"/>
         <segue reference="Sg7-9M-UP8"/>
         <segue reference="lvG-cy-99q"/>
