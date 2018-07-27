@@ -137,7 +137,7 @@ class LoginFormatted: UIViewController {
         //BACKGROUND
         //Sets up the background layer; creates a background rectangle, shades it in, and then adds the image in the background to fill the whole thing
         //let layer = UIView(frame: CGRect(x: -967, y: -214, width: 2337, height: 1547))
-        backgroundColor.backgroundColor = UIColor(red:0.03, green:0.12, blue:0.18, alpha:0.7)
+        backgroundColor.backgroundColor = UIColor(red:0.03, green:0.12, blue:0.18, alpha:0.8)
         //self.view.addSubview(layer)
         background.image = #imageLiteral(resourceName: "login")
         background.contentMode = .scaleAspectFill

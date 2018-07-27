@@ -115,9 +115,9 @@ class SignUp1: UIViewController {
         logo.contentMode = .scaleAspectFit
         
         //load login label
-        signUpLabel.text = "Sign Up"
-        signUpLabel.textAlignment = .center
-        signUpLabel.textColor = UIColor.white
+        //signUpLabel.text = "Sign Up"
+        //signUpLabel.textAlignment = .center
+        //signUpLabel.textColor = UIColor.white
         
         //load email address creation
         loadTextView(emailTextView, box: emailAddressBox, im: emailImage)
@@ -203,7 +203,7 @@ class SignUp1: UIViewController {
         //BACKGROUND
         //Sets up the background layer; creates a background rectangle, shades it in, and then adds the image in the background to fill the whole thing
         //let layer = UIView(frame: CGRect(x: -967, y: -214, width: 2337, height: 1547))
-        backgroundColor.backgroundColor = UIColor(red:0.03, green:0.12, blue:0.18, alpha:0.7)
+        backgroundColor.backgroundColor = UIColor(red:0.03, green:0.12, blue:0.18, alpha:0.8)
         //self.view.addSubview(layer)
         backgroundImage.image = #imageLiteral(resourceName: "sign-up-background")
         backgroundImage.contentMode = .scaleAspectFill
@@ -276,7 +276,7 @@ class SignUp1: UIViewController {
         
         if textField == usernameTextView {
             if usernameTextView.text!.count > 0 && !userArray.contains(usernameTextView.text!) {
-                usernameImage.image = #imageLiteral(resourceName: "MailIconBlueTrans")
+                usernameImage.image = #imageLiteral(resourceName: "PersonBlueTrans")
             }
             else {
                 usernameImage.image = #imageLiteral(resourceName: "man")
@@ -285,7 +285,7 @@ class SignUp1: UIViewController {
         
         if textField == passwordTextView {
             if passwordTextView.text!.count > 5 {
-                passwordImage.image = #imageLiteral(resourceName: "MailIconBlueTrans")
+                passwordImage.image = #imageLiteral(resourceName: "LockIconBlueTrans")
             }
             else {
                 passwordImage.image = #imageLiteral(resourceName: "locked (1)")
@@ -294,7 +294,7 @@ class SignUp1: UIViewController {
         
         if textField == confirmPasswordTextView {
             if confirmPasswordTextView.text!.count > 5 {
-                confirmPasswordImage.image = #imageLiteral(resourceName: "MailIconBlueTrans")
+                confirmPasswordImage.image = #imageLiteral(resourceName: "CheckCircleBlueTrans")
             }
             else {
                 confirmPasswordImage.image = #imageLiteral(resourceName: "verified")
