@@ -64,6 +64,8 @@ class SignUp1: UIViewController {
     @IBOutlet weak var dotFourth: UIView!
     @IBOutlet weak var dotLast: UIView!
     
+    let bundleIdentifier =  Bundle.main.bundleIdentifier
+    
     
     //next button outlet
     @IBOutlet weak var nextButton: UIButton!
@@ -99,6 +101,7 @@ class SignUp1: UIViewController {
         }
     
     override func viewDidLoad() {
+        print("bundle: ", bundleIdentifier)
         emailTextView.delegate = self
         usernameTextView.delegate = self
         passwordTextView.delegate = self

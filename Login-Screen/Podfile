@@ -12,5 +12,10 @@ target 'Login-Screen' do
   pod 'Firebase/Database'
   pod 'Firebase/Auth'
   
+  # Pods for Facebook
+  pod 'Bolts'
+  pod 'FBSDKCoreKit'
+  pod 'FBSDKLoginKit'
+  
 
 end

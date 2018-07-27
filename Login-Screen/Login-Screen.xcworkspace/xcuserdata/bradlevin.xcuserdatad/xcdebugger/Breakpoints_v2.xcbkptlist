@@ -42,13 +42,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Login-Screen/LoginAccessible/SignUp1.swift"
-            timestampString = "554243777.262606"
+            timestampString = "554350811.447598"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "310"
-            endingLineNumber = "310"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            startingLineNumber = "313"
+            endingLineNumber = "313"
+            landmarkName = "textFieldDidEndEditing(_:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
