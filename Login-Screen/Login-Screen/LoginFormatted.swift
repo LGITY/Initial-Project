@@ -260,6 +260,7 @@ class LoginFormatted: UIViewController {
                 print("Failed to get access token")
                 return
             }
+            //dkddkkd
             
             let credential = FacebookAuthProvider.credential(withAccessToken: accessToken.tokenString)
             
