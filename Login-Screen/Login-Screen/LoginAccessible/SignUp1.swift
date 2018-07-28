@@ -118,9 +118,9 @@ class SignUp1: UIViewController {
         logo.contentMode = .scaleAspectFit
         
         //load login label
-        //signUpLabel.text = "Sign Up"
-        //signUpLabel.textAlignment = .center
-        //signUpLabel.textColor = UIColor.white
+        signUpLabel.text = "Sign Up"
+        signUpLabel.textAlignment = .center
+        signUpLabel.textColor = UIColor.white
         
         //load email address creation
         loadTextView(emailTextView, box: emailAddressBox, im: emailImage)
@@ -388,6 +388,7 @@ class SignUp1: UIViewController {
     
     var errorMessage = ""
      var info: Dictionary  = ["email": "", "username" : "", "password": ""]
+    
     @IBAction func nextPressed(_ sender: Any) {
         var userCreated = false
         if let email = emailTextView.text, let pass = passwordTextView.text, let user = usernameTextView.text, let confirm = confirmPasswordTextView.text {

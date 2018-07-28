@@ -9,8 +9,6 @@
 import UIKit
 import Foundation
 import Firebase
-import FBSDKCoreKit
-import FBSDKLoginKit
 
 class SignUp2: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
     
@@ -18,6 +16,12 @@ class SignUp2: UIViewController, UINavigationControllerDelegate, UIImagePickerCo
     @IBOutlet weak var backgroundImage: UIImageView!
     @IBOutlet weak var backgroundColor: UIView!
     @IBOutlet weak var profPicImage: UIImageView!
+    
+    //navigation bar outlets
+    @IBOutlet weak var navBar: UINavigationBar!
+    @IBOutlet weak var backButton: UIBarButtonItem!
+    @IBOutlet weak var skipButton: UIBarButtonItem!
+    
     
     //header outlets
     @IBOutlet weak var profPicButton: UIButton!
@@ -49,7 +53,6 @@ class SignUp2: UIViewController, UINavigationControllerDelegate, UIImagePickerCo
     @IBOutlet weak var signInButton: UIButton!
     var info: Dictionary<String, String> = [:]
     
-    let loginButton = FBSDKLoginButton()
     
 
     
@@ -60,14 +63,7 @@ class SignUp2: UIViewController, UINavigationControllerDelegate, UIImagePickerCo
         
         // Override point for customization after application launch.
         FirebaseApp.configure()
-        FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
         return true
-    }
-   
-    func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
-        let handled = FBSDKApplicationDelegate.sharedInstance().application(app, open: url, options: options)
-        
-        return handled
     }
     
     
@@ -80,12 +76,16 @@ class SignUp2: UIViewController, UINavigationControllerDelegate, UIImagePickerCo
         //loads the background image
         loadBackground()
         
+        //loads navigation bar
+        loadNavigationBar()
+        
         //load add profile pic button
         profPicButton.layer.cornerRadius = profPicButton.frame.size.width/2
-        profPicButton.backgroundColor = UIColor.lightGray
-        profPicButton.alpha = 0.6
+        profPicButton.backgroundColor = UIColor.white
+        profPicButton.alpha = 0.4
         
         //load profile picture image
+        profPicImage.layer.backgroundColor = UIColor.white.withAlphaComponent(0.40).cgColor
         profPicImage.layer.cornerRadius = profPicImage.frame.size.width/2
         profPicImage.clipsToBounds = true
         profPicImage.isHidden = true
@@ -122,7 +122,8 @@ class SignUp2: UIViewController, UINavigationControllerDelegate, UIImagePickerCo
         
         //load next button
         nextButton.layer.cornerRadius = 15
-        
+            //UIFont(name: "Arial", size: 12)!], for: UIControlState.normal)
+
         // Do any additional setup after loading the view.
     }
     
@@ -207,6 +208,13 @@ class SignUp2: UIViewController, UINavigationControllerDelegate, UIImagePickerCo
         }
     }
     
+    func loadNavigationBar() {
+        navBar.setBackgroundImage(UIImage(), for: .default)
+        navBar.shadowImage = UIImage()
+        navBar.isTranslucent = true
+        
+        skipButton.setTitleTextAttributes([NSAttributedStringKey.font : UIFont(name: "Futura-Bold", size: 17)!], for: UIControlState.normal)
+    }
     
     func loadBackground() {
         //BACKGROUND
@@ -259,45 +267,6 @@ class SignUp2: UIViewController, UINavigationControllerDelegate, UIImagePickerCo
     }
     */
 
-    
-    
-//    @IBAction func facebookPressed(_ sender: Any) {
-//        let fbLoginManager = FBSDKLoginManager()
-//        fbLoginManager.logIn(withReadPermissions: ["public_profile", "email"], from: self) { (result, error) in
-//            if let error = error {
-//                print("Failed to login: \(error.localizedDescription)")
-//                return
-//            }
-//
-//            guard let accessToken = FBSDKAccessToken.current() else {
-//                print("Failed to get access token")
-//                return
-//            }
-//
-//            let credential = FacebookAuthProvider.credential(withAccessToken: accessToken.tokenString)
-//
-//            // Perform login by calling Firebase APIs
-//            Auth.auth().signIn(with: credential, completion: { (user, error) in
-//                if let error = error {
-//                    print("Login error: \(error.localizedDescription)")
-//                    let alertController = UIAlertController(title: "Login Error", message: error.localizedDescription, preferredStyle: .alert)
-//                    let okayAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
-//                    alertController.addAction(okayAction)
-//                    self.present(alertController, animated: true, completion: nil)
-//
-//                    return
-//                }
-//
-//                // Present the main view
-//                if let viewController = self.storyboard?.instantiateViewController(withIdentifier: "MainView") {
-//                    UIApplication.shared.keyWindow?.rootViewController = viewController
-//                    self.dismiss(animated: true, completion: nil)
-//                }
-//
-//            })
-//
-//        }
-//    }
 }
 
 extension SignUp2:

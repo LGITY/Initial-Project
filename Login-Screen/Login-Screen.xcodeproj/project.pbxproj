@@ -30,6 +30,7 @@
 		7083AD9420FC54B9005D72B1 /* SignUp1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7083AD9320FC54B9005D72B1 /* SignUp1.swift */; };
 		7083AD9620FC54D5005D72B1 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7083AD9520FC54D5005D72B1 /* Home.swift */; };
 		70846A882108625200DDB6D5 /* cropViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70846A872108625200DDB6D5 /* cropViewController.swift */; };
+		70A10BD2210BAB480003119E /* SignUp3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70A10BD1210BAB480003119E /* SignUp3.swift */; };
 		70A82EE620F569CE00699D4C /* PostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70A82EE420F569CE00699D4C /* PostCell.swift */; };
 		70A82EE720F569CE00699D4C /* PostCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 70A82EE520F569CE00699D4C /* PostCell.xib */; };
 		70DA12C32108094000705049 /* SignUp2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70DA12C22108094000705049 /* SignUp2.swift */; };
@@ -84,6 +85,7 @@
 		7083AD9320FC54B9005D72B1 /* SignUp1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUp1.swift; sourceTree = "<group>"; };
 		7083AD9520FC54D5005D72B1 /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
 		70846A872108625200DDB6D5 /* cropViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = cropViewController.swift; sourceTree = "<group>"; };
+		70A10BD1210BAB480003119E /* SignUp3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUp3.swift; sourceTree = "<group>"; };
 		70A82EE420F569CE00699D4C /* PostCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCell.swift; sourceTree = "<group>"; };
 		70A82EE520F569CE00699D4C /* PostCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PostCell.xib; sourceTree = "<group>"; };
 		70DA12C22108094000705049 /* SignUp2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUp2.swift; sourceTree = "<group>"; };
@@ -210,6 +212,7 @@
 				7083AD8F20FC540B005D72B1 /* TermsOfService.swift */,
 				7083AD9320FC54B9005D72B1 /* SignUp1.swift */,
 				70DA12C22108094000705049 /* SignUp2.swift */,
+				70A10BD1210BAB480003119E /* SignUp3.swift */,
 				70846A872108625200DDB6D5 /* cropViewController.swift */,
 				7083AD9120FC5435005D72B1 /* PrivacyPolicy.swift */,
 			);
@@ -421,6 +424,7 @@
 				129FC1BC20F1B7C2000E0CB9 /* ViewController2.swift in Sources */,
 				1239257120D2EFA2002D68D1 /* LogInViewController.swift in Sources */,
 				70846A882108625200DDB6D5 /* cropViewController.swift in Sources */,
+				70A10BD2210BAB480003119E /* SignUp3.swift in Sources */,
 				1239256F20D2EF99002D68D1 /* SignUpViewController.swift in Sources */,
 				704272F320F8653300D11DBA /* LoginFormatted.swift in Sources */,
 				7083AD9620FC54D5005D72B1 /* Home.swift in Sources */,
@@ -598,7 +602,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = C7C8Z86327;
+				DEVELOPMENT_TEAM = TL9BB86JQV;
 				INFOPLIST_FILE = "Login-Screen/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -619,7 +623,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = C7C8Z86327;
+				DEVELOPMENT_TEAM = TL9BB86JQV;
 				INFOPLIST_FILE = "Login-Screen/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
