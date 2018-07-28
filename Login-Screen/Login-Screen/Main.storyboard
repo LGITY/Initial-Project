@@ -1132,6 +1132,9 @@
                                                 <state key="normal" title="Sign in.">
                                                     <color key="titleColor" red="0.027450980390000001" green="1" blue="0.51764705879999995" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
+                                                <connections>
+                                                    <segue destination="8Y1-5u-rjD" kind="show" id="avU-xs-CoB"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
@@ -1147,6 +1150,9 @@
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lzo-x4-957">
                                                                 <rect key="frame" x="0.0" y="0.0" width="96.5" height="92"/>
                                                                 <state key="normal" image="ball-of-basketball (2)"/>
+                                                                <connections>
+                                                                    <action selector="sportsButton:" destination="TFw-61-dns" eventType="touchUpInside" id="Wxf-L1-Pjk"/>
+                                                                </connections>
                                                             </button>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sports" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vmT-B6-vcj">
                                                                 <rect key="frame" x="0.0" y="92" width="96.5" height="14.5"/>
@@ -1162,6 +1168,9 @@
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NOp-R0-y8M">
                                                                 <rect key="frame" x="0.0" y="0.0" width="127" height="92"/>
                                                                 <state key="normal" image="running"/>
+                                                                <connections>
+                                                                    <action selector="conditioningButton:" destination="TFw-61-dns" eventType="touchUpInside" id="r0u-k4-tPt"/>
+                                                                </connections>
                                                             </button>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Conditioning &amp; Exercise" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c7V-kI-FAC">
                                                                 <rect key="frame" x="0.0" y="92" width="127" height="14.5"/>
@@ -1177,6 +1186,9 @@
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BG6-wz-aAP">
                                                                 <rect key="frame" x="0.0" y="0.0" width="96.5" height="92"/>
                                                                 <state key="normal" image="restaurant"/>
+                                                                <connections>
+                                                                    <action selector="foodButton:" destination="TFw-61-dns" eventType="touchUpInside" id="BKw-5D-uRg"/>
+                                                                </connections>
                                                             </button>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Food" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MTY-lJ-DMn">
                                                                 <rect key="frame" x="0.0" y="92" width="96.5" height="14.5"/>
@@ -1204,6 +1216,9 @@
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F5l-g7-y9L">
                                                                 <rect key="frame" x="0.0" y="0.0" width="96.5" height="92.5"/>
                                                                 <state key="normal" image="relax (1)"/>
+                                                                <connections>
+                                                                    <action selector="chillButton:" destination="TFw-61-dns" eventType="touchUpInside" id="Hbo-TP-FSW"/>
+                                                                </connections>
                                                             </button>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Chilling" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4ca-BZ-p3p">
                                                                 <rect key="frame" x="0.0" y="92.5" width="96.5" height="14.5"/>
@@ -1219,6 +1234,9 @@
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="akk-OA-oFH">
                                                                 <rect key="frame" x="0.0" y="0.0" width="127" height="92.5"/>
                                                                 <state key="normal" image="gamepad-controller"/>
+                                                                <connections>
+                                                                    <action selector="tvButton:" destination="TFw-61-dns" eventType="touchUpInside" id="swz-OC-f6X"/>
+                                                                </connections>
                                                             </button>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TV &amp; Video Games" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R3o-ig-OVf">
                                                                 <rect key="frame" x="0.0" y="92.5" width="127" height="14.5"/>
@@ -1234,6 +1252,9 @@
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yHY-6y-aeO">
                                                                 <rect key="frame" x="0.0" y="0.0" width="96.5" height="92.5"/>
                                                                 <state key="normal" image="man-in-a-party-dancing-with-people"/>
+                                                                <connections>
+                                                                    <action selector="partyButton:" destination="TFw-61-dns" eventType="touchUpInside" id="Sag-ab-5Tk"/>
+                                                                </connections>
                                                             </button>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Partying" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sem-N2-zc4">
                                                                 <rect key="frame" x="0.0" y="92.5" width="96.5" height="14.5"/>
@@ -1254,6 +1275,9 @@
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ATN-xk-P4h">
                                                                 <rect key="frame" x="0.0" y="0.0" width="96.5" height="92"/>
                                                                 <state key="normal" image="book"/>
+                                                                <connections>
+                                                                    <action selector="studyButton:" destination="TFw-61-dns" eventType="touchUpInside" id="FLv-4w-HoG"/>
+                                                                </connections>
                                                             </button>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Studying" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YDu-gj-Ezo">
                                                                 <rect key="frame" x="0.0" y="92" width="96.5" height="14.5"/>
@@ -1269,6 +1293,9 @@
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rpM-Tx-4i8">
                                                                 <rect key="frame" x="0.0" y="0.0" width="127" height="92"/>
                                                                 <state key="normal" image="ticket"/>
+                                                                <connections>
+                                                                    <action selector="concertButton:" destination="TFw-61-dns" eventType="touchUpInside" id="Caa-jo-vwx"/>
+                                                                </connections>
                                                             </button>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Concerts &amp; Ballgames" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PAl-KK-sPq">
                                                                 <rect key="frame" x="0.0" y="92" width="127" height="14.5"/>
@@ -1284,6 +1311,9 @@
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vpy-0k-OKk">
                                                                 <rect key="frame" x="0.0" y="0.0" width="96.5" height="92"/>
                                                                 <state key="normal" image="charity"/>
+                                                                <connections>
+                                                                    <action selector="careButton:" destination="TFw-61-dns" eventType="touchUpInside" id="QtH-aO-CO8"/>
+                                                                </connections>
                                                             </button>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Self-Care" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gqa-MU-BvR">
                                                                 <rect key="frame" x="0.0" y="92" width="96.5" height="14.5"/>
@@ -1353,25 +1383,93 @@
                         <outlet property="backButton" destination="h3j-iR-cM9" id="ikk-YG-NSc"/>
                         <outlet property="backgroundColor" destination="bkJ-iN-7RX" id="LbO-1a-j3R"/>
                         <outlet property="backgroundPic" destination="8QL-CJ-6Kp" id="kYF-Sv-At1"/>
+                        <outlet property="careButton" destination="vpy-0k-OKk" id="Uat-Ob-zME"/>
+                        <outlet property="careLabel" destination="Gqa-MU-BvR" id="Ahj-wP-z8u"/>
+                        <outlet property="chillButton" destination="F5l-g7-y9L" id="dne-nA-4ej"/>
+                        <outlet property="chillLabel" destination="4ca-BZ-p3p" id="gjF-QC-jlb"/>
+                        <outlet property="concertButton" destination="rpM-Tx-4i8" id="h8f-kd-0V8"/>
+                        <outlet property="concertLabel" destination="PAl-KK-sPq" id="5w1-IN-iq2"/>
+                        <outlet property="conditioningButton" destination="NOp-R0-y8M" id="GdC-Qr-wcH"/>
+                        <outlet property="conditioningLabel" destination="c7V-kI-FAC" id="BS6-Zu-6Nd"/>
                         <outlet property="dotFirst" destination="e9o-90-OwI" id="4B6-xX-vQ0"/>
                         <outlet property="dotFourth" destination="bFc-Uy-nOA" id="zLg-qJ-DR4"/>
                         <outlet property="dotLast" destination="qdj-iU-15D" id="V88-gV-ZR3"/>
                         <outlet property="dotSecond" destination="tkI-ko-J06" id="d32-kz-71Y"/>
                         <outlet property="dotStack" destination="5UM-hX-Z2S" id="jzO-t4-kbr"/>
                         <outlet property="dotThird" destination="reN-TV-Iy4" id="3ml-j0-VyT"/>
+                        <outlet property="foodButton" destination="BG6-wz-aAP" id="rLt-cv-ccy"/>
+                        <outlet property="foodLabel" destination="MTY-lJ-DMn" id="3wW-20-AVi"/>
                         <outlet property="headerLabel" destination="M3K-6Y-MiQ" id="dio-v5-ZBo"/>
                         <outlet property="navBar" destination="VD0-eH-2ES" id="Sr3-uQ-kOY"/>
                         <outlet property="nextButton" destination="Pnf-0Z-Ajv" id="Gfh-cm-tJh"/>
+                        <outlet property="partyButton" destination="yHY-6y-aeO" id="oIO-jV-bfh"/>
+                        <outlet property="partyLabel" destination="Sem-N2-zc4" id="QJX-zc-b8g"/>
                         <outlet property="rowOne" destination="af3-ZW-XIO" id="ncr-Tg-mEq"/>
                         <outlet property="rowThree" destination="wU6-bV-nW2" id="sXa-hj-9jz"/>
                         <outlet property="rowTwo" destination="rjP-N0-Dhn" id="haq-4N-lKn"/>
                         <outlet property="skipButton" destination="fRh-iJ-HRW" id="BqI-Fq-vXv"/>
+                        <outlet property="sportsButton" destination="Lzo-x4-957" id="3og-Oz-uic"/>
+                        <outlet property="sportsLabel" destination="vmT-B6-vcj" id="AQ8-kY-MyH"/>
+                        <outlet property="studyButton" destination="ATN-xk-P4h" id="K9f-ce-H9r"/>
+                        <outlet property="studyLabel" destination="YDu-gj-Ezo" id="dKw-Lc-fPe"/>
+                        <outlet property="tvButton" destination="akk-OA-oFH" id="MeR-uK-D2L"/>
+                        <outlet property="tvLabel" destination="R3o-ig-OVf" id="kRg-2G-puv"/>
                         <outlet property="verticalStack" destination="OEF-xh-tmA" id="0oh-ap-tdX"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ok1-Zo-ptn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1116" y="3715.5922038980511"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="mf2-ud-OBx">
+            <objects>
+                <viewController id="GKw-0B-Ouc" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="O3y-U7-jdc">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vrf-Xf-EsE">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" red="0.027450980390000001" green="1" blue="0.51764705879999995" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="-17" translatesAutoresizingMaskIntoConstraints="NO" id="dH6-cE-4NU">
+                                <rect key="frame" x="22.5" y="235.5" width="330" height="196"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PlusOneLogoWHITETRANS (1)" translatesAutoresizingMaskIntoConstraints="NO" id="j6B-v5-ugl">
+                                        <rect key="frame" x="0.0" y="0.0" width="330" height="128"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="128" id="UZa-Hq-8kg"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Let's Get Started." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IWI-ay-s6h">
+                                        <rect key="frame" x="0.0" y="111" width="330" height="85"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="85" id="4a0-Ir-OyL"/>
+                                            <constraint firstAttribute="width" constant="330" id="jCs-n9-8g1"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Futura-Bold" family="Futura" pointSize="32"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="dH6-cE-4NU" firstAttribute="centerY" secondItem="O3y-U7-jdc" secondAttribute="centerY" id="7SM-hK-MvX"/>
+                            <constraint firstItem="vrf-Xf-EsE" firstAttribute="height" secondItem="O3y-U7-jdc" secondAttribute="height" id="AsV-Qs-oBa"/>
+                            <constraint firstItem="vrf-Xf-EsE" firstAttribute="centerX" secondItem="UdN-CN-zH4" secondAttribute="centerX" id="WyG-TZ-3NE"/>
+                            <constraint firstItem="vrf-Xf-EsE" firstAttribute="centerY" secondItem="O3y-U7-jdc" secondAttribute="centerY" id="XHd-yu-Z8A"/>
+                            <constraint firstItem="dH6-cE-4NU" firstAttribute="centerX" secondItem="O3y-U7-jdc" secondAttribute="centerX" id="miH-5R-ZcR"/>
+                            <constraint firstItem="vrf-Xf-EsE" firstAttribute="width" secondItem="O3y-U7-jdc" secondAttribute="width" id="q2E-6j-PDS"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="UdN-CN-zH4"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="U8S-m9-idK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-284" y="3716"/>
         </scene>
         <!--Sign Up1-->
         <scene sceneID="6dr-eD-fYl">
@@ -1869,6 +1967,9 @@
                                                 <state key="normal" title="Sign in.">
                                                     <color key="titleColor" red="0.027450980390000001" green="1" blue="0.51764705879999995" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
+                                                <connections>
+                                                    <segue destination="8Y1-5u-rjD" kind="show" id="2b6-Vt-rc9"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
@@ -1940,7 +2041,7 @@
                                             <constraint firstAttribute="width" constant="123" id="Qxh-h7-L4u"/>
                                             <constraint firstAttribute="height" constant="123" id="rIU-3l-YL7"/>
                                         </constraints>
-                                        <state key="normal" image="add"/>
+                                        <state key="normal" image="navyadd"/>
                                         <connections>
                                             <action selector="profPicButton:" destination="wrk-cN-tfw" eventType="touchUpInside" id="Cyn-M9-f0L"/>
                                         </connections>
@@ -1971,29 +2072,20 @@
                                             </navigationItem>
                                         </items>
                                     </navigationBar>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="HPO-qv-WMA">
-                                        <rect key="frame" x="126" y="70" width="123" height="123"/>
-                                    </imageView>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="PA7-so-zq1" firstAttribute="centerX" secondItem="rU3-81-2xa" secondAttribute="centerX" id="0Pp-7G-F6M"/>
-                                    <constraint firstItem="HPO-qv-WMA" firstAttribute="width" secondItem="5La-Ey-381" secondAttribute="width" id="36B-lI-Buj"/>
-                                    <constraint firstItem="HPO-qv-WMA" firstAttribute="baseline" secondItem="5La-Ey-381" secondAttribute="bottom" id="3Fr-3Q-HOw"/>
                                     <constraint firstItem="6Zr-Yb-2Ga" firstAttribute="trailing" secondItem="irw-gL-McA" secondAttribute="trailing" id="4iV-FF-XKb"/>
                                     <constraint firstItem="6Zr-Yb-2Ga" firstAttribute="width" secondItem="irw-gL-McA" secondAttribute="width" id="62G-Hh-Axo"/>
                                     <constraint firstItem="rU3-81-2xa" firstAttribute="top" secondItem="PA7-so-zq1" secondAttribute="bottom" constant="8" symbolic="YES" id="8xQ-WN-fB8"/>
                                     <constraint firstItem="irw-gL-McA" firstAttribute="top" secondItem="9u3-ei-gTg" secondAttribute="bottom" constant="20" id="Gx5-Xr-Ovs"/>
                                     <constraint firstItem="6lN-vE-3G6" firstAttribute="top" secondItem="DjG-27-OCp" secondAttribute="top" constant="20" id="JjK-ZP-oIB"/>
                                     <constraint firstItem="rU3-81-2xa" firstAttribute="centerX" secondItem="6Zr-Yb-2Ga" secondAttribute="centerX" id="QY6-mu-cbL"/>
-                                    <constraint firstItem="HPO-qv-WMA" firstAttribute="trailing" secondItem="5La-Ey-381" secondAttribute="trailing" id="RBs-ph-5Z4"/>
                                     <constraint firstItem="6lN-vE-3G6" firstAttribute="width" secondItem="DjG-27-OCp" secondAttribute="width" id="S3P-CS-JpD"/>
-                                    <constraint firstItem="HPO-qv-WMA" firstAttribute="leading" secondItem="5La-Ey-381" secondAttribute="leading" id="TDt-aY-CoY"/>
                                     <constraint firstItem="5La-Ey-381" firstAttribute="centerX" secondItem="9u3-ei-gTg" secondAttribute="centerX" id="W7b-89-q68"/>
                                     <constraint firstItem="6Zr-Yb-2Ga" firstAttribute="top" secondItem="irw-gL-McA" secondAttribute="bottom" constant="20" id="bey-27-Wqh"/>
-                                    <constraint firstItem="HPO-qv-WMA" firstAttribute="height" secondItem="5La-Ey-381" secondAttribute="height" id="cxX-BV-MF9"/>
                                     <constraint firstItem="irw-gL-McA" firstAttribute="width" secondItem="9u3-ei-gTg" secondAttribute="width" id="fom-B3-OZX"/>
-                                    <constraint firstItem="HPO-qv-WMA" firstAttribute="centerX" secondItem="5La-Ey-381" secondAttribute="centerX" id="ggz-xj-Wvf"/>
                                     <constraint firstItem="gi6-Tn-p49" firstAttribute="centerX" secondItem="rU3-81-2xa" secondAttribute="centerX" id="grH-5I-DGm"/>
                                     <constraint firstItem="6lN-vE-3G6" firstAttribute="centerX" secondItem="DjG-27-OCp" secondAttribute="centerX" id="kTU-pK-dON"/>
                                     <constraint firstItem="PA7-so-zq1" firstAttribute="centerX" secondItem="6Zr-Yb-2Ga" secondAttribute="centerX" id="l0x-GQ-qTI"/>
@@ -2017,20 +2109,28 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="HPO-qv-WMA">
+                                <rect key="frame" x="126" y="70" width="123" height="123"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="9u3-ei-gTg" firstAttribute="top" secondItem="dbP-bw-NAH" secondAttribute="bottom" constant="21" id="1Oc-1m-Dw0"/>
                             <constraint firstItem="dbP-bw-NAH" firstAttribute="top" secondItem="5La-Ey-381" secondAttribute="bottom" constant="12" id="2sN-rK-tFD"/>
+                            <constraint firstItem="HPO-qv-WMA" firstAttribute="centerX" secondItem="5La-Ey-381" secondAttribute="centerX" id="7m2-1L-0NI"/>
                             <constraint firstItem="9u3-ei-gTg" firstAttribute="leading" secondItem="Qvn-i6-NcM" secondAttribute="leading" constant="37" id="AH7-jX-RiV"/>
+                            <constraint firstItem="HPO-qv-WMA" firstAttribute="height" secondItem="5La-Ey-381" secondAttribute="height" id="CnG-e1-KoU"/>
                             <constraint firstItem="1N3-Eh-asR" firstAttribute="centerX" secondItem="PmF-OX-2F9" secondAttribute="centerX" id="DHw-lu-Ce2"/>
                             <constraint firstItem="DjG-27-OCp" firstAttribute="width" secondItem="PmF-OX-2F9" secondAttribute="width" id="F2I-T9-9UF"/>
                             <constraint firstItem="5La-Ey-381" firstAttribute="centerX" secondItem="Qvn-i6-NcM" secondAttribute="centerX" id="Lxw-rH-src"/>
+                            <constraint firstItem="HPO-qv-WMA" firstAttribute="trailing" secondItem="5La-Ey-381" secondAttribute="trailing" id="M2X-3B-lax"/>
+                            <constraint firstItem="HPO-qv-WMA" firstAttribute="width" secondItem="5La-Ey-381" secondAttribute="width" id="Ro3-yH-dgM"/>
+                            <constraint firstItem="HPO-qv-WMA" firstAttribute="baseline" secondItem="5La-Ey-381" secondAttribute="bottom" id="Uyd-x7-tPv"/>
                             <constraint firstItem="1N3-Eh-asR" firstAttribute="height" secondItem="PmF-OX-2F9" secondAttribute="height" id="WLo-Ud-xtz"/>
                             <constraint firstItem="9u3-ei-gTg" firstAttribute="centerX" secondItem="dbP-bw-NAH" secondAttribute="centerX" id="aLY-IO-ELS"/>
+                            <constraint firstItem="HPO-qv-WMA" firstAttribute="leading" secondItem="5La-Ey-381" secondAttribute="leading" id="cAY-Oe-2of"/>
                             <constraint firstItem="DjG-27-OCp" firstAttribute="height" secondItem="PmF-OX-2F9" secondAttribute="height" id="eDO-Gf-KOe"/>
                             <constraint firstItem="DjG-27-OCp" firstAttribute="centerY" secondItem="PmF-OX-2F9" secondAttribute="centerY" id="gb1-Km-2Yi"/>
-                            <constraint firstItem="HPO-qv-WMA" firstAttribute="centerX" secondItem="Qvn-i6-NcM" secondAttribute="centerX" id="ojz-d6-boP"/>
                             <constraint firstItem="1N3-Eh-asR" firstAttribute="centerY" secondItem="PmF-OX-2F9" secondAttribute="centerY" id="t88-RR-DKE"/>
                             <constraint firstItem="1N3-Eh-asR" firstAttribute="width" secondItem="PmF-OX-2F9" secondAttribute="width" id="vkV-WG-cbF"/>
                             <constraint firstItem="DjG-27-OCp" firstAttribute="centerX" secondItem="PmF-OX-2F9" secondAttribute="centerX" id="xc2-za-Zfh"/>
@@ -2449,12 +2549,13 @@
     </scenes>
     <resources>
         <image name="BackArrowIconwhite" width="24" height="24"/>
-        <image name="add" width="32" height="32"/>
+        <image name="PlusOneLogoWHITETRANS (1)" width="2100" height="1500"/>
         <image name="ball-of-basketball (2)" width="64" height="64"/>
         <image name="book" width="64" height="64"/>
         <image name="charity" width="64" height="64"/>
         <image name="gamepad-controller" width="64" height="64"/>
         <image name="man-in-a-party-dancing-with-people" width="64" height="64"/>
+        <image name="navyadd" width="32" height="32"/>
         <image name="overhead_soccer" width="1920" height="1080"/>
         <image name="plusonelogofulltrans" width="2100" height="1500"/>
         <image name="relax (1)" width="64" height="64"/>
@@ -2465,9 +2566,9 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="Q7A-Tl-bNP"/>
-        <segue reference="vT6-n1-i3S"/>
+        <segue reference="geH-W5-zn5"/>
         <segue reference="Kdv-n1-O0x"/>
-        <segue reference="4w9-KA-3Oc"/>
+        <segue reference="2b6-Vt-rc9"/>
         <segue reference="Sg7-9M-UP8"/>
         <segue reference="lvG-cy-99q"/>
         <segue reference="X5O-dy-mPa"/>

@@ -97,13 +97,13 @@ class SignUp2: UIViewController, UINavigationControllerDelegate, UIImagePickerCo
         
         //load first name
         loadTextView(firstTextView, box: firstBox, im: firstImage)
-        firstImage.image = #imageLiteral(resourceName: "man")
+        firstImage.image = #imageLiteral(resourceName: "penciliconGraytrans")
         firstImage.contentMode = .scaleAspectFit
         firstTextView.attributedPlaceholder = NSAttributedString(string: "first name", attributes: [NSAttributedStringKey.foregroundColor: UIColor.white])
         
         //load last name
         loadTextView(lastTextView, box: lastBox, im: lastImage)
-        lastImage.image = #imageLiteral(resourceName: "man")
+        lastImage.image = #imageLiteral(resourceName: "penciliconGraytrans")
         lastImage.contentMode = .scaleAspectFit
         lastTextView.attributedPlaceholder = NSAttributedString(string: "last name", attributes: [NSAttributedStringKey.foregroundColor: UIColor.white])
         
@@ -171,6 +171,17 @@ class SignUp2: UIViewController, UINavigationControllerDelegate, UIImagePickerCo
             sorted_pos = Int(last_pos)
         }
         moveTextField(textField: textField, moveDistance: sorted_pos, up: false)
+    }
+    
+    @objc func textFieldDidChange(_ textField: UITextField) {
+        //checks to see if the text field is for the email
+        
+        if firstTextView.text!.count > 0 {
+            firstImage.image = #imageLiteral(resourceName: "penciliconBlueTrans")
+        }
+        else {
+            firstImage.image = #imageLiteral(resourceName: "penciliconGraytrans")
+        }
     }
     
     func moveTextField(textField: UITextField, moveDistance: Int, up: Bool) {
