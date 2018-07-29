@@ -31,6 +31,8 @@
 		7083AD9620FC54D5005D72B1 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7083AD9520FC54D5005D72B1 /* Home.swift */; };
 		70846A882108625200DDB6D5 /* cropViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70846A872108625200DDB6D5 /* cropViewController.swift */; };
 		70A10BD2210BAB480003119E /* SignUp3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70A10BD1210BAB480003119E /* SignUp3.swift */; };
+		70A10BD4210D63D40003119E /* tabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70A10BD3210D63D40003119E /* tabBarController.swift */; };
+		70A10BD6210D6B630003119E /* settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70A10BD5210D6B630003119E /* settings.swift */; };
 		70A82EE620F569CE00699D4C /* PostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70A82EE420F569CE00699D4C /* PostCell.swift */; };
 		70A82EE720F569CE00699D4C /* PostCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 70A82EE520F569CE00699D4C /* PostCell.xib */; };
 		70DA12C32108094000705049 /* SignUp2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70DA12C22108094000705049 /* SignUp2.swift */; };
@@ -86,6 +88,8 @@
 		7083AD9520FC54D5005D72B1 /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
 		70846A872108625200DDB6D5 /* cropViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = cropViewController.swift; sourceTree = "<group>"; };
 		70A10BD1210BAB480003119E /* SignUp3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUp3.swift; sourceTree = "<group>"; };
+		70A10BD3210D63D40003119E /* tabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tabBarController.swift; sourceTree = "<group>"; };
+		70A10BD5210D6B630003119E /* settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = settings.swift; sourceTree = "<group>"; };
 		70A82EE420F569CE00699D4C /* PostCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCell.swift; sourceTree = "<group>"; };
 		70A82EE520F569CE00699D4C /* PostCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PostCell.xib; sourceTree = "<group>"; };
 		70DA12C22108094000705049 /* SignUp2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUp2.swift; sourceTree = "<group>"; };
@@ -160,6 +164,8 @@
 				1239253E20D2EF08002D68D1 /* AppDelegate.swift */,
 				1239254020D2EF08002D68D1 /* ViewController.swift */,
 				1239256C20D2EF45002D68D1 /* Main.storyboard */,
+				70A10BD5210D6B630003119E /* settings.swift */,
+				70A10BD3210D63D40003119E /* tabBarController.swift */,
 				7083AD9520FC54D5005D72B1 /* Home.swift */,
 				704272F220F8653300D11DBA /* LoginFormatted.swift */,
 				7058F7DE20E7675A00F860A2 /* ComposeViewController.swift */,
@@ -421,6 +427,7 @@
 				7083AD9020FC540B005D72B1 /* TermsOfService.swift in Sources */,
 				1239257320D2EFA9002D68D1 /* MainNavigationController.swift in Sources */,
 				7083AD9220FC5435005D72B1 /* PrivacyPolicy.swift in Sources */,
+				70A10BD4210D63D40003119E /* tabBarController.swift in Sources */,
 				129FC1BC20F1B7C2000E0CB9 /* ViewController2.swift in Sources */,
 				1239257120D2EFA2002D68D1 /* LogInViewController.swift in Sources */,
 				70846A882108625200DDB6D5 /* cropViewController.swift in Sources */,
@@ -430,6 +437,7 @@
 				7083AD9620FC54D5005D72B1 /* Home.swift in Sources */,
 				1239254120D2EF08002D68D1 /* ViewController.swift in Sources */,
 				70A82EE620F569CE00699D4C /* PostCell.swift in Sources */,
+				70A10BD6210D6B630003119E /* settings.swift in Sources */,
 				1239253F20D2EF08002D68D1 /* AppDelegate.swift in Sources */,
 				1239257520D2EFB0002D68D1 /* StartViewController.swift in Sources */,
 				7083AD9420FC54B9005D72B1 /* SignUp1.swift in Sources */,

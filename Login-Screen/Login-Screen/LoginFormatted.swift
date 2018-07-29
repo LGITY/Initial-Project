@@ -203,6 +203,39 @@ class LoginFormatted: UIViewController {
         
     }
     
+    @objc func textFieldDidChange(_ textField: UITextField) {
+        //checks to see if the text field is for the email
+        if textField == passwordTextField {
+            if passwordTextField.text!.count > 5 {
+                passwordImage.image = #imageLiteral(resourceName: "LockIconBlueTrans")
+            }
+            else {
+                passwordImage.image = #imageLiteral(resourceName: "locked (1)")
+            }
+        }
+        
+        if textField == usernameTextField {
+            do {
+                //defines a regular expression that should match a valid email
+                let regex =  try NSRegularExpression(pattern: "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}")
+                
+                //if there are matches to the above regular expression, change the image to blue
+                if regex.matches(in: usernameTextField.text!, range: NSRange(usernameTextField.text!.startIndex..., in: usernameTextField.text!)).count > 0 {
+                    usernameImage.image = #imageLiteral(resourceName: "MailIconBlueTrans")
+                }
+                // if not, change the image to grey
+                else {
+                    usernameImage.image = #imageLiteral(resourceName: "envelopeNew")
+                }
+            }
+            // deal with potential error
+            catch let error {
+                print(error)
+                return
+            }
+        }
+    }
+    
     func moveTextField(textField: UITextField, moveDistance: Int, up: Bool) {
         let moveDuration = 0.2
         //this is an inline if statement that checks if up is true or not
