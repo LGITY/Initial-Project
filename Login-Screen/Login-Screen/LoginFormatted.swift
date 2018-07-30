@@ -140,6 +140,9 @@ class LoginFormatted: UIViewController {
         //loads the textfield for the username
         textView.backgroundColor = UIColor.clear
         textView.borderStyle = .none
+        
+        //allows the textView to know everytime it is edited even by one letter. Calls the method textFieldDidChange every time edited
+        textView.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
     }
     
     func loadBackground() {

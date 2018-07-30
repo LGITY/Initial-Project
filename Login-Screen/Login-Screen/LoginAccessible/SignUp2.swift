@@ -34,6 +34,10 @@ class SignUp2: UIViewController, UINavigationControllerDelegate, UIImagePickerCo
     @IBOutlet weak var lastBox: UIView!
     @IBOutlet weak var lastTextView: UITextField!
     @IBOutlet weak var lastImage: UIImageView!
+    @IBOutlet weak var phoneBox: UIView!
+    @IBOutlet weak var phoneTextView: UITextField!
+    @IBOutlet weak var phoneImage: UIImageView!
+    var forward = true
     @IBOutlet weak var facebookBox: UIView!
     @IBOutlet weak var facebookLabel: UIButton!
     @IBOutlet weak var facebookImage: UIImageView!
@@ -54,15 +58,13 @@ class SignUp2: UIViewController, UINavigationControllerDelegate, UIImagePickerCo
     var info: Dictionary<String, String> = [:]
     
     
-
-    
-    
     
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         //method needed to be done to allow Fibrebase API
         
         // Override point for customization after application launch.
         FirebaseApp.configure()
+        //let storage =
         return true
     }
     
@@ -70,8 +72,13 @@ class SignUp2: UIViewController, UINavigationControllerDelegate, UIImagePickerCo
     override func viewDidLoad() {
         print("signUp2 info: ", info)
         super.viewDidLoad()
+        
+        //allows text views to add targets
         firstTextView.delegate = self
         lastTextView.delegate = self
+        phoneTextView.delegate = self
+        
+        //creates a reference to the storage base
         
         //loads the background image
         loadBackground()
@@ -100,12 +107,20 @@ class SignUp2: UIViewController, UINavigationControllerDelegate, UIImagePickerCo
         firstImage.image = #imageLiteral(resourceName: "penciliconGraytrans")
         firstImage.contentMode = .scaleAspectFit
         firstTextView.attributedPlaceholder = NSAttributedString(string: "first name", attributes: [NSAttributedStringKey.foregroundColor: UIColor.white])
+        self.firstTextView.autocapitalizationType = .words
         
         //load last name
         loadTextView(lastTextView, box: lastBox, im: lastImage)
         lastImage.image = #imageLiteral(resourceName: "penciliconGraytrans")
         lastImage.contentMode = .scaleAspectFit
         lastTextView.attributedPlaceholder = NSAttributedString(string: "last name", attributes: [NSAttributedStringKey.foregroundColor: UIColor.white])
+        self.lastTextView.autocapitalizationType = .words
+        
+        //loads phone
+        loadTextView(phoneTextView, box: phoneBox, im: phoneImage)
+        phoneImage.image = #imageLiteral(resourceName: "PhoneNoIcon (1)")
+        phoneImage.contentMode = .scaleAspectFit
+        phoneTextView.attributedPlaceholder = NSAttributedString(string: "phone (optional)", attributes: [NSAttributedStringKey.foregroundColor: UIColor.white])
         
         //loads facebook
         facebookBox.backgroundColor = UIColor(red:0.23, green:0.35, blue:0.6, alpha:1.0)
@@ -123,14 +138,14 @@ class SignUp2: UIViewController, UINavigationControllerDelegate, UIImagePickerCo
         //load next button
         nextButton.layer.cornerRadius = 15
             //UIFont(name: "Arial", size: 12)!], for: UIControlState.normal)
-
+        
         // Do any additional setup after loading the view.
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         firstTextView.resignFirstResponder()
         lastTextView.resignFirstResponder()
-    
+        phoneTextView.resignFirstResponder()
     }
 
     override func didReceiveMemoryWarning() {
@@ -175,12 +190,36 @@ class SignUp2: UIViewController, UINavigationControllerDelegate, UIImagePickerCo
     
     @objc func textFieldDidChange(_ textField: UITextField) {
         //checks to see if the text field is for the email
-        
-        if firstTextView.text!.count > 0 {
-            firstImage.image = #imageLiteral(resourceName: "penciliconBlueTrans")
+        if textField == firstTextView {
+            if textField.text!.count > 0 {
+                firstImage.image = #imageLiteral(resourceName: "penciliconBlueTrans")
+            }
+            else {
+                firstImage.image = #imageLiteral(resourceName: "penciliconGraytrans")
+            }
+        }
+        else if textField == lastTextView {
+            if textField.text!.count > 0 {
+                lastImage.image = #imageLiteral(resourceName: "penciliconBlueTrans")
+            }
+            else {
+                lastImage.image = #imageLiteral(resourceName: "penciliconGraytrans")
+            }
         }
         else {
-            firstImage.image = #imageLiteral(resourceName: "penciliconGraytrans")
+            //FOR LATER -- FIGURE OUT HOW TO MAKE THE PHONE NUMBER FORMATTED
+//            if textField.text!.count == 3 {
+//                if !textField.text!.contains("(") && !textField.text!.contains(")"){
+//                    textField.text! = "(" + textField.text! + ") "
+//                }
+//                forward = !forward
+            //}
+            if textField.text!.count == 10 {
+                phoneImage.image = #imageLiteral(resourceName: "PhoneNoIcon")
+            }
+            else {
+                phoneImage.image = #imageLiteral(resourceName: "PhoneNoIcon (1)")
+            }
         }
     }
     
@@ -200,6 +239,7 @@ class SignUp2: UIViewController, UINavigationControllerDelegate, UIImagePickerCo
     @IBAction func profPicButton(_ sender: Any) {
         var image = UIImagePickerController()
         image.delegate = self
+        image.allowsEditing = true
         image.sourceType = UIImagePickerControllerSourceType.photoLibrary
         
         self.present(image, animated: true, completion: nil)
@@ -207,8 +247,9 @@ class SignUp2: UIViewController, UINavigationControllerDelegate, UIImagePickerCo
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        
         let theInfo: NSDictionary = info as NSDictionary
-        if let img:UIImage = theInfo.object(forKey: UIImagePickerControllerOriginalImage) as? UIImage {
+        if let img:UIImage = theInfo.object(forKey: UIImagePickerControllerEditedImage) as? UIImage {
             self.dismiss(animated: true, completion: nil)
             profPicImage.image = img
             profPicImage.contentMode = .scaleAspectFill
@@ -265,6 +306,9 @@ class SignUp2: UIViewController, UINavigationControllerDelegate, UIImagePickerCo
         //loads the textfield for the username
         textView.backgroundColor = UIColor.clear
         textView.borderStyle = .none
+        
+        //allows the textView to know everytime it is edited even by one letter. Calls the method textFieldDidChange every time edited
+        textView.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
     }
     
 
@@ -286,6 +330,7 @@ UITextFieldDelegate {
         UITextField) -> Bool {
         firstTextView.resignFirstResponder()
         lastTextView.resignFirstResponder()
+        phoneTextView.resignFirstResponder()
         return true
     }
 }

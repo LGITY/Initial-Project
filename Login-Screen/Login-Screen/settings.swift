@@ -16,6 +16,9 @@ class settings: UIViewController {
     
     //settings outlets
     @IBOutlet weak var sampleSwitch: UISwitch!
+    @IBOutlet weak var joinSwitch: UISwitch!
+    @IBOutlet weak var generalSwitch: UISwitch!
+    @IBOutlet weak var twoFactorSwitch: UISwitch!
     
     
     
@@ -26,6 +29,9 @@ class settings: UIViewController {
         loadNavigationBar()
         // Do any additional setup after loading the view.
         sampleSwitch.transform = CGAffineTransform(scaleX: 0.75, y: 0.75)
+        joinSwitch.transform = CGAffineTransform(scaleX: 0.75, y: 0.75)
+        generalSwitch.transform = CGAffineTransform(scaleX: 0.75, y: 0.75)
+        twoFactorSwitch.transform = CGAffineTransform(scaleX: 0.75, y: 0.75)
         
     }
     
@@ -37,7 +43,11 @@ class settings: UIViewController {
         saveButton.setTitleTextAttributes([NSAttributedStringKey.font : UIFont(name: "Futura-Bold", size: 14)!], for: UIControlState.normal)
     }
     
-
+    @IBAction func languageButton(_ sender: Any) {
+        
+    }
+    
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

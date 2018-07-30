@@ -181,9 +181,6 @@ class SignUp1: UIViewController {
 //                print("emailArray count: ", self.emailArray.count)
             }
         })
-        
-        //loads email textView capability to check when changed
-        emailTextView.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
 
 
     }

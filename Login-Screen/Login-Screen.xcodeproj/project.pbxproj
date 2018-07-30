@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1217C37220EB2D3C0081B004 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7010084C20E0BD00008872FC /* GoogleService-Info.plist */; };
-		1217C37320EB2D3D0081B004 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7010084C20E0BD00008872FC /* GoogleService-Info.plist */; };
 		1239253F20D2EF08002D68D1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1239253E20D2EF08002D68D1 /* AppDelegate.swift */; };
 		1239254120D2EF08002D68D1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1239254020D2EF08002D68D1 /* ViewController.swift */; };
 		1239254620D2EF0C002D68D1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1239254520D2EF0C002D68D1 /* Assets.xcassets */; };
@@ -21,8 +19,8 @@
 		1239257320D2EFA9002D68D1 /* MainNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1239257220D2EFA9002D68D1 /* MainNavigationController.swift */; };
 		1239257520D2EFB0002D68D1 /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1239257420D2EFB0002D68D1 /* StartViewController.swift */; };
 		129FC1BC20F1B7C2000E0CB9 /* ViewController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 129FC1BB20F1B7C2000E0CB9 /* ViewController2.swift */; };
-		7010084D20E0BD01008872FC /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7010084C20E0BD00008872FC /* GoogleService-Info.plist */; };
 		704272F320F8653300D11DBA /* LoginFormatted.swift in Sources */ = {isa = PBXBuildFile; fileRef = 704272F220F8653300D11DBA /* LoginFormatted.swift */; };
+		70551490210ECE2800F42F2E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7055148F210ECE2700F42F2E /* GoogleService-Info.plist */; };
 		7058F7DF20E7675A00F860A2 /* ComposeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7058F7DE20E7675A00F860A2 /* ComposeViewController.swift */; };
 		7083AD8E20FC5325005D72B1 /* ForgotPassword.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7083AD8D20FC5325005D72B1 /* ForgotPassword.swift */; };
 		7083AD9020FC540B005D72B1 /* TermsOfService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7083AD8F20FC540B005D72B1 /* TermsOfService.swift */; };
@@ -33,6 +31,7 @@
 		70A10BD2210BAB480003119E /* SignUp3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70A10BD1210BAB480003119E /* SignUp3.swift */; };
 		70A10BD4210D63D40003119E /* tabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70A10BD3210D63D40003119E /* tabBarController.swift */; };
 		70A10BD6210D6B630003119E /* settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70A10BD5210D6B630003119E /* settings.swift */; };
+		70A10BD8210E990A0003119E /* profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70A10BD7210E990A0003119E /* profile.swift */; };
 		70A82EE620F569CE00699D4C /* PostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70A82EE420F569CE00699D4C /* PostCell.swift */; };
 		70A82EE720F569CE00699D4C /* PostCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 70A82EE520F569CE00699D4C /* PostCell.xib */; };
 		70DA12C32108094000705049 /* SignUp2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70DA12C22108094000705049 /* SignUp2.swift */; };
@@ -78,8 +77,8 @@
 		1239257420D2EFB0002D68D1 /* StartViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
 		129FC1BB20F1B7C2000E0CB9 /* ViewController2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController2.swift; sourceTree = "<group>"; };
 		479C0BD47DFC3E77074C57D8 /* Pods-Login-Screen.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Login-Screen.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Login-Screen/Pods-Login-Screen.debug.xcconfig"; sourceTree = "<group>"; };
-		7010084C20E0BD00008872FC /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		704272F220F8653300D11DBA /* LoginFormatted.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginFormatted.swift; sourceTree = "<group>"; };
+		7055148F210ECE2700F42F2E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		7058F7DE20E7675A00F860A2 /* ComposeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComposeViewController.swift; sourceTree = "<group>"; };
 		7083AD8D20FC5325005D72B1 /* ForgotPassword.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPassword.swift; sourceTree = "<group>"; };
 		7083AD8F20FC540B005D72B1 /* TermsOfService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsOfService.swift; sourceTree = "<group>"; };
@@ -90,6 +89,7 @@
 		70A10BD1210BAB480003119E /* SignUp3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUp3.swift; sourceTree = "<group>"; };
 		70A10BD3210D63D40003119E /* tabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tabBarController.swift; sourceTree = "<group>"; };
 		70A10BD5210D6B630003119E /* settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = settings.swift; sourceTree = "<group>"; };
+		70A10BD7210E990A0003119E /* profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = profile.swift; sourceTree = "<group>"; };
 		70A82EE420F569CE00699D4C /* PostCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCell.swift; sourceTree = "<group>"; };
 		70A82EE520F569CE00699D4C /* PostCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PostCell.xib; sourceTree = "<group>"; };
 		70DA12C22108094000705049 /* SignUp2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUp2.swift; sourceTree = "<group>"; };
@@ -169,10 +169,11 @@
 				7083AD9520FC54D5005D72B1 /* Home.swift */,
 				704272F220F8653300D11DBA /* LoginFormatted.swift */,
 				7058F7DE20E7675A00F860A2 /* ComposeViewController.swift */,
+				70A10BD7210E990A0003119E /* profile.swift */,
 				1239254520D2EF0C002D68D1 /* Assets.xcassets */,
 				1239254720D2EF0C002D68D1 /* LaunchScreen.storyboard */,
+				7055148F210ECE2700F42F2E /* GoogleService-Info.plist */,
 				1239254A20D2EF0C002D68D1 /* Info.plist */,
-				7010084C20E0BD00008872FC /* GoogleService-Info.plist */,
 				1239256E20D2EF99002D68D1 /* SignUpViewController.swift */,
 				129FC1BB20F1B7C2000E0CB9 /* ViewController2.swift */,
 				1239257020D2EFA1002D68D1 /* LogInViewController.swift */,
@@ -341,11 +342,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				1239254920D2EF0C002D68D1 /* LaunchScreen.storyboard in Resources */,
-				7010084D20E0BD01008872FC /* GoogleService-Info.plist in Resources */,
 				70F6BE4321004E4800ED6356 /* Images.xcassets in Resources */,
 				70A82EE720F569CE00699D4C /* PostCell.xib in Resources */,
 				1239254620D2EF0C002D68D1 /* Assets.xcassets in Resources */,
 				1239256D20D2EF45002D68D1 /* Main.storyboard in Resources */,
+				70551490210ECE2800F42F2E /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -353,7 +354,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1217C37220EB2D3C0081B004 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -361,7 +361,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1217C37320EB2D3D0081B004 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -441,6 +440,7 @@
 				1239253F20D2EF08002D68D1 /* AppDelegate.swift in Sources */,
 				1239257520D2EFB0002D68D1 /* StartViewController.swift in Sources */,
 				7083AD9420FC54B9005D72B1 /* SignUp1.swift in Sources */,
+				70A10BD8210E990A0003119E /* profile.swift in Sources */,
 				7058F7DF20E7675A00F860A2 /* ComposeViewController.swift in Sources */,
 				7083AD8E20FC5325005D72B1 /* ForgotPassword.swift in Sources */,
 			);
@@ -617,7 +617,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "LGIT.Login-Screen";
+				PRODUCT_BUNDLE_IDENTIFIER = "LGIT.Login-Screen1";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -638,7 +638,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "LGIT.Login-Screen";
+				PRODUCT_BUNDLE_IDENTIFIER = "LGIT.Login-Screen1";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
