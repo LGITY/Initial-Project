@@ -8,6 +8,7 @@
 
 import UIKit
 import Foundation
+import FirebaseStorage
 import Firebase
 
 class SignUp2: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
@@ -55,7 +56,8 @@ class SignUp2: UIViewController, UINavigationControllerDelegate, UIImagePickerCo
     @IBOutlet weak var signInStack: UIStackView!
     @IBOutlet weak var alreadyAccountLabel: UILabel!
     @IBOutlet weak var signInButton: UIButton!
-    var info: Dictionary<String, String> = [:]
+    var info: NSMutableDictionary = [:]
+    var info2: NSMutableDictionary = [:]
     
     
     
@@ -70,6 +72,7 @@ class SignUp2: UIViewController, UINavigationControllerDelegate, UIImagePickerCo
     
     
     override func viewDidLoad() {
+        
         print("signUp2 info: ", info)
         super.viewDidLoad()
         
@@ -237,6 +240,7 @@ class SignUp2: UIViewController, UINavigationControllerDelegate, UIImagePickerCo
     }
     
     @IBAction func profPicButton(_ sender: Any) {
+        
         var image = UIImagePickerController()
         image.delegate = self
         image.allowsEditing = true
@@ -246,11 +250,42 @@ class SignUp2: UIViewController, UINavigationControllerDelegate, UIImagePickerCo
         
     }
     
+    
+    // ################ #### #  # #   #  # CHOPPY -- MAKE SURE TO LOOK OVER ####### ## ## ##### ### ### ### ##### ##
+    
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        //create reference to Firebase Storage-base
+        let storage_string = info["username"] as! String
+        let storage = Storage.storage().reference().child("prof_pics/" + storage_string)
         
         let theInfo: NSDictionary = info as NSDictionary
         if let img:UIImage = theInfo.object(forKey: UIImagePickerControllerEditedImage) as? UIImage {
             self.dismiss(animated: true, completion: nil)
+            //represents image as png for upload
+            if let uploadableImage = UIImagePNGRepresentation(img) {
+                //throws data to firebase
+                storage.putData(uploadableImage, metadata: nil, completion: { (metadata, error) in
+                    if error != nil {
+                        print(error as! String)
+                        return
+                    }
+                    else {
+                        storage.downloadURL(completion: { (url, error) in
+                            if error != nil {
+                                print(error as! String)
+                                return
+                            }
+                            else {
+                                self.info2["prof-pic"] = url?.absoluteString
+                            }
+                            
+                        })
+                    }
+                    
+                })
+                
+            }
+            
             profPicImage.image = img
             profPicImage.contentMode = .scaleAspectFill
             profPicImage.isHidden = false

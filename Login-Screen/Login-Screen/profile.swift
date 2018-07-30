@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import FirebaseDatabase
+import Firebase
 
 class profile: UIViewController {
     
@@ -25,6 +27,7 @@ class profile: UIViewController {
     
     //selector gadget
     @IBOutlet weak var segmentedControl: UISegmentedControl!
+    var info: Dictionary<String, String> = [:]
     
     
     
@@ -36,9 +39,13 @@ class profile: UIViewController {
         
         //loads background pic for profile and shit
         loadProfBackground()
+            
+        let ref = Database.database().reference()
         
         //load profile picture image
-        profPic.image = #imageLiteral(resourceName: "login")
+        
+        //TO DO: to figure out how to mke the user's easily accessible
+        //profPic.image = ref.child("Users")
         profPic.contentMode = .scaleToFill
         profPic.layer.backgroundColor = UIColor.white.withAlphaComponent(0.40).cgColor
         profPic.layer.cornerRadius = profPic.frame.size.width/2

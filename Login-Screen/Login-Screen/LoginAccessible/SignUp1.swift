@@ -358,7 +358,7 @@ class SignUp1: UIViewController {
         return true
     }
     
-    func getInfo() -> Dictionary<String, String> {
+    func getInfo() -> NSMutableDictionary {
         return info
     }
     
@@ -384,7 +384,7 @@ class SignUp1: UIViewController {
     let error_dict = ["The email address is badly formatted." : "Invalid email address", "There is no user record corresponding to this identifier. The user may have been deleted." : "Incorrect email or password", "The email address is already in use by another account.": "Email address already taken", "The password must be 6 characters long or more.": "Password must be at least 6 characters", "The password is invalid or the user does not have a password." : "Invalid password", "The Internet connection appears to be offline." : "Could not connect to Internet", "Username taken" : "Username already taken! Try another.", "Terms unpressed" : "Please accept the terms and conditions", "Passwords inconsistent" : "Passwords do not match"]
     
     var errorMessage = ""
-     var info: Dictionary  = ["email": "", "username" : "", "password": ""]
+     var info: NSMutableDictionary  = ["email": "", "username" : "", "password": ""]
     
     @IBAction func nextPressed(_ sender: Any) {
         var userCreated = false
