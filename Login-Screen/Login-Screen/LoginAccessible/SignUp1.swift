@@ -95,7 +95,9 @@ class SignUp1: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let destinationController = segue.destination as? SignUp2 {
-            destinationController.info = info
+            for (key, value) in info {
+                destinationController.info[key] = value
+            }
         }
             
         }

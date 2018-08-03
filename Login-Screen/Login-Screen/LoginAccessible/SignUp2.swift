@@ -57,8 +57,6 @@ class SignUp2: UIViewController, UINavigationControllerDelegate, UIImagePickerCo
     @IBOutlet weak var alreadyAccountLabel: UILabel!
     @IBOutlet weak var signInButton: UIButton!
     var info: NSMutableDictionary = [:]
-    var info2: NSMutableDictionary = [:]
-    
     
     
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
@@ -255,8 +253,8 @@ class SignUp2: UIViewController, UINavigationControllerDelegate, UIImagePickerCo
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         //create reference to Firebase Storage-base
-        let storage_string = info["username"] as! String
-        let storage = Storage.storage().reference().child("prof_pics/" + storage_string)
+        let storage_string = self.info["username"] as! String
+        let storage = Storage.storage().reference().child("test.png")
         
         let theInfo: NSDictionary = info as NSDictionary
         if let img:UIImage = theInfo.object(forKey: UIImagePickerControllerEditedImage) as? UIImage {
@@ -266,7 +264,7 @@ class SignUp2: UIViewController, UINavigationControllerDelegate, UIImagePickerCo
                 //throws data to firebase
                 storage.putData(uploadableImage, metadata: nil, completion: { (metadata, error) in
                     if error != nil {
-                        print(error as! String)
+                        print(error)
                         return
                     }
                     else {
@@ -276,7 +274,7 @@ class SignUp2: UIViewController, UINavigationControllerDelegate, UIImagePickerCo
                                 return
                             }
                             else {
-                                self.info2["prof-pic"] = url?.absoluteString
+                                self.info["prof-pic"] = url?.absoluteString
                             }
                             
                         })
