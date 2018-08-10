@@ -13,10 +13,14 @@ target 'Login-Screen' do
   pod 'Firebase/Auth'
   pod 'Firebase/Storage'
   
+  
   # Pods for Facebook
   pod 'Bolts'
   pod 'FBSDKCoreKit'
   pod 'FBSDKLoginKit'
+
+  # Pods for TwilioSms
+  pod 'Alamofire', '~> 4.0.1'
   
 
 end

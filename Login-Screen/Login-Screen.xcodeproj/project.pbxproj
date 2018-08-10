@@ -17,6 +17,7 @@
 		1239257320D2EFA9002D68D1 /* MainNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1239257220D2EFA9002D68D1 /* MainNavigationController.swift */; };
 		1239257520D2EFB0002D68D1 /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1239257420D2EFB0002D68D1 /* StartViewController.swift */; };
 		129FC1BC20F1B7C2000E0CB9 /* ViewController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 129FC1BB20F1B7C2000E0CB9 /* ViewController2.swift */; };
+		7001FD59211BAD2D000C891D /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7001FD57211B8BD0000C891D /* MessageUI.framework */; };
 		704272F320F8653300D11DBA /* LoginFormatted.swift in Sources */ = {isa = PBXBuildFile; fileRef = 704272F220F8653300D11DBA /* LoginFormatted.swift */; };
 		704D596E210FEF8A007D6731 /* SignUp4.swift in Sources */ = {isa = PBXBuildFile; fileRef = 704D596D210FEF8A007D6731 /* SignUp4.swift */; };
 		70551490210ECE2800F42F2E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7055148F210ECE2700F42F2E /* GoogleService-Info.plist */; };
@@ -26,13 +27,14 @@
 		7083AD9220FC5435005D72B1 /* PrivacyPolicy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7083AD9120FC5435005D72B1 /* PrivacyPolicy.swift */; };
 		7083AD9420FC54B9005D72B1 /* SignUp1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7083AD9320FC54B9005D72B1 /* SignUp1.swift */; };
 		7083AD9620FC54D5005D72B1 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7083AD9520FC54D5005D72B1 /* Home.swift */; };
-		70846A882108625200DDB6D5 /* cropViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70846A872108625200DDB6D5 /* cropViewController.swift */; };
 		70A10BD2210BAB480003119E /* SignUp3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70A10BD1210BAB480003119E /* SignUp3.swift */; };
 		70A10BD4210D63D40003119E /* tabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70A10BD3210D63D40003119E /* tabBarController.swift */; };
 		70A10BD6210D6B630003119E /* settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70A10BD5210D6B630003119E /* settings.swift */; };
 		70A10BD8210E990A0003119E /* profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70A10BD7210E990A0003119E /* profile.swift */; };
 		70A82EE620F569CE00699D4C /* PostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70A82EE420F569CE00699D4C /* PostCell.swift */; };
 		70A82EE720F569CE00699D4C /* PostCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 70A82EE520F569CE00699D4C /* PostCell.xib */; };
+		70D54F2421178BD8009E1088 /* AddFriendCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70D54F2221178BD8009E1088 /* AddFriendCell.swift */; };
+		70D54F2521178BD8009E1088 /* AddFriendCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 70D54F2321178BD8009E1088 /* AddFriendCell.xib */; };
 		70DA12C32108094000705049 /* SignUp2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70DA12C22108094000705049 /* SignUp2.swift */; };
 		70F6BE4321004E4800ED6356 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 70F6BE4221004E4800ED6356 /* Images.xcassets */; };
 		AFD3F65EDA6440940EB0B776 /* Pods_Login_Screen.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCDC1A8ABA630DE6B84D94B9 /* Pods_Login_Screen.framework */; };
@@ -57,6 +59,8 @@
 		1239257420D2EFB0002D68D1 /* StartViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
 		129FC1BB20F1B7C2000E0CB9 /* ViewController2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController2.swift; sourceTree = "<group>"; };
 		479C0BD47DFC3E77074C57D8 /* Pods-Login-Screen.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Login-Screen.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Login-Screen/Pods-Login-Screen.debug.xcconfig"; sourceTree = "<group>"; };
+		7001FD56211B80E7000C891D /* Login-Screen.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Login-Screen.entitlements"; sourceTree = "<group>"; };
+		7001FD57211B8BD0000C891D /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		704272F220F8653300D11DBA /* LoginFormatted.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginFormatted.swift; sourceTree = "<group>"; };
 		704D596D210FEF8A007D6731 /* SignUp4.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUp4.swift; sourceTree = "<group>"; };
 		7055148F210ECE2700F42F2E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -66,13 +70,14 @@
 		7083AD9120FC5435005D72B1 /* PrivacyPolicy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyPolicy.swift; sourceTree = "<group>"; };
 		7083AD9320FC54B9005D72B1 /* SignUp1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUp1.swift; sourceTree = "<group>"; };
 		7083AD9520FC54D5005D72B1 /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
-		70846A872108625200DDB6D5 /* cropViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = cropViewController.swift; sourceTree = "<group>"; };
 		70A10BD1210BAB480003119E /* SignUp3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUp3.swift; sourceTree = "<group>"; };
 		70A10BD3210D63D40003119E /* tabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tabBarController.swift; sourceTree = "<group>"; };
 		70A10BD5210D6B630003119E /* settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = settings.swift; sourceTree = "<group>"; };
 		70A10BD7210E990A0003119E /* profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = profile.swift; sourceTree = "<group>"; };
 		70A82EE420F569CE00699D4C /* PostCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCell.swift; sourceTree = "<group>"; };
 		70A82EE520F569CE00699D4C /* PostCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PostCell.xib; sourceTree = "<group>"; };
+		70D54F2221178BD8009E1088 /* AddFriendCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFriendCell.swift; sourceTree = "<group>"; };
+		70D54F2321178BD8009E1088 /* AddFriendCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddFriendCell.xib; sourceTree = "<group>"; };
 		70DA12C22108094000705049 /* SignUp2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUp2.swift; sourceTree = "<group>"; };
 		70F6BE4221004E4800ED6356 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		AFEFDB0402D68BD02FA8CC85 /* Pods_Login_ScreenTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Login_ScreenTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -85,6 +90,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7001FD59211BAD2D000C891D /* MessageUI.framework in Frameworks */,
 				AFD3F65EDA6440940EB0B776 /* Pods_Login_Screen.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -124,6 +130,7 @@
 		1239253D20D2EF08002D68D1 /* Login-Screen */ = {
 			isa = PBXGroup;
 			children = (
+				7001FD56211B80E7000C891D /* Login-Screen.entitlements */,
 				70A82EE320F569B400699D4C /* Cell */,
 				7083AD9720FC54E7005D72B1 /* LoginAccessible */,
 				1239253E20D2EF08002D68D1 /* AppDelegate.swift */,
@@ -170,6 +177,7 @@
 		588C8362F91E5BF174CC60D6 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				7001FD57211B8BD0000C891D /* MessageUI.framework */,
 				FCDC1A8ABA630DE6B84D94B9 /* Pods_Login_Screen.framework */,
 				AFEFDB0402D68BD02FA8CC85 /* Pods_Login_ScreenTests.framework */,
 				B787BE82168F5E8A0DDBC155 /* Pods_Login_ScreenUITests.framework */,
@@ -186,7 +194,6 @@
 				70DA12C22108094000705049 /* SignUp2.swift */,
 				70A10BD1210BAB480003119E /* SignUp3.swift */,
 				704D596D210FEF8A007D6731 /* SignUp4.swift */,
-				70846A872108625200DDB6D5 /* cropViewController.swift */,
 				7083AD9120FC5435005D72B1 /* PrivacyPolicy.swift */,
 			);
 			path = LoginAccessible;
@@ -196,6 +203,8 @@
 			isa = PBXGroup;
 			children = (
 				70A82EE420F569CE00699D4C /* PostCell.swift */,
+				70D54F2221178BD8009E1088 /* AddFriendCell.swift */,
+				70D54F2321178BD8009E1088 /* AddFriendCell.xib */,
 				70A82EE520F569CE00699D4C /* PostCell.xib */,
 			);
 			path = Cell;
@@ -235,6 +244,11 @@
 				TargetAttributes = {
 					1239253A20D2EF08002D68D1 = {
 						CreatedOnToolsVersion = 9.4;
+						SystemCapabilities = {
+							com.apple.SafariKeychain = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -267,6 +281,7 @@
 				1239254620D2EF0C002D68D1 /* Assets.xcassets in Resources */,
 				1239256D20D2EF45002D68D1 /* Main.storyboard in Resources */,
 				70551490210ECE2800F42F2E /* GoogleService-Info.plist in Resources */,
+				70D54F2521178BD8009E1088 /* AddFriendCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -280,6 +295,7 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Login-Screen/Pods-Login-Screen-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework",
 				"${BUILT_PRODUCTS_DIR}/FBSDKCoreKit/FBSDKCoreKit.framework",
 				"${BUILT_PRODUCTS_DIR}/FBSDKLoginKit/FBSDKLoginKit.framework",
@@ -290,6 +306,7 @@
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bolts.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKCoreKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKLoginKit.framework",
@@ -335,7 +352,6 @@
 				70A10BD4210D63D40003119E /* tabBarController.swift in Sources */,
 				129FC1BC20F1B7C2000E0CB9 /* ViewController2.swift in Sources */,
 				1239257120D2EFA2002D68D1 /* LogInViewController.swift in Sources */,
-				70846A882108625200DDB6D5 /* cropViewController.swift in Sources */,
 				704D596E210FEF8A007D6731 /* SignUp4.swift in Sources */,
 				70A10BD2210BAB480003119E /* SignUp3.swift in Sources */,
 				1239256F20D2EF99002D68D1 /* SignUpViewController.swift in Sources */,
@@ -344,6 +360,7 @@
 				1239254120D2EF08002D68D1 /* ViewController.swift in Sources */,
 				70A82EE620F569CE00699D4C /* PostCell.swift in Sources */,
 				70A10BD6210D6B630003119E /* settings.swift in Sources */,
+				70D54F2421178BD8009E1088 /* AddFriendCell.swift in Sources */,
 				1239253F20D2EF08002D68D1 /* AppDelegate.swift in Sources */,
 				1239257520D2EFB0002D68D1 /* StartViewController.swift in Sources */,
 				7083AD9420FC54B9005D72B1 /* SignUp1.swift in Sources */,
@@ -487,6 +504,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_ENTITLEMENTS = "Login-Screen/Login-Screen.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = TL9BB86JQV;
 				INFOPLIST_FILE = "Login-Screen/Info.plist";
@@ -508,6 +526,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_ENTITLEMENTS = "Login-Screen/Login-Screen.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = TL9BB86JQV;
 				INFOPLIST_FILE = "Login-Screen/Info.plist";

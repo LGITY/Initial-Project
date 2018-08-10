@@ -1,4 +1,5 @@
 PODS:
+  - Alamofire (4.0.1)
   - Bolts (1.9.0):
     - Bolts/AppLinks (= 1.9.0)
     - Bolts/Tasks (= 1.9.0)
@@ -53,6 +54,7 @@ PODS:
   - nanopb/encode (0.3.8)
 
 DEPENDENCIES:
+  - Alamofire (~> 4.0.1)
   - Bolts
   - FBSDKCoreKit
   - FBSDKLoginKit
@@ -63,6 +65,7 @@ DEPENDENCIES:
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
+    - Alamofire
     - Bolts
     - FBSDKCoreKit
     - FBSDKLoginKit
@@ -79,6 +82,7 @@ SPEC REPOS:
     - nanopb
 
 SPEC CHECKSUMS:
+  Alamofire: 7682d43245de14874acd142ec137b144aa1dd335
   Bolts: ac6567323eac61e203f6a9763667d0f711be34c8
   FBSDKCoreKit: 0ff57f093b85c8c9d5aba697d3edf68a8960ce78
   FBSDKLoginKit: 8c78f57a145afb756e4755e69195ebe08a42466e
@@ -94,6 +98,6 @@ SPEC CHECKSUMS:
   leveldb-library: 08cba283675b7ed2d99629a4bc5fd052cd2bb6a5
   nanopb: 5601e6bca2dbf1ed831b519092ec110f66982ca3
 
-PODFILE CHECKSUM: f4cc3eae28f91be3c207123b2f960ae3f50ffe36
+PODFILE CHECKSUM: 2d4b040f1cab35b25a4d6906aa3c426a796174a8
 
 COCOAPODS: 1.5.3

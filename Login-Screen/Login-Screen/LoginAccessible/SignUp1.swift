@@ -160,27 +160,12 @@ class SignUp1: UIViewController {
         self.ref?.child("Users").observeSingleEvent(of: .value, with: { (snapshot) in
             for child in snapshot.children {
                 let bchild = child as! DataSnapshot
-                let achild = bchild.value as! [String: String]
-                var username = achild["username"] as! String
-                self.userArray.append(username)
+                let achild = bchild.value as? [String: String]
+                var username = achild?["username"] as? String
+                if let usr = username {
+                    self.userArray.append(usr)
+                }
 //                print("userArray count: ", self.userArray.count)
-            }
-        })
-        
-        //reference implementation for Firebase Database
-        ref = Database.database().reference()
-        
-        //variable to store the emails in (prolly best for this to be an instance variable)
-        
-        
-        //imports already created usernames to userArray
-        self.ref?.child("Users").observeSingleEvent(of: .value, with: { (snapshot) in
-            for child in snapshot.children {
-                let bchild = child as! DataSnapshot
-                let achild = bchild.value as! [String: String]
-                var email = achild["email"] as! String
-                self.emailArray.append(email)
-//                print("emailArray count: ", self.emailArray.count)
             }
         })
 

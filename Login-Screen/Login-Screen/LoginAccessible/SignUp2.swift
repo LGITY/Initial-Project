@@ -254,7 +254,9 @@ class SignUp2: UIViewController, UINavigationControllerDelegate, UIImagePickerCo
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         //create reference to Firebase Storage-base
         let storage_string = self.info["username"] as! String
-        let storage = Storage.storage().reference().child("test.png")
+        
+        //CHANGE THIS TO USER ID NOT USERNAME -- FOR SECURITY PURPOSES
+        let storage = Storage.storage().reference().child("profile-pics").child(storage_string)
         
         let theInfo: NSDictionary = info as NSDictionary
         if let img:UIImage = theInfo.object(forKey: UIImagePickerControllerEditedImage) as? UIImage {

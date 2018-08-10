@@ -1359,6 +1359,14 @@
                                             <constraint firstItem="F5l-g7-y9L" firstAttribute="width" secondItem="Lzo-x4-957" secondAttribute="width" id="w0d-IL-zdC"/>
                                         </constraints>
                                     </stackView>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Kv-G9-pRy">
+                                        <rect key="frame" x="308" y="569" width="32" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="Next"/>
+                                        <connections>
+                                            <segue destination="XgD-fa-Hb4" kind="show" id="Vps-fM-h2t"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
@@ -1638,7 +1646,24 @@
                         <viewLayoutGuide key="safeArea" id="Cil-EG-CEc"/>
                     </view>
                     <connections>
+                        <outlet property="addAll" destination="Gtz-j3-o5T" id="Auy-k3-cqv"/>
+                        <outlet property="backgroundColor" destination="Q9x-nK-eu8" id="09H-g2-Pmo"/>
+                        <outlet property="backgroundImage" destination="ged-Ur-mFd" id="laf-6j-vdl"/>
+                        <outlet property="backgroundTable" destination="mHw-ZY-YjL" id="Tx0-Cg-z9K"/>
+                        <outlet property="dotFirst" destination="mH3-Rc-EB4" id="toq-hy-kfc"/>
+                        <outlet property="dotFourth" destination="xCF-YN-kY6" id="xUP-f3-2pv"/>
+                        <outlet property="dotLast" destination="oJq-9L-wtY" id="Oq4-nk-Lu9"/>
+                        <outlet property="dotSecond" destination="lmh-qb-5kE" id="Net-dR-nqB"/>
+                        <outlet property="dotStack" destination="1td-GB-shw" id="oLP-ue-Qap"/>
+                        <outlet property="dotThird" destination="zi9-jG-RRM" id="mvm-xd-Ql3"/>
+                        <outlet property="friendTable" destination="nfb-gR-btf" id="SFZ-QY-zhW"/>
+                        <outlet property="headerLabel" destination="j26-yu-Kj5" id="LCk-0u-2vm"/>
+                        <outlet property="navBar" destination="oAC-pW-4Nn" id="9Q0-V2-xok"/>
+                        <outlet property="nextButton" destination="ZXA-4J-ui6" id="5Br-Qq-6CC"/>
+                        <outlet property="search" destination="MVi-Uo-6k6" id="og4-Da-Sf7"/>
                         <outlet property="searchDisplayController" destination="bi7-Ea-8jj" id="TbC-yX-EEb"/>
+                        <outlet property="segControl" destination="L5h-6v-1Ia" id="Gq1-dd-LcA"/>
+                        <outlet property="skipButton" destination="Yqs-gp-A67" id="F1O-jk-kUs"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="brd-ES-iLt" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -3082,7 +3107,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="275"/>
                                         <subviews>
                                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xEY-Am-dYK">
-                                                <rect key="frame" x="0.0" y="20" width="375" height="57.5"/>
+                                                <rect key="frame" x="0.0" y="20" width="375" height="69.5"/>
                                                 <textAttributes key="titleTextAttributes">
                                                     <fontDescription key="fontDescription" name="Futura-Bold" family="Futura" pointSize="17"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -3156,7 +3181,7 @@
                                             <constraint firstItem="1Qi-fK-dqr" firstAttribute="top" secondItem="R6I-32-MR6" secondAttribute="bottom" constant="6" id="ZlH-U6-dIu"/>
                                             <constraint firstItem="R6I-32-MR6" firstAttribute="centerY" secondItem="hBM-WI-AvZ" secondAttribute="centerY" id="ixs-db-mjF"/>
                                             <constraint firstItem="V0P-SN-yNT" firstAttribute="centerX" secondItem="hBM-WI-AvZ" secondAttribute="centerX" id="kAf-7k-whH"/>
-                                            <constraint firstItem="R6I-32-MR6" firstAttribute="top" secondItem="xEY-Am-dYK" secondAttribute="bottom" constant="12" id="oRx-xT-ZhQ"/>
+                                            <constraint firstItem="R6I-32-MR6" firstAttribute="top" secondItem="xEY-Am-dYK" secondAttribute="bottom" id="oRx-xT-ZhQ"/>
                                             <constraint firstItem="zuU-iV-CZF" firstAttribute="centerX" secondItem="hBM-WI-AvZ" secondAttribute="centerX" id="sQ9-Vx-9aJ"/>
                                             <constraint firstAttribute="bottom" secondItem="zuU-iV-CZF" secondAttribute="bottom" id="uhX-ra-y1l"/>
                                             <constraint firstItem="xEY-Am-dYK" firstAttribute="top" secondItem="hBM-WI-AvZ" secondAttribute="top" constant="20" id="wPT-Ol-IhG"/>
@@ -3175,17 +3200,20 @@
                                     <constraint firstItem="0Ci-fk-mbq" firstAttribute="height" secondItem="UGo-eO-fxq" secondAttribute="height" id="ocb-85-Kc2"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="X6T-vx-djN">
-                                <rect key="frame" x="67" y="363" width="240" height="128"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="C8N-F9-rpq">
+                                <rect key="frame" x="0.0" y="275" width="375" height="343"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </view>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="C8N-F9-rpq" firstAttribute="width" secondItem="byn-f7-mS5" secondAttribute="width" id="6MN-wz-GBf"/>
+                            <constraint firstItem="C8N-F9-rpq" firstAttribute="top" secondItem="hBM-WI-AvZ" secondAttribute="bottom" id="6oW-Nz-wep"/>
                             <constraint firstItem="UGo-eO-fxq" firstAttribute="top" secondItem="byn-f7-mS5" secondAttribute="top" id="9mg-Qh-5lg"/>
                             <constraint firstItem="UGo-eO-fxq" firstAttribute="width" secondItem="byn-f7-mS5" secondAttribute="width" id="KXB-c3-SYb"/>
                             <constraint firstItem="UGo-eO-fxq" firstAttribute="centerX" secondItem="m5J-dI-FfP" secondAttribute="centerX" id="MdP-7d-S1c"/>
+                            <constraint firstItem="m5J-dI-FfP" firstAttribute="bottom" secondItem="C8N-F9-rpq" secondAttribute="bottom" id="Upi-XS-jUV"/>
+                            <constraint firstItem="C8N-F9-rpq" firstAttribute="centerX" secondItem="m5J-dI-FfP" secondAttribute="centerX" id="nJG-za-JkV"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="m5J-dI-FfP"/>
                     </view>
@@ -3205,7 +3233,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1Gm-BE-vc1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1034" y="3325"/>
+            <point key="canvasLocation" x="1032.8" y="3324.2878560719641"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="lZC-Qs-MwQ">
@@ -3323,13 +3351,14 @@
         <image name="unchecked" width="64" height="64"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Lzc-uk-Lc2"/>
-        <segue reference="vT6-n1-i3S"/>
-        <segue reference="Kdv-n1-O0x"/>
-        <segue reference="N4s-lq-35g"/>
-        <segue reference="2b6-Vt-rc9"/>
-        <segue reference="1d9-Lb-xWv"/>
-        <segue reference="Sg7-9M-UP8"/>
+        <segue reference="UDF-ZA-aMM"/>
+        <segue reference="Q7A-Tl-bNP"/>
+        <segue reference="geH-W5-zn5"/>
+        <segue reference="LzP-pd-VOo"/>
+        <segue reference="6fQ-VG-Y1c"/>
+        <segue reference="rV5-3z-e4p"/>
+        <segue reference="Vpi-LZ-v2f"/>
+        <segue reference="cuI-Sz-HYV"/>
         <segue reference="lvG-cy-99q"/>
         <segue reference="X5O-dy-mPa"/>
     </inferredMetricsTieBreakers>

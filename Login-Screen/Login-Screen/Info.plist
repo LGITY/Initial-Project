@@ -28,6 +28,16 @@
 				<string>fb1802122006537134</string>
 			</array>
 		</dict>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLName</key>
+			<string>Bundle ID</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>LGIT.Login-Screen1</string>
+			</array>
+		</dict>
 	</array>
 	<key>CFBundleVersion</key>
 	<string>1</string>
@@ -37,6 +47,8 @@
 	<string>Plus One</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>NSContactsUsageDescription</key>
+	<string>Need contacts to help suggest initial friends</string>
 	<key>NSPhotoLibraryAddUsageDescription</key>
 	<string>Select Image for Profile</string>
 	<key>UILaunchStoryboardName</key>
