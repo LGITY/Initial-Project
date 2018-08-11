@@ -18,6 +18,8 @@ target 'Login-Screen' do
   pod 'Bolts'
   pod 'FBSDKCoreKit'
   pod 'FBSDKLoginKit'
+  pod 'FacebookCore'
+  pod 'FacebookLogin'
 
   # Pods for TwilioSms
   pod 'Alamofire', '~> 4.0.1'
