@@ -2581,7 +2581,7 @@
                                             <constraint firstItem="D61-Jq-Yv9" firstAttribute="trailing" secondItem="irw-gL-McA" secondAttribute="trailingMargin" id="s58-jZ-ypi"/>
                                         </constraints>
                                     </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6Zr-Yb-2Ga">
+                                    <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6Zr-Yb-2Ga">
                                         <rect key="frame" x="37" y="491" width="301" height="55"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="icm-9M-Mb0">
@@ -3353,9 +3353,9 @@
     <inferredMetricsTieBreakers>
         <segue reference="Q7A-Tl-bNP"/>
         <segue reference="geH-W5-zn5"/>
-        <segue reference="LzP-pd-VOo"/>
-        <segue reference="6fQ-VG-Y1c"/>
-        <segue reference="mje-qC-feG"/>
+        <segue reference="Kdv-n1-O0x"/>
+        <segue reference="N4s-lq-35g"/>
+        <segue reference="2b6-Vt-rc9"/>
         <segue reference="1d9-Lb-xWv"/>
         <segue reference="cuI-Sz-HYV"/>
         <segue reference="lvG-cy-99q"/>

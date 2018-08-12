@@ -10,6 +10,8 @@ import UIKit
 import Foundation
 import FirebaseStorage
 import Firebase
+import FacebookLogin
+import FBSDKLoginKit
 
 class SignUp2: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
     
@@ -57,6 +59,8 @@ class SignUp2: UIViewController, UINavigationControllerDelegate, UIImagePickerCo
     @IBOutlet weak var alreadyAccountLabel: UILabel!
     @IBOutlet weak var signInButton: UIButton!
     var info: NSMutableDictionary = [:]
+    
+    var dict : [String : AnyObject]!
     
     
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
@@ -122,6 +126,12 @@ class SignUp2: UIViewController, UINavigationControllerDelegate, UIImagePickerCo
         phoneImage.image = #imageLiteral(resourceName: "PhoneNoIcon (1)")
         phoneImage.contentMode = .scaleAspectFit
         phoneTextView.attributedPlaceholder = NSAttributedString(string: "phone (optional)", attributes: [NSAttributedStringKey.foregroundColor: UIColor.white])
+        
+        //for facebook Button
+        let loginButton = LoginButton(readPermissions: [.publicProfile])
+        loginButton.center = view.center
+        loginButton.frame = CGRect(x:100, y: 500, width: loginButton.frame.width, height: loginButton.frame.height)
+        view.addSubview(loginButton)
         
         //loads facebook
         facebookBox.backgroundColor = UIColor(red:0.23, green:0.35, blue:0.6, alpha:1.0)
@@ -346,6 +356,34 @@ class SignUp2: UIViewController, UINavigationControllerDelegate, UIImagePickerCo
         textView.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
     }
     
+    @objc func loginButtonClicked() {
+        let loginManager = LoginManager()
+        //        loginManager.logIn(readPermissions: [.publicProfile], viewController: self, completion: ((LoginResult) -> Void)?)
+        
+        loginManager.logIn(readPermissions: [.publicProfile], viewController: self) { loginResult in
+            switch loginResult {
+            case .failed(let error):
+                print(error)
+            case .cancelled:
+                print("User cancelled login.")
+            case .success(let grantedPermissions, let declinedPermissions, let accessToken):
+                self.getFBUserData()
+            }
+        }
+    }
+    
+    func getFBUserData(){
+        
+        if((FBSDKAccessToken.current()) != nil){
+            FBSDKGraphRequest(graphPath: "me", parameters: ["fields": "id, name, picture.type(large), email"]).start(completionHandler: { (connection, result, error) -> Void in
+                if (error == nil){
+                    self.dict = result as! [String : AnyObject]
+                    print(result!)
+                    print(self.dict)
+                }
+            })
+        }
+    
 
     /*
     // MARK: - Navigation
@@ -356,7 +394,7 @@ class SignUp2: UIViewController, UINavigationControllerDelegate, UIImagePickerCo
         // Pass the selected object to the new view controller.
     }
     */
-
+    }
 }
 
 extension SignUp2:

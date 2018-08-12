@@ -49,7 +49,7 @@ class SignUp4: UIViewController, UITableViewDelegate, UITableViewDataSource {
     var contactsLocal: Dictionary = [String:[String]]()
     var contactsCloud = [[String]]()
     
-    var dict : [String : AnyObject]!
+//    var dict : [String : AnyObject]!
 
 
 
@@ -103,12 +103,12 @@ class SignUp4: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
         ref = Database.database().reference()
         
-        let loginButton = LoginButton(readPermissions: [ .publicProfile ])
-        loginButton.center = view.center
-        loginButton.frame = CGRect(x:100, y:60, width:loginButton.frame.width, height:loginButton.frame.height)
-        
-        //adding it to view
-        view.addSubview(loginButton)
+//        let loginButton = LoginButton(readPermissions: [ .publicProfile ])
+//        loginButton.center = view.center
+//        loginButton.frame = CGRect(x:100, y:60, width:loginButton.frame.width, height:loginButton.frame.height)
+//
+//        //adding it to view
+//        view.addSubview(loginButton)
 
         fetchContacts { (result) in
             if result {
@@ -281,34 +281,34 @@ class SignUp4: UIViewController, UITableViewDelegate, UITableViewDataSource {
         // Dispose of any resources that can be recreated.
     }
     
-    @objc func loginButtonClicked() {
-        let loginManager = LoginManager()
-//        loginManager.logIn(readPermissions: [.publicProfile], viewController: self, completion: ((LoginResult) -> Void)?)
-        
-        loginManager.logIn(readPermissions: [.publicProfile], viewController: self) { loginResult in
-            switch loginResult {
-            case .failed(let error):
-                print(error)
-            case .cancelled:
-                print("User cancelled login.")
-            case .success(let grantedPermissions, let declinedPermissions, let accessToken):
-                self.getFBUserData()
-            }
-        }
-    }
-    
-    //function is fetching the user data
-    func getFBUserData(){
-        
-        if((FBSDKAccessToken.current()) != nil){
-            FBSDKGraphRequest(graphPath: "me", parameters: ["fields": "id, name, picture.type(large), email"]).start(completionHandler: { (connection, result, error) -> Void in
-                if (error == nil){
-                    self.dict = result as! [String : AnyObject]
-                    print(result!)
-                    print(self.dict)
-                }
-            })
-        }
+//    @objc func loginButtonClicked() {
+//        let loginManager = LoginManager()
+////        loginManager.logIn(readPermissions: [.publicProfile], viewController: self, completion: ((LoginResult) -> Void)?)
+//
+//        loginManager.logIn(readPermissions: [.publicProfile], viewController: self) { loginResult in
+//            switch loginResult {
+//            case .failed(let error):
+//                print(error)
+//            case .cancelled:
+//                print("User cancelled login.")
+//            case .success(let grantedPermissions, let declinedPermissions, let accessToken):
+//                self.getFBUserData()
+//            }
+//        }
+//    }
+//
+//    //function is fetching the user data
+//    func getFBUserData(){
+//
+//        if((FBSDKAccessToken.current()) != nil){
+//            FBSDKGraphRequest(graphPath: "me", parameters: ["fields": "id, name, picture.type(large), email"]).start(completionHandler: { (connection, result, error) -> Void in
+//                if (error == nil){
+//                    self.dict = result as! [String : AnyObject]
+//                    print(result!)
+//                    print(self.dict)
+//                }
+//            })
+//        }
     }
 
 
@@ -322,4 +322,5 @@ class SignUp4: UIViewController, UITableViewDelegate, UITableViewDataSource {
     }
     */
 
-}
+
+
