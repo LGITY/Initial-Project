@@ -46,9 +46,13 @@ class SignUp4: UIViewController, UITableViewDelegate, UITableViewDataSource {
     //Database Handle that specifies the listener connection
     var databaseHandle: DatabaseHandle?
 
+    //contacts variables
     var contactsLocal: Dictionary = [String:[String]]()
     var contactsCloud = [[String]]()
+    var contactsToImport: Dictionary = [String:[String]]()
     
+    //dictionary that carries information from page to page
+    var info: NSMutableDictionary = [:]
 //    var dict : [String : AnyObject]!
 
 
@@ -56,9 +60,11 @@ class SignUp4: UIViewController, UITableViewDelegate, UITableViewDataSource {
     override func viewDidLoad() {
 
         super.viewDidLoad()
-
         // ALL LAYOUT SETUP //
-
+        
+        //adds a friend list to the info array
+        info["friendList"] = [String]()
+        
         //loads background
         loadBackground()
 
@@ -116,7 +122,7 @@ class SignUp4: UIViewController, UITableViewDelegate, UITableViewDataSource {
             }
         }
 
-        //imports already created usernames to userArray
+        //imports already created usernames to contactsCloud
         self.ref?.child("Users").observeSingleEvent(of: .value, with: { (snapshot) in
             for child in snapshot.children {
                 let bchild = child as! DataSnapshot
@@ -133,6 +139,7 @@ class SignUp4: UIViewController, UITableViewDelegate, UITableViewDataSource {
                 self.contactsCloud.append(arr)
             }
         })
+        
     }
 
     func loadNavigationBar() {
@@ -169,6 +176,29 @@ class SignUp4: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        //decides if the users are PlusOnes yet ot not
+        for key in contactsLocal.keys {
+            let numberList = contactsLocal[key]
+            print(numberList?.count)
+            //determines if the user has a plus one
+            var found = false
+            for number in numberList! {
+                print("In table loop")
+                for ct in self.contactsCloud {
+                    if number == ct[0] || ct[0].contains(number) {
+                        var val = info["friendList"] as! [String]
+                        val.append(ct[1])
+                        info["friendList"] = val
+                        found = true
+                    }
+                }
+                if !found {
+                    print("Contact needs to be imported")
+                    contactsToImport[key] = numberList
+                }
+            }
+        }
+        print("friendlist", info["friendList"])
         friendTable.reloadData()
     }
 
@@ -223,22 +253,22 @@ class SignUp4: UIViewController, UITableViewDelegate, UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print(self.contactsLocal.values)
-        return self.contactsLocal.count
+        print(self.contactsToImport.values)
+        return self.contactsToImport.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         //dequeus the cell that we created and styled in the xib file for reuse
         let cell = tableView.dequeueReusableCell(withIdentifier: "AddFriendCell", for: indexPath) as! AddFriendCell
 
-        let contactsKeyRawUnstring = self.contactsLocal.keys.sorted()
+        let contactsKeyRawUnstring = self.contactsToImport.keys.sorted()
         var contactsKeyString = [String]()
         for k in contactsKeyRawUnstring {
             contactsKeyString.append(k)
         }
 
         let contactsKey = contactsKeyString[indexPath.item]
-        let contactsValue = contactsLocal[contactsKey]
+        let contactsValue = contactsToImport[contactsKey]
         var contactsValFinal = [String]()
         for val in contactsValue! {
             var toAppend = ""
@@ -251,28 +281,9 @@ class SignUp4: UIViewController, UITableViewDelegate, UITableViewDataSource {
             }
         }
         print(contactsValFinal)
-
-        var poVisible = false
-        var poCredentials = ""
-
-
-        for number in contactsValue! {
-            for ct in self.contactsCloud {
-                if number == ct[0] || ct[0].contains(number) {
-                    poVisible = true
-                    poCredentials = ct[1]
-                    break
-                }
-            }
-            if poVisible { break }
-        }
-
-        if poVisible {
-            cell.commonInit(poVisible, name: contactsKey, username: poCredentials)
-        }
-        else {
-            cell.commonInit(poVisible, name: contactsKey, phone: contactsValFinal)
-        }
+        
+        cell.commonInit(name: contactsKey, phone: contactsValFinal)
+        
         return cell
     }
 

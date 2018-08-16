@@ -36,6 +36,7 @@
 		70D54F2421178BD8009E1088 /* AddFriendCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70D54F2221178BD8009E1088 /* AddFriendCell.swift */; };
 		70D54F2521178BD8009E1088 /* AddFriendCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 70D54F2321178BD8009E1088 /* AddFriendCell.xib */; };
 		70DA12C32108094000705049 /* SignUp2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70DA12C22108094000705049 /* SignUp2.swift */; };
+		70DC4F0821255E750020ADDD /* SegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70DC4F0721255E750020ADDD /* SegmentedControl.swift */; };
 		70F6BE4321004E4800ED6356 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 70F6BE4221004E4800ED6356 /* Images.xcassets */; };
 		AFD3F65EDA6440940EB0B776 /* Pods_Login_Screen.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCDC1A8ABA630DE6B84D94B9 /* Pods_Login_Screen.framework */; };
 /* End PBXBuildFile section */
@@ -79,6 +80,7 @@
 		70D54F2221178BD8009E1088 /* AddFriendCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFriendCell.swift; sourceTree = "<group>"; };
 		70D54F2321178BD8009E1088 /* AddFriendCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddFriendCell.xib; sourceTree = "<group>"; };
 		70DA12C22108094000705049 /* SignUp2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUp2.swift; sourceTree = "<group>"; };
+		70DC4F0721255E750020ADDD /* SegmentedControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentedControl.swift; sourceTree = "<group>"; };
 		70F6BE4221004E4800ED6356 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		AFEFDB0402D68BD02FA8CC85 /* Pods_Login_ScreenTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Login_ScreenTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B787BE82168F5E8A0DDBC155 /* Pods_Login_ScreenUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Login_ScreenUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -130,6 +132,7 @@
 		1239253D20D2EF08002D68D1 /* Login-Screen */ = {
 			isa = PBXGroup;
 			children = (
+				70DC4F0621255E430020ADDD /* SwiftFiles */,
 				7001FD56211B80E7000C891D /* Login-Screen.entitlements */,
 				70A82EE320F569B400699D4C /* Cell */,
 				7083AD9720FC54E7005D72B1 /* LoginAccessible */,
@@ -208,6 +211,14 @@
 				70A82EE520F569CE00699D4C /* PostCell.xib */,
 			);
 			path = Cell;
+			sourceTree = "<group>";
+		};
+		70DC4F0621255E430020ADDD /* SwiftFiles */ = {
+			isa = PBXGroup;
+			children = (
+				70DC4F0721255E750020ADDD /* SegmentedControl.swift */,
+			);
+			path = SwiftFiles;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -369,6 +380,7 @@
 				1239257520D2EFB0002D68D1 /* StartViewController.swift in Sources */,
 				7083AD9420FC54B9005D72B1 /* SignUp1.swift in Sources */,
 				70A10BD8210E990A0003119E /* profile.swift in Sources */,
+				70DC4F0821255E750020ADDD /* SegmentedControl.swift in Sources */,
 				7058F7DF20E7675A00F860A2 /* ComposeViewController.swift in Sources */,
 				7083AD8E20FC5325005D72B1 /* ForgotPassword.swift in Sources */,
 			);

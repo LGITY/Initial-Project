@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14112" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="8Y1-5u-rjD">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="8Y1-5u-rjD">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -9,6 +9,7 @@
         <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -1488,7 +1489,7 @@
                                             <constraint firstAttribute="width" constant="150" id="aht-XP-VYz"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="Futura-Bold" family="Futura" pointSize="25"/>
-                                        <state key="normal" title="NEXT">
+                                        <state key="normal" title="SIGN UP">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                     </button>
@@ -1555,7 +1556,7 @@
                                         </subviews>
                                     </stackView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add Friends" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j26-yu-Kj5">
-                                        <rect key="frame" x="22.5" y="85" width="330" height="85"/>
+                                        <rect key="frame" x="22.5" y="57.5" width="330" height="85"/>
                                         <constraints>
                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="330" id="6K4-e3-VLy"/>
                                             <constraint firstAttribute="height" constant="85" id="Oa4-Of-8AD"/>
@@ -1566,7 +1567,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mHw-ZY-YjL">
-                                        <rect key="frame" x="22" y="190" width="330" height="330"/>
+                                        <rect key="frame" x="22" y="142.5" width="330" height="377.5"/>
                                         <subviews>
                                             <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="MVi-Uo-6k6">
                                                 <rect key="frame" x="0.0" y="0.0" width="330" height="56"/>
@@ -1591,7 +1592,7 @@
                                                 <state key="normal" title="+ALL"/>
                                             </button>
                                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="nfb-gR-btf">
-                                                <rect key="frame" x="0.0" y="101" width="330" height="229"/>
+                                                <rect key="frame" x="0.0" y="101" width="330" height="276.5"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </tableView>
                                         </subviews>
@@ -1627,8 +1628,8 @@
                                     <constraint firstItem="ZXA-4J-ui6" firstAttribute="centerX" secondItem="Q9x-nK-eu8" secondAttribute="centerX" id="aza-Lh-2Am"/>
                                     <constraint firstItem="1td-GB-shw" firstAttribute="top" secondItem="mHw-ZY-YjL" secondAttribute="bottom" constant="18" id="c8E-F6-twI"/>
                                     <constraint firstItem="ZXA-4J-ui6" firstAttribute="top" secondItem="1td-GB-shw" secondAttribute="bottom" constant="8" symbolic="YES" id="lSt-8W-4bO"/>
-                                    <constraint firstItem="j26-yu-Kj5" firstAttribute="top" secondItem="oAC-pW-4Nn" secondAttribute="bottom" constant="21" id="yhC-Iy-QJ3"/>
-                                    <constraint firstItem="mHw-ZY-YjL" firstAttribute="top" secondItem="j26-yu-Kj5" secondAttribute="bottom" constant="20" id="yjg-pS-XGD"/>
+                                    <constraint firstItem="j26-yu-Kj5" firstAttribute="top" secondItem="oAC-pW-4Nn" secondAttribute="bottom" multiplier="0.9" id="yhC-Iy-QJ3"/>
+                                    <constraint firstItem="mHw-ZY-YjL" firstAttribute="top" secondItem="j26-yu-Kj5" secondAttribute="bottom" id="yjg-pS-XGD"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -3107,7 +3108,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="275"/>
                                         <subviews>
                                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xEY-Am-dYK">
-                                                <rect key="frame" x="0.0" y="20" width="375" height="69.5"/>
+                                                <rect key="frame" x="0.0" y="20" width="375" height="70"/>
                                                 <textAttributes key="titleTextAttributes">
                                                     <fontDescription key="fontDescription" name="Futura-Bold" family="Futura" pointSize="17"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -3121,7 +3122,7 @@
                                                 </items>
                                             </navigationBar>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="R6I-32-MR6">
-                                                <rect key="frame" x="139" y="89.5" width="96" height="96"/>
+                                                <rect key="frame" x="139" y="90" width="96" height="96"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="R6I-32-MR6" secondAttribute="height" multiplier="1:1" id="27O-6o-8VE"/>
                                                     <constraint firstAttribute="width" constant="96" id="4j6-n7-KkI"/>
@@ -3129,7 +3130,7 @@
                                                 </constraints>
                                             </imageView>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="equalCentering" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="V0P-SN-yNT">
-                                                <rect key="frame" x="107.5" y="222" width="160" height="15"/>
+                                                <rect key="frame" x="108" y="222.5" width="160" height="15"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="521 FRIENDS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Pg-zz-I1H">
                                                         <rect key="frame" x="0.0" y="1.5" width="62" height="12"/>
@@ -3154,37 +3155,37 @@
                                                 </subviews>
                                             </stackView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Aaron Slutkin" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Qi-fK-dqr">
-                                                <rect key="frame" x="125" y="191.5" width="125" height="22.5"/>
+                                                <rect key="frame" x="125" y="192" width="125" height="22.5"/>
                                                 <fontDescription key="fontDescription" name="Futura-Bold" family="Futura" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="zuU-iV-CZF">
-                                                <rect key="frame" x="0.0" y="247" width="375" height="29"/>
-                                                <segments>
-                                                    <segment title="friends"/>
-                                                    <segment title="interests"/>
-                                                    <segment title="groups"/>
-                                                </segments>
-                                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            </segmentedControl>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VFK-S2-FhY" customClass="SegmentedControl" customModule="Login_Screen">
+                                                <rect key="frame" x="0.0" y="245.5" width="375" height="29.5"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </view>
+                                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lT1-J6-V6o">
+                                                <rect key="frame" x="274" y="73" width="67" height="128"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            </scrollView>
                                         </subviews>
                                         <color key="backgroundColor" red="0.32941176470588235" green="0.33725490196078434" blue="0.35686274509803922" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstItem="xEY-Am-dYK" firstAttribute="width" secondItem="hBM-WI-AvZ" secondAttribute="width" id="5iB-Ux-GF0"/>
                                             <constraint firstItem="xEY-Am-dYK" firstAttribute="centerX" secondItem="hBM-WI-AvZ" secondAttribute="centerX" id="8Xw-kZ-hI8"/>
                                             <constraint firstAttribute="height" constant="275" id="Gzz-9y-nWO"/>
-                                            <constraint firstItem="zuU-iV-CZF" firstAttribute="width" secondItem="hBM-WI-AvZ" secondAttribute="width" id="HS4-8H-0hg"/>
                                             <constraint firstItem="V0P-SN-yNT" firstAttribute="top" secondItem="1Qi-fK-dqr" secondAttribute="bottom" constant="8" id="QjV-5P-IhJ"/>
+                                            <constraint firstItem="VFK-S2-FhY" firstAttribute="width" secondItem="hBM-WI-AvZ" secondAttribute="width" id="UGo-qC-8Q9"/>
                                             <constraint firstItem="1Qi-fK-dqr" firstAttribute="centerX" secondItem="hBM-WI-AvZ" secondAttribute="centerX" id="UP7-Vy-6Rb"/>
                                             <constraint firstItem="R6I-32-MR6" firstAttribute="centerX" secondItem="hBM-WI-AvZ" secondAttribute="centerX" id="Y0d-pk-zZV"/>
                                             <constraint firstItem="1Qi-fK-dqr" firstAttribute="top" secondItem="R6I-32-MR6" secondAttribute="bottom" constant="6" id="ZlH-U6-dIu"/>
+                                            <constraint firstItem="VFK-S2-FhY" firstAttribute="centerX" secondItem="hBM-WI-AvZ" secondAttribute="centerX" id="ixp-1J-0GC"/>
                                             <constraint firstItem="R6I-32-MR6" firstAttribute="centerY" secondItem="hBM-WI-AvZ" secondAttribute="centerY" id="ixs-db-mjF"/>
                                             <constraint firstItem="V0P-SN-yNT" firstAttribute="centerX" secondItem="hBM-WI-AvZ" secondAttribute="centerX" id="kAf-7k-whH"/>
+                                            <constraint firstItem="VFK-S2-FhY" firstAttribute="top" secondItem="V0P-SN-yNT" secondAttribute="bottom" constant="8" symbolic="YES" id="mdB-gI-caH"/>
                                             <constraint firstItem="R6I-32-MR6" firstAttribute="top" secondItem="xEY-Am-dYK" secondAttribute="bottom" id="oRx-xT-ZhQ"/>
-                                            <constraint firstItem="zuU-iV-CZF" firstAttribute="centerX" secondItem="hBM-WI-AvZ" secondAttribute="centerX" id="sQ9-Vx-9aJ"/>
-                                            <constraint firstAttribute="bottom" secondItem="zuU-iV-CZF" secondAttribute="bottom" id="uhX-ra-y1l"/>
                                             <constraint firstItem="xEY-Am-dYK" firstAttribute="top" secondItem="hBM-WI-AvZ" secondAttribute="top" constant="20" id="wPT-Ol-IhG"/>
+                                            <constraint firstAttribute="bottom" secondItem="VFK-S2-FhY" secondAttribute="bottom" id="xWU-db-146"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -3218,6 +3219,7 @@
                         <viewLayoutGuide key="safeArea" id="m5J-dI-FfP"/>
                     </view>
                     <tabBarItem key="tabBarItem" systemItem="recents" id="vv7-ct-yhp"/>
+                    <size key="freeformSize" width="375" height="667"/>
                     <connections>
                         <outlet property="backgroundImage" destination="0Ci-fk-mbq" id="LEZ-lC-R5P"/>
                         <outlet property="divider" destination="uEM-sV-tGp" id="Sms-Hs-UoX"/>
@@ -3225,7 +3227,8 @@
                         <outlet property="friendsLabel" destination="1Pg-zz-I1H" id="U5a-DJ-B55"/>
                         <outlet property="navBar" destination="xEY-Am-dYK" id="FAC-QE-c9X"/>
                         <outlet property="profPic" destination="R6I-32-MR6" id="elV-HM-VTV"/>
-                        <outlet property="segmentedControl" destination="zuU-iV-CZF" id="jV3-Zy-dwY"/>
+                        <outlet property="scrollView" destination="lT1-J6-V6o" id="23A-gT-cOr"/>
+                        <outlet property="segmentedControl" destination="VFK-S2-FhY" id="BR6-Ou-HEx"/>
                         <outlet property="settingsButton" destination="64A-sn-KdT" id="n8M-bC-AX9"/>
                         <outlet property="stackView" destination="V0P-SN-yNT" id="3Ms-AW-jzX"/>
                         <outlet property="usrName" destination="1Qi-fK-dqr" id="Ag7-sc-Sx0"/>
@@ -3355,7 +3358,7 @@
         <segue reference="geH-W5-zn5"/>
         <segue reference="Kdv-n1-O0x"/>
         <segue reference="N4s-lq-35g"/>
-        <segue reference="2b6-Vt-rc9"/>
+        <segue reference="rV5-3z-e4p"/>
         <segue reference="1d9-Lb-xWv"/>
         <segue reference="cuI-Sz-HYV"/>
         <segue reference="lvG-cy-99q"/>

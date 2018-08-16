@@ -26,14 +26,13 @@ class profile: UIViewController {
     @IBOutlet weak var divider: UIView!
     
     //selector gadget
-    @IBOutlet weak var segmentedControl: UISegmentedControl!
+    @IBOutlet weak var segmentedControl: SegmentedControl!
     var info: Dictionary<String, String> = [:]
-    
+    @IBOutlet weak var scrollView: UIScrollView!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         //loads navigation bar
         loadNavigationBar()
         
@@ -62,7 +61,21 @@ class profile: UIViewController {
         eventsLabel.textColor = UIColor.white
         
         //load segmented control
-        //segmentedControl.layer.backgroundColor = UIColor.clear.cgColor
+        //passes in a pointer to this view controller that allows for manipulation of it
+        segmentedControl.fullInit(view: self)
+        
+        //allows for the gesture recognition of the swipe left
+        let swipeLeft = UISwipeGestureRecognizer(target: self, action: #selector(profile.respondToSwipeGesture(sender:)))
+        swipeLeft.direction = UISwipeGestureRecognizerDirection.left
+        self.view.addGestureRecognizer(swipeLeft)
+        
+        //allows for the gesture recognition of the swipe right
+        let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(profile.respondToSwipeGesture(sender:)))
+        swipeRight.direction = UISwipeGestureRecognizerDirection.right
+        self.view.addGestureRecognizer(swipeRight)
+        
+        scrollView.showsHorizontalScrollIndicator = false
+        scrollView.isDirectionalLockEnabled = true
         
         // Do any additional setup after loading the view.
     }
@@ -77,6 +90,27 @@ class profile: UIViewController {
         navBar.shadowImage = UIImage()
         navBar.isTranslucent = true
         
+    }
+    
+    @objc func respondToSwipeGesture(sender: UIGestureRecognizer) {
+        if let swiped = sender as? UISwipeGestureRecognizer {
+            switch swiped.direction {
+            case UISwipeGestureRecognizerDirection.left:
+                print("GO LEFT GO LEFT")
+                segmentedControl.displayNewSelectedIndexSwipeLeft(left: true, view: self)
+            case UISwipeGestureRecognizerDirection.right:
+                print("Right babe")
+                segmentedControl.displayNewSelectedIndexSwipeLeft(left: false, view: self)
+            default:
+                break
+            }
+        }
+        //segmentedControl.displayNewSelectedInde
+    }
+    
+    //updates the scroll view to show new content -- makes it so that segmented control class can access locally defined scroll view
+    func updateScroll(xVal: Int, yVal: Int) {
+        scrollView.setContentOffset(CGPoint(x: xVal, y: yVal), animated: true)
     }
 
     override func didReceiveMemoryWarning() {

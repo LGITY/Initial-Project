@@ -77,6 +77,9 @@ class SignUp3: UIViewController {
     @IBOutlet weak var nextButton: UIButton!
     
     
+    //dictionary that carries information from page to page
+    var info: NSMutableDictionary = [:]
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
