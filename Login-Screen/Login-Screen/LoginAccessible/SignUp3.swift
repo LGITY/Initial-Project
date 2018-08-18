@@ -75,6 +75,8 @@ class SignUp3: UIViewController {
     @IBOutlet weak var dotLast: UIView!
     
     @IBOutlet weak var nextButton: UIButton!
+    var activities: [String] = []
+
     
     
     //dictionary that carries information from page to page
@@ -82,6 +84,7 @@ class SignUp3: UIViewController {
     
     
     override func viewDidLoad() {
+        print("signUp3 info: ", info)
         super.viewDidLoad()
         
         //loads background
@@ -157,6 +160,14 @@ class SignUp3: UIViewController {
         
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let destinationController = segue.destination as? SignUp4 {
+            for (key, value) in info {
+                destinationController.info[key] = value
+            }
+        }
+    }
+    
     @IBAction func partyButton(_ sender: Any) {
         changeColor(partyButton, img1: #imageLiteral(resourceName: "man-in-a-party-dancing-with-people (1)"), img2: #imageLiteral(resourceName: "man-in-a-party-dancing-with-people"), lb: partyLabel, bln: partyPressed)
         partyPressed = !partyPressed
@@ -205,6 +216,91 @@ class SignUp3: UIViewController {
     
     
     
+    
+    @IBAction func nextPressed(_ sender: Any) {
+        if sportsPressed {
+            
+            activities.append("sports")
+        }
+        
+        if  conditioningPressed {
+            if activities == nil {
+                activities = ["conditioning"]
+            }
+            else {
+                activities.append("conditioning")
+            }
+            
+        }
+        if  foodPressed {
+            if activities == nil {
+                activities = ["food"]
+            }
+            else {
+                activities.append("food")
+            }
+            
+        }
+        if  chillPressed {
+            if activities == nil {
+                activities = ["chill"]
+            }
+            else {
+                activities.append("chill")
+            }
+            
+        }
+        if  tvPressed {
+            if activities == nil {
+                activities = ["tv"]
+            }
+            else {
+                activities.append("tv")
+            }
+            
+        }
+        if  partyPressed {
+            if activities == nil {
+                activities = ["party"]
+            }
+            else {
+                activities.append("party")
+            }
+            
+        }
+        if  studyPressed {
+            if activities == nil {
+                activities = ["study"]
+            }
+            else {
+                activities.append("study")
+            }
+            
+        }
+        if  concertPressed {
+            if activities == nil {
+                activities = ["concert"]
+            }
+            else {
+                activities.append("concert")
+            }
+            
+        }
+        if  carePressed {
+            if activities == nil {
+                activities = ["care"]
+            }
+            else {
+                activities.append("care")
+            }
+            
+        }
+        info["activities"] = activities
+        print("chach")
+        
+        self.performSegue(withIdentifier: "toSignUp4", sender: self)
+        
+    }
     
     
     

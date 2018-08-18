@@ -372,6 +372,36 @@ class SignUp2: UIViewController, UINavigationControllerDelegate, UIImagePickerCo
         }
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let destinationController = segue.destination as? SignUp3 {
+            for (key, value) in info {
+                destinationController.info[key] = value
+            }
+        }
+    }
+    
+    @IBAction func nextPressed(_ sender: Any) {
+        if let first  = firstTextView.text, let last = lastTextView.text, let phone = phoneTextView.text {
+            if first != "" {
+                if last != "" {
+                    
+                    if (phone.count == 10 || phone.count == 0) {
+                        
+                        info["first"] = first
+                        info["last"] = last
+                        info["phone"] = phone
+                        self.performSegue(withIdentifier: "toSignUp3", sender: self)
+                        
+                        
+                    }
+                    
+                    
+                }
+            }
+        }
+        
+    }
+    
     func getFBUserData(){
         
         if((FBSDKAccessToken.current()) != nil){
@@ -383,6 +413,8 @@ class SignUp2: UIViewController, UINavigationControllerDelegate, UIImagePickerCo
                 }
             })
         }
+        
+    
     
 
     /*

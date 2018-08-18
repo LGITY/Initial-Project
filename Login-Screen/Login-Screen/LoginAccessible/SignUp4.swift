@@ -9,6 +9,7 @@
 import UIKit
 import Contacts
 import FirebaseDatabase
+import Firebase
 import FacebookLogin
 import FBSDKLoginKit
 
@@ -53,11 +54,12 @@ class SignUp4: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     //dictionary that carries information from page to page
     var info: NSMutableDictionary = [:]
-//    var dict : [String : AnyObject]!
+    var dict : [String : AnyObject]!
 
 
 
     override func viewDidLoad() {
+        print("signUp4 info: ", info)
 
         super.viewDidLoad()
         // ALL LAYOUT SETUP //
@@ -121,25 +123,52 @@ class SignUp4: UIViewController, UITableViewDelegate, UITableViewDataSource {
                 friendTable.reloadData()
             }
         }
-
-        //imports already created usernames to contactsCloud
-        self.ref?.child("Users").observeSingleEvent(of: .value, with: { (snapshot) in
-            for child in snapshot.children {
-                let bchild = child as! DataSnapshot
-                let achild = bchild.value as! [String: String]
-                var phone = achild["phone"] as? String
-                var usr = achild["username"] as! String
-                var arr = [String]()
-                if let ph = phone {
-                    arr = [ph,usr]
-                }
-                else {
-                    arr = ["", usr]
-                }
-                self.contactsCloud.append(arr)
-            }
-        })
         
+        //imports already created usernames to userArray
+//        self.ref?.child("Users").observeSingleEvent(of: .value, with: { (snapshot) in
+//            for child in snapshot.children {
+//                let bchild = child as! DataSnapshot
+//                let achild = bchild.value as! [String: String]
+//                var phone = achild["phone"] as? String
+//                var usr = achild["username"] as! String
+//                var arr = [String]()
+//                if let ph = phone {
+//                    arr = [ph,usr]
+//                }
+//                else {
+//                    arr = ["", usr]
+//                }
+//                self.contactsCloud.append(arr)
+//            }
+//        })
+    }
+    
+    @IBAction func signUpPressed(_ sender: Any) {
+        
+        var email = info["email"]
+        var pass = info["password"]
+        Auth.auth().createUser(withEmail: email as! String, password: pass as! String, completion: {(user, error) in
+            if user != nil {
+                //makes user on authentication tab on firebase
+                print("madeUser")
+                
+                //creates the user with the username specified in the database
+                //        let valArray =  ["username" : self.usernameTextView.text,"email" : self.emailTextView.text] as! [String: String]
+                self.ref?.child("Users").child((user?.user.uid)!).setValue(self.info)
+                
+                self.performSegue(withIdentifier: "toHome", sender: self)
+            }
+        }
+        )
+    }
+    
+    
+    func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+        //method needed to be done to allow Fibrebase API
+        
+        // Override point for customization after application launch.
+        FirebaseApp.configure()
+        return true
     }
 
     func loadNavigationBar() {

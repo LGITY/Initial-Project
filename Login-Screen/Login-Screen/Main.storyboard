@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="8Y1-5u-rjD">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14112" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="8Y1-5u-rjD">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -1093,6 +1093,9 @@
                                         <state key="normal" title="NEXT">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
+                                        <connections>
+                                            <action selector="nextPressed:" destination="TFw-61-dns" eventType="touchUpInside" id="iZM-IQ-foU"/>
+                                        </connections>
                                     </button>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="5UM-hX-Z2S">
                                         <rect key="frame" x="152" y="539" width="70" height="10"/>
@@ -1444,6 +1447,7 @@
                         <outlet property="tvButton" destination="akk-OA-oFH" id="MeR-uK-D2L"/>
                         <outlet property="tvLabel" destination="R3o-ig-OVf" id="kRg-2G-puv"/>
                         <outlet property="verticalStack" destination="OEF-xh-tmA" id="0oh-ap-tdX"/>
+                        <segue destination="XgD-fa-Hb4" kind="show" identifier="toSignUp4" id="wHO-sJ-eLD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ok1-Zo-ptn" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1492,6 +1496,9 @@
                                         <state key="normal" title="SIGN UP">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
+                                        <connections>
+                                            <action selector="signUpPressed:" destination="XgD-fa-Hb4" eventType="touchUpInside" id="XiZ-xw-hMn"/>
+                                        </connections>
                                     </button>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="1td-GB-shw">
                                         <rect key="frame" x="152.5" y="538" width="70" height="10"/>
@@ -1665,6 +1672,7 @@
                         <outlet property="searchDisplayController" destination="bi7-Ea-8jj" id="TbC-yX-EEb"/>
                         <outlet property="segControl" destination="L5h-6v-1Ia" id="Gq1-dd-LcA"/>
                         <outlet property="skipButton" destination="Yqs-gp-A67" id="F1O-jk-kUs"/>
+                        <segue destination="GKw-0B-Ouc" kind="show" identifier="toHome" id="HeH-Mo-qhx"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="brd-ES-iLt" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -2483,6 +2491,7 @@
                                         </state>
                                         <connections>
                                             <action selector="nextPressed:" destination="dte-aG-zcH" eventType="touchUpInside" id="n6q-ab-wEh"/>
+                                            <action selector="nextPressed:" destination="wrk-cN-tfw" eventType="touchUpInside" id="oa9-eg-gNS"/>
                                         </connections>
                                     </button>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="PA7-so-zq1">
@@ -2785,6 +2794,7 @@
                         <outlet property="signInButton" destination="qVN-Qc-EWM" id="OVo-yM-VFc"/>
                         <outlet property="signInStack" destination="gi6-Tn-p49" id="U01-ph-hzs"/>
                         <outlet property="skipButton" destination="3m7-hE-6sR" id="VGn-z6-m63"/>
+                        <segue destination="TFw-61-dns" kind="show" identifier="toSignUp3" id="7SO-dP-kQn"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ccf-CZ-Lfs" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -3355,10 +3365,12 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="Q7A-Tl-bNP"/>
-        <segue reference="geH-W5-zn5"/>
+        <segue reference="vT6-n1-i3S"/>
         <segue reference="Kdv-n1-O0x"/>
-        <segue reference="N4s-lq-35g"/>
-        <segue reference="rV5-3z-e4p"/>
+        <segue reference="HeH-Mo-qhx"/>
+        <segue reference="wHO-sJ-eLD"/>
+        <segue reference="7SO-dP-kQn"/>
+        <segue reference="avU-xs-CoB"/>
         <segue reference="1d9-Lb-xWv"/>
         <segue reference="cuI-Sz-HYV"/>
         <segue reference="lvG-cy-99q"/>
