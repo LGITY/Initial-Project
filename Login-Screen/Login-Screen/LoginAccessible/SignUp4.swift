@@ -125,28 +125,28 @@ class SignUp4: UIViewController, UITableViewDelegate, UITableViewDataSource {
         }
         
         //imports already created usernames to userArray
-//        self.ref?.child("Users").observeSingleEvent(of: .value, with: { (snapshot) in
-//            for child in snapshot.children {
-//                let bchild = child as! DataSnapshot
-//                let achild = bchild.value as! [String: String]
-//                var phone = achild["phone"] as? String
-//                var usr = achild["username"] as! String
-//                var arr = [String]()
-//                if let ph = phone {
-//                    arr = [ph,usr]
-//                }
-//                else {
-//                    arr = ["", usr]
-//                }
-//                self.contactsCloud.append(arr)
-//            }
-//        })
+        self.ref?.child("Users").observeSingleEvent(of: .value, with: { (snapshot) in
+            for child in snapshot.children {
+                let bchild = child as! DataSnapshot
+                let achild = bchild.value as! [String: Any]
+                let phone = achild["phone"] as? String
+                let usr = achild["username"] as! String
+                var arr = [String]()
+                if let ph = phone {
+                    arr = [ph,usr]
+                }
+                else {
+                    arr = ["", usr]
+                }
+                self.contactsCloud.append(arr)
+            }
+        })
     }
     
     @IBAction func signUpPressed(_ sender: Any) {
         
-        var email = info["email"]
-        var pass = info["password"]
+        let email = info["email"]
+        let pass = info["password"]
         Auth.auth().createUser(withEmail: email as! String, password: pass as! String, completion: {(user, error) in
             if user != nil {
                 //makes user on authentication tab on firebase
@@ -154,9 +154,13 @@ class SignUp4: UIViewController, UITableViewDelegate, UITableViewDataSource {
                 
                 //creates the user with the username specified in the database
                 //        let valArray =  ["username" : self.usernameTextView.text,"email" : self.emailTextView.text] as! [String: String]
+                //HOLY SHIT THAT IS EASY
                 self.ref?.child("Users").child((user?.user.uid)!).setValue(self.info)
                 
-                self.performSegue(withIdentifier: "toHome", sender: self)
+                //sets the global User variable's uid component to the user's ID
+                SignUp1.User.uid = (user?.user.uid)!
+                
+                self.performSegue(withIdentifier: "toSignUp5", sender: self)
             }
         }
         )
@@ -208,7 +212,6 @@ class SignUp4: UIViewController, UITableViewDelegate, UITableViewDataSource {
         //decides if the users are PlusOnes yet ot not
         for key in contactsLocal.keys {
             let numberList = contactsLocal[key]
-            print(numberList?.count)
             //determines if the user has a plus one
             var found = false
             for number in numberList! {
@@ -227,7 +230,6 @@ class SignUp4: UIViewController, UITableViewDelegate, UITableViewDataSource {
                 }
             }
         }
-        print("friendlist", info["friendList"])
         friendTable.reloadData()
     }
 
@@ -237,6 +239,7 @@ class SignUp4: UIViewController, UITableViewDelegate, UITableViewDataSource {
         store.requestAccess(for: .contacts) { (granted, error) in
             if let err = error {
                 print("Failed to request access")
+                print(err)
                 return
             }
 

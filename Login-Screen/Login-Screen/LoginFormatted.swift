@@ -270,6 +270,11 @@ class LoginFormatted: UIViewController {
             Auth.auth().signIn(withEmail: email, password: pass, completion: {(user, error) in
                 if user != nil {
                     print("ok")
+                    
+                    //sets up the global variable for the current user
+                    SignUp1.User.uid = (user?.user.uid)!
+                    print(SignUp1.User.uid)
+                    print("THIS WAS THE STORED ID ^")
                     self.performSegue(withIdentifier: "goHome", sender: self)
                     // in the future we will use self.performSegue() to have it move to the next screen
                 }

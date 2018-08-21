@@ -17,6 +17,15 @@ struct Store {
 }
 
 class SignUp1: UIViewController {
+    
+    
+    //Global variable to store the current user's User ID
+    struct User {
+        static var uid = "null"
+        static var userInfo: NSMutableDictionary = [:]
+        static var allUsers: NSMutableDictionary = [:]
+    }
+    
     var termsPressed = false
     
     //background and header outlets
@@ -146,7 +155,7 @@ class SignUp1: UIViewController {
         
         //load next button
         nextButton.layer.cornerRadius = 15
-        
+
         //load dots
         loadDots()
         
