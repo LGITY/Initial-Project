@@ -163,9 +163,9 @@ import UIKit
         case 0:
             view.updateScroll(xVal: 0, yVal: 0)
         case 1:
-            view.updateScroll(xVal: 375, yVal: 0)
+            view.updateScroll(xVal: Int(view.view.frame.width), yVal: 0)
         case 2:
-            view.updateScroll(xVal: 750, yVal: 0)
+            view.updateScroll(xVal: Int(view.view.frame.width)*2, yVal: 0)
         default:
             print("blah")
         }

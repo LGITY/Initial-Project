@@ -43,7 +43,12 @@ class profile: UIViewController, UITableViewDelegate, UITableViewDataSource {
     var ref: DatabaseReference!
     
     //creates the variable that stores the friends list
-    var fList: [String] = []
+    var fList: [String] = [] {
+        didSet {
+            print("Hey there")
+            friendTable.reloadData()
+        }
+    }
     
     //creates the variable that stores the event list
     var eList: [String: String] = [:]
@@ -71,9 +76,6 @@ class profile: UIViewController, UITableViewDelegate, UITableViewDataSource {
         friendTable.showsHorizontalScrollIndicator = false
         friendTable.showsVerticalScrollIndicator = false
         
-        
-        print(currentUser)
-        print("^^^^^^^^^")
         //loads navigation bar
         loadNavigationBar()
         
@@ -98,8 +100,8 @@ class profile: UIViewController, UITableViewDelegate, UITableViewDataSource {
         //profPic.image = ref.child("Users")
         
         setupView { (result) in
-
-            friendTable.reloadData()
+            if result {
+            }
         }
         
         
@@ -125,23 +127,15 @@ class profile: UIViewController, UITableViewDelegate, UITableViewDataSource {
         print(self.fList)
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        DispatchQueue.main.async {
-            self.friendTable.reloadData()
-        }
-    }
-    
     
     func loadProfBackground() {
         backgroundImage.image = #imageLiteral(resourceName: "login")
-        friendTable.reloadData()
     }
     
     func loadNavigationBar() {
         navBar.setBackgroundImage(UIImage(), for: .default)
         navBar.shadowImage = UIImage()
         navBar.isTranslucent = true
-        friendTable.reloadData()
         
     }
     
@@ -164,17 +158,12 @@ class profile: UIViewController, UITableViewDelegate, UITableViewDataSource {
             }
             SignUp1.User.allUsers = toSet
             print("finished execution of all users")
-            
-        })
-        
-        
         // THIS CODE SEGMENT IMPORTS ALL RELEVANT INFORMATION ABOUT THE USER. NEEDS TO BE SOMEWHERE THAT IS RUN EVERY TIME THE APP LAUNCHES
-        self.ref?.child("Users").child(currentUser).observe(.value, with: { (snapshot) in
+            self.ref?.child("Users").child(self.currentUser).observe(.value, with: { (snapshot) in
             // Get user value
             let value = snapshot.value as? NSDictionary
             SignUp1.User.userInfo = value as! NSMutableDictionary
             self.fList = SignUp1.User.userInfo["friendList"] as? [String] ?? [String]()
-            
             
             let urlPath = SignUp1.User.userInfo["prof-pic"] as? String
             if let profUrl = urlPath {
@@ -218,7 +207,7 @@ class profile: UIViewController, UITableViewDelegate, UITableViewDataSource {
             self.eList = SignUp1.User.userInfo["events"] as? [String: String] ?? [:]
             self.eventsLabel.text = String(self.eList.count) + " EVENTS"
         })
-        friendTable.reloadData()
+        })
     }
     
     @objc func respondToSwipeGesture(sender: UIGestureRecognizer) {
