@@ -169,48 +169,48 @@ class SignUp3: UIViewController {
     }
     
     @IBAction func partyButton(_ sender: Any) {
-        changeColor(partyButton, img1: #imageLiteral(resourceName: "man-in-a-party-dancing-with-people (1)"), img2: #imageLiteral(resourceName: "man-in-a-party-dancing-with-people"), lb: partyLabel, bln: partyPressed)
+        changeColor(partyButton, img1: #imageLiteral(resourceName: "man-in-a-party-dancing-with-people (1)"), img2: #imageLiteral(resourceName: "Partying"), lb: partyLabel, bln: partyPressed)
         partyPressed = !partyPressed
     }
     
     
     @IBAction func sportsButton(_ sender: Any) {
-        changeColor(sportsButton, img1: #imageLiteral(resourceName: "ball-of-basketball (3)"), img2: #imageLiteral(resourceName: "ball-of-basketball (2)"), lb: sportsLabel, bln: sportsPressed)
+        changeColor(sportsButton, img1: #imageLiteral(resourceName: "ball-of-basketball (3)"), img2: #imageLiteral(resourceName: "sports"), lb: sportsLabel, bln: sportsPressed)
         sportsPressed = !sportsPressed
     }
     
     @IBAction func conditioningButton(_ sender: Any) {
-        changeColor(conditioningButton, img1: #imageLiteral(resourceName: "running (1)"), img2: #imageLiteral(resourceName: "running"), lb: conditioningLabel, bln: conditioningPressed)
+        changeColor(conditioningButton, img1: #imageLiteral(resourceName: "running (1)"), img2: #imageLiteral(resourceName: "Conditioning & Exercise"), lb: conditioningLabel, bln: conditioningPressed)
         conditioningPressed = !conditioningPressed
     }
     
     @IBAction func foodButton(_ sender: Any) {
-        changeColor(foodButton, img1: #imageLiteral(resourceName: "restaurant (1)"), img2: #imageLiteral(resourceName: "restaurant"), lb: foodLabel, bln: foodPressed)
+        changeColor(foodButton, img1: #imageLiteral(resourceName: "restaurant (1)"), img2: #imageLiteral(resourceName: "food"), lb: foodLabel, bln: foodPressed)
         foodPressed = !foodPressed
     }
     
     @IBAction func chillButton(_ sender: Any) {
-        changeColor(chillButton, img1: #imageLiteral(resourceName: "relax (2)"), img2: #imageLiteral(resourceName: "relax (1)"), lb: chillLabel, bln: chillPressed)
+        changeColor(chillButton, img1: #imageLiteral(resourceName: "relax (2)"), img2: #imageLiteral(resourceName: "chill"), lb: chillLabel, bln: chillPressed)
         chillPressed = !chillPressed
     }
     
     @IBAction func tvButton(_ sender: Any) {
-        changeColor(tvButton, img1: #imageLiteral(resourceName: "gamepad-controller (1)"), img2: #imageLiteral(resourceName: "gamepad-controller"), lb: tvLabel, bln: tvPressed)
+        changeColor(tvButton, img1: #imageLiteral(resourceName: "gamepad-controller (1)"), img2: #imageLiteral(resourceName: "TV & Video Games"), lb: tvLabel, bln: tvPressed)
         tvPressed = !tvPressed
     }
     
     @IBAction func studyButton(_ sender: Any) {
-        changeColor(studyButton, img1: #imageLiteral(resourceName: "book (1)"), img2: #imageLiteral(resourceName: "book"), lb: studyLabel, bln: studyPressed)
+        changeColor(studyButton, img1: #imageLiteral(resourceName: "book (1)"), img2: #imageLiteral(resourceName: "study"), lb: studyLabel, bln: studyPressed)
         studyPressed = !studyPressed
     }
     
     @IBAction func concertButton(_ sender: Any) {
-        changeColor(concertButton, img1: #imageLiteral(resourceName: "ticket (1)"), img2: #imageLiteral(resourceName: "ticket"), lb: concertLabel, bln: concertPressed)
+        changeColor(concertButton, img1: #imageLiteral(resourceName: "ticket (1)"), img2: #imageLiteral(resourceName: "Concerts & Ballgames"), lb: concertLabel, bln: concertPressed)
         concertPressed = !concertPressed
     }
     
     @IBAction func careButton(_ sender: Any) {
-        changeColor(careButton, img1: #imageLiteral(resourceName: "charity (1)"), img2: #imageLiteral(resourceName: "charity"), lb: careLabel, bln: carePressed)
+        changeColor(careButton, img1: #imageLiteral(resourceName: "charity (1)"), img2: #imageLiteral(resourceName: "Self-Care"), lb: careLabel, bln: carePressed)
         carePressed = !carePressed
     }
     

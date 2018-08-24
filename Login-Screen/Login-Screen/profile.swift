@@ -27,8 +27,32 @@ class profile: UIViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet weak var eventsLabel: UILabel!
     @IBOutlet weak var divider: UIView!
     
-    //below the top of the profile
+    //below the top of the profile -- FRIEND TAB
     @IBOutlet weak var friendTable: UITableView!
+    
+    //below the top of the profile -- INTERESTS TAB
+    @IBOutlet weak var img1: UIImageView!
+    @IBOutlet weak var lab1: UILabel!
+    @IBOutlet weak var stack1: UIStackView!
+    @IBOutlet weak var img2: UIImageView!
+    @IBOutlet weak var lab2: UILabel!
+    @IBOutlet weak var stack2: UIStackView!
+    @IBOutlet weak var img3: UIImageView!
+    @IBOutlet weak var lab3: UILabel!
+    @IBOutlet weak var stack3: UIStackView!
+    @IBOutlet weak var img4: UIImageView!
+    @IBOutlet weak var lab4: UILabel!
+    @IBOutlet weak var stack4: UIStackView!
+    
+    //below the top of the profile -- GROUPS TAB
+    @IBOutlet weak var groupsTable: UITableView!
+    
+    
+    
+    var imgArray: [UIImageView] = [UIImageView]()
+    var labArray: [UILabel] = [UILabel]()
+    var stackArray: [UIStackView] = [UIStackView]()
+    
     
     
     //selector gadget
@@ -53,16 +77,25 @@ class profile: UIViewController, UITableViewDelegate, UITableViewDataSource {
     //creates the variable that stores the event list
     var eList: [String: String] = [:]
     
+    //creates the variable that stores the group list
+    var gList: [String] = [String]()
+    
     override func viewDidLoad() {
         
         //SUPER VIEW DID LOAD
         super.viewDidLoad()
-
         
-        // REGISTERS NIB
+        self.imgArray = [img1, img2, img3, img4]
+        self.labArray = [lab1, lab2, lab3, lab4]
+        self.stackArray = [stack1, stack2, stack3, stack4]
+        for stack in stackArray {
+            stack.isHidden = true
+            print("hidden !!! ")
+        }
+        // REGISTERS NIBS
         
         
-        //Set up Table View Controller
+        //Set up FRIEND Table View Controller
         friendTable.delegate = self
         friendTable.dataSource = self
         
@@ -75,6 +108,23 @@ class profile: UIViewController, UITableViewDelegate, UITableViewDataSource {
         //disables scrollbar in both directions
         friendTable.showsHorizontalScrollIndicator = false
         friendTable.showsVerticalScrollIndicator = false
+        
+        
+        
+        //Set up FRIEND Table View Controller
+        groupsTable.delegate = self
+        groupsTable.dataSource = self
+        
+        //Creates the nib for the table view to reference
+        let nibName2 = UINib(nibName: "AddGroup", bundle: nil)
+        
+        //registers the nib for use with the table view
+        groupsTable.register(nibName2, forCellReuseIdentifier: "AddGroup")
+        
+        //disables scrollbar in both directions
+        groupsTable.showsHorizontalScrollIndicator = false
+        groupsTable.showsVerticalScrollIndicator = false
+        
         
         //loads navigation bar
         loadNavigationBar()
@@ -100,8 +150,6 @@ class profile: UIViewController, UITableViewDelegate, UITableViewDataSource {
         //profPic.image = ref.child("Users")
         
         setupView { (result) in
-            if result {
-            }
         }
         
         
@@ -136,6 +184,25 @@ class profile: UIViewController, UITableViewDelegate, UITableViewDataSource {
         navBar.setBackgroundImage(UIImage(), for: .default)
         navBar.shadowImage = UIImage()
         navBar.isTranslucent = true
+        
+    }
+    
+    func setupInterests() {
+        //gets the information about the user's interests and the count of how many interests they had
+        let interests = SignUp1.User.userInfo["activities"] as! [String]
+        let count = interests.count
+        
+        
+        
+        var status = 0
+        while status < count {
+            stackArray[status].isHidden = false
+            imgArray[status].image = UIImage(named: interests[status])
+            imgArray[status].contentMode = .scaleAspectFit
+            labArray[status].text = interests[status].capitalized
+            status += 1
+            print("activity " + String(status))
+        }
         
     }
     
@@ -206,6 +273,8 @@ class profile: UIViewController, UITableViewDelegate, UITableViewDataSource {
             self.eventsLabel.textColor = UIColor.white
             self.eList = SignUp1.User.userInfo["events"] as? [String: String] ?? [:]
             self.eventsLabel.text = String(self.eList.count) + " EVENTS"
+            self.setupInterests()
+            print("set this ish up")
         })
         })
     }
@@ -232,35 +301,50 @@ class profile: UIViewController, UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print(self.fList.count)
-        print("FRIEND LIST COUNT ^^")
-        return self.fList.count
-        //return 2
+        if tableView == friendTable {
+            print(self.fList.count)
+            print("FRIEND LIST COUNT ^^")
+            return self.fList.count
+            //return 2
+        }
+        else {
+            print("GROUP LIST COUNT")
+            return self.gList.count + 1
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        //dequeus the cell that we created and styled in the xib file for reuse
-        let cell = tableView.dequeueReusableCell(withIdentifier: "friendsCell", for: indexPath) as! friendsCell
+        if tableView == friendTable {
         
-        let usr = fList[indexPath.item]
-        print("fetching user: " + usr)
-        let uid = SignUp1.User.allUsers[usr] as? String ??  ""
-        print("fetching UID: " + uid)
-        var localName = ""
-        var localUsername = ""
-        if uid != "" {
-            print("success")
-            self.ref?.child("Users").child(uid).observe(.value, with: { (snapshot) in
-                // Get user value
-                let value = snapshot.value as? NSDictionary
-                localUsername = usr
-                localName = (value?["first"] as? String ?? "") + " " + (value?["last"] as? String ?? "")
-                cell.commonInit(name: localName, username: localUsername)
-            })
+            //dequeus the cell that we created and styled in the xib file for reuse
+            let cell = tableView.dequeueReusableCell(withIdentifier: "friendsCell", for: indexPath) as! friendsCell
+            
+            let usr = fList[indexPath.item]
+            print("fetching user: " + usr)
+            let uid = SignUp1.User.allUsers[usr] as? String ??  ""
+            print("fetching UID: " + uid)
+            var localName = ""
+            var localUsername = ""
+            if uid != "" {
+                print("success")
+                self.ref?.child("Users").child(uid).observe(.value, with: { (snapshot) in
+                    // Get user value
+                    let value = snapshot.value as? NSDictionary
+                    localUsername = usr
+                    localName = (value?["first"] as? String ?? "") + " " + (value?["last"] as? String ?? "")
+                    cell.commonInit(name: localName, username: localUsername)
+                })
+            }
+            print("Username:: " + localUsername)
+            print("Name:: " + localName)
+            return cell
         }
-        print("Username:: " + localUsername)
-        print("Name:: " + localName)
-        return cell
+        else {
+            //dequeus the cell that we created and styled in the xib file for reuse
+            let cell = tableView.dequeueReusableCell(withIdentifier: "AddGroup", for: indexPath) as! AddGroup
+            cell.fullInit(view: self)
+            return cell
+        }
     }
     
     //returns the height of the cell

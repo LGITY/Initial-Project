@@ -20,9 +20,9 @@ class SignUp5: UIViewController {
 //        DispatchQueue.main.asyncAfter(deadline: .now() + 2) { // change 2 to desired number of seconds
 //            // Your code with delay
 //        }
-        Timer.scheduledTimer(withTimeInterval: 5, repeats: false) { (timer) in
-            self.performSegue(withIdentifier: "toHome", sender: self)
-        }
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2, execute: {
+            self.performSegue(withIdentifier: "toProfile", sender: self)
+        })
     }
 
     override func didReceiveMemoryWarning() {
