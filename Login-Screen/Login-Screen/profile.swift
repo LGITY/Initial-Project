@@ -11,10 +11,14 @@ import FirebaseDatabase
 import FirebaseStorage
 import Firebase
 
+
+//This class functions as the hub of information for both the internal and external profiles.
+//The information that it provides is dependent upon the currentUser variable, which is set to whichever
+// users profile is being displayed.
 class profile: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     
-    //nav bar outlets
+    //navigation bar outlets
     @IBOutlet weak var navBar: UINavigationBar!
     @IBOutlet weak var settingsButton: UIBarButtonItem!
     
@@ -30,7 +34,7 @@ class profile: UIViewController, UITableViewDelegate, UITableViewDataSource {
     //below the top of the profile -- FRIEND TAB
     @IBOutlet weak var friendTable: UITableView!
     
-    //below the top of the profile -- INTERESTS TAB
+    //INTERESTS TAB: outlets for images, labels, and stacks
     @IBOutlet weak var img1: UIImageView!
     @IBOutlet weak var lab1: UILabel!
     @IBOutlet weak var stack1: UIStackView!
@@ -43,30 +47,57 @@ class profile: UIViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet weak var img4: UIImageView!
     @IBOutlet weak var lab4: UILabel!
     @IBOutlet weak var stack4: UIStackView!
+    @IBOutlet weak var stack5: UIStackView!
+    @IBOutlet weak var img5: UIImageView!
+    @IBOutlet weak var lab5: UILabel!
+    @IBOutlet weak var stack6: UIStackView!
+    @IBOutlet weak var img6: UIImageView!
+    @IBOutlet weak var lab6: UILabel!
+    @IBOutlet weak var stack7: UIStackView!
+    @IBOutlet weak var img7: UIImageView!
+    @IBOutlet weak var lab7: UILabel!
+    @IBOutlet weak var stack8: UIStackView!
+    @IBOutlet weak var img8: UIImageView!
+    @IBOutlet weak var lab8: UILabel!
+    @IBOutlet weak var stack9: UIStackView!
+    @IBOutlet weak var img9: UIImageView!
+    @IBOutlet weak var lab9: UILabel!
+    @IBOutlet weak var stack10: UIStackView!
+    @IBOutlet weak var img10: UIImageView!
+    @IBOutlet weak var lab10: UILabel!
+    @IBOutlet weak var stack11: UIStackView!
+    @IBOutlet weak var img11: UIImageView!
+    @IBOutlet weak var lab11: UILabel!
+    @IBOutlet weak var stack12: UIStackView!
+    @IBOutlet weak var img12: UIImageView!
+    @IBOutlet weak var lab12: UILabel!
     
-    //below the top of the profile -- GROUPS TAB
-    @IBOutlet weak var groupsTable: UITableView!
-    
-    
-    
+    //arrays to store the images, labels, and vertical stacks for the interests tab
     var imgArray: [UIImageView] = [UIImageView]()
     var labArray: [UILabel] = [UILabel]()
     var stackArray: [UIStackView] = [UIStackView]()
     
     
+    //GROUPS TAB outlets -- only the table view. All other outlets are created by the GroupsCell TableCell
+    @IBOutlet weak var groupsTable: UITableView!
     
-    //selector gadget
+    
+    //Outlets for segmented control configuration
     @IBOutlet weak var segmentedControl: SegmentedControl!
     var info: Dictionary<String, String> = [:]
     @IBOutlet weak var scrollView: UIScrollView!
     
-    //stores the current user's uid locally
-    let currentUser = SignUp1.User.uid
     
-    //Reference that links up the database
+    //IMPORTANT: stores the uid of the User whose profile is being displayed.
+    //              Its default display is the Logged in User's profile. It can be set to a different
+    //              user with the setCurrentUser(id: String) function
+    var currentUser = SignUp1.User.uid
+    
+    //Reference that links up the database from firebase
     var ref: DatabaseReference!
     
-    //creates the variable that stores the friends list
+    
+    //Variable that stores the friends list. Every time a friend list is created
     var fList: [String] = [] {
         didSet {
             print("Hey there")
@@ -78,16 +109,21 @@ class profile: UIViewController, UITableViewDelegate, UITableViewDataSource {
     var eList: [String: String] = [:]
     
     //creates the variable that stores the group list
-    var gList: [String] = [String]()
+    var gList: [String] = [String]() {
+        didSet {
+            groupsTable.reloadData()
+        }
+    }
     
     override func viewDidLoad() {
         
         //SUPER VIEW DID LOAD
         super.viewDidLoad()
         
-        self.imgArray = [img1, img2, img3, img4]
-        self.labArray = [lab1, lab2, lab3, lab4]
-        self.stackArray = [stack1, stack2, stack3, stack4]
+
+        self.imgArray = [img1, img2, img3, img4, img5, img6, img7, img8, img9, img10, img11, img12]
+        self.labArray = [lab1, lab2, lab3, lab4, lab5, lab6, lab7, lab8, lab9, lab10, lab11, lab12]
+        self.stackArray = [stack1, stack2, stack3, stack4, stack5, stack6, stack7, stack8, stack9, stack10, stack11, stack12]
         for stack in stackArray {
             stack.isHidden = true
             print("hidden !!! ")
@@ -111,7 +147,7 @@ class profile: UIViewController, UITableViewDelegate, UITableViewDataSource {
         
         
         
-        //Set up FRIEND Table View Controller
+        //Set up GROUP Table View Controller
         groupsTable.delegate = self
         groupsTable.dataSource = self
         
@@ -124,6 +160,14 @@ class profile: UIViewController, UITableViewDelegate, UITableViewDataSource {
         //disables scrollbar in both directions
         groupsTable.showsHorizontalScrollIndicator = false
         groupsTable.showsVerticalScrollIndicator = false
+        
+        //Creates the nib for the table view to reference
+        let nibName3 = UINib(nibName: "GroupCell", bundle: nil)
+        
+        //registers the nib for use with the table view
+        groupsTable.register(nibName3, forCellReuseIdentifier: "GroupCell")
+        
+        
         
         
         //loads navigation bar
@@ -151,6 +195,20 @@ class profile: UIViewController, UITableViewDelegate, UITableViewDataSource {
         
         setupView { (result) in
         }
+        
+        ref?.child("Users").child(currentUser).child("groups").observeSingleEvent(of: .value, with: { (snapshot) in
+            // Get user value
+            let value = snapshot.value as! NSDictionary
+            //let groups = value["groups"]
+            //var tempList = [String]()
+            for key in value {
+                print("element found")
+                self.gList.append(key.key as? String ?? "")
+            }
+            //self.gList = tempList
+            // ...
+            
+        })
         
         
         //load segmented control
@@ -187,9 +245,13 @@ class profile: UIViewController, UITableViewDelegate, UITableViewDataSource {
         
     }
     
+    func setCurrentUser(_ id: String) {
+        self.currentUser = id
+    }
+    
     func setupInterests() {
         //gets the information about the user's interests and the count of how many interests they had
-        let interests = SignUp1.User.userInfo["activities"] as! [String]
+        let interests = SignUp1.User.userInfo["activities"] as? [String] ?? [String]()
         let count = interests.count
         
         
@@ -238,7 +300,7 @@ class profile: UIViewController, UITableViewDelegate, UITableViewDataSource {
                 let url = URLRequest(url: surl!)
                 URLSession.shared.dataTask(with: url) { (data, response, error) in
                     if error != nil {
-                        print(error)
+                        print(error as! String)
                         return
                     }
                     
@@ -340,23 +402,64 @@ class profile: UIViewController, UITableViewDelegate, UITableViewDataSource {
             return cell
         }
         else {
-            //dequeus the cell that we created and styled in the xib file for reuse
-            let cell = tableView.dequeueReusableCell(withIdentifier: "AddGroup", for: indexPath) as! AddGroup
-            cell.fullInit(view: self)
-            return cell
+            print("TABLE CELL CREATED")
+            if indexPath.item == 0 {
+                //dequeus the cell that we created and styled in the xib file for reuse
+                let cell = tableView.dequeueReusableCell(withIdentifier: "AddGroup", for: indexPath) as! AddGroup
+                cell.fullInit(view: self)
+                return cell
+            }
+            else {
+                if gList.count > indexPath.item+1 {
+                    let cell = tableView.dequeueReusableCell(withIdentifier: "GroupCell", for: indexPath) as! GroupCell
+                    var tName = ""
+                    ref?.child("Groups").child(gList[indexPath.item]).observeSingleEvent(of: .value, with: { (snapshot) in
+                        // Get user value
+                        let value = snapshot.value as! NSDictionary
+                        tName = value["name"] as! String
+                    //let tMembers = (ref?.child("Groups").child(gList[indexPath.item]).value(forKey: "members") as! [String])
+                    let tMembers = ["34Js9CsCJxOdWmUxLaRsOFuI3wv2", "wUkrrOHVVNXuz8R2jJJ53m1Ros83"]
+                    cell.commonInit(self.gList[indexPath.item], name: tName, members: tMembers)
+                    
+                        // ...
+                    })
+                    return cell
+                }
+                else {
+                    return UITableViewCell()
+                }
+            }
         }
     }
     
     //returns the height of the cell
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 76
+        return 100
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
-
     
+    var toFriend: String?
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if tableView == groupsTable {
+            GroupSpec.gid = self.gList[indexPath.item]
+            self.performSegue(withIdentifier: "toGroupSpec", sender: self)
+        }
+        else {
+            self.toFriend = SignUp1.User.allUsers[fList[indexPath.item]] as? String
+            self.performSegue(withIdentifier: "toExternalProfile", sender: self)
+            
+        }
+    }
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "toExternalProfile" && segue.destination.restorationIdentifier == "extr-profile" {
+            (segue.destination as! profile).setCurrentUser(toFriend!)
+        }
+    }
     
 
     override func didReceiveMemoryWarning() {

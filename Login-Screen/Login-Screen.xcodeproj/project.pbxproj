@@ -18,12 +18,18 @@
 		1239257520D2EFB0002D68D1 /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1239257420D2EFB0002D68D1 /* StartViewController.swift */; };
 		129FC1BC20F1B7C2000E0CB9 /* ViewController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 129FC1BB20F1B7C2000E0CB9 /* ViewController2.swift */; };
 		7001FD59211BAD2D000C891D /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7001FD57211B8BD0000C891D /* MessageUI.framework */; };
+		7002935021388DC700AA3ADD /* CreateEvent1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7002934F21388DC700AA3ADD /* CreateEvent1.swift */; };
+		7002935221388DF200AA3ADD /* CreateEvent2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7002935121388DF200AA3ADD /* CreateEvent2.swift */; };
+		7002935421388E1600AA3ADD /* CreateEvent3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7002935321388E1600AA3ADD /* CreateEvent3.swift */; };
+		7002935D2138ED3600AA3ADD /* GroupCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7002935B2138ED3600AA3ADD /* GroupCell.swift */; };
+		7002935E2138ED3600AA3ADD /* GroupCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7002935C2138ED3600AA3ADD /* GroupCell.xib */; };
 		703F0981212B3AAF005D6E98 /* SignUp5.swift in Sources */ = {isa = PBXBuildFile; fileRef = 703F0980212B3AAF005D6E98 /* SignUp5.swift */; };
 		703F0988212B9003005D6E98 /* friendsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 703F0986212B9003005D6E98 /* friendsCell.swift */; };
 		703F0989212B9003005D6E98 /* friendsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 703F0987212B9003005D6E98 /* friendsCell.xib */; };
 		703F098C212E7881005D6E98 /* AddGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 703F098A212E7881005D6E98 /* AddGroup.swift */; };
 		703F098D212E7881005D6E98 /* AddGroup.xib in Resources */ = {isa = PBXBuildFile; fileRef = 703F098B212E7881005D6E98 /* AddGroup.xib */; };
 		703F098F212E8364005D6E98 /* GroupCreation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 703F098E212E8364005D6E98 /* GroupCreation.swift */; };
+		7041161D213B489A00E22789 /* GroupSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7041161C213B489A00E22789 /* GroupSpec.swift */; };
 		704272F320F8653300D11DBA /* LoginFormatted.swift in Sources */ = {isa = PBXBuildFile; fileRef = 704272F220F8653300D11DBA /* LoginFormatted.swift */; };
 		704D596E210FEF8A007D6731 /* SignUp4.swift in Sources */ = {isa = PBXBuildFile; fileRef = 704D596D210FEF8A007D6731 /* SignUp4.swift */; };
 		70551490210ECE2800F42F2E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7055148F210ECE2700F42F2E /* GoogleService-Info.plist */; };
@@ -70,12 +76,18 @@
 		479C0BD47DFC3E77074C57D8 /* Pods-Login-Screen.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Login-Screen.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Login-Screen/Pods-Login-Screen.debug.xcconfig"; sourceTree = "<group>"; };
 		7001FD56211B80E7000C891D /* Login-Screen.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Login-Screen.entitlements"; sourceTree = "<group>"; };
 		7001FD57211B8BD0000C891D /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		7002934F21388DC700AA3ADD /* CreateEvent1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateEvent1.swift; sourceTree = "<group>"; };
+		7002935121388DF200AA3ADD /* CreateEvent2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateEvent2.swift; sourceTree = "<group>"; };
+		7002935321388E1600AA3ADD /* CreateEvent3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateEvent3.swift; sourceTree = "<group>"; };
+		7002935B2138ED3600AA3ADD /* GroupCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupCell.swift; sourceTree = "<group>"; };
+		7002935C2138ED3600AA3ADD /* GroupCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GroupCell.xib; sourceTree = "<group>"; };
 		703F0980212B3AAF005D6E98 /* SignUp5.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUp5.swift; sourceTree = "<group>"; };
 		703F0986212B9003005D6E98 /* friendsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = friendsCell.swift; sourceTree = "<group>"; };
 		703F0987212B9003005D6E98 /* friendsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = friendsCell.xib; sourceTree = "<group>"; };
 		703F098A212E7881005D6E98 /* AddGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddGroup.swift; sourceTree = "<group>"; };
 		703F098B212E7881005D6E98 /* AddGroup.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddGroup.xib; sourceTree = "<group>"; };
 		703F098E212E8364005D6E98 /* GroupCreation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupCreation.swift; sourceTree = "<group>"; };
+		7041161C213B489A00E22789 /* GroupSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupSpec.swift; sourceTree = "<group>"; };
 		704272F220F8653300D11DBA /* LoginFormatted.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginFormatted.swift; sourceTree = "<group>"; };
 		704D596D210FEF8A007D6731 /* SignUp4.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUp4.swift; sourceTree = "<group>"; };
 		7055148F210ECE2700F42F2E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -155,6 +167,7 @@
 				1239253E20D2EF08002D68D1 /* AppDelegate.swift */,
 				1239254020D2EF08002D68D1 /* ViewController.swift */,
 				1239256C20D2EF45002D68D1 /* Main.storyboard */,
+				7002934E21388DA000AA3ADD /* CreateEvent */,
 				703F098E212E8364005D6E98 /* GroupCreation.swift */,
 				70A10BD5210D6B630003119E /* settings.swift */,
 				70A10BD3210D63D40003119E /* tabBarController.swift */,
@@ -162,6 +175,7 @@
 				704272F220F8653300D11DBA /* LoginFormatted.swift */,
 				7058F7DE20E7675A00F860A2 /* ComposeViewController.swift */,
 				70A10BD7210E990A0003119E /* profile.swift */,
+				7041161C213B489A00E22789 /* GroupSpec.swift */,
 				1239254520D2EF0C002D68D1 /* Assets.xcassets */,
 				1239254720D2EF0C002D68D1 /* LaunchScreen.storyboard */,
 				7055148F210ECE2700F42F2E /* GoogleService-Info.plist */,
@@ -205,6 +219,16 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		7002934E21388DA000AA3ADD /* CreateEvent */ = {
+			isa = PBXGroup;
+			children = (
+				7002935121388DF200AA3ADD /* CreateEvent2.swift */,
+				7002934F21388DC700AA3ADD /* CreateEvent1.swift */,
+				7002935321388E1600AA3ADD /* CreateEvent3.swift */,
+			);
+			path = CreateEvent;
+			sourceTree = "<group>";
+		};
 		7083AD9720FC54E7005D72B1 /* LoginAccessible */ = {
 			isa = PBXGroup;
 			children = (
@@ -224,15 +248,17 @@
 			isa = PBXGroup;
 			children = (
 				70A82EE420F569CE00699D4C /* PostCell.swift */,
+				70A82EE520F569CE00699D4C /* PostCell.xib */,
 				70D54F2221178BD8009E1088 /* AddFriendCell.swift */,
 				70D54F2321178BD8009E1088 /* AddFriendCell.xib */,
-				70A82EE520F569CE00699D4C /* PostCell.xib */,
 				703F0986212B9003005D6E98 /* friendsCell.swift */,
 				703F0987212B9003005D6E98 /* friendsCell.xib */,
 				703F098A212E7881005D6E98 /* AddGroup.swift */,
 				703F098B212E7881005D6E98 /* AddGroup.xib */,
 				70561B6D212F2138007D9A27 /* addFriendsToGroup.swift */,
 				70561B6E212F2138007D9A27 /* addFriendsToGroup.xib */,
+				7002935B2138ED3600AA3ADD /* GroupCell.swift */,
+				7002935C2138ED3600AA3ADD /* GroupCell.xib */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -311,6 +337,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				703F098D212E7881005D6E98 /* AddGroup.xib in Resources */,
+				7002935E2138ED3600AA3ADD /* GroupCell.xib in Resources */,
 				1239254920D2EF0C002D68D1 /* LaunchScreen.storyboard in Resources */,
 				70F6BE4321004E4800ED6356 /* Images.xcassets in Resources */,
 				70A82EE720F569CE00699D4C /* PostCell.xib in Resources */,
@@ -394,6 +421,7 @@
 				7083AD9220FC5435005D72B1 /* PrivacyPolicy.swift in Sources */,
 				70A10BD4210D63D40003119E /* tabBarController.swift in Sources */,
 				70561B6F212F2138007D9A27 /* addFriendsToGroup.swift in Sources */,
+				7002935021388DC700AA3ADD /* CreateEvent1.swift in Sources */,
 				129FC1BC20F1B7C2000E0CB9 /* ViewController2.swift in Sources */,
 				1239257120D2EFA2002D68D1 /* LogInViewController.swift in Sources */,
 				704D596E210FEF8A007D6731 /* SignUp4.swift in Sources */,
@@ -405,9 +433,12 @@
 				70A82EE620F569CE00699D4C /* PostCell.swift in Sources */,
 				70A10BD6210D6B630003119E /* settings.swift in Sources */,
 				70D54F2421178BD8009E1088 /* AddFriendCell.swift in Sources */,
+				7002935221388DF200AA3ADD /* CreateEvent2.swift in Sources */,
 				1239253F20D2EF08002D68D1 /* AppDelegate.swift in Sources */,
 				703F098F212E8364005D6E98 /* GroupCreation.swift in Sources */,
 				1239257520D2EFB0002D68D1 /* StartViewController.swift in Sources */,
+				7002935D2138ED3600AA3ADD /* GroupCell.swift in Sources */,
+				7002935421388E1600AA3ADD /* CreateEvent3.swift in Sources */,
 				7083AD9420FC54B9005D72B1 /* SignUp1.swift in Sources */,
 				703F0981212B3AAF005D6E98 /* SignUp5.swift in Sources */,
 				70A10BD8210E990A0003119E /* profile.swift in Sources */,
@@ -415,6 +446,7 @@
 				70DC4F0821255E750020ADDD /* SegmentedControl.swift in Sources */,
 				7058F7DF20E7675A00F860A2 /* ComposeViewController.swift in Sources */,
 				7083AD8E20FC5325005D72B1 /* ForgotPassword.swift in Sources */,
+				7041161D213B489A00E22789 /* GroupSpec.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

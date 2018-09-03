@@ -64,6 +64,9 @@ class GroupCreation: UIViewController, UITableViewDelegate, UITableViewDataSourc
         friendTable.showsVerticalScrollIndicator = false
         
         // Do any additional setup after loading the view.
+        
+        //adds the user creating the group to the list of users that are members of the group
+        Members.membList.insert(SignUp1.User.uid)
     }
     
     @objc func addPic(_ sender:UITapGestureRecognizer){
@@ -161,8 +164,10 @@ class GroupCreation: UIViewController, UITableViewDelegate, UITableViewDataSourc
         // Creates group as an entity
         self.ref?.child("Groups").child(gID!).setValue(self.dictToAdd)
         
-        // Adds group to user's groups
-        self.ref?.child("Users").child(SignUp1.User.uid).child("groups").child(gID!).setValue("group")
+        // Adds group to each user's groups variable
+        for member in Members.membList {
+            self.ref?.child("Users").child(member).child("groups").child(gID!).setValue("group")
+        }
         
         //clears Members list
         Members.membList.removeAll()
