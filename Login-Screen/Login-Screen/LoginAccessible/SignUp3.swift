@@ -180,7 +180,7 @@ class SignUp3: UIViewController {
     }
     
     @IBAction func conditioningButton(_ sender: Any) {
-        changeColor(conditioningButton, img1: #imageLiteral(resourceName: "running (1)"), img2: #imageLiteral(resourceName: "Conditioning & Exercise"), lb: conditioningLabel, bln: conditioningPressed)
+        changeColor(conditioningButton, img1: #imageLiteral(resourceName: "running (1)"), img2: #imageLiteral(resourceName: "conditioning"), lb: conditioningLabel, bln: conditioningPressed)
         conditioningPressed = !conditioningPressed
     }
     
@@ -195,7 +195,7 @@ class SignUp3: UIViewController {
     }
     
     @IBAction func tvButton(_ sender: Any) {
-        changeColor(tvButton, img1: #imageLiteral(resourceName: "gamepad-controller (1)"), img2: #imageLiteral(resourceName: "TV & Video Games"), lb: tvLabel, bln: tvPressed)
+        changeColor(tvButton, img1: #imageLiteral(resourceName: "gamepad-controller (1)"), img2: #imageLiteral(resourceName: "Tv"), lb: tvLabel, bln: tvPressed)
         tvPressed = !tvPressed
     }
     

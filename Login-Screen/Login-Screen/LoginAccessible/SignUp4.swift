@@ -133,10 +133,12 @@ class SignUp4: UIViewController, UITableViewDelegate, UITableViewDataSource {
                 let usr = achild["username"] as! String
                 var arr = [String]()
                 if let ph = phone {
-                    arr = [ph,usr]
+                    //arr = [ph,usr]
+                    arr = [ph, bchild.key]
                 }
                 else {
-                    arr = ["", usr]
+                    //arr = ["", usr]
+                    arr = ["", bchild.key]
                 }
                 self.contactsCloud.append(arr)
             }

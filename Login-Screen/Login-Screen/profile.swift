@@ -92,6 +92,7 @@ class profile: UIViewController, UITableViewDelegate, UITableViewDataSource {
     //              Its default display is the Logged in User's profile. It can be set to a different
     //              user with the setCurrentUser(id: String) function
     var currentUser = SignUp1.User.uid
+    var pastUsers: [String] = [String]()
     
     //Reference that links up the database from firebase
     var ref: DatabaseReference!
@@ -119,7 +120,8 @@ class profile: UIViewController, UITableViewDelegate, UITableViewDataSource {
         
         //SUPER VIEW DID LOAD
         super.viewDidLoad()
-        
+        print("YO THIS IS THE PAST USER LIST")
+        print(pastUsers)
 
         self.imgArray = [img1, img2, img3, img4, img5, img6, img7, img8, img9, img10, img11, img12]
         self.labArray = [lab1, lab2, lab3, lab4, lab5, lab6, lab7, lab8, lab9, lab10, lab11, lab12]
@@ -178,20 +180,6 @@ class profile: UIViewController, UITableViewDelegate, UITableViewDataSource {
         
         //creates a reference to the firebase database
         ref = Database.database().reference()
-        
-        //creates storage reference
-        let storage = Storage.storage()
-        
-//        fetchUIDs { (result) in
-//            if result {
-//                friendTable.reloadData()
-//            }
-//        }
-        
-        //load profile picture image
-        
-        //TO DO: to figure out how to mke the user's easily accessible
-        //profPic.image = ref.child("Users")
         
         setupView { (result) in
         }
@@ -383,7 +371,7 @@ class profile: UIViewController, UITableViewDelegate, UITableViewDataSource {
             
             let usr = fList[indexPath.item]
             print("fetching user: " + usr)
-            let uid = SignUp1.User.allUsers[usr] as? String ??  ""
+            let uid = SignUp1.User.allUsers[usr] as? String ??  usr
             print("fetching UID: " + uid)
             var localName = ""
             var localUsername = ""
@@ -392,7 +380,7 @@ class profile: UIViewController, UITableViewDelegate, UITableViewDataSource {
                 self.ref?.child("Users").child(uid).observe(.value, with: { (snapshot) in
                     // Get user value
                     let value = snapshot.value as? NSDictionary
-                    localUsername = usr
+                    localUsername = value?["username"] as? String ?? ""
                     localName = (value?["first"] as? String ?? "") + " " + (value?["last"] as? String ?? "")
                     cell.commonInit(name: localName, username: localUsername)
                 })
@@ -410,16 +398,19 @@ class profile: UIViewController, UITableViewDelegate, UITableViewDataSource {
                 return cell
             }
             else {
-                if gList.count > indexPath.item+1 {
+                if gList.count+1 > indexPath.item {
                     let cell = tableView.dequeueReusableCell(withIdentifier: "GroupCell", for: indexPath) as! GroupCell
                     var tName = ""
-                    ref?.child("Groups").child(gList[indexPath.item]).observeSingleEvent(of: .value, with: { (snapshot) in
+                    ref?.child("Groups").child(gList[indexPath.item-1]).observeSingleEvent(of: .value, with: { (snapshot) in
                         // Get user value
                         let value = snapshot.value as! NSDictionary
                         tName = value["name"] as! String
-                    //let tMembers = (ref?.child("Groups").child(gList[indexPath.item]).value(forKey: "members") as! [String])
-                    let tMembers = ["34Js9CsCJxOdWmUxLaRsOFuI3wv2", "wUkrrOHVVNXuz8R2jJJ53m1Ros83"]
-                    cell.commonInit(self.gList[indexPath.item], name: tName, members: tMembers)
+                        var tMembers = [String]()
+                        self.ref?.child("Groups").child(self.gList[indexPath.item-1]).observeSingleEvent(of: .value, with: { (snapshot) in
+                                let value = snapshot.value as? NSDictionary
+                                tMembers = value?["members"] as! [String]
+                                cell.commonInit(self.gList[indexPath.item-1], name: tName, members: tMembers)
+                            })
                     
                         // ...
                     })
@@ -443,20 +434,47 @@ class profile: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     var toFriend: String?
     
+    
+    //make sure to change this function to make it robust to clicks out of range
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if tableView == groupsTable {
-            GroupSpec.gid = self.gList[indexPath.item]
+            GroupSpec.gid = self.gList[indexPath.item-1]
             self.performSegue(withIdentifier: "toGroupSpec", sender: self)
         }
         else {
-            self.toFriend = SignUp1.User.allUsers[fList[indexPath.item]] as? String
+            self.toFriend = SignUp1.User.allUsers[fList[indexPath.item]] as? String ?? fList[indexPath.item]
             self.performSegue(withIdentifier: "toExternalProfile", sender: self)
             
         }
     }
 
+    
+    //This could be problemtic becuase it is not displayed on the internal profile page
+    @IBAction func backButton(_ sender: Any) {
+        self.toFriend = pastUsers.popLast()
+        if toFriend == SignUp1.User.uid {
+            self.performSegue(withIdentifier: "backInternalProfile", sender: self)
+        }
+        self.performSegue(withIdentifier: "backProfile", sender: self)
+        
+    }
+    
+    
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "toExternalProfile" && segue.destination.restorationIdentifier == "extr-profile" {
+        if segue.identifier == "toExternalProfile" {
+            
+            pastUsers.append(self.currentUser)
+            (segue.destination as! profileTransition).setUsers(toFriend!, uidPast: pastUsers)
+        }
+        
+        if segue.identifier == "backProfile"  {     // && segue.destination.restorationIdentifier == "extr-profile" {
+            // pastUsers.append(self.currentUser)
+            (segue.destination as! profileTransition).setUsers(toFriend!, uidPast: pastUsers)
+        }
+        
+        if segue.identifier == "backInternalProfile"  {     // && segue.destination.restorationIdentifier == "extr-profile" {
+            // pastUsers.append(self.currentUser)
             (segue.destination as! profile).setCurrentUser(toFriend!)
         }
     }
@@ -468,14 +486,4 @@ class profile: UIViewController, UITableViewDelegate, UITableViewDataSource {
     }
     
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
-}
+}   // END CLASS
