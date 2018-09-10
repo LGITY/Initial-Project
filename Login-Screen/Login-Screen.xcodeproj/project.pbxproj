@@ -225,8 +225,8 @@
 		7002934E21388DA000AA3ADD /* CreateEvent */ = {
 			isa = PBXGroup;
 			children = (
-				7002935121388DF200AA3ADD /* CreateEvent2.swift */,
 				7002934F21388DC700AA3ADD /* CreateEvent1.swift */,
+				7002935121388DF200AA3ADD /* CreateEvent2.swift */,
 				7002935321388E1600AA3ADD /* CreateEvent3.swift */,
 			);
 			path = CreateEvent;

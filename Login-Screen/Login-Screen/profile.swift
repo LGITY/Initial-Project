@@ -443,8 +443,15 @@ class profile: UIViewController, UITableViewDelegate, UITableViewDataSource {
         }
         else {
             self.toFriend = SignUp1.User.allUsers[fList[indexPath.item]] as? String ?? fList[indexPath.item]
-            self.performSegue(withIdentifier: "toExternalProfile", sender: self)
             
+            if self.toFriend == SignUp1.User.uid {
+                pastUsers.removeAll()
+                self.performSegue(withIdentifier: "toInternalProfile", sender: self)
+            }
+            else {
+                print("????????????????????")
+                self.performSegue(withIdentifier: "toExternalProfile", sender: self)
+            }
         }
     }
 

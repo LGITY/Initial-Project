@@ -16,11 +16,19 @@ class profileTransition: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        print(changeUser)
+        print(pastUsers)
         self.view.backgroundColor = UIColor.darkGray
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.2, execute: {
-            self.performSegue(withIdentifier: "unique", sender: self)
-        })
+        
         // Do any additional setup after loading the view.
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.3, execute: {
+            print(";;;;;;;;;;;;;;;;;;;;;")
+            self.performSegue(withIdentifier: "unique", sender: self)
+            //self.dismiss(animated: true, completion: nil)
+        })
     }
     
     func setUsers(_ uidFuture: String, uidPast: [String]) {
