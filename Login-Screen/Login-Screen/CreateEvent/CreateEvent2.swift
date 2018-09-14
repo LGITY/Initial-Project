@@ -7,17 +7,32 @@
 //
 
 import UIKit
+import FirebaseDatabase
+import Firebase
 
-class CreateEvent2: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
+
+class CreateEvent2: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate, UITableViewDelegate, UITableViewDataSource {
+    
     @IBOutlet weak var pickerView: UIPickerView!
     @IBOutlet weak var friendsImage: UIImageView!
     @IBOutlet weak var invitesView: UIView!
     @IBOutlet weak var segmentedControl: SegmentedControl!
     @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var friendsTable: UITableView!
     
     var pickerDataSource = ["Private", "Friends of Friends", "Nearby Players"]
     
+    var friendList = [String]() {
+        didSet {
+            friendsTable.reloadData()
+        }
+    }
+    
+    var ref: DatabaseReference?
+    
     var pickerChoice: String?
+    
+    static var memberList: Set<String> = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,6 +57,41 @@ class CreateEvent2: UIViewController, UIPickerViewDataSource, UIPickerViewDelega
         swipeRight.direction = UISwipeGestureRecognizerDirection.right
         self.view.addGestureRecognizer(swipeRight)
         
+        ref = Database.database().reference()
+        
+        loadFriends()
+        
+        // REGISTERS NIBS
+        
+        
+        //Set up FRIEND Table View Controller
+        friendsTable.delegate = self
+        friendsTable.dataSource = self
+        
+        //Creates the nib for the table view to reference
+        let nibName = UINib(nibName: "addFriendsToGroup", bundle: nil)
+        
+        //registers the nib for use with the table view
+        friendsTable.register(nibName, forCellReuseIdentifier: "addFriendsToGroup")
+        
+        //disables scrollbar in both directions
+        friendsTable.showsHorizontalScrollIndicator = false
+        friendsTable.showsVerticalScrollIndicator = false
+        
+        
+    }
+    
+    func loadFriends() {
+        ref?.child("Users").child(SignUp1.User.uid).child("friendList").observeSingleEvent(of: .value, with: { (snapshot) in
+            // Get user value
+            let value = snapshot.value as? [String]
+            var tempArr: [String] = [String]()
+            for friend in value! {
+                tempArr.append(friend)
+            }
+            self.friendList = tempArr
+        })
+        print(friendList)
     }
     
     @objc func respondToSwipeGesture(sender: UIGestureRecognizer) {
@@ -111,7 +161,21 @@ class CreateEvent2: UIViewController, UIPickerViewDataSource, UIPickerViewDelega
         return pickerLabel!
     }
     
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return self.friendList.count
+    }
     
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        //dequeus the cell that we created and styled in the xib file for reuse
+        let cell = tableView.dequeueReusableCell(withIdentifier: "addFriendsToGroup", for: indexPath) as! addFriendsToGroup
+        
+        let usr = self.friendList[indexPath.item]
+        print("fetching user: " + usr)
+        let uid = SignUp1.User.allUsers[usr] as? String ??  usr
+        cell.fullInit(memberList: CreateEvent2.memberList, userID: uid)
+        
+        return cell
+    }
 
     /*
     // MARK: - Navigation

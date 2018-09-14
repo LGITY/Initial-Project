@@ -66,12 +66,14 @@ class addFriendsToGroup: UITableViewCell {
     @IBAction func addButton(_ sender: Any) {
         if !isBlue {
             addButton.setImage(#imageLiteral(resourceName: "checked-1"), for: .normal)
-            GroupCreation.Members.membList.insert(userID)
+            //GroupCreation.Members.membList.insert(userID)
+            self.memberList.insert(userID)
             print("ADDED !! ")
         }
         else {
             addButton.setImage(#imageLiteral(resourceName: "unchecked-1"), for: .normal)
-            GroupCreation.Members.membList.remove(userID)
+            //GroupCreation.Members.membList.remove(userID)
+            self.memberList.remove(userID)
             print("DELETED !! ")
         }
         isBlue = !isBlue
