@@ -18,6 +18,9 @@ class CreateEvent1: UIViewController {
     @IBOutlet weak var horizontalStack4: UIStackView!
     @IBOutlet weak var horizontalStack5: UIStackView!
     
+    @IBOutlet weak var textField: UITextField!
+    
+    
     var stackArray: [UIStackView]?
     
     var activityList: [String] = [String]() {
@@ -26,12 +29,30 @@ class CreateEvent1: UIViewController {
         }
     }
     
+    var selectedActivity: String?
+    
+    
     var ref: DatabaseReference?
+    
+    var stackDict = [UIGestureRecognizer: UIImageView]()
+    
+    var currentSelection: UIGestureRecognizer?
+    var pastSelection: UIGestureRecognizer?
+    
+    
+    struct Event {
+        static var eventName: String?
+        static var eventType: UIImage?
+        
+    }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         ref = Database.database().reference()
+        
+        loadMembers()
         
         stackArray = [horizontalStack1, horizontalStack2, horizontalStack3, horizontalStack4,horizontalStack5]
         
@@ -46,6 +67,12 @@ class CreateEvent1: UIViewController {
         
         // Do any additional setup after loading the view.
     }
+    
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.textField.resignFirstResponder()
+    }
+    
     
     func loadMembers() {
         var i = 0
@@ -88,6 +115,9 @@ class CreateEvent1: UIViewController {
 //                                //imageView.widthAnchor.constraint(equalTo: .width, multiplier: 0.1)
 //
 //                                //let lbl = UILabel(frame: CGRect(x: 0, y: 0, width: imageView.frame.width, height: 20))
+                                imageView.image = imageView.image!.withRenderingMode(.alwaysTemplate)
+                                imageView.tintColor = UIColor(red:0.11, green:0.17, blue:0.27, alpha:1.0)
+                                //theImageView.tintColor = UIColor.red
                                 let lbl = UILabel()
                                 //lbl.sizeToFit()
                                 lbl.frame = CGRect(x: 0, y: 0, width: 5, height: 5)
@@ -119,8 +149,9 @@ class CreateEvent1: UIViewController {
                                 stack.alignment = .center
                                 stack.distribution = .fillEqually
                                 stack.contentMode = .left
-                let gest = UITapGestureRecognizer(target: stack, action: #selector(self.tapBlurButton(_:)),
-                                stack.addGestureRecognizer(
+                                let gest = UITapGestureRecognizer(target: self, action: #selector(self.tappedButton(_:)))
+                                self.stackDict[gest] = imageView
+                                stack.addGestureRecognizer(gest)
                                 currentStack.distribution = .fillEqually
                                 currentStack.addArrangedSubview(stack)
                             //}
@@ -130,7 +161,7 @@ class CreateEvent1: UIViewController {
             }
                 
                 //})
-            //}
+            //}stack
             else {
                 j += 1
                 i = 0
@@ -141,7 +172,29 @@ class CreateEvent1: UIViewController {
         //self.verticalStack.spacing = 4
         //self.verticalStack.
     }
+    //@objc func textFieldDidChange(_ textField: UITextField) {
+    @objc func tappedButton(_ sender : Any) {
+        //self.selectedActivity =
+        print("yoyoyo")
+        if self.currentSelection != nil {
+            self.stackDict[self.currentSelection!]?.tintColor = UIColor(red:0.11, green:0.17, blue:0.27, alpha:1.0)
+            //self.stackDict[self.currentSelection!]?.image = #imageLiteral(resourceName: "sports")
+            self.pastSelection = self.currentSelection!
+        }
+        self.currentSelection = (sender as! UIGestureRecognizer)
+        self.stackDict[(sender as! UIGestureRecognizer)]?.tintColor = UIColor(red:0.13, green:0.70, blue:1.00, alpha:1.0)
+        //self.stackDict[(sender as! UIGestureRecognizer)]?.image = #imageLiteral(resourceName: "ball-of-basketball (3)")
 
+    }
+    
+    @IBAction func nextButton(_ sender: Any) {
+        CreateEvent1.Event.eventName = self.textField.text
+        CreateEvent1.Event.eventType = self.stackDict[self.currentSelection!]?.image
+        self.performSegue(withIdentifier: "next", sender: self)
+    }
+    
+    
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

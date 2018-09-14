@@ -30,7 +30,7 @@ import UIKit
         }
     }
     
-    var parentView: profile
+    var parentView: UIViewController
     
     //required initializer for this class -- call our general set up method
     override init(frame: CGRect) {
@@ -54,6 +54,12 @@ import UIKit
     func fullInit(view: profile) {
         parentView = view
     }
+    
+    func fullInit(view: CreateEvent2, options: [String]) {
+        parentView = view
+        self.items = options
+    }
+    
     
     override func layoutSubviews() {
         super.layoutSubviews()
@@ -145,9 +151,9 @@ import UIKit
         changeContent(view: parentView)
     }
     
-    func displayNewSelectedIndexSwipeLeft(left: Bool, view: profile) {
+    func displayNewSelectedIndexSwipeLeft(left: Bool, view: UIViewController) {
         if left {
-            if selectedIndex+1 < 3 {
+            if selectedIndex+1 < items.count {
                 selectedIndex += 1
             }
         }
@@ -158,16 +164,28 @@ import UIKit
         }
     }
     
-    func changeContent(view: profile) {
-        switch selectedIndex {
-        case 0:
-            view.updateScroll(xVal: 0, yVal: 0)
-        case 1:
-            view.updateScroll(xVal: Int(view.view.frame.width), yVal: 0)
-        case 2:
-            view.updateScroll(xVal: Int(view.view.frame.width)*2, yVal: 0)
-        default:
-            print("blah")
+    func changeContent(view: UIViewController) {
+        if type(of: view) == profile.self {
+            switch selectedIndex {
+            case 0:
+                (view as! profile).updateScroll(xVal: 0, yVal: 0)
+            case 1:
+                (view as! profile).updateScroll(xVal: Int(view.view.frame.width), yVal: 0)
+            case 2:
+                (view as! profile).updateScroll(xVal: Int(view.view.frame.width)*2, yVal: 0)
+            default:
+                print("blah")
+            }
+        }
+        else {
+            switch selectedIndex {
+            case 0:
+                (view as! CreateEvent2).updateScroll(xVal: 0, yVal: 0)
+            case 1:
+                (view as! CreateEvent2).updateScroll(xVal: Int(view.view.frame.width), yVal: 0)
+            default:
+                print("blah")
+            }
         }
     }
     
