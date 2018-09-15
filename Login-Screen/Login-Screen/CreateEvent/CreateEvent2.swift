@@ -77,8 +77,6 @@ class CreateEvent2: UIViewController, UIPickerViewDataSource, UIPickerViewDelega
         //disables scrollbar in both directions
         friendsTable.showsHorizontalScrollIndicator = false
         friendsTable.showsVerticalScrollIndicator = false
-        
-        
     }
     
     func loadFriends() {
@@ -165,6 +163,14 @@ class CreateEvent2: UIViewController, UIPickerViewDataSource, UIPickerViewDelega
         return self.friendList.count
     }
     
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 70
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        (tableView.cellForRow(at: indexPath) as! addFriendsToGroup).addButton(self)
+    }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         //dequeus the cell that we created and styled in the xib file for reuse
         let cell = tableView.dequeueReusableCell(withIdentifier: "addFriendsToGroup", for: indexPath) as! addFriendsToGroup
@@ -177,6 +183,19 @@ class CreateEvent2: UIViewController, UIPickerViewDataSource, UIPickerViewDelega
         return cell
     }
 
+    @IBAction func nextButton(_ sender: Any) {
+        var tempArr = [String]()
+        
+        //it would be more efficient to just do this through removing each individual thing and then using that value to add to the tempArr
+        for member in CreateEvent2.memberList {
+            tempArr.append(member)
+        }
+        CreateEvent2.memberList.removeAll()
+        
+        CreateEvent1.Event.participants = tempArr
+        CreateEvent1.Event.privacyType = pickerChoice
+        self.performSegue(withIdentifier: "next2", sender: self)
+    }
     /*
     // MARK: - Navigation
 

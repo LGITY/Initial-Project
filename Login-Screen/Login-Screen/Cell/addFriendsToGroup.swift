@@ -24,11 +24,14 @@ class addFriendsToGroup: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         ref = Database.database().reference()
-        
+        profPic.layer.cornerRadius = profPic.frame.width/2
+        profPic.clipsToBounds = true
+        profPic.contentMode = .scaleAspectFill
         // Initialization code
     }
     
     func fullInit(memberList: Set<String>, userID: String) {
+        self.selectionStyle = UITableViewCellSelectionStyle.none
         self.memberList = memberList
         self.userID = userID
         

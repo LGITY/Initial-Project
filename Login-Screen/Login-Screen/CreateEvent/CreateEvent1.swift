@@ -43,7 +43,8 @@ class CreateEvent1: UIViewController {
     struct Event {
         static var eventName: String?
         static var eventType: UIImage?
-        
+        static var participants: [String]?
+        static var privacyType: String?
     }
     
     
