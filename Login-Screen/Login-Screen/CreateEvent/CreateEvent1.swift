@@ -75,7 +75,7 @@ class CreateEvent1: UIViewController {
             self.activityList = tList
         })
         print("user_id: ",SignUp1.User.uid)
-    ref?.child("Users").child((SignUp1.User.uid)).setValue((manager.location?.coordinate.latitude))
+    self.ref?.child("Users").child((SignUp1.User.uid)).setValue((manager.location?.coordinate.latitude))
    
         
         // Do any additional setup after loading the view.
