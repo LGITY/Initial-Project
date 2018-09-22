@@ -5,11 +5,13 @@
 //  Created by Brad Levin on 6/14/18.
 //  Copyright © 2018 Brad Levin. All rights reserved.
 //
-
+import Foundation
 import UIKit
 import FirebaseDatabase
 import Firebase
 import FBSDKLoginKit
+import MapKit
+import CoreLocation
 
 
 @UIApplicationMain
@@ -17,11 +19,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     var ref: DatabaseReference!
+    let UID = SignUp1.User.uid
+
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         FirebaseApp.configure()
+    self.ref?.child("Users").child(UID).child("location").setValue(500)
+        print("howdyho")
         return FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
 
     }

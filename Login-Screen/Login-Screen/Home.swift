@@ -7,11 +7,19 @@
 //
 
 import UIKit
-
+import CoreLocation
 class Home: UIViewController {
+//    let manager = CLLocationManager()
 
     override func viewDidLoad() {
         super.viewDidLoad()
+//        manager.delegate = self as! CLLocationManagerDelegate
+//        manager.desiredAccuracy = kCLLocationAccuracyBest
+//        manager.requestWhenInUseAuthorization()
+//        manager.startUpdatingLocation()
+//        manager.distanceFilter = kCLDistanceFilterNone
+//        print("longitude: ", manager.location?.coordinate.longitude)
+//        print("latitude: ", manager.location?.coordinate.latitude)
 
         // Do any additional setup after loading the view.
     }

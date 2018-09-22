@@ -9,6 +9,7 @@
 import UIKit
 import FirebaseDatabase
 import Firebase
+import CoreLocation
 
 class CreateEvent1: UIViewController {
     @IBOutlet weak var verticalStack: UIStackView!
@@ -19,7 +20,8 @@ class CreateEvent1: UIViewController {
     @IBOutlet weak var horizontalStack5: UIStackView!
     
     @IBOutlet weak var textField: UITextField!
-    
+//    let user = Sign
+    let manager = CLLocationManager()
     
     var stackArray: [UIStackView]?
     
@@ -50,7 +52,14 @@ class CreateEvent1: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        manager.delegate = self as? CLLocationManagerDelegate
+        manager.desiredAccuracy = kCLLocationAccuracyBest
+        manager.requestWhenInUseAuthorization()
+        manager.startUpdatingLocation()
+        manager.distanceFilter = kCLDistanceFilterNone
+        print("longitude: ",manager.location?.coordinate.longitude)
+        print("latitude: ",manager.location?.coordinate.latitude)
+        print("howdyhooooooooohohooh")
         ref = Database.database().reference()
         
         loadMembers()
@@ -65,6 +74,9 @@ class CreateEvent1: UIViewController {
             }
             self.activityList = tList
         })
+        print("user_id: ",SignUp1.User.uid)
+    ref?.child("Users").child((SignUp1.User.uid)).setValue((manager.location?.coordinate.latitude))
+   
         
         // Do any additional setup after loading the view.
     }

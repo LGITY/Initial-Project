@@ -10,12 +10,14 @@ import UIKit
 import FirebaseDatabase
 import FirebaseStorage
 import Firebase
+import CoreLocation
 
 
 //This class functions as the hub of information for both the internal and external profiles.
 //The information that it provides is dependent upon the currentUser variable, which is set to whichever
 // users profile is being displayed.
 class profile: UIViewController, UITableViewDelegate, UITableViewDataSource {
+//    let manager = CLLocationManager()
     
     
     //navigation bar outlets
@@ -120,6 +122,14 @@ class profile: UIViewController, UITableViewDelegate, UITableViewDataSource {
         
         //SUPER VIEW DID LOAD
         super.viewDidLoad()
+//        manager.delegate = self as! CLLocationManagerDelegate
+//        manager.desiredAccuracy = kCLLocationAccuracyBest
+//        manager.requestWhenInUseAuthorization()
+//        manager.startUpdatingLocation()
+//        manager.distanceFilter = kCLDistanceFilterNone
+//        print("longitude: ",manager.location?.coordinate.longitude)
+//        print("latitude: ",manager.location?.coordinate.latitude)
+        
         print("YO THIS IS THE PAST USER LIST")
         print(pastUsers)
 

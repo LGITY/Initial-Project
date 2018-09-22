@@ -19,6 +19,8 @@ struct Store {
 class SignUp1: UIViewController {
     
     
+    
+    
     //Global variable to store the current user's User ID
     struct User {
         static var uid = "null"
