@@ -47,12 +47,16 @@
 		70A10BD4210D63D40003119E /* tabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70A10BD3210D63D40003119E /* tabBarController.swift */; };
 		70A10BD6210D6B630003119E /* settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70A10BD5210D6B630003119E /* settings.swift */; };
 		70A10BD8210E990A0003119E /* profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70A10BD7210E990A0003119E /* profile.swift */; };
+		70A112DD217E8E72001C9543 /* CreateEvent4.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70A112DC217E8E72001C9543 /* CreateEvent4.swift */; };
+		70A112DF217EAEDD001C9543 /* CreateEventMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70A112DE217EAEDD001C9543 /* CreateEventMap.swift */; };
+		70A112E121850C93001C9543 /* LocationSearchTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70A112E021850C93001C9543 /* LocationSearchTable.swift */; };
 		70A82EE620F569CE00699D4C /* PostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70A82EE420F569CE00699D4C /* PostCell.swift */; };
 		70A82EE720F569CE00699D4C /* PostCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 70A82EE520F569CE00699D4C /* PostCell.xib */; };
 		70D54F2421178BD8009E1088 /* AddFriendCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70D54F2221178BD8009E1088 /* AddFriendCell.swift */; };
 		70D54F2521178BD8009E1088 /* AddFriendCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 70D54F2321178BD8009E1088 /* AddFriendCell.xib */; };
 		70DA12C32108094000705049 /* SignUp2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70DA12C22108094000705049 /* SignUp2.swift */; };
 		70DC4F0821255E750020ADDD /* SegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70DC4F0721255E750020ADDD /* SegmentedControl.swift */; };
+		70EDE4A32171DA8300A107DE /* circleMover.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70EDE4A22171DA8300A107DE /* circleMover.swift */; };
 		70F6BE4321004E4800ED6356 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 70F6BE4221004E4800ED6356 /* Images.xcassets */; };
 		AFD3F65EDA6440940EB0B776 /* Pods_Login_Screen.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCDC1A8ABA630DE6B84D94B9 /* Pods_Login_Screen.framework */; };
 /* End PBXBuildFile section */
@@ -107,12 +111,16 @@
 		70A10BD3210D63D40003119E /* tabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tabBarController.swift; sourceTree = "<group>"; };
 		70A10BD5210D6B630003119E /* settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = settings.swift; sourceTree = "<group>"; };
 		70A10BD7210E990A0003119E /* profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = profile.swift; sourceTree = "<group>"; };
+		70A112DC217E8E72001C9543 /* CreateEvent4.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateEvent4.swift; sourceTree = "<group>"; };
+		70A112DE217EAEDD001C9543 /* CreateEventMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateEventMap.swift; sourceTree = "<group>"; };
+		70A112E021850C93001C9543 /* LocationSearchTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationSearchTable.swift; sourceTree = "<group>"; };
 		70A82EE420F569CE00699D4C /* PostCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCell.swift; sourceTree = "<group>"; };
 		70A82EE520F569CE00699D4C /* PostCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PostCell.xib; sourceTree = "<group>"; };
 		70D54F2221178BD8009E1088 /* AddFriendCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFriendCell.swift; sourceTree = "<group>"; };
 		70D54F2321178BD8009E1088 /* AddFriendCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddFriendCell.xib; sourceTree = "<group>"; };
 		70DA12C22108094000705049 /* SignUp2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUp2.swift; sourceTree = "<group>"; };
 		70DC4F0721255E750020ADDD /* SegmentedControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentedControl.swift; sourceTree = "<group>"; };
+		70EDE4A22171DA8300A107DE /* circleMover.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = circleMover.swift; sourceTree = "<group>"; };
 		70F6BE4221004E4800ED6356 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		AFEFDB0402D68BD02FA8CC85 /* Pods_Login_ScreenTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Login_ScreenTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B787BE82168F5E8A0DDBC155 /* Pods_Login_ScreenUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Login_ScreenUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -231,6 +239,10 @@
 				7002934F21388DC700AA3ADD /* CreateEvent1.swift */,
 				7002935121388DF200AA3ADD /* CreateEvent2.swift */,
 				7002935321388E1600AA3ADD /* CreateEvent3.swift */,
+				70A112DC217E8E72001C9543 /* CreateEvent4.swift */,
+				70A112DE217EAEDD001C9543 /* CreateEventMap.swift */,
+				70A112E021850C93001C9543 /* LocationSearchTable.swift */,
+				70EDE4A22171DA8300A107DE /* circleMover.swift */,
 			);
 			path = CreateEvent;
 			sourceTree = "<group>";
@@ -420,12 +432,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				70A112E121850C93001C9543 /* LocationSearchTable.swift in Sources */,
 				70DA12C32108094000705049 /* SignUp2.swift in Sources */,
 				7083AD9020FC540B005D72B1 /* TermsOfService.swift in Sources */,
 				1239257320D2EFA9002D68D1 /* MainNavigationController.swift in Sources */,
 				703F098C212E7881005D6E98 /* AddGroup.swift in Sources */,
 				7083AD9220FC5435005D72B1 /* PrivacyPolicy.swift in Sources */,
 				70A10BD4210D63D40003119E /* tabBarController.swift in Sources */,
+				70A112DD217E8E72001C9543 /* CreateEvent4.swift in Sources */,
 				70561B6F212F2138007D9A27 /* addFriendsToGroup.swift in Sources */,
 				1251B0B62156AD5F00FE1680 /* location.swift in Sources */,
 				7002935021388DC700AA3ADD /* CreateEvent1.swift in Sources */,
@@ -434,7 +448,9 @@
 				704D596E210FEF8A007D6731 /* SignUp4.swift in Sources */,
 				70A10BD2210BAB480003119E /* SignUp3.swift in Sources */,
 				1239256F20D2EF99002D68D1 /* SignUpViewController.swift in Sources */,
+				70A112DF217EAEDD001C9543 /* CreateEventMap.swift in Sources */,
 				704272F320F8653300D11DBA /* LoginFormatted.swift in Sources */,
+				70EDE4A32171DA8300A107DE /* circleMover.swift in Sources */,
 				7083AD9620FC54D5005D72B1 /* Home.swift in Sources */,
 				1239254120D2EF08002D68D1 /* ViewController.swift in Sources */,
 				70A82EE620F569CE00699D4C /* PostCell.swift in Sources */,
@@ -594,9 +610,9 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_ENTITLEMENTS = "Login-Screen/Login-Screen.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = H52N9ULT43;
+				DEVELOPMENT_TEAM = TL9BB86JQV;
 				INFOPLIST_FILE = "Login-Screen/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -616,9 +632,9 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_ENTITLEMENTS = "Login-Screen/Login-Screen.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = H52N9ULT43;
+				DEVELOPMENT_TEAM = TL9BB86JQV;
 				INFOPLIST_FILE = "Login-Screen/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

@@ -92,7 +92,7 @@ class GroupCreation: UIViewController, UITableViewDelegate, UITableViewDataSourc
         
         //CHANGE THIS TO USER ID NOT USERNAME -- FOR SECURITY PURPOSES
         let storage = Storage.storage().reference().child("group-pics").child(gID!)
-        
+        self.dictToAdd["group-pic"] = "https://firebasestorage.googleapis.com/v0/b/plusonetest-2143.appspot.com/o/profile-pics%2F600px-Default_profile_picture_(male)_on_Facebook.jpg?alt=media&token=90b055dd-7419-4928-b4bc-6ed67e485657"
         let theInfo: NSDictionary = info as NSDictionary
         if let img:UIImage = theInfo.object(forKey: UIImagePickerControllerOriginalImage) as? UIImage {
             self.dismiss(animated: true, completion: nil)

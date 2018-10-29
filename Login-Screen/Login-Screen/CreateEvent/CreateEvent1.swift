@@ -40,13 +40,28 @@ class CreateEvent1: UIViewController {
     
     var currentSelection: UIGestureRecognizer?
     var pastSelection: UIGestureRecognizer?
+    var selection: String?
     
     
     struct Event {
+        
+        static var eventInfo: NSMutableDictionary = [:]
+        
+        //populated by CreateEvent1
         static var eventName: String?
         static var eventType: UIImage?
-        static var participants: [String]?
+        
+        //populated by CreateEvent2
+        static var availableTo: [String]?
         static var privacyType: String?
+        
+        //populated by CreateEvent3
+        static var numParticipants: String?
+        
+        //populated by CreateEvent4
+        static var time: Date?
+        static var place: CLLocationCoordinate2D?
+        
     }
     
     
@@ -75,8 +90,8 @@ class CreateEvent1: UIViewController {
             self.activityList = tList
         })
         print("user_id: ",SignUp1.User.uid)
-    self.ref?.child("Users").child((SignUp1.User.uid)).setValue((manager.location?.coordinate.latitude))
-   
+        self.ref?.child("Users").child((SignUp1.User.uid)).child("location").setValue((manager.location?.coordinate.latitude))
+        
         
         // Do any additional setup after loading the view.
     }
@@ -185,26 +200,37 @@ class CreateEvent1: UIViewController {
         //self.verticalStack.spacing = 4
         //self.verticalStack.
     }
-    //@objc func textFieldDidChange(_ textField: UITextField) {
+    
+
     @objc func tappedButton(_ sender : Any) {
         //self.selectedActivity =
         print("yoyoyo")
         if self.currentSelection != nil {
             self.stackDict[self.currentSelection!]?.tintColor = UIColor(red:0.11, green:0.17, blue:0.27, alpha:1.0)
+            
             //self.stackDict[self.currentSelection!]?.image = #imageLiteral(resourceName: "sports")
             self.pastSelection = self.currentSelection!
         }
         self.currentSelection = (sender as! UIGestureRecognizer)
+        let thing = (self.stackDict[self.currentSelection!]?.superview as! UIStackView).arrangedSubviews
+        selection = (thing[thing.count-1] as! UILabel).text
+        print("bitch! \(selection)")
         self.stackDict[(sender as! UIGestureRecognizer)]?.tintColor = UIColor(red:0.13, green:0.70, blue:1.00, alpha:1.0)
         //self.stackDict[(sender as! UIGestureRecognizer)]?.image = #imageLiteral(resourceName: "ball-of-basketball (3)")
 
     }
     
     @IBAction func nextButton(_ sender: Any) {
-        CreateEvent1.Event.eventName = self.textField.text
-        CreateEvent1.Event.eventType = self.stackDict[self.currentSelection!]?.image
+        CreateEvent1.Event.eventInfo["eventName"] = self.textField.text
+        //CreateEvent1.Event.eventInfo["eventType"] = self.stackDict[self.currentSelection!]?.image
+        CreateEvent1.Event.eventInfo["eventType"] = selection!
         self.performSegue(withIdentifier: "next", sender: self)
     }
+    
+    //func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        //CreateEvent1.Event.eventName = textField.text
+      //  CreateEvent1.Event.eventType =
+    //}
     
     
     

@@ -192,8 +192,8 @@ class CreateEvent2: UIViewController, UIPickerViewDataSource, UIPickerViewDelega
         }
         CreateEvent2.memberList.removeAll()
         
-        CreateEvent1.Event.participants = tempArr
-        CreateEvent1.Event.privacyType = pickerChoice
+        CreateEvent1.Event.eventInfo["availableTo"] = tempArr
+        CreateEvent1.Event.eventInfo["privacyType"] = pickerChoice
         self.performSegue(withIdentifier: "next2", sender: self)
     }
     /*
