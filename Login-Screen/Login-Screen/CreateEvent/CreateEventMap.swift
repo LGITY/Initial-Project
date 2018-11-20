@@ -17,7 +17,6 @@ protocol HandleMapSearch {
 
 class CreateEventMap: UIViewController {
     
-
     @IBOutlet weak var mapView: MKMapView!
     let locationManager = CLLocationManager()
     
@@ -56,6 +55,20 @@ class CreateEventMap: UIViewController {
         resultSearchController?.dimsBackgroundDuringPresentation = true  //dims the background of the results to display more clearly
         definesPresentationContext = true  //makes sure the search bar only takes up part of the view rather than the whole thing (default)
         // Do any additional setup after loading the view.
+    }
+    
+    
+    @IBAction func setLocationPressed(_ sender: AnyObject)
+    {
+        performSegue(withIdentifier: "backToCreateEvent4", sender: nil)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let destinationViewController = segue.destination as? CreateEvent4{
+            destinationViewController.locationCenter = selectedPin
+            print("SelectedPinName")
+            print(selectedPin?.name)
+        }
     }
     
     @IBAction func nextButton(_ sender: Any) {
@@ -146,11 +159,11 @@ extension CreateEventMap : MKMapViewDelegate {
         pinView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: reuseId)
         pinView?.pinTintColor = UIColor.green
         pinView?.canShowCallout = true
-        let smallSquare = CGSize(width: 30, height: 30)
-        let button = UIButton(frame: CGRect(origin: CGPoint.zero, size: smallSquare))
-        button.setBackgroundImage(UIImage(named: "filled-circle"), for: .normal)
-        button.addTarget(self, action: #selector(CreateEventMap.setLocation), for: .touchUpInside)
-        pinView?.leftCalloutAccessoryView = button
+   //     let smallSquare = CGSize(width: 30, height: 30)
+    //    let button = UIButton(frame: CGRect(origin: CGPoint.zero, size: smallSquare))
+    //    button.setBackgroundImage(UIImage(named: "filled-circle"), for: .normal)
+   //     button.addTarget(self, action: #selector(CreateEventMap.setLocation), for: .touchUpInside)
+  //      pinView?.leftCalloutAccessoryView = button
         return pinView
     }
     

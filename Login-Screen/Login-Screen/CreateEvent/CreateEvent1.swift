@@ -21,10 +21,12 @@ class CreateEvent1: UIViewController {
     
     @IBOutlet weak var textField: UITextField!
 //    let user = Sign
+    //location object
     let manager = CLLocationManager()
     
     var stackArray: [UIStackView]?
     
+    //list of members???
     var activityList: [String] = [String]() {
         didSet {
             loadMembers()
@@ -108,6 +110,7 @@ class CreateEvent1: UIViewController {
         
         for member in self.activityList {
             var currentStack = stackArray![j] as? UIStackView ?? UIStackView()
+            //why does i have to be less than 5???
             if i < 5 {
                 //var pic: String?
                 //ref?.child("Users").child(member).observeSingleEvent(of: .value, with: { (snapshot) in

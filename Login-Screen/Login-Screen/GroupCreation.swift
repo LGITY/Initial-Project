@@ -24,6 +24,7 @@ class GroupCreation: UIViewController, UITableViewDelegate, UITableViewDataSourc
     
     var ref: DatabaseReference?
     
+    
     var fList: [String] = [String]() {
         didSet {
             friendTable.reloadData()

@@ -14,7 +14,7 @@ import FirebaseDatabase
 class CreateEvent4: UIViewController {
 
     @IBOutlet weak var mapView: MKMapView!
-    
+    @IBOutlet weak var locationField: UITextField!
     @IBOutlet weak var slider: UISlider!
     @IBOutlet weak var pickerView: UIDatePicker!
     
@@ -22,7 +22,9 @@ class CreateEvent4: UIViewController {
     
     var ref: DatabaseReference?
     
-    var locationCenter: MKPlacemark?
+    
+    
+    var locationCenter: MKPlacemark? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,7 +35,9 @@ class CreateEvent4: UIViewController {
         locationManager.requestLocation()  //requests the location of the user
         locationManager.startUpdatingLocation()
         locationManager.stopUpdatingLocation()
-        
+        if locationCenter != nil{
+            locationField.text = locationCenter?.name
+        }
         mapView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(CreateEvent4.pressed(_:)) ))
         mapView.isScrollEnabled = false
         mapView.isZoomEnabled = false
