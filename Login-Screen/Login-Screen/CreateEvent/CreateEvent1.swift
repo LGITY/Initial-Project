@@ -121,7 +121,7 @@ class CreateEvent1: UIViewController {
             //why does i have to be less than 5???
             
               
-                                  let storage = Storage.storage().reference().child("Activity Pictures").child(member + ".jpg")
+                                  let storage = Storage.storage().reference().child("Activity Pictures").child(member + ".png")
                 
                 
                                     var image : UIImage? = UIImage()
@@ -153,9 +153,9 @@ class CreateEvent1: UIViewController {
                                                 let imageView = UIImageView(image: image)
                                                 
                                                 imageView.clipsToBounds = true
-                                                imageView.frame = CGRect(x: 0, y: 0, width: 50, height: 50)
-                                                imageView.contentMode = .scaleAspectFit
-                                                imageView.clipsToBounds = true
+                                                imageView.frame = CGRect(x: 0, y: 0, width: 300, height: 300)
+                                                imageView.contentMode = .scaleToFill
+                                                imageView.clipsToBounds = false
                                                 
                                                 imageView.image = imageView.image!.withRenderingMode(.alwaysTemplate)
                                                 imageView.tintColor = UIColor(red:0.11, green:0.17, blue:0.27, alpha:1.0)
@@ -170,8 +170,8 @@ class CreateEvent1: UIViewController {
                                                 lbl.textColor = UIColor(red:0.11, green:0.17, blue:0.27, alpha:1.0)
                                                 
                                                 
-                                                let c3 = NSLayoutConstraint(item: imageView, attribute: NSLayoutAttribute.width, relatedBy: NSLayoutRelation.equal, toItem: nil, attribute: NSLayoutAttribute.notAnAttribute, multiplier: 1, constant: 30)
-                                                let c4 = NSLayoutConstraint(item: imageView, attribute: NSLayoutAttribute.height, relatedBy: NSLayoutRelation.equal, toItem: nil, attribute: NSLayoutAttribute.notAnAttribute, multiplier: 1, constant: 30)
+                                                let c3 = NSLayoutConstraint(item: imageView, attribute: NSLayoutAttribute.width, relatedBy: NSLayoutRelation.equal, toItem: nil, attribute: NSLayoutAttribute.notAnAttribute, multiplier: 1, constant: 50)
+                                                let c4 = NSLayoutConstraint(item: imageView, attribute: NSLayoutAttribute.height, relatedBy: NSLayoutRelation.equal, toItem: nil, attribute: NSLayoutAttribute.notAnAttribute, multiplier: 1, constant: 50)
                                                 
                                                 let stack = UIStackView()
                                                 
@@ -179,7 +179,7 @@ class CreateEvent1: UIViewController {
                                                 stack.addArrangedSubview(lbl)
                                                 stack.addConstraint(c3)
                                                 stack.addConstraint(c4)
-                                                imageView.layer.cornerRadius =  15
+   //                                             imageView.layer.cornerRadius =  15
                                                 stack.axis = .vertical
                                                 stack.spacing = 1
                                                 stack.clipsToBounds = true
@@ -193,12 +193,16 @@ class CreateEvent1: UIViewController {
                                                 stack.addGestureRecognizer(gest)
                                                 currentStack.distribution = .fillEqually
                                                 currentStack.addArrangedSubview(stack)
+                                                
+                                                self.verticalStack.distribution = .fill
+                                                let c5 = NSLayoutConstraint(item: currentStack, attribute: NSLayoutConstraint.Attribute.height, relatedBy: NSLayoutConstraint.Relation.equal, toItem: nil, attribute: NSLayoutConstraint.Attribute.notAnAttribute, multiplier: 1, constant: 100)
+                                                self.verticalStack.addConstraint(c5)
                                             }
                                         }).resume()
                                         
                                         
                                     })
-        
+
             
         }
 
