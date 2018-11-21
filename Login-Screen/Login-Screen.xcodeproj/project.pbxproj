@@ -33,7 +33,6 @@
 		7041161D213B489A00E22789 /* GroupSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7041161C213B489A00E22789 /* GroupSpec.swift */; };
 		704272F320F8653300D11DBA /* LoginFormatted.swift in Sources */ = {isa = PBXBuildFile; fileRef = 704272F220F8653300D11DBA /* LoginFormatted.swift */; };
 		704D596E210FEF8A007D6731 /* SignUp4.swift in Sources */ = {isa = PBXBuildFile; fileRef = 704D596D210FEF8A007D6731 /* SignUp4.swift */; };
-		70551490210ECE2800F42F2E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7055148F210ECE2700F42F2E /* GoogleService-Info.plist */; };
 		70561B6F212F2138007D9A27 /* addFriendsToGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70561B6D212F2138007D9A27 /* addFriendsToGroup.swift */; };
 		70561B70212F2138007D9A27 /* addFriendsToGroup.xib in Resources */ = {isa = PBXBuildFile; fileRef = 70561B6E212F2138007D9A27 /* addFriendsToGroup.xib */; };
 		7058F7DF20E7675A00F860A2 /* ComposeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7058F7DE20E7675A00F860A2 /* ComposeViewController.swift */; };
@@ -56,6 +55,7 @@
 		70D54F2521178BD8009E1088 /* AddFriendCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 70D54F2321178BD8009E1088 /* AddFriendCell.xib */; };
 		70DA12C32108094000705049 /* SignUp2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70DA12C22108094000705049 /* SignUp2.swift */; };
 		70DC4F0821255E750020ADDD /* SegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70DC4F0721255E750020ADDD /* SegmentedControl.swift */; };
+		70E4471E21A5C891003B7836 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 70E4471D21A5C891003B7836 /* GoogleService-Info.plist */; };
 		70EDE4A32171DA8300A107DE /* circleMover.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70EDE4A22171DA8300A107DE /* circleMover.swift */; };
 		70F6BE4321004E4800ED6356 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 70F6BE4221004E4800ED6356 /* Images.xcassets */; };
 		AFD3F65EDA6440940EB0B776 /* Pods_Login_Screen.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCDC1A8ABA630DE6B84D94B9 /* Pods_Login_Screen.framework */; };
@@ -97,7 +97,6 @@
 		7041161C213B489A00E22789 /* GroupSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupSpec.swift; sourceTree = "<group>"; };
 		704272F220F8653300D11DBA /* LoginFormatted.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginFormatted.swift; sourceTree = "<group>"; };
 		704D596D210FEF8A007D6731 /* SignUp4.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUp4.swift; sourceTree = "<group>"; };
-		7055148F210ECE2700F42F2E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		70561B6D212F2138007D9A27 /* addFriendsToGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = addFriendsToGroup.swift; sourceTree = "<group>"; };
 		70561B6E212F2138007D9A27 /* addFriendsToGroup.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = addFriendsToGroup.xib; sourceTree = "<group>"; };
 		7058F7DE20E7675A00F860A2 /* ComposeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComposeViewController.swift; sourceTree = "<group>"; };
@@ -120,6 +119,7 @@
 		70D54F2321178BD8009E1088 /* AddFriendCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddFriendCell.xib; sourceTree = "<group>"; };
 		70DA12C22108094000705049 /* SignUp2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUp2.swift; sourceTree = "<group>"; };
 		70DC4F0721255E750020ADDD /* SegmentedControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentedControl.swift; sourceTree = "<group>"; };
+		70E4471D21A5C891003B7836 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../GoogleService-Info.plist"; sourceTree = "<group>"; };
 		70EDE4A22171DA8300A107DE /* circleMover.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = circleMover.swift; sourceTree = "<group>"; };
 		70F6BE4221004E4800ED6356 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		AFEFDB0402D68BD02FA8CC85 /* Pods_Login_ScreenTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Login_ScreenTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -188,10 +188,10 @@
 				704272F220F8653300D11DBA /* LoginFormatted.swift */,
 				7058F7DE20E7675A00F860A2 /* ComposeViewController.swift */,
 				70A10BD7210E990A0003119E /* profile.swift */,
+				70E4471D21A5C891003B7836 /* GoogleService-Info.plist */,
 				7041161C213B489A00E22789 /* GroupSpec.swift */,
 				1239254520D2EF0C002D68D1 /* Assets.xcassets */,
 				1239254720D2EF0C002D68D1 /* LaunchScreen.storyboard */,
-				7055148F210ECE2700F42F2E /* GoogleService-Info.plist */,
 				1239254A20D2EF0C002D68D1 /* Info.plist */,
 				1239256E20D2EF99002D68D1 /* SignUpViewController.swift */,
 				129FC1BB20F1B7C2000E0CB9 /* ViewController2.swift */,
@@ -362,7 +362,7 @@
 				703F0989212B9003005D6E98 /* friendsCell.xib in Resources */,
 				1239254620D2EF0C002D68D1 /* Assets.xcassets in Resources */,
 				1239256D20D2EF45002D68D1 /* Main.storyboard in Resources */,
-				70551490210ECE2800F42F2E /* GoogleService-Info.plist in Resources */,
+				70E4471E21A5C891003B7836 /* GoogleService-Info.plist in Resources */,
 				70561B70212F2138007D9A27 /* addFriendsToGroup.xib in Resources */,
 				70D54F2521178BD8009E1088 /* AddFriendCell.xib in Resources */,
 			);
