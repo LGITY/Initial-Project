@@ -30,6 +30,7 @@ class SignUp2: UIViewController, UINavigationControllerDelegate, UIImagePickerCo
     @IBOutlet weak var profPicButton: UIButton!
     @IBOutlet weak var profPicLabel: UILabel!
     
+    
     //textview outlets
     @IBOutlet weak var firstBox: UIView!
     @IBOutlet weak var firstTextView: UITextField!
@@ -44,7 +45,7 @@ class SignUp2: UIViewController, UINavigationControllerDelegate, UIImagePickerCo
     @IBOutlet weak var facebookBox: UIView!
     @IBOutlet weak var facebookLabel: UIButton!
     @IBOutlet weak var facebookImage: UIImageView!
-    
+//    Davis is so ugg
     //dot outlets
     @IBOutlet weak var dotStack: UIStackView!
     @IBOutlet weak var dotFirst: UIView!
