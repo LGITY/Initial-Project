@@ -60,7 +60,7 @@ class CreateEventMap: UIViewController {
     
     @IBAction func setLocationPressed(_ sender: AnyObject)
     {
-        performSegue(withIdentifier: "backToCreateEvent4", sender: nil)
+        performSegue(withIdentifier: "back4", sender: nil)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

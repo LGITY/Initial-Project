@@ -3321,7 +3321,7 @@
                     <navigationItem key="navigationItem" title="Choose Activity" id="6il-Wn-HZn">
                         <barButtonItem key="rightBarButtonItem" title="Next" id="nRh-8o-rIx">
                             <connections>
-                                <segue destination="wrI-Np-H2O" kind="show" id="gPl-qX-lIO"/>
+                                <action selector="nextButton:" destination="G8O-CD-tEg" id="ahL-vv-kxj"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -3333,6 +3333,7 @@
                         <outlet property="horizontalStack5" destination="WxU-dQ-4gK" id="Q8n-eC-njM"/>
                         <outlet property="textField" destination="KtT-nt-KcB" id="F4I-9f-lpV"/>
                         <outlet property="verticalStack" destination="oMd-gs-Ilr" id="6TC-Az-Z9e"/>
+                        <segue destination="wrI-Np-H2O" kind="show" identifier="next" id="RmF-ys-Yc7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0vH-mO-uD0" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -3604,6 +3605,9 @@
                                             <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ukO-sw-gvl" customClass="SegmentedControl" customModule="Login_Screen" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="236" height="34"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="34" id="uPS-so-gyS"/>
+                                                </constraints>
                                             </view>
                                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AOa-Bw-OV3">
                                                 <rect key="frame" x="0.0" y="42" width="342" height="93"/>
@@ -3638,9 +3642,9 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="Op7-m7-cdx" firstAttribute="leading" secondItem="86V-qG-40I" secondAttribute="leading" constant="19" id="84E-aG-hMO"/>
-                                    <constraint firstAttribute="bottom" secondItem="Op7-m7-cdx" secondAttribute="bottom" constant="15" id="8IQ-kv-mJE"/>
                                     <constraint firstItem="MVu-vc-GKa" firstAttribute="leading" secondItem="86V-qG-40I" secondAttribute="leading" constant="16" id="C3q-Ld-lfg"/>
                                     <constraint firstItem="MVu-vc-GKa" firstAttribute="leading" secondItem="HY9-Hp-cxx" secondAttribute="leading" id="WsX-Lh-K9O"/>
+                                    <constraint firstItem="Op7-m7-cdx" firstAttribute="top" secondItem="HY9-Hp-cxx" secondAttribute="bottom" constant="5" id="Wyz-1f-n8W"/>
                                     <constraint firstItem="Op7-m7-cdx" firstAttribute="top" secondItem="HY9-Hp-cxx" secondAttribute="bottom" constant="5" id="aem-Wj-N3r"/>
                                     <constraint firstItem="MVu-vc-GKa" firstAttribute="top" secondItem="86V-qG-40I" secondAttribute="topMargin" id="bjI-Z0-oUu"/>
                                     <constraint firstItem="Op7-m7-cdx" firstAttribute="centerX" secondItem="86V-qG-40I" secondAttribute="centerX" id="huv-nv-UT1"/>
@@ -3667,6 +3671,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="szd-Uv-89Y"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Invite Friends" id="Xqa-h9-bEm">
+                        <barButtonItem key="rightBarButtonItem" title="Next" id="nOT-sl-5kL">
+                            <connections>
+                                <action selector="nextButton:" destination="wrI-Np-H2O" id="37q-Wm-gbx"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="friendsImage" destination="ieC-Hs-922" id="ohx-m7-sCc"/>
                         <outlet property="friendsTable" destination="izw-fW-wuR" id="RNT-wl-dvl"/>
@@ -3674,17 +3685,17 @@
                         <outlet property="pickerView" destination="hu9-FD-oOz" id="gM8-aw-7nP"/>
                         <outlet property="scrollView" destination="AOa-Bw-OV3" id="sVp-QH-HkP"/>
                         <outlet property="segmentedControl" destination="ukO-sw-gvl" id="MO1-xy-pqF"/>
-                        <segue destination="5ff-vb-Xx0" kind="show" identifier="next2" id="4vH-MV-uVt"/>
+                        <segue destination="5ff-vb-Xx0" kind="show" identifier="next2" id="CCE-Sk-bzg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6kL-9V-Yg9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4224.8000000000002" y="2959.9700149925038"/>
         </scene>
-        <!--Create Event3-->
+        <!--Participants-->
         <scene sceneID="pvj-7m-rzg">
             <objects>
-                <viewController id="5ff-vb-Xx0" customClass="CreateEvent3" customModule="Login_Screen" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Participants" id="5ff-vb-Xx0" customClass="CreateEvent3" customModule="Login_Screen" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="JcA-9y-X81">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -3711,19 +3722,26 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Yuv-vT-BP1"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Participants" id="7dX-WJ-CEl">
+                        <barButtonItem key="rightBarButtonItem" title="Next" id="E7O-Ka-fBm">
+                            <connections>
+                                <action selector="nextButton:" destination="5ff-vb-Xx0" id="8G6-01-5ea"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="desc" destination="FKB-ac-hrx" id="y2f-yi-eVf"/>
-                        <segue destination="tbc-sj-dsh" kind="show" identifier="toCE4" id="Aw5-bz-pLp"/>
+                        <segue destination="tbc-sj-dsh" kind="show" identifier="toCE4" id="8VJ-i5-cHf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Veh-pU-RCc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="5111.1999999999998" y="2969.8650674662672"/>
         </scene>
-        <!--Create Event4-->
+        <!--Set Details-->
         <scene sceneID="DKd-fH-cFc">
             <objects>
-                <viewController id="tbc-sj-dsh" customClass="CreateEvent4" customModule="Login_Screen" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Set Details" id="tbc-sj-dsh" customClass="CreateEvent4" customModule="Login_Screen" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="XZG-l3-vzD">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -3761,9 +3779,22 @@
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="HIO-Te-nBg">
                                 <rect key="frame" x="232" y="383" width="115.5" height="82"/>
                             </mapView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g0d-XR-08q">
+                                <rect key="frame" x="0.0" y="571.5" width="375" height="46.5"/>
+                                <color key="backgroundColor" red="0.027450980390000001" green="1" blue="0.51764705879999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <state key="normal" title="Create Event">
+                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                </state>
+                                <connections>
+                                    <action selector="nextButton:" destination="tbc-sj-dsh" eventType="touchUpInside" id="YZp-rO-8zU"/>
+                                    <action selector="setLocationPressed:" destination="y41-Gm-NfU" eventType="touchUpInside" id="zH0-wR-jti"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="g0d-XR-08q" firstAttribute="height" secondItem="XZG-l3-vzD" secondAttribute="height" multiplier="0.07" id="0em-hi-uej"/>
+                            <constraint firstItem="G5p-DA-gbf" firstAttribute="bottom" secondItem="g0d-XR-08q" secondAttribute="bottom" id="1Or-bA-4Ld"/>
                             <constraint firstItem="G5p-DA-gbf" firstAttribute="trailing" secondItem="Che-Oj-B01" secondAttribute="trailing" constant="27.5" id="92t-Rd-A1C"/>
                             <constraint firstItem="Yem-or-Itf" firstAttribute="top" secondItem="FgE-xk-YJV" secondAttribute="bottom" constant="10" id="Brw-rO-UXD"/>
                             <constraint firstItem="LAR-Qh-BhV" firstAttribute="top" secondItem="Che-Oj-B01" secondAttribute="bottom" constant="-1" id="GpA-Yv-ylx"/>
@@ -3777,10 +3808,12 @@
                             <constraint firstItem="Che-Oj-B01" firstAttribute="top" secondItem="Mj1-UC-sOS" secondAttribute="bottom" constant="8" id="Sg7-U8-utH"/>
                             <constraint firstItem="Mj1-UC-sOS" firstAttribute="top" secondItem="G5p-DA-gbf" secondAttribute="top" constant="30" id="fCV-sV-VE8"/>
                             <constraint firstItem="HIO-Te-nBg" firstAttribute="trailing" secondItem="Che-Oj-B01" secondAttribute="trailing" id="lFa-Uz-CxB"/>
+                            <constraint firstItem="g0d-XR-08q" firstAttribute="centerX" secondItem="G5p-DA-gbf" secondAttribute="centerX" id="mz9-YT-Qu3"/>
                             <constraint firstItem="HIO-Te-nBg" firstAttribute="leading" secondItem="Yem-or-Itf" secondAttribute="trailing" constant="18" id="o0y-5B-Na8"/>
                             <constraint firstItem="Che-Oj-B01" firstAttribute="leading" secondItem="G5p-DA-gbf" secondAttribute="leading" constant="27.5" id="oP1-YH-1BG"/>
                             <constraint firstItem="FgE-xk-YJV" firstAttribute="top" secondItem="LAR-Qh-BhV" secondAttribute="bottom" constant="8" symbolic="YES" id="oWg-5O-9wm"/>
                             <constraint firstItem="Che-Oj-B01" firstAttribute="centerX" secondItem="G5p-DA-gbf" secondAttribute="centerX" id="pm2-H4-MZQ"/>
+                            <constraint firstItem="g0d-XR-08q" firstAttribute="width" secondItem="XZG-l3-vzD" secondAttribute="width" id="xPr-jV-H7t"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="G5p-DA-gbf"/>
                     </view>
@@ -3788,12 +3821,12 @@
                         <outlet property="locationField" destination="FgE-xk-YJV" id="ysM-DE-TVc"/>
                         <outlet property="mapView" destination="HIO-Te-nBg" id="VnF-VC-uy7"/>
                         <outlet property="pickerView" destination="Che-Oj-B01" id="xYf-Ua-5zp"/>
-                        <segue destination="Vcz-rO-oiV" kind="presentation" identifier="toFullMap" id="e4U-MA-J3h"/>
+                        <segue destination="y41-Gm-NfU" kind="show" identifier="toFullMap" id="5UU-d3-W2H"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ltw-Ne-Brk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6047.1999999999998" y="2969.8650674662672"/>
+            <point key="canvasLocation" x="6047" y="2970"/>
         </scene>
         <!--Create Event Map-->
         <scene sceneID="642-Pw-5HW">
@@ -3809,26 +3842,8 @@
                                     <outlet property="delegate" destination="y41-Gm-NfU" id="XiQ-dc-52t"/>
                                 </connections>
                             </mapView>
-                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ay7-qQ-vwV">
-                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
-                                <textAttributes key="titleTextAttributes">
-                                    <fontDescription key="fontDescription" name="Futura-Bold" family="Futura" pointSize="17"/>
-                                    <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </textAttributes>
-                                <items>
-                                    <navigationItem title="choose location" id="PRN-qe-yoS">
-                                        <barButtonItem key="leftBarButtonItem" title="Item" image="BackArrowIconwhite" id="ncP-lO-STg">
-                                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            <connections>
-                                                <action selector="nextButton:" destination="y41-Gm-NfU" id="pg3-8S-2Kq"/>
-                                                <segue destination="tbc-sj-dsh" kind="show" identifier="backToCreateEvent4" id="Csl-vZ-eNj"/>
-                                            </connections>
-                                        </barButtonItem>
-                                    </navigationItem>
-                                </items>
-                            </navigationBar>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dgs-IV-sgk">
-                                <rect key="frame" x="0.0" y="620.5" width="375" height="46.5"/>
+                                <rect key="frame" x="0.0" y="571.5" width="375" height="46.5"/>
                                 <color key="backgroundColor" red="0.027450980390000001" green="1" blue="0.51764705879999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <state key="normal" title="Set Location">
                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -3840,16 +3855,13 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="OUF-cP-6eE" firstAttribute="top" secondItem="Ay7-qQ-vwV" secondAttribute="bottom" constant="-64" id="5p5-Xf-Cb9"/>
                             <constraint firstItem="Dgs-IV-sgk" firstAttribute="leading" secondItem="kTq-6E-pgH" secondAttribute="leading" id="8g7-tm-AJT"/>
                             <constraint firstItem="kTq-6E-pgH" firstAttribute="trailing" secondItem="Dgs-IV-sgk" secondAttribute="trailing" id="AJF-9h-e6f"/>
                             <constraint firstItem="OUF-cP-6eE" firstAttribute="width" secondItem="Gmp-cy-h8R" secondAttribute="width" id="Gf9-ph-jfB"/>
                             <constraint firstItem="OUF-cP-6eE" firstAttribute="height" secondItem="Gmp-cy-h8R" secondAttribute="height" id="UGy-L8-dqG"/>
-                            <constraint firstAttribute="bottom" secondItem="Dgs-IV-sgk" secondAttribute="bottom" id="Zlg-ts-jeu"/>
                             <constraint firstItem="OUF-cP-6eE" firstAttribute="centerX" secondItem="kTq-6E-pgH" secondAttribute="centerX" id="eBh-Cw-BRT"/>
-                            <constraint firstItem="Ay7-qQ-vwV" firstAttribute="centerX" secondItem="OUF-cP-6eE" secondAttribute="centerX" id="iPN-ig-ael"/>
+                            <constraint firstItem="kTq-6E-pgH" firstAttribute="bottom" secondItem="Dgs-IV-sgk" secondAttribute="bottom" id="lIK-HJ-emC"/>
                             <constraint firstItem="Dgs-IV-sgk" firstAttribute="height" secondItem="OUF-cP-6eE" secondAttribute="height" multiplier="0.07" id="nka-0h-dBa"/>
-                            <constraint firstItem="Ay7-qQ-vwV" firstAttribute="width" secondItem="OUF-cP-6eE" secondAttribute="width" id="qGZ-fk-xoM"/>
                             <constraint firstItem="OUF-cP-6eE" firstAttribute="centerY" secondItem="Gmp-cy-h8R" secondAttribute="centerY" id="rTu-xp-tii"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="kTq-6E-pgH"/>
@@ -4458,24 +4470,6 @@
             </objects>
             <point key="canvasLocation" x="694" y="2263"/>
         </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="NCa-ef-pBm">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Vcz-rO-oiV" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Gfk-3h-Hef">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="y41-Gm-NfU" kind="relationship" relationship="rootViewController" id="Jpr-XA-Dib"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="LaS-kX-kZS" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="5108" y="2262.8185907046477"/>
-        </scene>
         <!--Item-->
         <scene sceneID="GcQ-nj-rDH">
             <objects>
@@ -4520,7 +4514,7 @@
         <image name="unchecked" width="51.200000762939453" height="51.200000762939453"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Aw5-bz-pLp"/>
+        <segue reference="8VJ-i5-cHf"/>
         <segue reference="tXf-EJ-KcX"/>
         <segue reference="1iV-Pd-uXS"/>
         <segue reference="0D4-u8-UGN"/>
