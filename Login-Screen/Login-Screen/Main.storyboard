@@ -3747,40 +3747,40 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="When" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mj1-UC-sOS">
-                                <rect key="frame" x="31" y="94" width="69" height="29"/>
+                                <rect key="frame" x="31" y="50" width="69" height="29"/>
                                 <fontDescription key="fontDescription" name="Futura-Bold" family="Futura" pointSize="22"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="Che-Oj-B01">
-                                <rect key="frame" x="27.5" y="131" width="320" height="216"/>
+                                <rect key="frame" x="27.5" y="87" width="320" height="216"/>
                                 <date key="date" timeIntervalSinceReferenceDate="561941172.42565703">
                                     <!--2018-10-22 22:46:12 +0000-->
                                 </date>
                             </datePicker>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Where" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LAR-Qh-BhV">
-                                <rect key="frame" x="31" y="346" width="79" height="29"/>
+                                <rect key="frame" x="31" y="302" width="79" height="29"/>
                                 <fontDescription key="fontDescription" name="Futura-Bold" family="Futura" pointSize="22"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Location" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FgE-xk-YJV">
-                                <rect key="frame" x="31" y="383" width="183" height="30"/>
+                                <rect key="frame" x="31" y="339" width="183" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Click on the map to help  find you location" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yem-or-Itf">
-                                <rect key="frame" x="31" y="423" width="183" height="42"/>
+                                <rect key="frame" x="31" y="379" width="183" height="42"/>
                                 <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="16"/>
                                 <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="HIO-Te-nBg">
-                                <rect key="frame" x="232" y="383" width="115.5" height="82"/>
+                                <rect key="frame" x="232" y="339" width="115.5" height="82"/>
                             </mapView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g0d-XR-08q">
-                                <rect key="frame" x="0.0" y="571.5" width="375" height="46.5"/>
+                                <rect key="frame" x="0.0" y="620.5" width="375" height="46.5"/>
                                 <color key="backgroundColor" red="0.027450980390000001" green="1" blue="0.51764705879999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <state key="normal" title="Create Event">
                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -3821,7 +3821,7 @@
                         <outlet property="locationField" destination="FgE-xk-YJV" id="ysM-DE-TVc"/>
                         <outlet property="mapView" destination="HIO-Te-nBg" id="VnF-VC-uy7"/>
                         <outlet property="pickerView" destination="Che-Oj-B01" id="xYf-Ua-5zp"/>
-                        <segue destination="y41-Gm-NfU" kind="show" identifier="toFullMap" id="5UU-d3-W2H"/>
+                        <segue destination="9bb-Mf-uJJ" kind="presentation" identifier="toFullMap" id="5UU-d3-W2H"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ltw-Ne-Brk" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -3843,7 +3843,7 @@
                                 </connections>
                             </mapView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dgs-IV-sgk">
-                                <rect key="frame" x="0.0" y="571.5" width="375" height="46.5"/>
+                                <rect key="frame" x="0.0" y="620.5" width="375" height="46.5"/>
                                 <color key="backgroundColor" red="0.027450980390000001" green="1" blue="0.51764705879999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <state key="normal" title="Set Location">
                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -3860,7 +3860,7 @@
                             <constraint firstItem="OUF-cP-6eE" firstAttribute="width" secondItem="Gmp-cy-h8R" secondAttribute="width" id="Gf9-ph-jfB"/>
                             <constraint firstItem="OUF-cP-6eE" firstAttribute="height" secondItem="Gmp-cy-h8R" secondAttribute="height" id="UGy-L8-dqG"/>
                             <constraint firstItem="OUF-cP-6eE" firstAttribute="centerX" secondItem="kTq-6E-pgH" secondAttribute="centerX" id="eBh-Cw-BRT"/>
-                            <constraint firstItem="kTq-6E-pgH" firstAttribute="bottom" secondItem="Dgs-IV-sgk" secondAttribute="bottom" id="lIK-HJ-emC"/>
+                            <constraint firstAttribute="bottom" secondItem="Dgs-IV-sgk" secondAttribute="bottom" id="lIK-HJ-emC"/>
                             <constraint firstItem="Dgs-IV-sgk" firstAttribute="height" secondItem="OUF-cP-6eE" secondAttribute="height" multiplier="0.07" id="nka-0h-dBa"/>
                             <constraint firstItem="OUF-cP-6eE" firstAttribute="centerY" secondItem="Gmp-cy-h8R" secondAttribute="centerY" id="rTu-xp-tii"/>
                         </constraints>
@@ -3869,12 +3869,12 @@
                     <navigationItem key="navigationItem" id="K4h-7G-xu7"/>
                     <connections>
                         <outlet property="mapView" destination="OUF-cP-6eE" id="BXv-sZ-k9a"/>
-                        <segue destination="tbc-sj-dsh" kind="show" identifier="back4" id="gaN-h1-Y3c"/>
+                        <segue destination="tbc-sj-dsh" kind="showDetail" identifier="test" id="axv-p1-Sv9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zeM-Uy-RDR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6047.1999999999998" y="2262.8185907046477"/>
+            <point key="canvasLocation" x="6986.3999999999996" y="2262.8185907046477"/>
         </scene>
         <!--Location Search Table-->
         <scene sceneID="YWc-SN-hs8">
@@ -3918,7 +3918,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Aj0-s6-C1p" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6856.8000000000002" y="2262.8185907046477"/>
+            <point key="canvasLocation" x="7796" y="2262.8185907046477"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="6kJ-CJ-tnM">
@@ -4489,6 +4489,24 @@
             </objects>
             <point key="canvasLocation" x="2309.5999999999999" y="2959.9700149925038"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="IyB-ie-RvV">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="9bb-Mf-uJJ" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="qIT-Yb-A5m">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="y41-Gm-NfU" kind="relationship" relationship="rootViewController" id="3uM-Wz-6Zf"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jfD-Od-Ur6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="6047.1999999999998" y="2262.8185907046477"/>
+        </scene>
     </scenes>
     <resources>
         <image name="BackArrowIconwhite" width="5.7600002288818359" height="5.7600002288818359"/>
@@ -4514,7 +4532,8 @@
         <image name="unchecked" width="51.200000762939453" height="51.200000762939453"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="8VJ-i5-cHf"/>
+        <segue reference="5UU-d3-W2H"/>
+        <segue reference="axv-p1-Sv9"/>
         <segue reference="tXf-EJ-KcX"/>
         <segue reference="1iV-Pd-uXS"/>
         <segue reference="0D4-u8-UGN"/>

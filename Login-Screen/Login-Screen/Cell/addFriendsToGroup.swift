@@ -15,6 +15,8 @@ class addFriendsToGroup: UITableViewCell {
     @IBOutlet weak var profPic: UIImageView!
     @IBOutlet weak var label: UILabel!
     
+    static var check = ""
+    
     var ref: DatabaseReference!
     
     var memberList: Set<String> = []
@@ -68,12 +70,18 @@ class addFriendsToGroup: UITableViewCell {
     
     @IBAction func addButton(_ sender: Any) {
         if !isBlue {
+            if addFriendsToGroup.check == "CreateEvent" {
+                CreateEvent2.invitedArr.insert(userID)
+            }
             addButton.setImage(#imageLiteral(resourceName: "checked-1"), for: .normal)
             //GroupCreation.Members.membList.insert(userID)
             self.memberList.insert(userID)
             print("ADDED !! ")
         }
         else {
+            if addFriendsToGroup.check == "CreateEvent" {
+                CreateEvent2.invitedArr.remove(userID)
+            }
             addButton.setImage(#imageLiteral(resourceName: "unchecked-1"), for: .normal)
             //GroupCreation.Members.membList.remove(userID)
             self.memberList.remove(userID)
