@@ -19,6 +19,7 @@ class CreateEvent2: UIViewController, UIPickerViewDataSource, UIPickerViewDelega
     @IBOutlet weak var segmentedControl: SegmentedControl!
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var friendsTable: UITableView!
+    @IBOutlet weak var groupsTable: UITableView!
     
     static var invitedArr: Set<String> = []
     
@@ -30,11 +31,19 @@ class CreateEvent2: UIViewController, UIPickerViewDataSource, UIPickerViewDelega
         }
     }
     
+    var groupList = [String]() {
+        didSet {
+            groupsTable.reloadData()
+        }
+    }
+    
     var ref: DatabaseReference?
     
     var pickerChoice: String?
     
     static var memberList: Set<String> = []
+    
+    static var groupMemberList: Set<String> = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -62,6 +71,7 @@ class CreateEvent2: UIViewController, UIPickerViewDataSource, UIPickerViewDelega
         ref = Database.database().reference()
         
         loadFriends()
+        loadGroups()
         
         // REGISTERS NIBS
         
@@ -70,15 +80,25 @@ class CreateEvent2: UIViewController, UIPickerViewDataSource, UIPickerViewDelega
         friendsTable.delegate = self
         friendsTable.dataSource = self
         
+        //Set up GROUP Table View Controller
+        groupsTable.delegate = self
+        groupsTable.dataSource = self
+        
         //Creates the nib for the table view to reference
         let nibName = UINib(nibName: "addFriendsToGroup", bundle: nil)
         
-        //registers the nib for use with the table view
+        //registers the nib for use with the table views
         friendsTable.register(nibName, forCellReuseIdentifier: "addFriendsToGroup")
+        groupsTable.register(nibName, forCellReuseIdentifier: "addFriendsToGroup")
+        
+        
+        groupsTable.layer.backgroundColor = UIColor.blue.cgColor
         
         //disables scrollbar in both directions
         friendsTable.showsHorizontalScrollIndicator = false
         friendsTable.showsVerticalScrollIndicator = false
+        groupsTable.showsHorizontalScrollIndicator = false
+        groupsTable.showsVerticalScrollIndicator = false
         addFriendsToGroup.check = "CreateEvent"
     }
     
@@ -91,6 +111,19 @@ class CreateEvent2: UIViewController, UIPickerViewDataSource, UIPickerViewDelega
                 tempArr.append(friend)
             }
             self.friendList = tempArr
+        })
+        print(friendList)
+    }
+    
+    func loadGroups() {
+        ref?.child("Users").child(SignUp1.User.uid).child("groups").observeSingleEvent(of: .value, with: { (snapshot) in
+            // Get user value
+            let values = snapshot.value as? NSDictionary
+            var tempArr: [String] = [String]()
+            for group in values!.allKeys {
+                tempArr.append( (group as! String) )
+            }
+            self.groupList = tempArr
         })
         print(friendList)
     }
@@ -163,11 +196,15 @@ class CreateEvent2: UIViewController, UIPickerViewDataSource, UIPickerViewDelega
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.friendList.count
+        if tableView == friendsTable { return self.friendList.count }
+        if tableView == groupsTable { return self.groupList.count }
+        return 0
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 70
+        if tableView == friendsTable {return 70}
+        if tableView == groupsTable {return 140}
+        return 0
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -178,12 +215,23 @@ class CreateEvent2: UIViewController, UIPickerViewDataSource, UIPickerViewDelega
         //dequeus the cell that we created and styled in the xib file for reuse
         let cell = tableView.dequeueReusableCell(withIdentifier: "addFriendsToGroup", for: indexPath) as! addFriendsToGroup
         
-        let usr = self.friendList[indexPath.item]
-        print("fetching user: " + usr)
-        let uid = SignUp1.User.allUsers[usr] as? String ??  usr
-        cell.fullInit(memberList: CreateEvent2.memberList, userID: uid)
+        if tableView == friendsTable {
+        
+            let usr = self.friendList[indexPath.item]
+            print("fetching user: " + usr)
+            let uid = SignUp1.User.allUsers[usr] as? String ??  usr
+            cell.fullInit(memberList: CreateEvent2.memberList, userID: uid, user: true)
+        }
+        
+        if tableView == groupsTable {
+            
+            let gr = self.groupList[indexPath.item]
+            
+            cell.fullInit(memberList: CreateEvent2.groupMemberList, userID: gr, user: false)
+        }
         
         return cell
+            
     }
 
     @IBAction func nextButton(_ sender: Any) {
