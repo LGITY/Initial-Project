@@ -147,7 +147,7 @@ class GroupCreation: UIViewController, UITableViewDelegate, UITableViewDataSourc
         let usr = fList[indexPath.item]
         print("fetching user: " + usr)
         let uid = SignUp1.User.allUsers[usr] as? String ??  ""
-        cell.fullInit(memberList: Members.membList, userID: uid)
+        cell.fullInit(memberList: Members.membList, userID: uid, user: true)
        
         return cell
     }
