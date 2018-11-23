@@ -60,15 +60,11 @@ class CreateEventMap: UIViewController {
     
     @IBAction func setLocationPressed(_ sender: AnyObject)
     {
-        performSegue(withIdentifier: "backToCreateEvent4", sender: nil)
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let destinationViewController = segue.destination as? CreateEvent4{
-            destinationViewController.locationCenter = selectedPin
-            print("SelectedPinName")
-            print(selectedPin?.name)
-        }
+        CreateEventMap.root!.locationCenter = selectedPin
+        CreateEventMap.root!.updateLocation(selectedPin!)
+        CreateEventMap.root!.locationField.text = selectedPin?.name
+        self.dismiss(animated: true, completion: nil)
+        
     }
     
     @IBAction func nextButton(_ sender: Any) {

@@ -20,6 +20,8 @@ class CreateEvent2: UIViewController, UIPickerViewDataSource, UIPickerViewDelega
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var friendsTable: UITableView!
     
+    static var invitedArr: Set<String> = []
+    
     var pickerDataSource = ["Private", "Friends of Friends", "Nearby Players"]
     
     var friendList = [String]() {
@@ -77,6 +79,7 @@ class CreateEvent2: UIViewController, UIPickerViewDataSource, UIPickerViewDelega
         //disables scrollbar in both directions
         friendsTable.showsHorizontalScrollIndicator = false
         friendsTable.showsVerticalScrollIndicator = false
+        addFriendsToGroup.check = "CreateEvent"
     }
     
     func loadFriends() {
@@ -187,14 +190,13 @@ class CreateEvent2: UIViewController, UIPickerViewDataSource, UIPickerViewDelega
         var tempArr = [String]()
         
         //it would be more efficient to just do this through removing each individual thing and then using that value to add to the tempArr
-        for member in CreateEvent2.memberList {
-            tempArr.append(member)
-        }
-        CreateEvent2.memberList.removeAll()
         
-        CreateEvent1.Event.eventInfo["availableTo"] = tempArr
+        
+        
+        CreateEvent1.Event.eventInfo["availableTo"] = Array(CreateEvent2.invitedArr)
         CreateEvent1.Event.eventInfo["privacyType"] = pickerChoice
         self.performSegue(withIdentifier: "next2", sender: self)
+        CreateEvent2.invitedArr.removeAll()
     }
     /*
     // MARK: - Navigation
