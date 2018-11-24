@@ -29,8 +29,8 @@ class CreateEvent3: UIViewController {
         self.view.addSubview(CreateEvent3.text)
         currentCircleSlider = circleSlider
         self.view.addSubview(circleSlider)
-        let verticalSpace = NSLayoutConstraint(item: circleSlider, attribute: NSLayoutConstraint.Attribute.top, relatedBy: NSLayoutConstraint.Relation.equal, toItem: desc, attribute: NSLayoutConstraint.Attribute.bottom, multiplier: 1, constant: 10)
-        NSLayoutConstraint.activate([verticalSpace])
+//        let verticalSpace = NSLayoutConstraint(item: circleSlider, attribute: NSLayoutConstraint.Attribute.top, relatedBy: NSLayoutConstraint.Relation.equal, toItem: desc, attribute: NSLayoutConstraint.Attribute.bottom, multiplier: 1, constant: 10)
+//        NSLayoutConstraint.activate([verticalSpace])
         //scrollView.isScrollEnabled = false
         //scrollView.bouncesZoom = false
         //scrollView.showsVerticalScrollIndicator = false
