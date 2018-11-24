@@ -209,8 +209,10 @@ class CreateEvent1: UIViewController {
     }
     //    davis==ugly:
 //    True
+    //    ASDFGHJKL;'
 
     @objc func tappedButton(_ sender : Any) {
+        print("howdyho")
         //self.selectedActivity =
         print("yoyoyo")
         if self.currentSelection != nil {
