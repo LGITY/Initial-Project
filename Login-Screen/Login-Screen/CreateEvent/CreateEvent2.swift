@@ -121,6 +121,7 @@ class CreateEvent2: UIViewController, UIPickerViewDataSource, UIPickerViewDelega
             self.friendList = tempArr
         })
         print(friendList)
+        print("Brad is ugly")
     }
     
     func loadGroups() {
