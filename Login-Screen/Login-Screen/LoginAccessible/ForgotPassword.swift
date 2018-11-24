@@ -59,10 +59,11 @@ class ForgotPassword: UIViewController {
         self.ref?.child("Users").observeSingleEvent(of: .value, with: { (snapshot) in
             for child in snapshot.children {
                 let bchild = child as! DataSnapshot
-                let achild = bchild.value as! [String: String]
-                var email = achild["email"] as! String
+                let achild = bchild.value as! NSDictionary
+                let email = achild["email"] as? String ?? ""
                 print(email)
-                self.emailArray.append(email)
+                let emailFormatted = email.lowercased()
+                self.emailArray.append(emailFormatted)
                 print(self.emailArray.count)
             }
         })
@@ -177,26 +178,32 @@ class ForgotPassword: UIViewController {
     }
     
     @IBAction func done(_ sender: Any) {
-//        dismiss(animated: true, completion: nil)
+        dismiss(animated: true, completion: nil)
     }
     
     @IBAction func sendPressed(_ sender: Any) {
-        print(self.emailArray)
-        var error_message = ""
-        if self.emailArray.contains(emailTextView.text!){
-            print("heloooo")
-
-            self.performSegue(withIdentifier: "toHome", sender: self)
-            Auth.auth().sendPasswordReset(withEmail: self.emailTextView.text!) { error in
-            }
+        let emailSpecified = emailTextView.text!.lowercased()
+        if self.emailArray.contains(emailSpecified){
+            Auth.auth().sendPasswordReset(withEmail: emailSpecified) { error in }
+            changeContent()
             
-            }
-        else {
-            print("bad")
+            
         }
-        
-
+        else {
+          print("bad")
+        }
+    }
     
+    func changeContent() {
+        
+        //change the sent button stuff
+        sendButton.backgroundColor = UIColor.white
+        sendButton.setTitle("SENT", for: .normal)
+        sendButton.setTitleColor(UIColor(red:0.13, green:0.70, blue:1.00, alpha:1.0), for: .normal)
+        sendButton.isEnabled = false
+        
+        //get rid of the email address field and such
+        emailBox.isHidden = true
     }
 
 }

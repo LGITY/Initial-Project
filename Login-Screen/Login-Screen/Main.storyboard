@@ -85,14 +85,6 @@
                                         <color key="textColor" red="0.60392156862745094" green="0.60392156862745094" blue="0.60392156862745094" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3K1-pf-RWW">
-                                        <rect key="frame" x="247" y="456" width="46" height="30"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" title="Button"/>
-                                        <connections>
-                                            <segue destination="o5r-P9-Yri" kind="show" id="UDF-ZA-aMM"/>
-                                        </connections>
-                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
@@ -112,6 +104,7 @@
                                 <items>
                                     <navigationItem id="PS8-Uc-fAI">
                                         <barButtonItem key="rightBarButtonItem" title="Done" id="92H-OE-St9">
+                                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <connections>
                                                 <action selector="done:" destination="gTB-3u-Cd6" id="zoA-sv-5eG"/>
                                                 <segue destination="8Y1-5u-rjD" kind="show" id="mje-qC-feG"/>
@@ -1622,14 +1615,6 @@
                                             <constraint firstItem="at1-ri-2im" firstAttribute="height" secondItem="904-tR-5KS" secondAttribute="height" id="vLK-zn-P4H"/>
                                         </constraints>
                                     </stackView>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WQw-8o-mu7">
-                                        <rect key="frame" x="300" y="577" width="46" height="30"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" title="Button"/>
-                                        <connections>
-                                            <segue destination="wrk-cN-tfw" kind="show" id="yOg-7t-uIx"/>
-                                        </connections>
-                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
@@ -1655,7 +1640,7 @@
                                         <rect key="frame" x="58" y="11" width="235" height="33"/>
                                         <color key="textColor" red="0.60392156860000001" green="0.60392156860000001" blue="0.60392156860000001" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
-                                        <textInputTraits key="textInputTraits" autocapitalizationType="words" keyboardType="emailAddress"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="emailAddress" returnKeyType="next" textContentType="email"/>
                                         <connections>
                                             <outlet property="delegate" destination="dte-aG-zcH" id="kFl-7y-cpL"/>
                                         </connections>
@@ -1668,7 +1653,6 @@
                                     <constraint firstItem="8V5-O1-hpC" firstAttribute="bottom" secondItem="YnS-2m-Nx5" secondAttribute="bottom" id="6kq-OI-mZU"/>
                                     <constraint firstItem="8V5-O1-hpC" firstAttribute="centerY" secondItem="jBs-iL-pN6" secondAttribute="centerY" id="FNr-JU-ZlG"/>
                                     <constraint firstItem="YnS-2m-Nx5" firstAttribute="leading" secondItem="jBs-iL-pN6" secondAttribute="leading" constant="15" id="NAC-EV-QhW"/>
-                                    <constraint firstAttribute="width" constant="301" id="Tji-uZ-0mh"/>
                                     <constraint firstItem="YnS-2m-Nx5" firstAttribute="top" secondItem="jBs-iL-pN6" secondAttribute="top" constant="11" id="XCi-eD-rjh"/>
                                     <constraint firstAttribute="height" constant="55" id="cTi-ck-94s"/>
                                     <constraint firstItem="8V5-O1-hpC" firstAttribute="leading" secondItem="YnS-2m-Nx5" secondAttribute="trailing" constant="13" id="jmg-3m-GjU"/>
@@ -1693,7 +1677,7 @@
                                         <rect key="frame" x="58" y="11" width="235" height="33"/>
                                         <color key="textColor" red="0.60392156860000001" green="0.60392156860000001" blue="0.60392156860000001" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="next"/>
                                         <connections>
                                             <outlet property="delegate" destination="dte-aG-zcH" id="q6N-nf-SRC"/>
                                         </connections>
@@ -1724,7 +1708,7 @@
                                         <rect key="frame" x="58" y="11" width="235" height="33"/>
                                         <color key="textColor" red="0.60392156860000001" green="0.60392156860000001" blue="0.60392156860000001" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
-                                        <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                        <textInputTraits key="textInputTraits" returnKeyType="next" secureTextEntry="YES" textContentType="password"/>
                                         <connections>
                                             <outlet property="delegate" destination="dte-aG-zcH" id="iqD-0r-ohl"/>
                                         </connections>
@@ -1755,7 +1739,7 @@
                                         <rect key="frame" x="58" y="11" width="235" height="33"/>
                                         <color key="textColor" red="0.60392156860000001" green="0.60392156860000001" blue="0.60392156860000001" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
-                                        <textInputTraits key="textInputTraits" returnKeyType="done" secureTextEntry="YES"/>
+                                        <textInputTraits key="textInputTraits" returnKeyType="done" secureTextEntry="YES" textContentType="password"/>
                                         <connections>
                                             <outlet property="delegate" destination="dte-aG-zcH" id="RQ7-qE-1dC"/>
                                         </connections>
@@ -1806,7 +1790,7 @@
                             <constraint firstItem="jBs-iL-pN6" firstAttribute="height" secondItem="2uv-g0-whC" secondAttribute="height" id="2oD-U8-GJe"/>
                             <constraint firstItem="ax7-a4-znI" firstAttribute="centerX" secondItem="aqe-Yv-6be" secondAttribute="centerX" id="61R-jd-JLM"/>
                             <constraint firstItem="DT8-jK-pIm" firstAttribute="height" secondItem="2uv-g0-whC" secondAttribute="height" id="BJu-Vb-ghP"/>
-                            <constraint firstItem="Hy3-Y1-bnx" firstAttribute="centerX" secondItem="jBs-iL-pN6" secondAttribute="centerX" id="ByE-ph-Hcb"/>
+                            <constraint firstAttribute="centerX" secondItem="jBs-iL-pN6" secondAttribute="centerX" id="ByE-ph-Hcb"/>
                             <constraint firstItem="aqe-Yv-6be" firstAttribute="bottom" secondItem="ax7-a4-znI" secondAttribute="bottom" constant="13" id="CQb-fn-Rg9"/>
                             <constraint firstItem="RCK-PI-LZg" firstAttribute="centerX" secondItem="mdv-yM-si8" secondAttribute="centerX" id="Cd7-rC-8ff"/>
                             <constraint firstItem="ifY-m4-cMe" firstAttribute="centerX" secondItem="mdv-yM-si8" secondAttribute="centerX" id="ClN-dq-Bm5"/>
@@ -1825,6 +1809,7 @@
                             <constraint firstItem="jBs-iL-pN6" firstAttribute="width" secondItem="2uv-g0-whC" secondAttribute="width" id="Ngo-Go-CJX"/>
                             <constraint firstItem="RCK-PI-LZg" firstAttribute="centerY" secondItem="mdv-yM-si8" secondAttribute="centerY" id="P4g-Ju-GFr"/>
                             <constraint firstItem="QGg-qw-7OP" firstAttribute="top" secondItem="Yax-WE-7hu" secondAttribute="bottom" constant="16" id="PM8-18-d53"/>
+                            <constraint firstItem="Hy3-Y1-bnx" firstAttribute="centerX" secondItem="RCK-PI-LZg" secondAttribute="centerX" id="PVG-6i-tu0"/>
                             <constraint firstItem="DT8-jK-pIm" firstAttribute="width" secondItem="2uv-g0-whC" secondAttribute="width" id="SME-2d-98k"/>
                             <constraint firstItem="7cf-1h-9Mj" firstAttribute="height" secondItem="mdv-yM-si8" secondAttribute="height" id="U9i-HX-DFy"/>
                             <constraint firstItem="Yax-WE-7hu" firstAttribute="top" secondItem="DT8-jK-pIm" secondAttribute="bottom" constant="15" id="Vsl-Sf-uu3"/>
@@ -2263,17 +2248,21 @@
                             </view>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LsO-Kt-Cb8">
                                 <rect key="frame" x="0.0" y="20" width="375" height="44"/>
-                                <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="barTintColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <textAttributes key="titleTextAttributes">
+                                    <fontDescription key="fontDescription" name="Futura-Bold" family="Futura" pointSize="17"/>
+                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </textAttributes>
+                                <textAttributes key="largeTitleTextAttributes">
                                     <fontDescription key="fontDescription" name="Futura-Bold" family="Futura" pointSize="17"/>
                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </textAttributes>
                                 <items>
                                     <navigationItem title="Privacy Policy" id="7j4-iV-8VA">
-                                        <barButtonItem key="leftBarButtonItem" image="BackArrowIconwhite" id="CSV-82-dOo">
+                                        <barButtonItem key="rightBarButtonItem" title="Done" id="nXR-jh-8hf">
                                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <connections>
-                                                <action selector="done:" destination="kkf-co-pdz" id="eGG-vk-ZLp"/>
+                                                <action selector="done:" destination="kkf-co-pdz" id="4AB-w0-M4W"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
@@ -2378,6 +2367,7 @@
                     <size key="freeformSize" width="375" height="1000"/>
                     <connections>
                         <outlet property="backgroundView" destination="lQA-fo-b7J" id="2Qb-bv-1PV"/>
+                        <outlet property="doneButton" destination="nXR-jh-8hf" id="rzM-mh-9a6"/>
                         <outlet property="head1" destination="Nhy-ZH-c72" id="0Gn-nA-W8z"/>
                         <outlet property="header2" destination="JTd-DI-aF5" id="amY-aJ-Cic"/>
                         <outlet property="label1" destination="K9b-xB-gk4" id="RcY-Dh-HZu"/>
@@ -2423,10 +2413,10 @@
                                 </textAttributes>
                                 <items>
                                     <navigationItem title="Terms of Service" id="RVz-25-fvY">
-                                        <barButtonItem key="leftBarButtonItem" image="BackArrowIconwhite" id="9ZF-h7-LGq">
+                                        <barButtonItem key="rightBarButtonItem" title="Done" id="H0i-6U-MrU">
                                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <connections>
-                                                <action selector="done:" destination="XAi-HW-xxS" id="4nC-C1-TZ8"/>
+                                                <action selector="done:" destination="XAi-HW-xxS" id="JOi-4x-ueX"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
@@ -2524,14 +2514,13 @@
                             <constraint firstItem="A8d-dF-Edy" firstAttribute="height" secondItem="Hrn-fO-5M7" secondAttribute="height" id="bqN-ye-gTd"/>
                             <constraint firstItem="Yf4-Tx-uCq" firstAttribute="width" secondItem="Hrn-fO-5M7" secondAttribute="width" id="eCk-Ww-leH"/>
                             <constraint firstItem="A8d-dF-Edy" firstAttribute="width" secondItem="Hrn-fO-5M7" secondAttribute="width" id="moN-h8-WfZ"/>
-                            <constraint firstItem="Yf4-Tx-uCq" firstAttribute="top" secondItem="Hrn-fO-5M7" secondAttribute="top" constant="20" id="nH4-K5-uHU"/>
+                            <constraint firstItem="Yf4-Tx-uCq" firstAttribute="top" secondItem="6r0-U9-ds2" secondAttribute="top" id="nH4-K5-uHU"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6r0-U9-ds2"/>
                     </view>
                     <size key="freeformSize" width="375" height="1000"/>
                     <connections>
                         <outlet property="backgroundView" destination="A8d-dF-Edy" id="OhE-Lx-IIo"/>
-                        <outlet property="barButton" destination="9ZF-h7-LGq" id="azB-EA-END"/>
                         <outlet property="head1" destination="kLu-57-T0C" id="Y59-No-sPb"/>
                         <outlet property="head2" destination="eDG-DO-XfK" id="ASi-md-igz"/>
                         <outlet property="label1" destination="ma1-Z3-nin" id="QYb-jk-hO0"/>
@@ -3978,17 +3967,17 @@
         <scene sceneID="fbn-hw-Ku2">
             <objects>
                 <viewController restorationIdentifier="extr-profile" id="ief-1c-qG4" userLabel="Extr-Profile" customClass="profile" customModule="Login_Screen" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" ambiguous="YES" id="6BX-Il-56q">
+                    <view key="view" contentMode="scaleToFill" id="6BX-Il-56q">
                         <rect key="frame" x="0.0" y="0.0" width="1125" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nCP-wW-pRn">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nCP-wW-pRn">
                                 <rect key="frame" x="0.0" y="0.0" width="1125" height="259.5"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gMZ-GW-qEe">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="gMZ-GW-qEe">
                                         <rect key="frame" x="0.0" y="0.0" width="1125" height="259.5"/>
                                     </imageView>
-                                    <view alpha="0.89999997615814209" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ljl-3h-9Yy">
+                                    <view alpha="0.89999997615814209" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ljl-3h-9Yy">
                                         <rect key="frame" x="0.0" y="0.0" width="1125" height="259.5"/>
                                         <subviews>
                                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dMt-Na-L4i">
@@ -4054,7 +4043,7 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ilg-y5-LXN" customClass="SegmentedControl" customModule="Login_Screen">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ilg-y5-LXN" customClass="SegmentedControl" customModule="Login_Screen">
                                                 <rect key="frame" x="0.0" y="229.5" width="1125" height="30"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
@@ -4091,14 +4080,14 @@
                                     <constraint firstItem="ljl-3h-9Yy" firstAttribute="width" secondItem="gMZ-GW-qEe" secondAttribute="width" id="zil-Vu-zao"/>
                                 </constraints>
                             </view>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" scrollEnabled="NO" bouncesZoom="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VQk-FE-xKJ">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" bouncesZoom="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VQk-FE-xKJ">
                                 <rect key="frame" x="0.0" y="259.5" width="1125" height="407.5"/>
                                 <subviews>
-                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="E2x-l9-W4L">
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="E2x-l9-W4L">
                                         <rect key="frame" x="0.0" y="0.0" width="1125" height="407.5"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </tableView>
-                                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Nji-TB-HaQ">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Nji-TB-HaQ">
                                         <rect key="frame" x="1125" y="0.0" width="1125" height="407.5"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="dAz-xW-VMr">
@@ -4408,7 +4397,7 @@
                                             <constraint firstItem="dAz-xW-VMr" firstAttribute="width" secondItem="Nji-TB-HaQ" secondAttribute="width" multiplier="0.9" id="k7x-Fd-g9F"/>
                                         </constraints>
                                     </view>
-                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="UZ3-aq-H4m">
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="UZ3-aq-H4m">
                                         <rect key="frame" x="2250" y="0.0" width="1125" height="407.5"/>
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     </tableView>
@@ -4568,20 +4557,18 @@
         <image name="unchecked" width="51.200000762939453" height="51.200000762939453"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="5UU-d3-W2H"/>
-        <segue reference="rLM-FC-2QC"/>
         <segue reference="2VC-YJ-P5A"/>
         <segue reference="axv-p1-Sv9"/>
         <segue reference="uxj-qw-l5R"/>
         <segue reference="t86-Ef-XMX"/>
         <segue reference="gCx-Kg-CT6"/>
-        <segue reference="Lzc-uk-Lc2"/>
-        <segue reference="vT6-n1-i3S"/>
-        <segue reference="LzP-pd-VOo"/>
+        <segue reference="Q7A-Tl-bNP"/>
+        <segue reference="geH-W5-zn5"/>
+        <segue reference="Kdv-n1-O0x"/>
         <segue reference="HeH-Mo-qhx"/>
         <segue reference="wHO-sJ-eLD"/>
-        <segue reference="6fQ-VG-Y1c"/>
-        <segue reference="avU-xs-CoB"/>
+        <segue reference="7SO-dP-kQn"/>
+        <segue reference="4w9-KA-3Oc"/>
         <segue reference="1d9-Lb-xWv"/>
     </inferredMetricsTieBreakers>
 </document>
