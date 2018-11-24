@@ -19,6 +19,7 @@ class PrivacyPolicy: UIViewController {
     @IBOutlet weak var head1: UILabel!
     @IBOutlet weak var subHead1: UILabel!
     @IBOutlet weak var label1: UILabel!
+    @IBOutlet weak var doneButton: UIBarButtonItem!
     
     //second header outlets
     @IBOutlet weak var header2: UILabel!
