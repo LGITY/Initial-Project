@@ -266,6 +266,7 @@ class CreateEvent1: UIViewController {
 
 extension UIImageView {
     var contentClippingRect: CGRect {
+        print("hhh")
         guard let image = image else { return bounds }
         guard contentMode == .scaleAspectFit else { return bounds }
         guard image.size.width > 0 && image.size.height > 0 else { return bounds }
