@@ -28,12 +28,15 @@ class CreateEvent2: UIViewController, UIPickerViewDataSource, UIPickerViewDelega
     var friendList = [String]() {
         didSet {
             friendsTable.reloadData()
+            print(friendList)
         }
     }
     
     var groupList = [String]() {
         didSet {
             groupsTable.reloadData()
+            print("BLAHHHHH")
+            print(groupList)
         }
     }
     
@@ -74,6 +77,11 @@ class CreateEvent2: UIViewController, UIPickerViewDataSource, UIPickerViewDelega
         loadGroups()
         
         // REGISTERS NIBS
+        
+        scrollView.showsHorizontalScrollIndicator = false
+        scrollView.showsVerticalScrollIndicator = false
+        scrollView.isDirectionalLockEnabled = true
+        scrollView.isScrollEnabled = false
         
         
         //Set up FRIEND Table View Controller
@@ -125,7 +133,7 @@ class CreateEvent2: UIViewController, UIPickerViewDataSource, UIPickerViewDelega
             }
             self.groupList = tempArr
         })
-        print(friendList)
+        
     }
     
     @objc func respondToSwipeGesture(sender: UIGestureRecognizer) {
@@ -235,7 +243,7 @@ class CreateEvent2: UIViewController, UIPickerViewDataSource, UIPickerViewDelega
     }
 
     @IBAction func nextButton(_ sender: Any) {
-        var tempArr = [String]()
+        //var tempArr = [String]()
         
         //it would be more efficient to just do this through removing each individual thing and then using that value to add to the tempArr
         
