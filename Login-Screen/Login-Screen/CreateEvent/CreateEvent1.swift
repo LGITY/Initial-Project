@@ -195,7 +195,7 @@ class CreateEvent1: UIViewController {
                                                 currentStack.addArrangedSubview(stack)
                                                 
                                                 self.verticalStack.distribution = .fill
-                                                let c5 = NSLayoutConstraint(item: currentStack, attribute: NSLayoutConstraint.Attribute.height, relatedBy: NSLayoutConstraint.Relation.equal, toItem: nil, attribute: NSLayoutConstraint.Attribute.notAnAttribute, multiplier: 1, constant: 100)
+                                                let c5 = NSLayoutConstraint(item: currentStack, attribute: NSLayoutAttribute.height, relatedBy: NSLayoutRelation.equal, toItem: nil, attribute: NSLayoutAttribute.notAnAttribute, multiplier: 1, constant: 100)
                                                 self.verticalStack.addConstraint(c5)
                                             }
                                         }).resume()
@@ -207,7 +207,8 @@ class CreateEvent1: UIViewController {
         }
 
     }
-    
+    //    davis==ugly:
+//    True
 
     @objc func tappedButton(_ sender : Any) {
         //self.selectedActivity =
