@@ -9,7 +9,7 @@
 import UIKit
 
 class settings: UIViewController {
-
+    print("brad is gay")
     //navigation bar outlets
     @IBOutlet weak var saveButton: UIBarButtonItem!
     @IBOutlet weak var navBar: UINavigationBar!
