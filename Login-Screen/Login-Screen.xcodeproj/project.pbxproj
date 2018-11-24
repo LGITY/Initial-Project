@@ -47,6 +47,7 @@
 		70A112E121850C93001C9543 /* LocationSearchTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70A112E021850C93001C9543 /* LocationSearchTable.swift */; };
 		70D54F2421178BD8009E1088 /* AddFriendCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70D54F2221178BD8009E1088 /* AddFriendCell.swift */; };
 		70D54F2521178BD8009E1088 /* AddFriendCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 70D54F2321178BD8009E1088 /* AddFriendCell.xib */; };
+		70D6F58B21A926B700985A93 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 70D6F58A21A926B700985A93 /* GoogleService-Info.plist */; };
 		70DA12C32108094000705049 /* SignUp2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70DA12C22108094000705049 /* SignUp2.swift */; };
 		70DC4F0821255E750020ADDD /* SegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70DC4F0721255E750020ADDD /* SegmentedControl.swift */; };
 		70EDE4A32171DA8300A107DE /* circleMover.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70EDE4A22171DA8300A107DE /* circleMover.swift */; };
@@ -104,6 +105,7 @@
 		70A112E021850C93001C9543 /* LocationSearchTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationSearchTable.swift; sourceTree = "<group>"; };
 		70D54F2221178BD8009E1088 /* AddFriendCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFriendCell.swift; sourceTree = "<group>"; };
 		70D54F2321178BD8009E1088 /* AddFriendCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddFriendCell.xib; sourceTree = "<group>"; };
+		70D6F58A21A926B700985A93 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../GoogleService-Info.plist"; sourceTree = "<group>"; };
 		70DA12C22108094000705049 /* SignUp2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUp2.swift; sourceTree = "<group>"; };
 		70DC4F0721255E750020ADDD /* SegmentedControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentedControl.swift; sourceTree = "<group>"; };
 		70EDE4A22171DA8300A107DE /* circleMover.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = circleMover.swift; sourceTree = "<group>"; };
@@ -171,6 +173,7 @@
 				70A10BD3210D63D40003119E /* tabBarController.swift */,
 				7083AD9520FC54D5005D72B1 /* Home.swift */,
 				128A123B21A91842001EFF44 /* GoogleService-Info.plist */,
+				70D6F58A21A926B700985A93 /* GoogleService-Info.plist */,
 				704272F220F8653300D11DBA /* LoginFormatted.swift */,
 				70A10BD7210E990A0003119E /* profile.swift */,
 				7041161C213B489A00E22789 /* GroupSpec.swift */,
@@ -341,6 +344,7 @@
 				1239254620D2EF0C002D68D1 /* Assets.xcassets in Resources */,
 				1239256D20D2EF45002D68D1 /* Main.storyboard in Resources */,
 				128A123C21A91842001EFF44 /* GoogleService-Info.plist in Resources */,
+				70D6F58B21A926B700985A93 /* GoogleService-Info.plist in Resources */,
 				70561B70212F2138007D9A27 /* addFriendsToGroup.xib in Resources */,
 				70D54F2521178BD8009E1088 /* AddFriendCell.xib in Resources */,
 			);
