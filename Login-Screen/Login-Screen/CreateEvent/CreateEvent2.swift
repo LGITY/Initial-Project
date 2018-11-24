@@ -211,9 +211,7 @@ class CreateEvent2: UIViewController, UIPickerViewDataSource, UIPickerViewDelega
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if tableView == friendsTable {return 70}
-        if tableView == groupsTable {return 140}
-        return 0
+        return 70
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

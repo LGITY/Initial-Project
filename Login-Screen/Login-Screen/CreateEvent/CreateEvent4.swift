@@ -90,6 +90,7 @@ class CreateEvent4: UIViewController {
         let id = UUID().uuidString
         self.ref?.child("Events").child(id).setValue(CreateEvent1.Event.eventInfo)
         ref?.child("Users").child(SignUp1.User.uid).child("Events").child(id).setValue(CreateEvent1.Event.eventInfo)
+        performSegue(withIdentifier: "toHome", sender: self)
     }
     
     /*

@@ -9,7 +9,6 @@
 import UIKit
 
 class SignUp3: UIViewController {
-    print("howdyho")
 
     @IBOutlet weak var headerLabel: UILabel!
     
