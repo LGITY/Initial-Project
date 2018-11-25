@@ -43,6 +43,8 @@
 		70A112DD217E8E72001C9543 /* CreateEvent4.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70A112DC217E8E72001C9543 /* CreateEvent4.swift */; };
 		70A112DF217EAEDD001C9543 /* CreateEventMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70A112DE217EAEDD001C9543 /* CreateEventMap.swift */; };
 		70A112E121850C93001C9543 /* LocationSearchTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70A112E021850C93001C9543 /* LocationSearchTable.swift */; };
+		70CEE17E21AAA57A00027272 /* HomePostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70CEE17C21AAA57A00027272 /* HomePostCell.swift */; };
+		70CEE17F21AAA57A00027272 /* HomePostCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 70CEE17D21AAA57A00027272 /* HomePostCell.xib */; };
 		70D54F2421178BD8009E1088 /* AddFriendCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70D54F2221178BD8009E1088 /* AddFriendCell.swift */; };
 		70D54F2521178BD8009E1088 /* AddFriendCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 70D54F2321178BD8009E1088 /* AddFriendCell.xib */; };
 		70D6F58B21A926B700985A93 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 70D6F58A21A926B700985A93 /* GoogleService-Info.plist */; };
@@ -100,6 +102,8 @@
 		70A112DC217E8E72001C9543 /* CreateEvent4.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateEvent4.swift; sourceTree = "<group>"; };
 		70A112DE217EAEDD001C9543 /* CreateEventMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateEventMap.swift; sourceTree = "<group>"; };
 		70A112E021850C93001C9543 /* LocationSearchTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationSearchTable.swift; sourceTree = "<group>"; };
+		70CEE17C21AAA57A00027272 /* HomePostCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePostCell.swift; sourceTree = "<group>"; };
+		70CEE17D21AAA57A00027272 /* HomePostCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomePostCell.xib; sourceTree = "<group>"; };
 		70D54F2221178BD8009E1088 /* AddFriendCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFriendCell.swift; sourceTree = "<group>"; };
 		70D54F2321178BD8009E1088 /* AddFriendCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddFriendCell.xib; sourceTree = "<group>"; };
 		70D6F58A21A926B700985A93 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -256,6 +260,8 @@
 				70561B6E212F2138007D9A27 /* addFriendsToGroup.xib */,
 				7002935B2138ED3600AA3ADD /* GroupCell.swift */,
 				7002935C2138ED3600AA3ADD /* GroupCell.xib */,
+				70CEE17C21AAA57A00027272 /* HomePostCell.swift */,
+				70CEE17D21AAA57A00027272 /* HomePostCell.xib */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -340,6 +346,7 @@
 				703F0989212B9003005D6E98 /* friendsCell.xib in Resources */,
 				1239254620D2EF0C002D68D1 /* Assets.xcassets in Resources */,
 				1239256D20D2EF45002D68D1 /* Main.storyboard in Resources */,
+				70CEE17F21AAA57A00027272 /* HomePostCell.xib in Resources */,
 				70D6F58B21A926B700985A93 /* GoogleService-Info.plist in Resources */,
 				70561B70212F2138007D9A27 /* addFriendsToGroup.xib in Resources */,
 				70D54F2521178BD8009E1088 /* AddFriendCell.xib in Resources */,
@@ -428,6 +435,7 @@
 				70EDE4A32171DA8300A107DE /* circleMover.swift in Sources */,
 				70A10BD6210D6B630003119E /* settings.swift in Sources */,
 				70D54F2421178BD8009E1088 /* AddFriendCell.swift in Sources */,
+				70CEE17E21AAA57A00027272 /* HomePostCell.swift in Sources */,
 				7002935221388DF200AA3ADD /* CreateEvent2.swift in Sources */,
 				70918AB02142639A008E04C2 /* profileTransition.swift in Sources */,
 				1239253F20D2EF08002D68D1 /* AppDelegate.swift in Sources */,

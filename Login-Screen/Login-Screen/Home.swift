@@ -8,23 +8,47 @@
 
 import UIKit
 
-class Home: UIViewController {
+class Home: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    
 
+    @IBOutlet weak var mainTableView: UITableView!
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        mainTableView.delegate = self
+        mainTableView.dataSource = self
+        
+        //Creates the nib for the table view to reference
+        let nibName = UINib(nibName: "HomePostCell", bundle: nil)
+        
+        //registers the nib for use with the table view
+        mainTableView.register(nibName, forCellReuseIdentifier: "HomePostCell")
+        
+        //disables scrollbar in both directions
+        mainTableView.showsHorizontalScrollIndicator = false
+        mainTableView.showsVerticalScrollIndicator = false
+        
+        
+        
         // Do any additional setup after loading the view.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 0
     }
-    */
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 15
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        return UITableViewCell()
+    }
+    
+    
 
 }
