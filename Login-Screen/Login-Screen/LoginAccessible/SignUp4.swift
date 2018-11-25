@@ -15,9 +15,6 @@ import FBSDKLoginKit
 
 class SignUp4: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
-    @IBOutlet weak var navBar: UINavigationBar!
-    @IBOutlet weak var skipButton: UIBarButtonItem!
-
 
     @IBOutlet weak var backgroundColor: UIView!
     @IBOutlet weak var backgroundImage: UIImageView!
@@ -50,7 +47,17 @@ class SignUp4: UIViewController, UITableViewDelegate, UITableViewDataSource {
     //contacts variables
     var contactsLocal: Dictionary = [String:[String]]()
     var contactsCloud = [[String]]()
-    var contactsToImport: Dictionary = [String:[String]]()
+    var contactsToImport: Dictionary = [String:[String]]() {
+        didSet {
+            friendTable.reloadData()
+        }
+    }
+    var contactsFound: Dictionary = [String:[String]]() {
+        didSet {
+            friendTable.reloadData()
+        }
+    }
+    
     
     //dictionary that carries information from page to page
     var info: NSMutableDictionary = [:]
@@ -81,7 +88,7 @@ class SignUp4: UIViewController, UITableViewDelegate, UITableViewDataSource {
         //loads friend table view
         backgroundTable.backgroundColor = UIColor.white.withAlphaComponent(0.9)
         backgroundTable.layer.cornerRadius = 10
-        friendTable.backgroundColor = UIColor.white.withAlphaComponent(0.9)
+        friendTable.backgroundColor = UIColor.white.withAlphaComponent(0.2)
         friendTable.layer.cornerRadius = 10
         search.layer.cornerRadius = 10
         search.backgroundColor = UIColor.clear
@@ -178,11 +185,12 @@ class SignUp4: UIViewController, UITableViewDelegate, UITableViewDataSource {
     }
 
     func loadNavigationBar() {
-        navBar.setBackgroundImage(UIImage(), for: .default)
-        navBar.shadowImage = UIImage()
-        navBar.isTranslucent = true
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        self.navigationController?.navigationBar.shadowImage = UIImage()
+        self.navigationController?.navigationBar.isTranslucent = true
+        self.navigationController?.navigationBar.tintColor = UIColor.white
 
-        skipButton.setTitleTextAttributes([NSAttributedStringKey.font : UIFont(name: "Futura-Bold", size: 17)!], for: UIControlState.normal)
+        //skipButton.setTitleTextAttributes([NSAttributedStringKey.font : UIFont(name: "Futura-Bold", size: 17)!], for: UIControlState.normal)
     }
 
     func loadBackground() {
@@ -229,6 +237,9 @@ class SignUp4: UIViewController, UITableViewDelegate, UITableViewDataSource {
                 if !found {
                     print("Contact needs to be imported")
                     contactsToImport[key] = numberList
+                }
+                else {
+                    contactsFound[key] = numberList
                 }
             }
         }

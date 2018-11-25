@@ -51,8 +51,8 @@ class GroupCell: UITableViewCell {
                 ref?.child("Users").child(member).observeSingleEvent(of: .value, with: { (snapshot) in
                     // Get user value
                     let value = snapshot.value as? NSDictionary
-                    let link = value?["prof-pic"] as? String ?? ""
-                    let name = (value?["first"] as! String) + " " + (value?["last"] as! String)
+                    let link = value?["prof-pic"] as? String
+                    let name = (value?["first"] as? String ?? "") + " " + (value?["last"] as? String ?? "")
                     //let name = "Fernando"
                     pic = link
                     let urlPath = pic

@@ -90,8 +90,17 @@ class CreateEvent1: UIViewController {
             for key in (value?.allKeys)! {
                 tList.append((value![key] as? String ?? ""))
             }
-            self.activityList = tList
+            
+            let extra = 3 - tList.count % 3
+            if extra != 0 {
+                for i in 1...extra {
+                    tList.append("zzzblank")
+                }
+            }
+            
+            self.activityList = tList.sorted()
         })
+        
         print("user_id: ",SignUp1.User.uid)
        //
     self.ref?.child("Users").child((SignUp1.User.uid)).child("location").setValue((manager.location?.coordinate.latitude))
@@ -109,6 +118,7 @@ class CreateEvent1: UIViewController {
     func loadMembers() {
         var i = 0
         var j = 0
+        //let extra = self.activityList.count % 3
         
         for member in self.activityList {
             if(i==3)
@@ -120,97 +130,101 @@ class CreateEvent1: UIViewController {
             var currentStack = stackArray![j] as? UIStackView ?? UIStackView()
             //why does i have to be less than 5???
             
-              
-                                  let storage = Storage.storage().reference().child("Activity Pictures").child(member + ".png")
-                
-                
-                                    var image : UIImage? = UIImage()
-                                    print(storage)
-                                    storage.downloadURL(completion: { (url, error) in
-                                        
-                                        if error != nil {
-                                            print("ERROR COULD NOT DOWNLOAD ACTIVITY IMAGE")
-                                            return
-                                        }
-                                        
-                                      
-                                            
-                                        
-                                        URLSession.shared.dataTask(with: url!, completionHandler: { (data, response, error) in
-                                            
-                                            if error != nil {
-                                                print("ERROR COULD NOT DOWNLOAD FROM URL")
-                                                return
-                                            }
-                                            
-                                            guard let imageData = UIImage(data: data! as Data) else { return }
-                                            
-                                            print("IMAGEDATA")
-                                            print(imageData)
-                                            
-                                            DispatchQueue.main.async {
-                                                image = imageData
-                                                let imageView = UIImageView(image: image)
-                                                
-                                                imageView.clipsToBounds = true
-                                                imageView.frame = CGRect(x: 0, y: 0, width: 300, height: 300)
-                                                imageView.contentMode = .scaleToFill
-                                                imageView.clipsToBounds = false
-                                                
-                                                imageView.image = imageView.image!.withRenderingMode(.alwaysTemplate)
-                                                imageView.tintColor = UIColor(red:0.11, green:0.17, blue:0.27, alpha:1.0)
-                                                //theImageView.tintColor = UIColor.red
-                                                let lbl = UILabel()
-                                                //lbl.sizeToFit()
-                                                lbl.frame = CGRect(x: 0, y: 0, width: 5, height: 5)
-                                                lbl.setContentCompressionResistancePriority(UILayoutPriority(rawValue: 1000), for: .horizontal)
-                                                lbl.text =  member      //self.activityList[i + 5*j]
-                                                lbl.lineBreakMode = .byTruncatingTail
-                                                lbl.font = UIFont(name: "Futura-Medium", size: 10.0)
-                                                lbl.textColor = UIColor(red:0.11, green:0.17, blue:0.27, alpha:1.0)
-                                                
-                                                
-                                                let c3 = NSLayoutConstraint(item: imageView, attribute: NSLayoutAttribute.width, relatedBy: NSLayoutRelation.equal, toItem: nil, attribute: NSLayoutAttribute.notAnAttribute, multiplier: 1, constant: 50)
-                                                let c4 = NSLayoutConstraint(item: imageView, attribute: NSLayoutAttribute.height, relatedBy: NSLayoutRelation.equal, toItem: nil, attribute: NSLayoutAttribute.notAnAttribute, multiplier: 1, constant: 50)
-                                                
-                                                let stack = UIStackView()
-                                                
-                                                stack.addArrangedSubview(imageView)
-                                                stack.addArrangedSubview(lbl)
-                                                stack.addConstraint(c3)
-                                                stack.addConstraint(c4)
-   //                                             imageView.layer.cornerRadius =  15
-                                                stack.axis = .vertical
-                                                stack.spacing = 1
-                                                stack.clipsToBounds = true
-                                                stack.alignment = .center
-                                                stack.distribution = .fillEqually
-                                                stack.contentMode = .left
-                                                let gest = UITapGestureRecognizer(target: self, action: #selector(self.tappedButton(_:)))
-                                                //adding gesture as key, image as element
-                                                self.stackDict[gest] = imageView
-                                                //adding gesture to this vertical stack
-                                                stack.addGestureRecognizer(gest)
-                                                currentStack.distribution = .fillEqually
-                                                currentStack.addArrangedSubview(stack)
-                                                
-                                                self.verticalStack.distribution = .fill
-                                                let c5 = NSLayoutConstraint(item: currentStack, attribute: NSLayoutAttribute.height, relatedBy: NSLayoutRelation.equal, toItem: nil, attribute: NSLayoutAttribute.notAnAttribute, multiplier: 1, constant: 100)
-                                                self.verticalStack.addConstraint(c5)
-                                            }
-                                        }).resume()
-                                        
-                                        
-                                    })
+            
+              let storage = Storage.storage().reference().child("Activity Pictures").child(member + ".png")
+
+
+                var image : UIImage? = UIImage()
+                print(storage)
+                storage.downloadURL(completion: { (url, error) in
+                    
+                    if error != nil {
+                        print("ERROR COULD NOT DOWNLOAD ACTIVITY IMAGE")
+                        return
+                    }
+                    
+                  
+                    
+                    
+                    URLSession.shared.dataTask(with: url!, completionHandler: { (data, response, error) in
+                        
+                        if error != nil {
+                            print("ERROR COULD NOT DOWNLOAD FROM URL")
+                            return
+                        }
+                        
+                        guard let imageData = UIImage(data: data! as Data) else { return }
+                        
+                        print("IMAGEDATA")
+                        print(imageData)
+                        
+                        DispatchQueue.main.async {
+                            image = imageData
+                            let imageView = UIImageView(image: image)
+                            
+                            imageView.clipsToBounds = true
+                            imageView.frame = CGRect(x: 0, y: 0, width: 300, height: 300)
+                            imageView.contentMode = .scaleToFill
+                            imageView.clipsToBounds = false
+                            
+                            imageView.image = imageView.image!.withRenderingMode(.alwaysTemplate)
+                            imageView.tintColor = UIColor(red:0.11, green:0.17, blue:0.27, alpha:1.0)
+                            //theImageView.tintColor = UIColor.red
+                            let lbl = UILabel()
+                            //lbl.sizeToFit()
+                            lbl.frame = CGRect(x: 0, y: 0, width: 5, height: 5)
+                            lbl.setContentCompressionResistancePriority(UILayoutPriority(rawValue: 1000), for: .horizontal)
+                            if member == "zzzblank" {
+                                lbl.text = ""
+                            }
+                            else {
+                                lbl.text =  member      //self.activityList[i + 5*j]
+                            }
+                            lbl.lineBreakMode = .byTruncatingTail
+                            lbl.font = UIFont(name: "Futura-Medium", size: 10.0)
+                            lbl.textColor = UIColor(red:0.11, green:0.17, blue:0.27, alpha:1.0)
+                            
+                            
+                            let c3 = NSLayoutConstraint(item: imageView, attribute: NSLayoutAttribute.width, relatedBy: NSLayoutRelation.equal, toItem: nil, attribute: NSLayoutAttribute.notAnAttribute, multiplier: 1, constant: 50)
+                            let c4 = NSLayoutConstraint(item: imageView, attribute: NSLayoutAttribute.height, relatedBy: NSLayoutRelation.equal, toItem: nil, attribute: NSLayoutAttribute.notAnAttribute, multiplier: 1, constant: 50)
+                            
+                            let stack = UIStackView()
+                            
+                            stack.addArrangedSubview(imageView)
+                            stack.addArrangedSubview(lbl)
+                            stack.addConstraint(c3)
+                            stack.addConstraint(c4)
+                            stack.axis = .vertical
+                            stack.spacing = 1
+                            stack.clipsToBounds = true
+                            stack.alignment = .center
+                            stack.distribution = .fillEqually
+                            stack.contentMode = .left
+                            let gest = UITapGestureRecognizer(target: self, action: #selector(self.tappedButton(_:)))
+                            //adding gesture as key, image as element
+                            self.stackDict[gest] = imageView
+                            //adding gesture to this vertical stack
+                            if member != "zzzblank" {
+                                stack.addGestureRecognizer(gest)
+                            }
+                            currentStack.distribution = .fillEqually
+                            currentStack.addArrangedSubview(stack)
+                            
+                            self.verticalStack.distribution = .fill
+                            let c5 = NSLayoutConstraint(item: currentStack, attribute: NSLayoutAttribute.height, relatedBy: NSLayoutRelation.equal, toItem: nil, attribute: NSLayoutAttribute.notAnAttribute, multiplier: 1, constant: 100)
+                            self.verticalStack.addConstraint(c5)
+                        }
+                    }).resume()
+                    
+                    
+                })
 
             
         }
 
     }
-    //    davis==ugly:
-//    True
-    //    ASDFGHJKL;'
 
+    
     @objc func tappedButton(_ sender : Any) {
         print("howdyho")
         //self.selectedActivity =

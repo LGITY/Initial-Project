@@ -109,7 +109,7 @@ class profile: UIViewController, UITableViewDelegate, UITableViewDataSource {
     }
     
     //creates the variable that stores the event list
-    var eList: [String: String] = [:]
+    var eList: NSDictionary?
     
     //creates the variable that stores the group list
     var gList: [String] = [String]() {
@@ -331,8 +331,8 @@ class profile: UIViewController, UITableViewDelegate, UITableViewDataSource {
             
             //set up events label
             self.eventsLabel.textColor = UIColor.white
-            self.eList = SignUp1.User.userInfo["events"] as? [String: String] ?? [:]
-            self.eventsLabel.text = String(self.eList.count) + " EVENTS"
+            self.eList = SignUp1.User.userInfo["Events"] as? NSDictionary ?? [:]
+            self.eventsLabel.text = String(self.eList!.count) + " EVENTS"
             self.setupInterests()
             print("set this ish up")
         })
@@ -456,7 +456,7 @@ class profile: UIViewController, UITableViewDelegate, UITableViewDataSource {
             
             if self.toFriend == SignUp1.User.uid {
                 pastUsers.removeAll()
-                self.performSegue(withIdentifier: "toInternalProfile", sender: self)
+                self.performSegue(withIdentifier: "backInternalProfile", sender: self)
             }
             else {
                 print("????????????????????")

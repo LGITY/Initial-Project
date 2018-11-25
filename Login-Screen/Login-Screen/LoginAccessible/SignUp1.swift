@@ -78,6 +78,7 @@ class SignUp1: UIViewController {
     let bundleIdentifier =  Bundle.main.bundleIdentifier
     
     
+    @IBOutlet weak var navBar: UINavigationItem!
     //next button outlet
     @IBOutlet weak var nextButton: UIButton!
     
@@ -120,8 +121,10 @@ class SignUp1: UIViewController {
         passwordTextView.delegate = self
         confirmPasswordTextView.delegate = self
         super.viewDidLoad()
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        self.navigationController?.navigationBar.shadowImage = UIImage()
+        self.navigationController?.navigationBar.isTranslucent = true
 //        print(userArray)
-        
 //        termsPressed = false
         //LOADS BACKGROUND
         loadBackground()

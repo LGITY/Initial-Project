@@ -20,11 +20,6 @@ class SignUp2: UIViewController, UINavigationControllerDelegate, UIImagePickerCo
     @IBOutlet weak var backgroundColor: UIView!
     @IBOutlet weak var profPicImage: UIImageView!
     
-    //navigation bar outlets
-    @IBOutlet weak var navBar: UINavigationBar!
-    @IBOutlet weak var backButton: UIBarButtonItem!
-    @IBOutlet weak var skipButton: UIBarButtonItem!
-    
     
     //header outlets
     @IBOutlet weak var profPicButton: UIButton!
@@ -307,11 +302,16 @@ class SignUp2: UIViewController, UINavigationControllerDelegate, UIImagePickerCo
     }
     
     func loadNavigationBar() {
-        navBar.setBackgroundImage(UIImage(), for: .default)
-        navBar.shadowImage = UIImage()
-        navBar.isTranslucent = true
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        self.navigationController?.navigationBar.shadowImage = UIImage()
+        self.navigationController?.navigationBar.isTranslucent = true
+        self.navigationController?.navigationBar.tintColor = UIColor.white
+        //self.navigationController?.navigationBar.backItem?.backBarButtonItem?.setTitleTextAttributes([NSAttributedStringKey.foregroundColor : UIColor.white], for: .normal)
+        //self.navigationController?.navigationBar.topItem?.rightBarButtonItem?.setTitleTextAttributes([NSAttributedStringKey.foregroundColor : UIColor.white], for: .normal)
         
-        skipButton.setTitleTextAttributes([NSAttributedStringKey.font : UIFont(name: "Futura-Bold", size: 17)!], for: UIControlState.normal)
+        //self.navigationController?.navigationItem.leftBarButtonItem?.setTitleTextAttributes([NSAttributedStringKey.font : UIFont(name: "Futura-Bold", size: 17)!], for: .normal)
+        //self.navigationController?.navigationItem.rightBarButtonItem?.setTitleTextAttributes([NSAttributedStringKey.font : UIFont(name: "Futura-Bold", size: 17)!], for: .normal)
+        //skipButton.setTitleTextAttributes([NSAttributedStringKey.font : UIFont(name: "Futura-Bold", size: 17)!], for: UIControlState.normal)
     }
     
     func loadBackground() {
