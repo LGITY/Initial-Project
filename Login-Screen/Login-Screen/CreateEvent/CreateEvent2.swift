@@ -100,7 +100,7 @@ class CreateEvent2: UIViewController, UIPickerViewDataSource, UIPickerViewDelega
         groupsTable.register(nibName, forCellReuseIdentifier: "addFriendsToGroup")
         
         
-        groupsTable.layer.backgroundColor = UIColor.blue.cgColor
+        //groupsTable.layer.backgroundColor = UIColor.blue.cgColor
         
         //disables scrollbar in both directions
         friendsTable.showsHorizontalScrollIndicator = false
