@@ -272,6 +272,7 @@ class LoginFormatted: UIViewController {
                     print("ok")
                     
                     //sets up the global variable for the current user
+                    
                     SignUp1.User.uid = (user?.user.uid)!
                     print(SignUp1.User.uid)
                     print("THIS WAS THE STORED ID ^")

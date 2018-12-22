@@ -21,7 +21,7 @@ class SignUp5: UIViewController {
 //            // Your code with delay
 //        }
         DispatchQueue.main.asyncAfter(deadline: .now() + 2, execute: {
-            self.performSegue(withIdentifier: "toProfile", sender: self)
+            self.performSegue(withIdentifier: "startPlusOne", sender: self)
         })
     }
 

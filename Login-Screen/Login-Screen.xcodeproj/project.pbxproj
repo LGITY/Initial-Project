@@ -20,6 +20,7 @@
 		7002935421388E1600AA3ADD /* CreateEvent3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7002935321388E1600AA3ADD /* CreateEvent3.swift */; };
 		7002935D2138ED3600AA3ADD /* GroupCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7002935B2138ED3600AA3ADD /* GroupCell.swift */; };
 		7002935E2138ED3600AA3ADD /* GroupCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7002935C2138ED3600AA3ADD /* GroupCell.xib */; };
+		70354C5321B13DA600FB8662 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 70354C5221B13DA600FB8662 /* GoogleService-Info.plist */; };
 		703F0981212B3AAF005D6E98 /* SignUp5.swift in Sources */ = {isa = PBXBuildFile; fileRef = 703F0980212B3AAF005D6E98 /* SignUp5.swift */; };
 		703F0988212B9003005D6E98 /* friendsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 703F0986212B9003005D6E98 /* friendsCell.swift */; };
 		703F0989212B9003005D6E98 /* friendsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 703F0987212B9003005D6E98 /* friendsCell.xib */; };
@@ -47,7 +48,6 @@
 		70CEE17F21AAA57A00027272 /* HomePostCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 70CEE17D21AAA57A00027272 /* HomePostCell.xib */; };
 		70D54F2421178BD8009E1088 /* AddFriendCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70D54F2221178BD8009E1088 /* AddFriendCell.swift */; };
 		70D54F2521178BD8009E1088 /* AddFriendCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 70D54F2321178BD8009E1088 /* AddFriendCell.xib */; };
-		70D6F58B21A926B700985A93 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 70D6F58A21A926B700985A93 /* GoogleService-Info.plist */; };
 		70D6F58D21A9346F00985A93 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70D6F58C21A9346F00985A93 /* Home.swift */; };
 		70DA12C32108094000705049 /* SignUp2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70DA12C22108094000705049 /* SignUp2.swift */; };
 		70DC4F0821255E750020ADDD /* SegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70DC4F0721255E750020ADDD /* SegmentedControl.swift */; };
@@ -79,6 +79,7 @@
 		7002935321388E1600AA3ADD /* CreateEvent3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateEvent3.swift; sourceTree = "<group>"; };
 		7002935B2138ED3600AA3ADD /* GroupCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupCell.swift; sourceTree = "<group>"; };
 		7002935C2138ED3600AA3ADD /* GroupCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GroupCell.xib; sourceTree = "<group>"; };
+		70354C5221B13DA600FB8662 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../GoogleService-Info.plist"; sourceTree = "<group>"; };
 		703F0980212B3AAF005D6E98 /* SignUp5.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUp5.swift; sourceTree = "<group>"; };
 		703F0986212B9003005D6E98 /* friendsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = friendsCell.swift; sourceTree = "<group>"; };
 		703F0987212B9003005D6E98 /* friendsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = friendsCell.xib; sourceTree = "<group>"; };
@@ -106,7 +107,6 @@
 		70CEE17D21AAA57A00027272 /* HomePostCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomePostCell.xib; sourceTree = "<group>"; };
 		70D54F2221178BD8009E1088 /* AddFriendCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFriendCell.swift; sourceTree = "<group>"; };
 		70D54F2321178BD8009E1088 /* AddFriendCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddFriendCell.xib; sourceTree = "<group>"; };
-		70D6F58A21A926B700985A93 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../GoogleService-Info.plist"; sourceTree = "<group>"; };
 		70D6F58C21A9346F00985A93 /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
 		70DA12C22108094000705049 /* SignUp2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUp2.swift; sourceTree = "<group>"; };
 		70DC4F0721255E750020ADDD /* SegmentedControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentedControl.swift; sourceTree = "<group>"; };
@@ -174,7 +174,7 @@
 				703F098E212E8364005D6E98 /* GroupCreation.swift */,
 				70A10BD5210D6B630003119E /* settings.swift */,
 				70A10BD3210D63D40003119E /* tabBarController.swift */,
-				70D6F58A21A926B700985A93 /* GoogleService-Info.plist */,
+				70354C5221B13DA600FB8662 /* GoogleService-Info.plist */,
 				704272F220F8653300D11DBA /* LoginFormatted.swift */,
 				70A10BD7210E990A0003119E /* profile.swift */,
 				7041161C213B489A00E22789 /* GroupSpec.swift */,
@@ -344,10 +344,10 @@
 				1239254920D2EF0C002D68D1 /* LaunchScreen.storyboard in Resources */,
 				70F6BE4321004E4800ED6356 /* Images.xcassets in Resources */,
 				703F0989212B9003005D6E98 /* friendsCell.xib in Resources */,
+				70354C5321B13DA600FB8662 /* GoogleService-Info.plist in Resources */,
 				1239254620D2EF0C002D68D1 /* Assets.xcassets in Resources */,
 				1239256D20D2EF45002D68D1 /* Main.storyboard in Resources */,
 				70CEE17F21AAA57A00027272 /* HomePostCell.xib in Resources */,
-				70D6F58B21A926B700985A93 /* GoogleService-Info.plist in Resources */,
 				70561B70212F2138007D9A27 /* addFriendsToGroup.xib in Resources */,
 				70D54F2521178BD8009E1088 /* AddFriendCell.xib in Resources */,
 			);

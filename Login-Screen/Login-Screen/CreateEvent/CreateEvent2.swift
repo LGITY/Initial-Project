@@ -115,8 +115,10 @@ class CreateEvent2: UIViewController, UIPickerViewDataSource, UIPickerViewDelega
             // Get user value
             let value = snapshot.value as? [String]
             var tempArr: [String] = [String]()
-            for friend in value! {
-                tempArr.append(friend)
+            if let val = value {
+                for friend in val {
+                    tempArr.append(friend)
+                }
             }
             self.friendList = tempArr
         })
@@ -129,8 +131,10 @@ class CreateEvent2: UIViewController, UIPickerViewDataSource, UIPickerViewDelega
             // Get user value
             let values = snapshot.value as? NSDictionary
             var tempArr: [String] = [String]()
-            for group in values!.allKeys {
-                tempArr.append( (group as! String) )
+            if let vals = values {
+                for group in vals.allKeys {
+                    tempArr.append( (group as! String) )
+                }
             }
             self.groupList = tempArr
         })
