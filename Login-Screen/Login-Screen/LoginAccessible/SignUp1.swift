@@ -435,7 +435,7 @@ class SignUp1: UIViewController {
                         }
                 }
                 else {
-                    self.errorMessage = self.error_dict["Invalid Username"]!
+                    self.errorMessage = self.error_dict["Invalid Username"] as? String ?? "Something went wrong"
                 }
             }
                 else {
