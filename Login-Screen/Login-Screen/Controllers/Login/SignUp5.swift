@@ -1,42 +1,28 @@
 //
-//  profileTransition.swift
+//  SignUp5.swift
 //  Login-Screen
 //
-//  Created by Davis Booth on 9/7/18.
+//  Created by Davis Booth on 8/20/18.
 //  Copyright © 2018 Brad Levin. All rights reserved.
 //
 
 import UIKit
 
-class profileTransition: UIViewController {
+class SignUp5: UIViewController {
 
-    
-    var changeUser: String?
-    var pastUsers: [String] = [String]()
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = UIColor.darkGray
         
         // Do any additional setup after loading the view.
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.3, execute: {
-            self.performSegue(withIdentifier: "backInternalProfile", sender: self)
+//        DispatchQueue.main.asyncAfter(deadline: .now() + 2) { // change 2 to desired number of seconds
+//            // Your code with delay
+//        }
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2, execute: {
+            self.performSegue(withIdentifier: "toProfile", sender: self)
         })
-    }
-    
-    func setUsers(_ uidFuture: String, uidPast: [String]) {
-        self.changeUser = uidFuture
-        self.pastUsers = uidPast
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        (segue.destination as! profile).currentUser = self.changeUser!
-        (segue.destination as! profile).pastUsers = self.pastUsers
-        
-        
     }
 
     override func didReceiveMemoryWarning() {

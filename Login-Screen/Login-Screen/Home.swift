@@ -15,6 +15,7 @@ class Home: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet weak var mainTableView: UITableView!
     
+    var userInfo : User!
     
     var availablePosts: [String: Any] = [:] {
         didSet {
@@ -37,6 +38,7 @@ class Home: UIViewController, UITableViewDelegate, UITableViewDataSource {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
         mainTableView.delegate = self
         mainTableView.dataSource = self
         
@@ -51,13 +53,14 @@ class Home: UIViewController, UITableViewDelegate, UITableViewDataSource {
         mainTableView.showsVerticalScrollIndicator = false
         
         
-        
-        
-        
+        let tabbar = tabBarController as! tabBarController
+        userInfo = tabbar.userInfo
+
         // observes the available events and populates properly to the available posts array which is then reloaded.
         ref = Database.database().reference()
-        ref?.child("Users").child(SignUp1.User.uid).child("Events").observeSingleEvent(of: .value, with: { (snapshot) in
-            // Get user value
+        ref?.child("Users").child(userInfo.id).child("Events").observeSingleEvent(of: .value, with: { (snapshot) in
+        // Get user value
+    
             let value = snapshot.value as? [String: Any]
 
             print(value)

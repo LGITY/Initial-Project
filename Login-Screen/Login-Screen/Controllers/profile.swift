@@ -14,14 +14,12 @@ import CoreLocation
 
 
 //This class functions as the hub of information for both the internal and external profiles.
-//The information that it provides is dependent upon the currentUser variable, which is set to whichever
+//The information that it provides is dependent upon the User.uid variable, which is set to whichever
 // users profile is being displayed.
 class profile: UIViewController, UITableViewDelegate, UITableViewDataSource {
 //    let manager = CLLocationManager()
+    public var User: User!
     
-    
-    
-    var userInfo : User!
     //navigation bar outlets
     @IBOutlet weak var navBar: UINavigationBar!
     @IBOutlet weak var settingsButton: UIBarButtonItem!
@@ -95,7 +93,6 @@ class profile: UIViewController, UITableViewDelegate, UITableViewDataSource {
     //IMPORTANT: stores the uid of the User whose profile is being displayed.
     //              Its default display is the Logged in User's profile. It can be set to a different
     //              user with the setCurrentUser(id: String) function
-    var currentUser = SignUp1.User.uid
     var pastUsers: [String] = [String]()
     
     //Reference that links up the database from firebase
@@ -111,7 +108,7 @@ class profile: UIViewController, UITableViewDelegate, UITableViewDataSource {
     }
     
     //creates the variable that stores the event list
-    var eList: NSDictionary?
+    var eList: [String: String] = [:]
     
     //creates the variable that stores the group list
     var gList: [String] = [String]() {
@@ -124,6 +121,13 @@ class profile: UIViewController, UITableViewDelegate, UITableViewDataSource {
         
         //SUPER VIEW DID LOAD
         super.viewDidLoad()
+//        manager.delegate = self as! CLLocationManagerDelegate
+//        manager.desiredAccuracy = kCLLocationAccuracyBest
+//        manager.requestWhenInUseAuthorization()
+//        manager.startUpdatingLocation()
+//        manager.distanceFilter = kCLDistanceFilterNone
+//        print("longitude: ",manager.location?.coordinate.longitude)
+//        print("latitude: ",manager.location?.coordinate.latitude)
         
         print("YO THIS IS THE PAST USER LIST")
         print(pastUsers)
@@ -151,10 +155,6 @@ class profile: UIViewController, UITableViewDelegate, UITableViewDataSource {
         //disables scrollbar in both directions
         friendTable.showsHorizontalScrollIndicator = false
         friendTable.showsVerticalScrollIndicator = false
-        
-        //getting user information from tab bar controller
-        let tabbar = tabBarController as! tabBarController
-        userInfo = tabbar.userInfo
         
         
         
@@ -193,16 +193,14 @@ class profile: UIViewController, UITableViewDelegate, UITableViewDataSource {
         setupView { (result) in
         }
         
-        ref?.child("Users").child(currentUser).child("groups").observeSingleEvent(of: .value, with: { (snapshot) in
+        ref?.child("Users").child(User.uid).child("groups").observeSingleEvent(of: .value, with: { (snapshot) in
             // Get user value
-            let value = snapshot.value as? NSDictionary
+            let value = snapshot.value as! NSDictionary
             //let groups = value["groups"]
             //var tempList = [String]()
-            if let val = value {
-                for key in val {
-                    print("element found")
-                    self.gList.append(key.key as? String ?? "")
-                }
+            for key in value {
+                print("element found")
+                self.gList.append(key.key as? String ?? "")
             }
             //self.gList = tempList
             // ...
@@ -244,9 +242,13 @@ class profile: UIViewController, UITableViewDelegate, UITableViewDataSource {
         
     }
     
+    func setCurrentUser(_ id: String) {
+        self.User.uid = id
+    }
+    
     func setupInterests() {
         //gets the information about the user's interests and the count of how many interests they had
-        let interests = SignUp1.User.userInfo["activities"] as? [String] ?? [String]()
+        let interests = User.activities as? [String] ?? [String]()
         let count = interests.count
         
         
@@ -280,16 +282,16 @@ class profile: UIViewController, UITableViewDelegate, UITableViewDataSource {
                     toSet[username] = tKey
                 })
             }
-            SignUp1.User.allUsers = toSet
+            //SignUp1.User.allUsers = toSet
             print("finished execution of all users")
         // THIS CODE SEGMENT IMPORTS ALL RELEVANT INFORMATION ABOUT THE USER. NEEDS TO BE SOMEWHERE THAT IS RUN EVERY TIME THE APP LAUNCHES
-            self.ref?.child("Users").child(self.currentUser).observe(.value, with: { (snapshot) in
+            self.ref?.child("Users").child(self.User.uid).observe(.value, with: { (snapshot) in
             // Get user value
             let value = snapshot.value as? NSDictionary
-            SignUp1.User.userInfo = value as! NSMutableDictionary
-            self.fList = SignUp1.User.userInfo["friendList"] as? [String] ?? [String]()
+ //           SignUp1.User.userInfo = value as! NSMutableDictionary
+                self.fList = self.User.friends as? [String] ?? [String]()
             
-            let urlPath = SignUp1.User.userInfo["prof-pic"] as? String
+                let urlPath = self.User.profilePic as? String
             if let profUrl = urlPath {
                 let surl = URL(string: profUrl)
                 let url = URLRequest(url: surl!)
@@ -312,8 +314,8 @@ class profile: UIViewController, UITableViewDelegate, UITableViewDataSource {
             self.profPic.isHidden = false
             
             //load profile picture label
-            let fst = SignUp1.User.userInfo["first"] as? String ?? ""
-            let lst = SignUp1.User.userInfo["last"] as? String ?? ""
+                let fst = self.User.firstName as? String ?? ""
+                let lst = self.User.lastName as? String ?? ""
             self.usrName.text = fst + " " + lst
             self.usrName.textAlignment = .center
             self.usrName.textColor = UIColor.white
@@ -328,8 +330,8 @@ class profile: UIViewController, UITableViewDelegate, UITableViewDataSource {
             
             //set up events label
             self.eventsLabel.textColor = UIColor.white
-            self.eList = SignUp1.User.userInfo["Events"] as? NSDictionary ?? [:]
-            self.eventsLabel.text = String(self.eList!.count) + " EVENTS"
+                self.eList = self.User.activities as? [String: String] ?? [:]
+            self.eventsLabel.text = String(self.eList.count) + " EVENTS"
             self.setupInterests()
             print("set this ish up")
         })
@@ -349,6 +351,7 @@ class profile: UIViewController, UITableViewDelegate, UITableViewDataSource {
                 break
             }
         }
+        //segmentedControl.displayNewSelectedInde
     }
     
     //updates the scroll view to show new content -- makes it so that segmented control class can access locally defined scroll view
@@ -377,7 +380,7 @@ class profile: UIViewController, UITableViewDelegate, UITableViewDataSource {
             
             let usr = fList[indexPath.item]
             print("fetching user: " + usr)
-            let uid = SignUp1.User.allUsers[usr] as? String ??  usr
+            let uid = User.allUsers[indexPath.item] as? String ??  usr
             print("fetching UID: " + uid)
             var localName = ""
             var localUsername = ""
@@ -417,7 +420,8 @@ class profile: UIViewController, UITableViewDelegate, UITableViewDataSource {
                                 tMembers = value?["members"] as! [String]
                                 cell.commonInit(self.gList[indexPath.item-1], name: tName, members: tMembers)
                             })
-
+                    
+                        // ...
                     })
                     return cell
                 }
@@ -447,17 +451,49 @@ class profile: UIViewController, UITableViewDelegate, UITableViewDataSource {
             self.performSegue(withIdentifier: "toGroupSpec", sender: self)
         }
         else {
-            self.toFriend = SignUp1.User.allUsers[fList[indexPath.item]] as? String ?? fList[indexPath.item]
-            self.currentUser=self.toFriend!
-            viewDidLoad()
+            self.toFriend = User.allUsers[indexPath.item] as? String ?? fList[indexPath.item]
+            
+            if self.toFriend == User.uid {
+                pastUsers.removeAll()
+                self.performSegue(withIdentifier: "toInternalProfile", sender: self)
+            }
+            else {
+                print("????????????????????")
+                self.performSegue(withIdentifier: "toExternalProfile", sender: self)
+            }
         }
     }
 
+    
+    //This could be problemtic becuase it is not displayed on the internal profile page
     @IBAction func backButton(_ sender: Any) {
-        self.currentUser = pastUsers.popLast()!
-        viewDidLoad()
+        self.toFriend = pastUsers.popLast()
+        if toFriend == User.uid {
+            self.performSegue(withIdentifier: "backInternalProfile", sender: self)
+        }
+        self.performSegue(withIdentifier: "backProfile", sender: self)
+        
     }
     
+    
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "toExternalProfile" {
+            
+            pastUsers.append(self.User.uid)
+            (segue.destination as! profileTransition).setUsers(toFriend!, uidPast: pastUsers)
+        }
+        
+        if segue.identifier == "backProfile"  {     // && segue.destination.restorationIdentifier == "extr-profile" {
+            // pastUsers.append(self.User.uid)
+            (segue.destination as! profileTransition).setUsers(toFriend!, uidPast: pastUsers)
+        }
+        
+        if segue.identifier == "backInternalProfile"  {     // && segue.destination.restorationIdentifier == "extr-profile" {
+            // pastUsers.append(self.User.uid)
+            (segue.destination as! profile).setCurrentUser(toFriend!)
+        }
+    }
     
 
     override func didReceiveMemoryWarning() {

@@ -22,13 +22,16 @@ class SignUp1: UIViewController {
     
     
     //Global variable to store the current user's User ID
-    struct User {
-        static var uid = "null"
-        static var userInfo: NSMutableDictionary = [:]
-        static var allUsers: NSMutableDictionary = [:]
-    }
+//    struct User {
+//        static var uid = "null"
+//        static var userInfo: NSMutableDictionary = [:]
+//        static var allUsers: NSMutableDictionary = [:]
+//    }
     
+    public var User: User!
 
+    
+    
     
     var termsPressed = false
     
@@ -80,7 +83,6 @@ class SignUp1: UIViewController {
     let bundleIdentifier =  Bundle.main.bundleIdentifier
     
     
-    @IBOutlet weak var navBar: UINavigationItem!
     //next button outlet
     @IBOutlet weak var nextButton: UIButton!
     
@@ -123,10 +125,8 @@ class SignUp1: UIViewController {
         passwordTextView.delegate = self
         confirmPasswordTextView.delegate = self
         super.viewDidLoad()
-        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
-        self.navigationController?.navigationBar.shadowImage = UIImage()
-        self.navigationController?.navigationBar.isTranslucent = true
 //        print(userArray)
+        
 //        termsPressed = false
         //LOADS BACKGROUND
         loadBackground()
@@ -437,7 +437,7 @@ class SignUp1: UIViewController {
                         }
                 }
                 else {
-                    self.errorMessage = self.error_dict["Invalid Username"] as? String ?? "Something went wrong"
+                    self.errorMessage = self.error_dict["Invalid Username"]!
                 }
             }
                 else {

@@ -20,7 +20,6 @@
 		7002935421388E1600AA3ADD /* CreateEvent3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7002935321388E1600AA3ADD /* CreateEvent3.swift */; };
 		7002935D2138ED3600AA3ADD /* GroupCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7002935B2138ED3600AA3ADD /* GroupCell.swift */; };
 		7002935E2138ED3600AA3ADD /* GroupCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7002935C2138ED3600AA3ADD /* GroupCell.xib */; };
-		70354C5321B13DA600FB8662 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 70354C5221B13DA600FB8662 /* GoogleService-Info.plist */; };
 		703F0981212B3AAF005D6E98 /* SignUp5.swift in Sources */ = {isa = PBXBuildFile; fileRef = 703F0980212B3AAF005D6E98 /* SignUp5.swift */; };
 		703F0988212B9003005D6E98 /* friendsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 703F0986212B9003005D6E98 /* friendsCell.swift */; };
 		703F0989212B9003005D6E98 /* friendsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 703F0987212B9003005D6E98 /* friendsCell.xib */; };
@@ -54,6 +53,8 @@
 		70EDE4A32171DA8300A107DE /* circleMover.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70EDE4A22171DA8300A107DE /* circleMover.swift */; };
 		70F6BE4321004E4800ED6356 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 70F6BE4221004E4800ED6356 /* Images.xcassets */; };
 		AFD3F65EDA6440940EB0B776 /* Pods_Login_Screen.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCDC1A8ABA630DE6B84D94B9 /* Pods_Login_Screen.framework */; };
+		B4F523AC21CEC0B000AE8EB5 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B4F523AB21CEC0B000AE8EB5 /* GoogleService-Info.plist */; };
+		B4F523AF21CEC23F00AE8EB5 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4F523AE21CEC23F00AE8EB5 /* User.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -79,7 +80,6 @@
 		7002935321388E1600AA3ADD /* CreateEvent3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateEvent3.swift; sourceTree = "<group>"; };
 		7002935B2138ED3600AA3ADD /* GroupCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupCell.swift; sourceTree = "<group>"; };
 		7002935C2138ED3600AA3ADD /* GroupCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GroupCell.xib; sourceTree = "<group>"; };
-		70354C5221B13DA600FB8662 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../GoogleService-Info.plist"; sourceTree = "<group>"; };
 		703F0980212B3AAF005D6E98 /* SignUp5.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUp5.swift; sourceTree = "<group>"; };
 		703F0986212B9003005D6E98 /* friendsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = friendsCell.swift; sourceTree = "<group>"; };
 		703F0987212B9003005D6E98 /* friendsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = friendsCell.xib; sourceTree = "<group>"; };
@@ -113,6 +113,8 @@
 		70EDE4A22171DA8300A107DE /* circleMover.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = circleMover.swift; sourceTree = "<group>"; };
 		70F6BE4221004E4800ED6356 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		AFEFDB0402D68BD02FA8CC85 /* Pods_Login_ScreenTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Login_ScreenTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B4F523AB21CEC0B000AE8EB5 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../GoogleService-Info.plist"; sourceTree = "<group>"; };
+		B4F523AE21CEC23F00AE8EB5 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = User.swift; path = ../../../../../../Documents/User.swift; sourceTree = "<group>"; };
 		B787BE82168F5E8A0DDBC155 /* Pods_Login_ScreenUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Login_ScreenUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FCDC1A8ABA630DE6B84D94B9 /* Pods_Login_Screen.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Login_Screen.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -162,6 +164,7 @@
 		1239253D20D2EF08002D68D1 /* Login-Screen */ = {
 			isa = PBXGroup;
 			children = (
+				B4F523AD21CEC20D00AE8EB5 /* classes */,
 				70DC4F0621255E430020ADDD /* SwiftFiles */,
 				7001FD56211B80E7000C891D /* Login-Screen.entitlements */,
 				70A82EE320F569B400699D4C /* Cell */,
@@ -174,8 +177,8 @@
 				703F098E212E8364005D6E98 /* GroupCreation.swift */,
 				70A10BD5210D6B630003119E /* settings.swift */,
 				70A10BD3210D63D40003119E /* tabBarController.swift */,
-				70354C5221B13DA600FB8662 /* GoogleService-Info.plist */,
 				704272F220F8653300D11DBA /* LoginFormatted.swift */,
+				B4F523AB21CEC0B000AE8EB5 /* GoogleService-Info.plist */,
 				70A10BD7210E990A0003119E /* profile.swift */,
 				7041161C213B489A00E22789 /* GroupSpec.swift */,
 				1239254520D2EF0C002D68D1 /* Assets.xcassets */,
@@ -274,6 +277,15 @@
 			path = SwiftFiles;
 			sourceTree = "<group>";
 		};
+		B4F523AD21CEC20D00AE8EB5 /* classes */ = {
+			isa = PBXGroup;
+			children = (
+				B4F523AE21CEC23F00AE8EB5 /* User.swift */,
+			);
+			name = classes;
+			path = "/Users/claytonhebert/Desktop/giantApp/Initial-Project/Login-Screen/Login-Screen/classes";
+			sourceTree = "<absolute>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -344,10 +356,10 @@
 				1239254920D2EF0C002D68D1 /* LaunchScreen.storyboard in Resources */,
 				70F6BE4321004E4800ED6356 /* Images.xcassets in Resources */,
 				703F0989212B9003005D6E98 /* friendsCell.xib in Resources */,
-				70354C5321B13DA600FB8662 /* GoogleService-Info.plist in Resources */,
 				1239254620D2EF0C002D68D1 /* Assets.xcassets in Resources */,
 				1239256D20D2EF45002D68D1 /* Main.storyboard in Resources */,
 				70CEE17F21AAA57A00027272 /* HomePostCell.xib in Resources */,
+				B4F523AC21CEC0B000AE8EB5 /* GoogleService-Info.plist in Resources */,
 				70561B70212F2138007D9A27 /* addFriendsToGroup.xib in Resources */,
 				70D54F2521178BD8009E1088 /* AddFriendCell.xib in Resources */,
 			);
@@ -442,6 +454,7 @@
 				703F098F212E8364005D6E98 /* GroupCreation.swift in Sources */,
 				1239257520D2EFB0002D68D1 /* StartViewController.swift in Sources */,
 				7002935D2138ED3600AA3ADD /* GroupCell.swift in Sources */,
+				B4F523AF21CEC23F00AE8EB5 /* User.swift in Sources */,
 				7002935421388E1600AA3ADD /* CreateEvent3.swift in Sources */,
 				70D6F58D21A9346F00985A93 /* Home.swift in Sources */,
 				7083AD9420FC54B9005D72B1 /* SignUp1.swift in Sources */,

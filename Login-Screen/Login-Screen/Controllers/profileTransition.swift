@@ -16,6 +16,8 @@ class profileTransition: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        print(changeUser)
+        print(pastUsers)
         self.view.backgroundColor = UIColor.darkGray
         
         // Do any additional setup after loading the view.
@@ -23,7 +25,9 @@ class profileTransition: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.3, execute: {
-            self.performSegue(withIdentifier: "backInternalProfile", sender: self)
+            print(";;;;;;;;;;;;;;;;;;;;;")
+            self.performSegue(withIdentifier: "unique", sender: self)
+            //self.dismiss(animated: true, completion: nil)
         })
     }
     
@@ -33,7 +37,7 @@ class profileTransition: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        (segue.destination as! profile).currentUser = self.changeUser!
+        (segue.destination as! profile).User.uid = self.changeUser!
         (segue.destination as! profile).pastUsers = self.pastUsers
         
         
