@@ -13,7 +13,7 @@ import UIKit
 
 class profTransitionVC: UIViewController {
     
-    var currentUser: String!
+    var currentUser: User!
     
     var pastUsers: [String]!
     

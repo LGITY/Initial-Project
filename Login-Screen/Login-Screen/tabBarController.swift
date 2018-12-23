@@ -18,7 +18,7 @@ class tabBarController: UITabBarController {
         super.viewDidLoad()
         
         //getting all the information about the user
-        userInfo.updateInfo()
+  //      userInfo.updateInfo()
         
         // Do any additional setup after loading the view.
     }

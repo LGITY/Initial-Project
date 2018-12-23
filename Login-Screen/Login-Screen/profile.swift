@@ -22,6 +22,7 @@ class profile: UIViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet weak var navBar: UINavigationBar!
     @IBOutlet weak var settingsButton: UIBarButtonItem!
    
+    let dispatchGroup = DispatchGroup()
     
     //profile background outlets
     @IBOutlet weak var backgroundImage: UIImageView!
@@ -80,7 +81,6 @@ class profile: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     var stackArray: [UIStackView] = [UIStackView]()
 
-    var interests: [String]!
     
     //GROUPS TAB outlets -- only the table view. All other outlets are created by the GroupsCell TableCell
     @IBOutlet weak var groupsTable: UITableView!
@@ -91,7 +91,7 @@ class profile: UIViewController, UITableViewDelegate, UITableViewDataSource {
     var info: Dictionary<String, String> = [:]
     @IBOutlet weak var scrollView: UIScrollView!
     
-    var currentUser = SignUp1.User.uid
+    var currentUser: User!
     var pastUsers: [String] = [String]()
     
     @objc func backButton() {
@@ -127,7 +127,7 @@ class profile: UIViewController, UITableViewDelegate, UITableViewDataSource {
         self.imgArray = [img1, img2, img3, img4, img5, img6, img7, img8, img9, img10, img11, img12]
         self.labArray = [lab1, lab2, lab3, lab4, lab5, lab6, lab7, lab8, lab9, lab10, lab11, lab12]
         self.stackArray = [stack1, stack2, stack3, stack4, stack5, stack6, stack7, stack8, stack9, stack10, stack11, stack12]
-    
+
         for stack in stackArray {
             stack.isHidden = true
             print("hidden !!! ")
@@ -148,7 +148,6 @@ class profile: UIViewController, UITableViewDelegate, UITableViewDataSource {
             self.navigationItem.hidesBackButton = false
         }
 
-
         //Set up FRIEND Table View Controller
         friendTable.delegate = self
         friendTable.dataSource = self
@@ -166,71 +165,63 @@ class profile: UIViewController, UITableViewDelegate, UITableViewDataSource {
         //getting user information from tab bar controller
         let tabbar = tabBarController as! tabBarController
         userInfo = tabbar.userInfo
-        
-        if userInfo.id == currentUser
-        {
-            interests = userInfo.activities
+        //if this is the first time going to profile screen, grab id from tabbar object
+        if currentUser == nil{
+            dispatchGroup.enter()
+            currentUser = User(id: userInfo.id, activities: nil, friends: nil, groups: nil)
+            dispatchGroup.leave()
         }
-        else
-        {
 
-        }
-        
+        dispatchGroup.notify(queue: .main)
+        {
         //Set up GROUP Table View Controller
-        groupsTable.delegate = self
-        groupsTable.dataSource = self
+        self.groupsTable.delegate = self
+        self.groupsTable.dataSource = self
         
         //Creates the nib for the table view to reference
         let nibName2 = UINib(nibName: "AddGroup", bundle: nil)
         
         //registers the nib for use with the table view
-        groupsTable.register(nibName2, forCellReuseIdentifier: "AddGroup")
+        self.groupsTable.register(nibName2, forCellReuseIdentifier: "AddGroup")
         
         //disables scrollbar in both directions
-        groupsTable.showsHorizontalScrollIndicator = false
-        groupsTable.showsVerticalScrollIndicator = false
+        self.groupsTable.showsHorizontalScrollIndicator = false
+        self.groupsTable.showsVerticalScrollIndicator = false
         
         //Creates the nib for the table view to reference
         let nibName3 = UINib(nibName: "GroupCell", bundle: nil)
         
         //registers the nib for use with the table view
-        groupsTable.register(nibName3, forCellReuseIdentifier: "GroupCell")
-        
-        
-        
+        self.groupsTable.register(nibName3, forCellReuseIdentifier: "GroupCell")
         
         //loads navigation bar
-        loadNavigationBar()
+        self.loadNavigationBar()
         
         //loads background pic for profile and shit
-        loadProfBackground()
+        self.loadProfBackground()
         
         //creates a reference to the firebase database
-        ref = Database.database().reference()
+        self.ref = Database.database().reference()
         
-        setupView { (result) in
+        self.setupView { (result) in
         }
-        
-        ref?.child("Users").child(currentUser).child("groups").observeSingleEvent(of: .value, with: { (snapshot) in
+        self.fList = self.currentUser.friends!
+        self.ref?.child("Users").child(self.currentUser.id).child("groups").observeSingleEvent(of: .value, with: { (snapshot) in
             // Get user value
             let value = snapshot.value as? NSDictionary
-            //let groups = value["groups"]
-            //var tempList = [String]()
+
             if let val = value {
                 for key in val {
                     print("element found")
                     self.gList.append(key.key as? String ?? "")
                 }
             }
-            //self.gList = tempList
-            // ...
-            
+
         })
-        
         
         //load segmented control
         //passes in a pointer to this view controller that allows for manipulation of it
-        segmentedControl.fullInit(view: self)
+        self.segmentedControl.fullInit(view: self)
         
         //allows for the gesture recognition of the swipe left
         let swipeLeft = UISwipeGestureRecognizer(target: self, action: #selector(profile.respondToSwipeGesture(sender:)))
@@ -242,12 +233,11 @@ class profile: UIViewController, UITableViewDelegate, UITableViewDataSource {
         swipeRight.direction = UISwipeGestureRecognizerDirection.right
         self.view.addGestureRecognizer(swipeRight)
         
-        scrollView.showsHorizontalScrollIndicator = false
-        scrollView.isDirectionalLockEnabled = true
+        self.scrollView.showsHorizontalScrollIndicator = false
+        self.scrollView.isDirectionalLockEnabled = true
         
-        // Do any additional setup after loading the view.
-        print("REAL FRIEND LIST   ")
-        print(self.fList)
+        }
+    
     }
     
     
@@ -264,18 +254,18 @@ class profile: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     func setupInterests() {
         //gets the information about the user's interests and the count of how many interests they had
- //       let interests = SignUp1.User.userInfo["activities"] as? [String] ?? [String]()
-        let count = interests.count
-        var status = 0
-        while status < count {
-            stackArray[status].isHidden = false
-            imgArray[status].image = UIImage(named: interests[status])
-            imgArray[status].contentMode = .scaleAspectFit
-            labArray[status].text = interests[status].capitalized
-            status += 1
-            print("activity " + String(status))
+        if let interests = currentUser.activities {
+            let count = interests.count
+            var status = 0
+            while status < count {
+                stackArray[status].isHidden = false
+                imgArray[status].image = UIImage(named: interests[status])
+                imgArray[status].contentMode = .scaleAspectFit
+                labArray[status].text = interests[status].capitalized
+                status += 1
+                print("activity " + String(status))
+            }
         }
-        
     }
     
     func setupView(_ completion: (Bool) -> Void) {
@@ -298,7 +288,7 @@ class profile: UIViewController, UITableViewDelegate, UITableViewDataSource {
             SignUp1.User.allUsers = toSet
             print("finished execution of all users")
         // THIS CODE SEGMENT IMPORTS ALL RELEVANT INFORMATION ABOUT THE USER. NEEDS TO BE SOMEWHERE THAT IS RUN EVERY TIME THE APP LAUNCHES
-            self.ref?.child("Users").child(self.currentUser).observe(.value, with: { (snapshot) in
+            self.ref?.child("Users").child(self.currentUser.id).observe(.value, with: { (snapshot) in
             // Get user value
             let value = snapshot.value as? NSDictionary
             SignUp1.User.userInfo = value as! NSMutableDictionary
@@ -461,8 +451,8 @@ class profile: UIViewController, UITableViewDelegate, UITableViewDataSource {
         }
         else {
             self.toFriend = SignUp1.User.allUsers[fList[indexPath.item]] as? String ?? fList[indexPath.item]
-            pastUsers.append(currentUser)
-            self.currentUser = self.toFriend!
+            pastUsers.append(currentUser.id)
+            self.currentUser = User(id: self.toFriend!, activities: nil, friends: nil, groups: nil)
             self.performSegue(withIdentifier: "toTransition", sender: self)
         }
     }

@@ -35,7 +35,6 @@
 		7083AD9020FC540B005D72B1 /* TermsOfService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7083AD8F20FC540B005D72B1 /* TermsOfService.swift */; };
 		7083AD9220FC5435005D72B1 /* PrivacyPolicy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7083AD9120FC5435005D72B1 /* PrivacyPolicy.swift */; };
 		7083AD9420FC54B9005D72B1 /* SignUp1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7083AD9320FC54B9005D72B1 /* SignUp1.swift */; };
-		70918AB02142639A008E04C2 /* profileTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70918AAF2142639A008E04C2 /* profileTransition.swift */; };
 		70A10BD2210BAB480003119E /* SignUp3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70A10BD1210BAB480003119E /* SignUp3.swift */; };
 		70A10BD4210D63D40003119E /* tabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70A10BD3210D63D40003119E /* tabBarController.swift */; };
 		70A10BD6210D6B630003119E /* settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70A10BD5210D6B630003119E /* settings.swift */; };
@@ -97,7 +96,6 @@
 		7083AD8F20FC540B005D72B1 /* TermsOfService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsOfService.swift; sourceTree = "<group>"; };
 		7083AD9120FC5435005D72B1 /* PrivacyPolicy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyPolicy.swift; sourceTree = "<group>"; };
 		7083AD9320FC54B9005D72B1 /* SignUp1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUp1.swift; sourceTree = "<group>"; };
-		70918AAF2142639A008E04C2 /* profileTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = profileTransition.swift; sourceTree = "<group>"; };
 		70A10BD1210BAB480003119E /* SignUp3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUp3.swift; sourceTree = "<group>"; };
 		70A10BD3210D63D40003119E /* tabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tabBarController.swift; sourceTree = "<group>"; };
 		70A10BD5210D6B630003119E /* settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = settings.swift; sourceTree = "<group>"; };
@@ -177,7 +175,6 @@
 				1239256C20D2EF45002D68D1 /* Main.storyboard */,
 				B4E2C17621D0095E003D5A40 /* profTransitionVC.swift */,
 				70D6F58C21A9346F00985A93 /* Home.swift */,
-				70918AAF2142639A008E04C2 /* profileTransition.swift */,
 				7002934E21388DA000AA3ADD /* CreateEvent */,
 				703F098E212E8364005D6E98 /* GroupCreation.swift */,
 				70A10BD5210D6B630003119E /* settings.swift */,
@@ -456,7 +453,6 @@
 				70D54F2421178BD8009E1088 /* AddFriendCell.swift in Sources */,
 				70CEE17E21AAA57A00027272 /* HomePostCell.swift in Sources */,
 				7002935221388DF200AA3ADD /* CreateEvent2.swift in Sources */,
-				70918AB02142639A008E04C2 /* profileTransition.swift in Sources */,
 				1239253F20D2EF08002D68D1 /* AppDelegate.swift in Sources */,
 				703F098F212E8364005D6E98 /* GroupCreation.swift in Sources */,
 				1239257520D2EFB0002D68D1 /* StartViewController.swift in Sources */,
