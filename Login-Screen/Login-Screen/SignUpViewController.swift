@@ -19,7 +19,6 @@ class SignUpViewController: UIViewController {
         emailField.delegate = self
         usernameField.delegate = self
         passwordField.delegate = self
-//        print(checkFields())
     }
 
     @IBOutlet weak var firstNameField: UITextField!

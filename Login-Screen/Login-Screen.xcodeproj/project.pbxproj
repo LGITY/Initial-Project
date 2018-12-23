@@ -53,6 +53,8 @@
 		70EDE4A32171DA8300A107DE /* circleMover.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70EDE4A22171DA8300A107DE /* circleMover.swift */; };
 		70F6BE4321004E4800ED6356 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 70F6BE4221004E4800ED6356 /* Images.xcassets */; };
 		AFD3F65EDA6440940EB0B776 /* Pods_Login_Screen.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCDC1A8ABA630DE6B84D94B9 /* Pods_Login_Screen.framework */; };
+		B4E2C17521D00731003D5A40 /* profileNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4E2C17421D00731003D5A40 /* profileNavigationController.swift */; };
+		B4E2C17721D0095E003D5A40 /* profTransitionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4E2C17621D0095E003D5A40 /* profTransitionVC.swift */; };
 		B4F523AC21CEC0B000AE8EB5 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B4F523AB21CEC0B000AE8EB5 /* GoogleService-Info.plist */; };
 		B4F523AF21CEC23F00AE8EB5 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4F523AE21CEC23F00AE8EB5 /* User.swift */; };
 /* End PBXBuildFile section */
@@ -113,6 +115,8 @@
 		70EDE4A22171DA8300A107DE /* circleMover.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = circleMover.swift; sourceTree = "<group>"; };
 		70F6BE4221004E4800ED6356 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		AFEFDB0402D68BD02FA8CC85 /* Pods_Login_ScreenTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Login_ScreenTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B4E2C17421D00731003D5A40 /* profileNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = profileNavigationController.swift; sourceTree = "<group>"; };
+		B4E2C17621D0095E003D5A40 /* profTransitionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = profTransitionVC.swift; sourceTree = "<group>"; };
 		B4F523AB21CEC0B000AE8EB5 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../GoogleService-Info.plist"; sourceTree = "<group>"; };
 		B4F523AE21CEC23F00AE8EB5 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = User.swift; path = ../../../../../../Documents/User.swift; sourceTree = "<group>"; };
 		B787BE82168F5E8A0DDBC155 /* Pods_Login_ScreenUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Login_ScreenUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -171,6 +175,7 @@
 				7083AD9720FC54E7005D72B1 /* LoginAccessible */,
 				1239253E20D2EF08002D68D1 /* AppDelegate.swift */,
 				1239256C20D2EF45002D68D1 /* Main.storyboard */,
+				B4E2C17621D0095E003D5A40 /* profTransitionVC.swift */,
 				70D6F58C21A9346F00985A93 /* Home.swift */,
 				70918AAF2142639A008E04C2 /* profileTransition.swift */,
 				7002934E21388DA000AA3ADD /* CreateEvent */,
@@ -182,6 +187,7 @@
 				70A10BD7210E990A0003119E /* profile.swift */,
 				7041161C213B489A00E22789 /* GroupSpec.swift */,
 				1239254520D2EF0C002D68D1 /* Assets.xcassets */,
+				B4E2C17421D00731003D5A40 /* profileNavigationController.swift */,
 				1239254720D2EF0C002D68D1 /* LaunchScreen.storyboard */,
 				1239254A20D2EF0C002D68D1 /* Info.plist */,
 				1239256E20D2EF99002D68D1 /* SignUpViewController.swift */,
@@ -432,6 +438,7 @@
 				70A112E121850C93001C9543 /* LocationSearchTable.swift in Sources */,
 				70DA12C32108094000705049 /* SignUp2.swift in Sources */,
 				7083AD9020FC540B005D72B1 /* TermsOfService.swift in Sources */,
+				B4E2C17521D00731003D5A40 /* profileNavigationController.swift in Sources */,
 				1239257320D2EFA9002D68D1 /* MainNavigationController.swift in Sources */,
 				703F098C212E7881005D6E98 /* AddGroup.swift in Sources */,
 				7083AD9220FC5435005D72B1 /* PrivacyPolicy.swift in Sources */,
@@ -457,6 +464,7 @@
 				B4F523AF21CEC23F00AE8EB5 /* User.swift in Sources */,
 				7002935421388E1600AA3ADD /* CreateEvent3.swift in Sources */,
 				70D6F58D21A9346F00985A93 /* Home.swift in Sources */,
+				B4E2C17721D0095E003D5A40 /* profTransitionVC.swift in Sources */,
 				7083AD9420FC54B9005D72B1 /* SignUp1.swift in Sources */,
 				703F0981212B3AAF005D6E98 /* SignUp5.swift in Sources */,
 				70A10BD8210E990A0003119E /* profile.swift in Sources */,

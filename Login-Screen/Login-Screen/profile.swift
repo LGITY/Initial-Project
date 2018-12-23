@@ -25,6 +25,7 @@ class profile: UIViewController, UITableViewDelegate, UITableViewDataSource {
     //navigation bar outlets
     @IBOutlet weak var navBar: UINavigationBar!
     @IBOutlet weak var settingsButton: UIBarButtonItem!
+   
     
     //profile background outlets
     @IBOutlet weak var backgroundImage: UIImageView!
@@ -77,9 +78,12 @@ class profile: UIViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet weak var lab12: UILabel!
     
     //arrays to store the images, labels, and vertical stacks for the interests tab
-    var imgArray: [UIImageView] = [UIImageView]()
-    var labArray: [UILabel] = [UILabel]()
-    var stackArray: [UIStackView] = [UIStackView]()
+ var imgArray: [UIImageView] = [UIImageView]()
+
+ var labArray: [UILabel] = [UILabel]()
+
+ var stackArray: [UIStackView] = [UIStackView]()
+
     
     
     //GROUPS TAB outlets -- only the table view. All other outlets are created by the GroupsCell TableCell
@@ -91,13 +95,16 @@ class profile: UIViewController, UITableViewDelegate, UITableViewDataSource {
     var info: Dictionary<String, String> = [:]
     @IBOutlet weak var scrollView: UIScrollView!
     
-    
-    //IMPORTANT: stores the uid of the User whose profile is being displayed.
-    //              Its default display is the Logged in User's profile. It can be set to a different
-    //              user with the setCurrentUser(id: String) function
     var currentUser = SignUp1.User.uid
     var pastUsers: [String] = [String]()
     
+    @objc func backButton() {
+        pastUsers.popLast()!
+        let vc: UIViewController = (self.navigationController?.viewControllers[(self.navigationController?.viewControllers.count)!-3])!
+        self.navigationController?.popToViewController(vc, animated: true)
+        //performSegue(withIdentifier: "toTransition", sender: nil)
+        //self.navigationController?.popViewController(animated: true)//viewDidLoad()
+    }
     //Reference that links up the database from firebase
     var ref: DatabaseReference!
     
@@ -120,24 +127,36 @@ class profile: UIViewController, UITableViewDelegate, UITableViewDataSource {
         }
     }
     
-    override func viewDidLoad() {
-        
-        //SUPER VIEW DID LOAD
-        super.viewDidLoad()
-        
-        print("YO THIS IS THE PAST USER LIST")
-        print(pastUsers)
 
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.navigationController?.isNavigationBarHidden = false
         self.imgArray = [img1, img2, img3, img4, img5, img6, img7, img8, img9, img10, img11, img12]
         self.labArray = [lab1, lab2, lab3, lab4, lab5, lab6, lab7, lab8, lab9, lab10, lab11, lab12]
         self.stackArray = [stack1, stack2, stack3, stack4, stack5, stack6, stack7, stack8, stack9, stack10, stack11, stack12]
+    
         for stack in stackArray {
             stack.isHidden = true
             print("hidden !!! ")
         }
         // REGISTERS NIBS
-        
-        
+
+        if pastUsers == []
+        {
+            debugPrint("Hiding back button")
+            self.navigationItem.leftBarButtonItem=nil
+            self.navigationItem.hidesBackButton = true
+        }
+        else
+        {
+            print("Not hiding back button")
+            let addButton = UIBarButtonItem(image: #imageLiteral(resourceName: "BackArrowIcon"), style: .done, target: self, action: #selector(backButton))
+            self.navigationItem.leftBarButtonItem = addButton
+            self.navigationItem.hidesBackButton = false
+        }
+
+
         //Set up FRIEND Table View Controller
         friendTable.delegate = self
         friendTable.dataSource = self
@@ -248,9 +267,6 @@ class profile: UIViewController, UITableViewDelegate, UITableViewDataSource {
         //gets the information about the user's interests and the count of how many interests they had
         let interests = SignUp1.User.userInfo["activities"] as? [String] ?? [String]()
         let count = interests.count
-        
-        
-        
         var status = 0
         while status < count {
             stackArray[status].isHidden = false
@@ -340,10 +356,8 @@ class profile: UIViewController, UITableViewDelegate, UITableViewDataSource {
         if let swiped = sender as? UISwipeGestureRecognizer {
             switch swiped.direction {
             case UISwipeGestureRecognizerDirection.left:
-                print("GO LEFT GO LEFT")
                 segmentedControl.displayNewSelectedIndexSwipeLeft(left: true, view: self)
             case UISwipeGestureRecognizerDirection.right:
-                print("Right babe")
                 segmentedControl.displayNewSelectedIndexSwipeLeft(left: false, view: self)
             default:
                 break
@@ -448,22 +462,22 @@ class profile: UIViewController, UITableViewDelegate, UITableViewDataSource {
         }
         else {
             self.toFriend = SignUp1.User.allUsers[fList[indexPath.item]] as? String ?? fList[indexPath.item]
-            self.currentUser=self.toFriend!
-            viewDidLoad()
+            pastUsers.append(currentUser)
+            self.currentUser = self.toFriend!
+            self.performSegue(withIdentifier: "toTransition", sender: self)
         }
     }
-
-    @IBAction func backButton(_ sender: Any) {
-        self.currentUser = pastUsers.popLast()!
-        viewDidLoad()
-    }
     
-    
-
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let destinationViewController = segue.destination as? profTransitionVC{
+            destinationViewController.currentUser = self.currentUser
+            destinationViewController.pastUsers = self.pastUsers
+        }
+    }
 
 }   // END CLASS
