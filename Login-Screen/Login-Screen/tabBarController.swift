@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import Firebase
+import FirebaseDatabase
 
 class tabBarController: UITabBarController {
 
@@ -14,6 +16,10 @@ class tabBarController: UITabBarController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //getting all the information about the user
+        userInfo.updateInfo()
+        
         // Do any additional setup after loading the view.
     }
     

@@ -280,11 +280,11 @@ class LoginFormatted: UIViewController {
                     
                     //sets up the global variable for the current user
 
-             
+
                     SignUp1.User.uid = (user?.user.uid)!
                     print(SignUp1.User.uid)
                     print("THIS WAS THE STORED ID ^")
-                    self.userInfo = User(id: (user?.user.uid)!)
+                    self.userInfo = User(id: (user?.user.uid)!, activities: nil, friends: nil, groups: nil)
                     // in the future we will use self.performSegue() to have it move to the next screen
                     self.performSegue(withIdentifier: "goHome", sender: self)
                 }

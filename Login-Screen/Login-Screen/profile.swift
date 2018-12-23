@@ -17,10 +17,6 @@ import CoreLocation
 //The information that it provides is dependent upon the currentUser variable, which is set to whichever
 // users profile is being displayed.
 class profile: UIViewController, UITableViewDelegate, UITableViewDataSource {
-//    let manager = CLLocationManager()
-    
-    
-    
     var userInfo : User!
     //navigation bar outlets
     @IBOutlet weak var navBar: UINavigationBar!
@@ -78,13 +74,13 @@ class profile: UIViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet weak var lab12: UILabel!
     
     //arrays to store the images, labels, and vertical stacks for the interests tab
- var imgArray: [UIImageView] = [UIImageView]()
+    var imgArray: [UIImageView] = [UIImageView]()
 
- var labArray: [UILabel] = [UILabel]()
+    var labArray: [UILabel] = [UILabel]()
 
- var stackArray: [UIStackView] = [UIStackView]()
+    var stackArray: [UIStackView] = [UIStackView]()
 
-    
+    var interests: [String]!
     
     //GROUPS TAB outlets -- only the table view. All other outlets are created by the GroupsCell TableCell
     @IBOutlet weak var groupsTable: UITableView!
@@ -102,13 +98,9 @@ class profile: UIViewController, UITableViewDelegate, UITableViewDataSource {
         pastUsers.popLast()!
         let vc: UIViewController = (self.navigationController?.viewControllers[(self.navigationController?.viewControllers.count)!-3])!
         self.navigationController?.popToViewController(vc, animated: true)
-        //performSegue(withIdentifier: "toTransition", sender: nil)
-        //self.navigationController?.popViewController(animated: true)//viewDidLoad()
     }
     //Reference that links up the database from firebase
     var ref: DatabaseReference!
-    
-    
     //Variable that stores the friends list. Every time a friend list is created
     var fList: [String] = [] {
         didSet {
@@ -175,7 +167,14 @@ class profile: UIViewController, UITableViewDelegate, UITableViewDataSource {
         let tabbar = tabBarController as! tabBarController
         userInfo = tabbar.userInfo
         
-        
+        if userInfo.id == currentUser
+        {
+            interests = userInfo.activities
+        }
+        else
+        {
+
+        }
         
         //Set up GROUP Table View Controller
         groupsTable.delegate = self
@@ -265,7 +264,7 @@ class profile: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     func setupInterests() {
         //gets the information about the user's interests and the count of how many interests they had
-        let interests = SignUp1.User.userInfo["activities"] as? [String] ?? [String]()
+ //       let interests = SignUp1.User.userInfo["activities"] as? [String] ?? [String]()
         let count = interests.count
         var status = 0
         while status < count {
