@@ -7,8 +7,10 @@
 //
 
 import UIKit
+import MapKit
 import FirebaseDatabase
 import Firebase
+import Foundation
 
 
 class CreateEvent2: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate, UITableViewDelegate, UITableViewDataSource {
@@ -20,6 +22,7 @@ class CreateEvent2: UIViewController, UIPickerViewDataSource, UIPickerViewDelega
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var friendsTable: UITableView!
     @IBOutlet weak var groupsTable: UITableView!
+    let locationManager = CLLocationManager()
     
     static var invitedArr: Set<String> = []
     
@@ -115,10 +118,8 @@ class CreateEvent2: UIViewController, UIPickerViewDataSource, UIPickerViewDelega
             // Get user value
             let value = snapshot.value as? [String]
             var tempArr: [String] = [String]()
-            if let val = value {
-                for friend in val {
-                    tempArr.append(friend)
-                }
+            for friend in value! {
+                tempArr.append(friend)
             }
             self.friendList = tempArr
         })
@@ -131,10 +132,8 @@ class CreateEvent2: UIViewController, UIPickerViewDataSource, UIPickerViewDelega
             // Get user value
             let values = snapshot.value as? NSDictionary
             var tempArr: [String] = [String]()
-            if let vals = values {
-                for group in vals.allKeys {
-                    tempArr.append( (group as! String) )
-                }
+            for group in values!.allKeys {
+                tempArr.append( (group as! String) )
             }
             self.groupList = tempArr
         })
@@ -253,12 +252,45 @@ class CreateEvent2: UIViewController, UIPickerViewDataSource, UIPickerViewDelega
         
         
         CreateEvent1.Event.eventInfo["availableTo"] = Array(CreateEvent2.invitedArr)
+        print("fuck this shit" , CreateEvent2.invitedArr)
+        for id in CreateEvent2.invitedArr {
+            if get_dist(id: id) > 10 {
+                CreateEvent2.invitedArr.index(of: id).map { CreateEvent2.invitedArr.remove(at: $0) }
+            }
+        }
         CreateEvent1.Event.eventInfo["privacyType"] = pickerChoice
         self.performSegue(withIdentifier: "next2", sender: self)
         CreateEvent2.invitedArr.removeAll()
     }
+    
+    func get_dist(id: String) -> Int {
+        self.ref?.child("Users").child(id).observeSingleEvent(of: .value, with: { (snapshot)
+            in
+            
+            let value  = snapshot.value as! [String: Any]
+            let strLoc = value["location"] as! String
+            let locArr = strLoc.components(separatedBy: " ")
+            let pi = 3.1415926538
+            let lat1 = locArr[0] as! Double * pi/180
+            let long1 = locArr[1] as! Double * pi/180
+            let lat2 = 79.5 * pi/180
+            let long2 = 123.3 * pi/180
+            let dlon = long2 - long2
+            let dlat = lat2 - lat1
+            let a = pow(sin(dlat/2),2) + cos(lat1) * cos(lat2) * pow(sin(dlon/2), 2)
+            let c = 2 * asin(min(1, sqrt(a)))
+            let d = 3959 * c
+            print("hehehe", lat1)
+            print("ohohohoh", long1)
+
+            })
+
+   
+         return d
+    }
     /*
     // MARK: - Navigation
+     
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

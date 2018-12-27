@@ -7,11 +7,8 @@
 //
 
 import UIKit
-import Firebase
-import FirebaseDatabase
 
-class SignUp3: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource{
-    
+class SignUp3: UIViewController {
 
     @IBOutlet weak var headerLabel: UILabel!
     
@@ -19,8 +16,54 @@ class SignUp3: UIViewController, UICollectionViewDelegate, UICollectionViewDataS
     @IBOutlet weak var backgroundPic: UIImageView!
     @IBOutlet weak var backgroundColor: UIView!
     
+    //navigation bar outlets
+    @IBOutlet weak var navBar: UINavigationBar!
+    @IBOutlet weak var backButton: UIBarButtonItem!
+    @IBOutlet weak var skipButton: UIBarButtonItem!
+    
     //activity view outlets
     @IBOutlet weak var activityView: UIView!
+    @IBOutlet weak var verticalStack: UIStackView!
+    @IBOutlet weak var rowOne: UIStackView!
+    @IBOutlet weak var rowTwo: UIStackView!
+    @IBOutlet weak var rowThree: UIStackView!
+    
+    //activity view image-button, label, & boolean outlets
+    @IBOutlet weak var sportsButton: UIButton!
+    @IBOutlet weak var sportsLabel: UILabel!
+    var sportsPressed = false
+    
+    @IBOutlet weak var conditioningButton: UIButton!
+    @IBOutlet weak var conditioningLabel: UILabel!
+    var conditioningPressed = false
+    
+    @IBOutlet weak var foodButton: UIButton!
+    @IBOutlet weak var foodLabel: UILabel!
+    var foodPressed = false
+    
+    @IBOutlet weak var chillButton: UIButton!
+    @IBOutlet weak var chillLabel: UILabel!
+    var chillPressed = false
+    
+    @IBOutlet weak var tvButton: UIButton!
+    @IBOutlet weak var tvLabel: UILabel!
+    var tvPressed = false
+    
+    @IBOutlet weak var partyButton: UIButton!
+    @IBOutlet weak var partyLabel: UILabel!
+    var partyPressed = false
+    
+    @IBOutlet weak var studyButton: UIButton!
+    @IBOutlet weak var studyLabel: UILabel!
+    var studyPressed = false
+    
+    @IBOutlet weak var concertButton: UIButton!
+    @IBOutlet weak var concertLabel: UILabel!
+    var concertPressed = false
+    
+    @IBOutlet weak var careButton: UIButton!
+    @IBOutlet weak var careLabel: UILabel!
+    var carePressed = false
     
     
     //dot outlets
@@ -34,25 +77,15 @@ class SignUp3: UIViewController, UICollectionViewDelegate, UICollectionViewDataS
     @IBOutlet weak var nextButton: UIButton!
     var activities: [String] = []
 
-    @IBOutlet weak var collectionView: UICollectionView!
     
-    var availableActivities: [String] = [] {
-        didSet {
-            collectionView.reloadData()
-        }
-    }
-    var ref: DatabaseReference?
     
     //dictionary that carries information from page to page
     var info: NSMutableDictionary = [:]
     
+    
     override func viewDidLoad() {
         print("signUp3 info: ", info)
         super.viewDidLoad()
-        
-        // Set up collection view.
-        collectionView.delegate = self
-        collectionView.dataSource = self
         
         //loads background
         loadBackground()
@@ -76,17 +109,7 @@ class SignUp3: UIViewController, UICollectionViewDelegate, UICollectionViewDataS
         //loads next button
         nextButton.layer.cornerRadius = 15
         
-        ref = Database.database().reference()
-        
-        ref?.child("Activities").observeSingleEvent(of: .value, with: { (snapshot) in
-            let value = snapshot.value as! [String: String]
-            var tempArr: [String] = []
-            for val in value {
-                tempArr.append(val.value)
-            }
-            self.availableActivities = tempArr
-        })
-        
+        // Do any additional setup after loading the view.
     }
     
     
@@ -95,6 +118,13 @@ class SignUp3: UIViewController, UICollectionViewDelegate, UICollectionViewDataS
         self.navigationController?.navigationBar.shadowImage = UIImage()
         self.navigationController?.navigationBar.isTranslucent = true
         self.navigationController?.navigationBar.tintColor = UIColor.white
+        
+        //self.navigationController?.navigationBar.backItem?.backBarButtonItem?.setTitleTextAttributes([NSAttributedStringKey.font : UIFont(name: "Futura-Bold", size: 17)!], for: .normal)
+        //self.navigationController?.navigationBar.topItem?.rightBarButtonItem?.setTitleTextAttributes([NSAttributedStringKey.font : UIFont(name: "Futura-Bold", size: 17)!], for: .normal)
+        //self.navigationController?.navigationItem.leftBarButtonItem?.setTitleTextAttributes([NSAttributedStringKey.font : UIFont(name: "Futura-Bold", size: 17)!], for: .normal)
+        //self.navigationController?.navigationItem.rightBarButtonItem?.setTitleTextAttributes([NSAttributedStringKey.font : UIFont(name: "Futura-Bold", size: 17)!], for: .normal)
+        //skipButton.setTitleTextAttributes([NSAttributedStringKey.font : UIFont(name: "Futura-Bold", size: 17)!], for: UIControlState.normal)
+        //
     }
     
     func loadBackground() {
@@ -121,6 +151,21 @@ class SignUp3: UIViewController, UICollectionViewDelegate, UICollectionViewDataS
         }
     }
     
+    //activity view button actions
+    
+    func changeColor(_ button: UIButton, img1: UIImage, img2: UIImage, lb: UILabel, bln : Bool) {
+        if !bln {
+            button.setImage(img1, for: .normal)
+            lb.textColor = UIColor(red:0.13, green:0.70, blue:1.00, alpha:1.0)
+        }
+        else {
+            button.setImage(img2, for: .normal)
+            lb.textColor = UIColor(red:0.11, green:0.17, blue:0.27, alpha:1.0)
+        }
+        
+        
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let destinationController = segue.destination as? SignUp4 {
             for (key, value) in info {
@@ -129,45 +174,162 @@ class SignUp3: UIViewController, UICollectionViewDelegate, UICollectionViewDataS
         }
     }
     
+    @IBAction func partyButton(_ sender: Any) {
+        changeColor(partyButton, img1: #imageLiteral(resourceName: "man-in-a-party-dancing-with-people (1)"), img2: #imageLiteral(resourceName: "Partying"), lb: partyLabel, bln: partyPressed)
+        partyPressed = !partyPressed
+    }
+    
+    
+    @IBAction func sportsButton(_ sender: Any) {
+        changeColor(sportsButton, img1: #imageLiteral(resourceName: "ball-of-basketball (3)"), img2: #imageLiteral(resourceName: "sports"), lb: sportsLabel, bln: sportsPressed)
+        sportsPressed = !sportsPressed
+    }
+    
+    @IBAction func conditioningButton(_ sender: Any) {
+        changeColor(conditioningButton, img1: #imageLiteral(resourceName: "running (1)"), img2: #imageLiteral(resourceName: "conditioning"), lb: conditioningLabel, bln: conditioningPressed)
+        conditioningPressed = !conditioningPressed
+    }
+    
+    @IBAction func foodButton(_ sender: Any) {
+        changeColor(foodButton, img1: #imageLiteral(resourceName: "restaurant (1)"), img2: #imageLiteral(resourceName: "food"), lb: foodLabel, bln: foodPressed)
+        foodPressed = !foodPressed
+    }
+    
+    @IBAction func chillButton(_ sender: Any) {
+        changeColor(chillButton, img1: #imageLiteral(resourceName: "relax (2)"), img2: #imageLiteral(resourceName: "chill"), lb: chillLabel, bln: chillPressed)
+        chillPressed = !chillPressed
+    }
+    
+    @IBAction func tvButton(_ sender: Any) {
+        changeColor(tvButton, img1: #imageLiteral(resourceName: "gamepad-controller (1)"), img2: #imageLiteral(resourceName: "Tv"), lb: tvLabel, bln: tvPressed)
+        tvPressed = !tvPressed
+    }
+    
+    @IBAction func studyButton(_ sender: Any) {
+        changeColor(studyButton, img1: #imageLiteral(resourceName: "book (1)"), img2: #imageLiteral(resourceName: "study"), lb: studyLabel, bln: studyPressed)
+        studyPressed = !studyPressed
+    }
+    
+    @IBAction func concertButton(_ sender: Any) {
+        changeColor(concertButton, img1: #imageLiteral(resourceName: "ticket (1)"), img2: #imageLiteral(resourceName: "Concerts & Ballgames"), lb: concertLabel, bln: concertPressed)
+        concertPressed = !concertPressed
+    }
+    
+    @IBAction func careButton(_ sender: Any) {
+        changeColor(careButton, img1: #imageLiteral(resourceName: "charity (1)"), img2: #imageLiteral(resourceName: "Self-Care"), lb: careLabel, bln: carePressed)
+        carePressed = !carePressed
+    }
+    
+    
+    
+    
     @IBAction func nextPressed(_ sender: Any) {
+        if sportsPressed {
+            
+            activities.append("sports")
+        }
         
+        if  conditioningPressed {
+            if activities == nil {
+                activities = ["conditioning"]
+            }
+            else {
+                activities.append("conditioning")
+            }
+            
+        }
+        if  foodPressed {
+            if activities == nil {
+                activities = ["food"]
+            }
+            else {
+                activities.append("food")
+            }
+            
+        }
+        if  chillPressed {
+            if activities == nil {
+                activities = ["chill"]
+            }
+            else {
+                activities.append("chill")
+            }
+            
+        }
+        if  tvPressed {
+            if activities == nil {
+                activities = ["tv"]
+            }
+            else {
+                activities.append("tv")
+            }
+            
+        }
+        if  partyPressed {
+            if activities == nil {
+                activities = ["party"]
+            }
+            else {
+                activities.append("party")
+            }
+            
+        }
+        if  studyPressed {
+            if activities == nil {
+                activities = ["study"]
+            }
+            else {
+                activities.append("study")
+            }
+            
+        }
+        if  concertPressed {
+            if activities == nil {
+                activities = ["concert"]
+            }
+            else {
+                activities.append("concert")
+            }
+            
+        }
+        if  carePressed {
+            if activities == nil {
+                activities = ["care"]
+            }
+            else {
+                activities.append("care")
+            }
+            
+        }
         info["activities"] = activities
         print("chach")
         
         self.performSegue(withIdentifier: "toSignUp4", sender: self)
-    }
-}
-
-extension SignUp3 {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return availableActivities.count
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "activityCell", for: indexPath as IndexPath) as! SignUpActivityCell
-        cell.fullInit(availableActivities[indexPath.item])
-        return cell
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let cell = collectionView.cellForItem(at: indexPath) as! SignUpActivityCell
-        appendOrRemove(cell)
-        print("!! RECOGNIZED !!")
         
     }
     
-    func appendOrRemove(_ cell: SignUpActivityCell) {
-        if activities.contains(cell.activity!) {
-            activities.removeAll(where: { $0 == cell.activity!})
-            cell.image.tintColor = UIColor(red:0.11, green:0.17, blue:0.27, alpha:1.0)
-            cell.label.textColor = UIColor(red:0.11, green:0.17, blue:0.27, alpha:1.0)
-            print(cell.activity! + " REMOVED")
-        }
-        else {
-            activities.append(cell.activity!)
-            cell.image.tintColor = UIColor(red:0.13, green:0.70, blue:1.00, alpha:1.0)
-            cell.label.textColor = UIColor(red:0.13, green:0.70, blue:1.00, alpha:1.0)
-            print(cell.activity! + " ADDED")
-        }
+    
+    
+    
+    
+    
+    
+    
+
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
     }
+    
+
+    /*
+    // MARK: - Navigation
+
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Get the new view controller using segue.destinationViewController.
+        // Pass the selected object to the new view controller.
+    }
+    */
+
 }

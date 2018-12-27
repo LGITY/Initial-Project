@@ -24,8 +24,8 @@ class GroupCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
         ref = Database.database().reference()
+        // Initialization code
     }
     
     func commonInit(_ id: String, name: String, members: [String]) {
