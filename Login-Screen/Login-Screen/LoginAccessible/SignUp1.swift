@@ -295,7 +295,7 @@ class SignUp1: UIViewController {
         
         if textField == confirmPasswordTextView {
             if confirmPasswordTextView.text!.count > 5 {
-                //confirmPasswordImage.image = #imageLiteral(resourceName: "CheckCircleBlueTrans")
+                confirmPasswordImage.image = #imageLiteral(resourceName: "CheckCircleBlueTrans")
             }
             else {
                 confirmPasswordImage.image = #imageLiteral(resourceName: "verified")
@@ -435,7 +435,7 @@ class SignUp1: UIViewController {
                         }
                 }
                 else {
-                    self.errorMessage = self.error_dict["Invalid Username"] as? String ?? "Something went wrong"
+                    self.errorMessage = self.error_dict["Invalid Username"]!
                 }
             }
                 else {

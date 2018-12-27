@@ -69,6 +69,13 @@ class ForgotPassword: UIViewController {
         })
         
     }
+        
+        // Do any additional setup after loading the view.
+    
+    
+    @IBAction func send(_ sender: Any) {
+//        dismiss(animated: true, completion: nil)
+    }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         emailTextView.resignFirstResponder()
@@ -171,7 +178,7 @@ class ForgotPassword: UIViewController {
     }
     
     @IBAction func done(_ sender: Any) {
-        self.dismiss(animated: true, completion: nil)
+        dismiss(animated: true, completion: nil)
     }
     
     @IBAction func sendPressed(_ sender: Any) {

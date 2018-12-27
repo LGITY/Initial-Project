@@ -15,6 +15,7 @@ class CreateEvent4: UIViewController {
 
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var locationField: UITextField!
+    @IBOutlet weak var slider: UISlider!
     @IBOutlet weak var pickerView: UIDatePicker!
     
     let locationManager = CLLocationManager()
@@ -45,7 +46,14 @@ class CreateEvent4: UIViewController {
         ref = Database.database().reference()
         // Do any additional setup after loading the view.
     }
-
+    @IBAction func dragged(_ sender: Any) {
+        if slider.value != slider.maximumValue {
+            slider.value = 0
+        }
+        else {
+            print("eat my dick")
+        }
+    }
     
     func updateLocation(_ location: MKPlacemark) {
         locationCenter = location
@@ -77,22 +85,11 @@ class CreateEvent4: UIViewController {
         CreateEvent1.Event.eventInfo["time"] = pickerView.date.description
         let coord = locationCenter!.coordinate.latitude.description + " " + locationCenter!.coordinate.longitude.description
         CreateEvent1.Event.eventInfo["location"] = coord
-        CreateEvent1.Event.eventInfo["host"] = SignUp1.User.uid
-        CreateEvent1.Event.eventInfo["locationName"] = locationField.text
+        
         //creates an id that it uses twice
         let id = UUID().uuidString
         self.ref?.child("Events").child(id).setValue(CreateEvent1.Event.eventInfo)
-        ref?.child("Users").child(SignUp1.User.uid).child("Events").child(id).setValue("Event")
-        let arr = CreateEvent1.Event.eventInfo["availableTo"] as! [String]
-        for user in arr {
-            if user.first != "-" {
-                ref?.child("Users").child(user).child("Events").child(id).setValue("Event")
-            }
-            else {
-                print("Do something for groups")
-            }
-        }
-        ref?.child("Events").child(id).child("attendees").childByAutoId().setValue(SignUp1.User.uid)
+        ref?.child("Users").child(SignUp1.User.uid).child("Events").child(id).setValue(CreateEvent1.Event.eventInfo)
         performSegue(withIdentifier: "toHome", sender: self)
     }
     
@@ -138,3 +135,40 @@ extension CreateEvent4 : CLLocationManagerDelegate {
         print("error:: \(error)")
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

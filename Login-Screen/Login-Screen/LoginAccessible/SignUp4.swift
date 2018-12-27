@@ -21,7 +21,10 @@ class SignUp4: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet weak var headerLabel: UILabel!
     @IBOutlet weak var backgroundTable: UIView!
-    
+
+    @IBOutlet weak var search: UISearchBar!
+    @IBOutlet weak var segControl: UISegmentedControl!
+    @IBOutlet weak var addAll: UIButton!
     @IBOutlet weak var friendTable: UITableView!
 
     @IBOutlet weak var dotStack: UIStackView!
@@ -87,6 +90,10 @@ class SignUp4: UIViewController, UITableViewDelegate, UITableViewDataSource {
         backgroundTable.layer.cornerRadius = 10
         friendTable.backgroundColor = UIColor.white.withAlphaComponent(0.2)
         friendTable.layer.cornerRadius = 10
+        search.layer.cornerRadius = 10
+        search.backgroundColor = UIColor.clear
+        search.barTintColor = UIColor.clear
+        search.backgroundImage = UIImage()
 
 
         //loads dots
