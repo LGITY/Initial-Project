@@ -295,7 +295,7 @@ class SignUp1: UIViewController {
         
         if textField == confirmPasswordTextView {
             if confirmPasswordTextView.text!.count > 5 {
-                confirmPasswordImage.image = #imageLiteral(resourceName: "CheckCircleBlueTrans")
+                //confirmPasswordImage.image = #imageLiteral(resourceName: "CheckCircleBlueTrans")
             }
             else {
                 confirmPasswordImage.image = #imageLiteral(resourceName: "verified")

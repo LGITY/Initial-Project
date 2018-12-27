@@ -11,7 +11,7 @@ import Firebase
 import FirebaseDatabase
 import FirebaseStorage
 
-class HomePostCell: UITableViewCell {
+class HomePostCell: UITableViewCell, UITableViewDelegate, UITableViewDataSource {
 
     
     @IBOutlet weak var profPic: UIImageView!
@@ -32,6 +32,8 @@ class HomePostCell: UITableViewCell {
     @IBOutlet weak var limitedSpaceLabel: UILabel!
     @IBOutlet weak var moreButton: UIButton!
     
+    @IBOutlet weak var commentLabel: UIButton!
+    @IBOutlet weak var moreTable: UITableView!
     
     var ref: DatabaseReference?
     
@@ -42,6 +44,8 @@ class HomePostCell: UITableViewCell {
     }
     
     var eid: String = ""
+    
+    var parentViewController: Home?
     
     
     override func awakeFromNib() {
@@ -55,6 +59,14 @@ class HomePostCell: UITableViewCell {
         joinButton.setTitleColor(UIColor.white, for: .normal)
         joinButton.layer.borderWidth = 0
         joinButton.isEnabled = true
+        
+        let nibName = UINib(nibName: "MoreCell", bundle: nil)
+        moreTable.register(nibName, forCellReuseIdentifier: "moreCell")
+        moreTable.delegate = self
+        moreTable.dataSource = self
+        moreTable.isHidden = true
+        moreTable.layer.cornerRadius = 5
+        
     }
     
     func setUpJoined() {
@@ -76,7 +88,7 @@ class HomePostCell: UITableViewCell {
             let url = URLRequest(url: surl!)
             URLSession.shared.dataTask(with: url) { (data, response, error) in
                 if error != nil {
-                    print(error as! String)
+                    print(error as? String)
                     return
                 }
                 
@@ -92,10 +104,12 @@ class HomePostCell: UITableViewCell {
             self.profPic.clipsToBounds = true
             self.profPic.isHidden = false
         
-            ref?.child("Users").child(uid!).child("Events").child(self.eid).child("attendees").observeSingleEvent(of: .value, with: { (snapshot) in
-                let value = snapshot.value as! NSDictionary
-                if (value.allValues as! [String]).contains(self.uid!) {
-                    self.setUpJoined()
+            ref?.child("Events").child(self.eid).child("attendees").observeSingleEvent(of: .value, with: { (snapshot) in
+                let value = snapshot.value as? NSDictionary
+                if let value2 = value {
+                    if (value2.allValues as! [String]).contains(SignUp1.User.uid) {
+                        self.setUpJoined()
+                    }
                 }
                 
             })
@@ -104,7 +118,7 @@ class HomePostCell: UITableViewCell {
         
     }
     
-    func fullInit(_ host: String, evID: String, activity: String, eventName: String, numberParticipants: Int, time: String, loc: String) {
+    func fullInit(_ host: String, evID: String, activity: String, eventName: String, numberParticipants: Int, time: String, loc: String, numComments: Int, parentView: Home) {
         self.eid = evID
         self.uid = host
         //activityLabel.text = activity
@@ -127,9 +141,8 @@ class HomePostCell: UITableViewCell {
         whenLabel.text = fullString
         whereLabel.text = loc
         timeSinceLabel.text = String(Int((date1?.timeIntervalSinceNow)!)/3600) + " hrs"
-        
-        
-        
+        commentLabel.setTitle(String(numComments) + " comments", for: .normal)
+        self.parentViewController = parentView
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -145,8 +158,8 @@ class HomePostCell: UITableViewCell {
             print("!! close this event !!")
         }
         limitedSpaceLabel.text = String(newParticipants) + " spots"
-        ref?.child("Users").child(uid!).child("Events").child(eid).child("numParticipants").setValue(String(newParticipants))
-        ref?.child("Users").child(uid!).child("Events").child(eid).child("attendees").childByAutoId().setValue(uid!)
+        ref?.child("Events").child(eid).child("numParticipants").setValue(String(newParticipants))
+        ref?.child("Events").child(eid).child("attendees").childByAutoId().setValue(uid!)
         
         print("JOINED")
 
@@ -154,10 +167,37 @@ class HomePostCell: UITableViewCell {
         
     }
     
+    @IBAction func commentButton(_ sender: Any) {
+        parentViewController?.transitionInfo = eid
+        parentViewController?.performSegue(withIdentifier: "toComments", sender: parentViewController)
+        
+    }
     
-    @IBAction func moreButton(_ sender: Any) {
+    @IBAction func shareButton(_ sender: Any) {
+       let activityController = UIActivityViewController(activityItems: ["blah"], applicationActivities: nil)
+        
+        self.parentViewController!.present(activityController, animated: true)
     }
     
     
+    @IBAction func moreButton(_ sender: Any) {
+        moreTable.isHidden = !moreTable.isHidden
+    }
+}
+
+extension HomePostCell {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 2
+    }
     
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = moreTable.dequeueReusableCell(withIdentifier: "moreCell", for: indexPath) as! MoreCell
+        if indexPath.item == 0 {
+            cell.fullInit("Delete Post", parent: self)
+        }
+        else {
+            cell.fullInit("Edit Post", parent: self)
+        }
+        return cell
+    }
 }

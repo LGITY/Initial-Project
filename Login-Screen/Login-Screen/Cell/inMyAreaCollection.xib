@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="collectionViewCell" id="gTV-IL-0wX" customClass="inMyAreaCollection" customModule="Login_Screen" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="337" height="225"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="337" height="225"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SFu-hF-3jC">
+                        <rect key="frame" x="0.0" y="0.0" width="337" height="225"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Zjq-4X-Zlo">
+                                <rect key="frame" x="8.5" y="22.5" width="320" height="180"/>
+                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </imageView>
+                            <view alpha="0.25" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pil-w9-9Fi">
+                                <rect key="frame" x="8.5" y="22.5" width="320" height="180"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aO7-kZ-dqR">
+                                <rect key="frame" x="33.5" y="183" width="270" height="14.5"/>
+                                <fontDescription key="fontDescription" name="Futura-Bold" family="Futura" pointSize="11"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="pil-w9-9Fi" firstAttribute="height" secondItem="Zjq-4X-Zlo" secondAttribute="height" id="3Gl-8n-d9w"/>
+                            <constraint firstItem="pil-w9-9Fi" firstAttribute="width" secondItem="Zjq-4X-Zlo" secondAttribute="width" id="7x7-ml-2M3"/>
+                            <constraint firstItem="pil-w9-9Fi" firstAttribute="centerX" secondItem="Zjq-4X-Zlo" secondAttribute="centerX" id="84J-zh-YP8"/>
+                            <constraint firstItem="aO7-kZ-dqR" firstAttribute="width" secondItem="SFu-hF-3jC" secondAttribute="width" multiplier="0.8" id="FKR-wZ-3jD"/>
+                            <constraint firstItem="Zjq-4X-Zlo" firstAttribute="width" secondItem="SFu-hF-3jC" secondAttribute="width" multiplier="0.95" id="RjY-ah-9BB"/>
+                            <constraint firstItem="Zjq-4X-Zlo" firstAttribute="height" secondItem="SFu-hF-3jC" secondAttribute="height" multiplier="0.8" id="d8E-e7-SYW"/>
+                            <constraint firstItem="Zjq-4X-Zlo" firstAttribute="centerX" secondItem="SFu-hF-3jC" secondAttribute="centerX" id="gVB-DI-nkD"/>
+                            <constraint firstItem="Zjq-4X-Zlo" firstAttribute="centerY" secondItem="SFu-hF-3jC" secondAttribute="centerY" id="iGx-WT-MVA"/>
+                            <constraint firstItem="aO7-kZ-dqR" firstAttribute="bottom" secondItem="pil-w9-9Fi" secondAttribute="bottom" constant="-5" id="j4w-SP-Er2"/>
+                            <constraint firstItem="pil-w9-9Fi" firstAttribute="centerY" secondItem="Zjq-4X-Zlo" secondAttribute="centerY" id="kis-hu-Izz"/>
+                            <constraint firstItem="aO7-kZ-dqR" firstAttribute="centerX" secondItem="SFu-hF-3jC" secondAttribute="centerX" id="sIH-rN-3r7"/>
+                        </constraints>
+                    </view>
+                </subviews>
+            </view>
+            <constraints>
+                <constraint firstItem="SFu-hF-3jC" firstAttribute="height" secondItem="gTV-IL-0wX" secondAttribute="height" id="M9v-BA-ENV"/>
+                <constraint firstItem="SFu-hF-3jC" firstAttribute="centerY" secondItem="ZTg-uK-7eu" secondAttribute="centerY" id="MK1-CI-cAJ"/>
+                <constraint firstItem="SFu-hF-3jC" firstAttribute="width" secondItem="gTV-IL-0wX" secondAttribute="width" id="PbO-Bo-3fg"/>
+                <constraint firstItem="SFu-hF-3jC" firstAttribute="centerX" secondItem="ZTg-uK-7eu" secondAttribute="centerX" id="ST2-ck-wNe"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <size key="customSize" width="337" height="225"/>
+            <connections>
+                <outlet property="imageView" destination="Zjq-4X-Zlo" id="KPd-hQ-oYm"/>
+                <outlet property="label" destination="aO7-kZ-dqR" id="Gti-9h-VPf"/>
+                <outlet property="view" destination="pil-w9-9Fi" id="fJt-vn-xp9"/>
+            </connections>
+            <point key="canvasLocation" x="151.19999999999999" y="193.85307346326837"/>
+        </collectionViewCell>
+    </objects>
+</document>
