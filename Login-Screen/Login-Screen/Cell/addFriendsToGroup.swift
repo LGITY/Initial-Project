@@ -115,5 +115,8 @@ class addFriendsToGroup: UITableViewCell {
             print("DELETED !! ")
         }
         isBlue = !isBlue
+        print(self.memberList)
+
     }
+
 }
