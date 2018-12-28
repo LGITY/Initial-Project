@@ -158,7 +158,8 @@ extension SignUp3 {
     
     func appendOrRemove(_ cell: SignUpActivityCell) {
         if activities.contains(cell.activity!) {
-            activities.removeAll(where: { $0 == cell.activity!})
+//            activities.removeAll(keepingCapacity: Bool)
+//            activities.removeAll(keepingCapacity: $0 == cell.activity!)
             cell.image.tintColor = UIColor(red:0.11, green:0.17, blue:0.27, alpha:1.0)
             cell.label.textColor = UIColor(red:0.11, green:0.17, blue:0.27, alpha:1.0)
             print(cell.activity! + " REMOVED")

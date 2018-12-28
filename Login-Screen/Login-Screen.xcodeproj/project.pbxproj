@@ -14,13 +14,14 @@
 		1239256F20D2EF99002D68D1 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1239256E20D2EF99002D68D1 /* SignUpViewController.swift */; };
 		1239257320D2EFA9002D68D1 /* MainNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1239257220D2EFA9002D68D1 /* MainNavigationController.swift */; };
 		1239257520D2EFB0002D68D1 /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1239257420D2EFB0002D68D1 /* StartViewController.swift */; };
+		12B04CD721D56958002802E7 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 12B04CD621D56957002802E7 /* GoogleService-Info.plist */; };
+		12B04CD921D569A5002802E7 /* sample1.mov in Resources */ = {isa = PBXBuildFile; fileRef = 12B04CD821D569A4002802E7 /* sample1.mov */; };
 		7001FD59211BAD2D000C891D /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7001FD57211B8BD0000C891D /* MessageUI.framework */; };
 		7002935021388DC700AA3ADD /* CreateEvent1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7002934F21388DC700AA3ADD /* CreateEvent1.swift */; };
 		7002935221388DF200AA3ADD /* CreateEvent2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7002935121388DF200AA3ADD /* CreateEvent2.swift */; };
 		7002935421388E1600AA3ADD /* CreateEvent3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7002935321388E1600AA3ADD /* CreateEvent3.swift */; };
 		7002935D2138ED3600AA3ADD /* GroupCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7002935B2138ED3600AA3ADD /* GroupCell.swift */; };
 		7002935E2138ED3600AA3ADD /* GroupCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7002935C2138ED3600AA3ADD /* GroupCell.xib */; };
-		70354C5321B13DA600FB8662 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 70354C5221B13DA600FB8662 /* GoogleService-Info.plist */; };
 		703F0981212B3AAF005D6E98 /* SignUp5.swift in Sources */ = {isa = PBXBuildFile; fileRef = 703F0980212B3AAF005D6E98 /* SignUp5.swift */; };
 		703F0988212B9003005D6E98 /* friendsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 703F0986212B9003005D6E98 /* friendsCell.swift */; };
 		703F0989212B9003005D6E98 /* friendsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 703F0987212B9003005D6E98 /* friendsCell.xib */; };
@@ -56,7 +57,6 @@
 		70D54F2421178BD8009E1088 /* AddFriendCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70D54F2221178BD8009E1088 /* AddFriendCell.swift */; };
 		70D54F2521178BD8009E1088 /* AddFriendCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 70D54F2321178BD8009E1088 /* AddFriendCell.xib */; };
 		70D6F58D21A9346F00985A93 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70D6F58C21A9346F00985A93 /* Home.swift */; };
-		70D711DC21D081F800978BF9 /* sample1.mov in Resources */ = {isa = PBXBuildFile; fileRef = 70D711DB21D081F700978BF9 /* sample1.mov */; };
 		70D711DE21D1F31D00978BF9 /* CommentsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70D711DD21D1F31D00978BF9 /* CommentsView.swift */; };
 		70D711E121D1F42A00978BF9 /* CommentsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70D711DF21D1F42A00978BF9 /* CommentsCell.swift */; };
 		70D711E221D1F42A00978BF9 /* CommentsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 70D711E021D1F42A00978BF9 /* CommentsCell.xib */; };
@@ -84,6 +84,8 @@
 		1239256E20D2EF99002D68D1 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		1239257220D2EFA9002D68D1 /* MainNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainNavigationController.swift; sourceTree = "<group>"; };
 		1239257420D2EFB0002D68D1 /* StartViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
+		12B04CD621D56957002802E7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../../../var/folders/wl/61zn256n18v7w2n711xzmp200000gn/T/com.apple.iChat/Messages/Transfers/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		12B04CD821D569A4002802E7 /* sample1.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = sample1.mov; sourceTree = "<group>"; };
 		479C0BD47DFC3E77074C57D8 /* Pods-Login-Screen.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Login-Screen.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Login-Screen/Pods-Login-Screen.debug.xcconfig"; sourceTree = "<group>"; };
 		7001FD56211B80E7000C891D /* Login-Screen.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Login-Screen.entitlements"; sourceTree = "<group>"; };
 		7001FD57211B8BD0000C891D /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
@@ -92,7 +94,6 @@
 		7002935321388E1600AA3ADD /* CreateEvent3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateEvent3.swift; sourceTree = "<group>"; };
 		7002935B2138ED3600AA3ADD /* GroupCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupCell.swift; sourceTree = "<group>"; };
 		7002935C2138ED3600AA3ADD /* GroupCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GroupCell.xib; sourceTree = "<group>"; };
-		70354C5221B13DA600FB8662 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../GoogleService-Info.plist"; sourceTree = "<group>"; };
 		703F0980212B3AAF005D6E98 /* SignUp5.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUp5.swift; sourceTree = "<group>"; };
 		703F0986212B9003005D6E98 /* friendsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = friendsCell.swift; sourceTree = "<group>"; };
 		703F0987212B9003005D6E98 /* friendsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = friendsCell.xib; sourceTree = "<group>"; };
@@ -128,7 +129,6 @@
 		70D54F2221178BD8009E1088 /* AddFriendCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFriendCell.swift; sourceTree = "<group>"; };
 		70D54F2321178BD8009E1088 /* AddFriendCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddFriendCell.xib; sourceTree = "<group>"; };
 		70D6F58C21A9346F00985A93 /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
-		70D711DB21D081F700978BF9 /* sample1.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; name = sample1.mov; path = ../../../../../sample1.mov; sourceTree = "<group>"; };
 		70D711DD21D1F31D00978BF9 /* CommentsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsView.swift; sourceTree = "<group>"; };
 		70D711DF21D1F42A00978BF9 /* CommentsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsCell.swift; sourceTree = "<group>"; };
 		70D711E021D1F42A00978BF9 /* CommentsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CommentsCell.xib; sourceTree = "<group>"; };
@@ -194,7 +194,6 @@
 				7083AD9720FC54E7005D72B1 /* LoginAccessible */,
 				1239253E20D2EF08002D68D1 /* AppDelegate.swift */,
 				1239256C20D2EF45002D68D1 /* Main.storyboard */,
-				70D711DB21D081F700978BF9 /* sample1.mov */,
 				70AA4FD221D0336C008E1D9E /* SyntheticLaunch.swift */,
 				70D6F58C21A9346F00985A93 /* Home.swift */,
 				70D711DD21D1F31D00978BF9 /* CommentsView.swift */,
@@ -202,9 +201,10 @@
 				70918AAF2142639A008E04C2 /* profileTransition.swift */,
 				7002934E21388DA000AA3ADD /* CreateEvent */,
 				703F098E212E8364005D6E98 /* GroupCreation.swift */,
+				12B04CD621D56957002802E7 /* GoogleService-Info.plist */,
+				12B04CD821D569A4002802E7 /* sample1.mov */,
 				70A10BD5210D6B630003119E /* settings.swift */,
 				70A10BD3210D63D40003119E /* tabBarController.swift */,
-				70354C5221B13DA600FB8662 /* GoogleService-Info.plist */,
 				704272F220F8653300D11DBA /* LoginFormatted.swift */,
 				70A10BD7210E990A0003119E /* profile.swift */,
 				7041161C213B489A00E22789 /* GroupSpec.swift */,
@@ -385,9 +385,9 @@
 				1239254920D2EF0C002D68D1 /* LaunchScreen.storyboard in Resources */,
 				70F6BE4321004E4800ED6356 /* Images.xcassets in Resources */,
 				703F0989212B9003005D6E98 /* friendsCell.xib in Resources */,
-				70354C5321B13DA600FB8662 /* GoogleService-Info.plist in Resources */,
 				1239254620D2EF0C002D68D1 /* Assets.xcassets in Resources */,
-				70D711DC21D081F800978BF9 /* sample1.mov in Resources */,
+				12B04CD721D56958002802E7 /* GoogleService-Info.plist in Resources */,
+				12B04CD921D569A5002802E7 /* sample1.mov in Resources */,
 				70D711E221D1F42A00978BF9 /* CommentsCell.xib in Resources */,
 				1239256D20D2EF45002D68D1 /* Main.storyboard in Resources */,
 				70CEE17F21AAA57A00027272 /* HomePostCell.xib in Resources */,
