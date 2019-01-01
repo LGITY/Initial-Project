@@ -37,43 +37,43 @@ class Home: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
-        mainTableView.delegate = self
-        mainTableView.dataSource = self
-        
-        //Creates the nib for the table view to reference
-        let nibName = UINib(nibName: "HomePostCell", bundle: nil)
-        
-        //registers the nib for use with the table view
-        mainTableView.register(nibName, forCellReuseIdentifier: "HomePostCell")
-        
-        //disables scrollbar in both directions
-        mainTableView.showsHorizontalScrollIndicator = false
-        mainTableView.showsVerticalScrollIndicator = false
-        
-        
-        let tabbar = tabBarController as! tabBarController
-        userInfo = tabbar.userInfo
-
-        // observes the available events and populates properly to the available posts array which is then reloaded.
-        ref = Database.database().reference()
-        ref?.child("Users").child(userInfo.id).child("Events").observeSingleEvent(of: .value, with: { (snapshot) in
-        // Get user value
-    
-            let value = snapshot.value as? [String: Any]
-
-            print(value)
-            self.availablePosts = value as? [String:Any] ?? [:]
-            //((snapshot.value as! [Any])[8] as! String, (snapshot.value as! [Any])[8] as! String) )
-//            thing.sorted(by: { ((key: String, value: Any)
-//                , (key: String, value: Any)
-//                ) -> Bool in
 //
-//            })
-            //thing = thing.sorted(by: {(($0.1 as! [String: String])["time"] as! String) < (($1.1 as! [String: String])["time"] as! String)} )
-            //self.availablePosts = thing
-        })
+//
+//        mainTableView.delegate = self
+//        mainTableView.dataSource = self
+//
+//        //Creates the nib for the table view to reference
+//        let nibName = UINib(nibName: "HomePostCell", bundle: nil)
+//
+//        //registers the nib for use with the table view
+//        mainTableView.register(nibName, forCellReuseIdentifier: "HomePostCell")
+//
+//        //disables scrollbar in both directions
+//        mainTableView.showsHorizontalScrollIndicator = false
+//        mainTableView.showsVerticalScrollIndicator = false
+//
+//
+//        let tabbar = tabBarController as! tabBarController
+//        userInfo = tabbar.userInfo
+//
+//        // observes the available events and populates properly to the available posts array which is then reloaded.
+//        ref = Database.database().reference()
+//        ref?.child("Users").child(userInfo.id).child("Events").observeSingleEvent(of: .value, with: { (snapshot) in
+//        // Get user value
+//
+//            let value = snapshot.value as? [String: Any]
+//
+//            print(value)
+//            self.availablePosts = value as? [String:Any] ?? [:]
+//            //((snapshot.value as! [Any])[8] as! String, (snapshot.value as! [Any])[8] as! String) )
+////            thing.sorted(by: { ((key: String, value: Any)
+////                , (key: String, value: Any)
+////                ) -> Bool in
+////
+////            })
+//            //thing = thing.sorted(by: {(($0.1 as! [String: String])["time"] as! String) < (($1.1 as! [String: String])["time"] as! String)} )
+//            //self.availablePosts = thing
+        
         
 
     }

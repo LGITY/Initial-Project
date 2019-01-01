@@ -13,7 +13,7 @@ import UIKit
 
 class profTransitionVC: UIViewController {
     
-    var currentUser: User!
+    var toFriend: String!
     
     var pastUsers: [String]!
     
@@ -26,7 +26,7 @@ class profTransitionVC: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let destinationViewController = segue.destination as? profile{
-            destinationViewController.currentUser = currentUser
+            destinationViewController.toFriend = toFriend
             destinationViewController.pastUsers = pastUsers
         }
     }

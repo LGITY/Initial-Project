@@ -21,9 +21,8 @@ class profile: UIViewController, UITableViewDelegate, UITableViewDataSource {
     //navigation bar outlets
     @IBOutlet weak var navBar: UINavigationBar!
     @IBOutlet weak var settingsButton: UIBarButtonItem!
-   
     let dispatchGroup = DispatchGroup()
-    
+    var toFriend: String?
     //profile background outlets
     @IBOutlet weak var backgroundImage: UIImageView!
     @IBOutlet weak var profPic: UIImageView!
@@ -166,15 +165,17 @@ class profile: UIViewController, UITableViewDelegate, UITableViewDataSource {
         let tabbar = tabBarController as! tabBarController
         userInfo = tabbar.userInfo
         //if this is the first time going to profile screen, grab id from tabbar object
-        if currentUser == nil{
-            dispatchGroup.enter()
-            currentUser = User(id: userInfo.id, activities: nil, friends: nil, groups: nil)
-            dispatchGroup.leave()
-        }
 
-        dispatchGroup.notify(queue: .main)
+        var userId: String
+        if toFriend == nil
         {
-        //Set up GROUP Table View Controller
+            userId = userInfo.id
+        }
+        else
+        {
+            userId = toFriend!
+        }
+        print("USER ID fetching data for: ", userId)
         self.groupsTable.delegate = self
         self.groupsTable.dataSource = self
         
@@ -202,10 +203,15 @@ class profile: UIViewController, UITableViewDelegate, UITableViewDataSource {
         
         //creates a reference to the firebase database
         self.ref = Database.database().reference()
-        
+        currentUser = User(id: userId, activities: nil, friends: nil, groups: nil)
+        currentUser.updateInfo{
+        //Set up GROUP Table View Controller
         self.setupView { (result) in
         }
         self.fList = self.currentUser.friends!
+        self.usrName.text = self.currentUser.first! + " " + self.currentUser.last!
+        self.usrName.textAlignment = .center
+        self.usrName.textColor = UIColor.white
         self.ref?.child("Users").child(self.currentUser.id).child("groups").observeSingleEvent(of: .value, with: { (snapshot) in
             // Get user value
             let value = snapshot.value as? NSDictionary
@@ -235,8 +241,8 @@ class profile: UIViewController, UITableViewDelegate, UITableViewDataSource {
         
         self.scrollView.showsHorizontalScrollIndicator = false
         self.scrollView.isDirectionalLockEnabled = true
-        
         }
+        
     
     }
     
@@ -362,22 +368,17 @@ class profile: UIViewController, UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if tableView == friendTable {
             print(self.fList.count)
-            print("FRIEND LIST COUNT ^^")
             return self.fList.count
-            //return 2
         }
         else {
-            print("GROUP LIST COUNT")
             return self.gList.count + 1
         }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if tableView == friendTable {
-        
             //dequeus the cell that we created and styled in the xib file for reuse
             let cell = tableView.dequeueReusableCell(withIdentifier: "friendsCell", for: indexPath) as! friendsCell
-            
             let usr = fList[indexPath.item]
             print("fetching user: " + usr)
             let uid = SignUp1.User.allUsers[usr] as? String ??  usr
@@ -440,7 +441,6 @@ class profile: UIViewController, UITableViewDelegate, UITableViewDataSource {
         return 1
     }
     
-    var toFriend: String?
     
     
     //make sure to change this function to make it robust to clicks out of range
@@ -464,9 +464,8 @@ class profile: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let destinationViewController = segue.destination as? profTransitionVC{
-            destinationViewController.currentUser = self.currentUser
+            destinationViewController.toFriend = self.toFriend
             destinationViewController.pastUsers = self.pastUsers
         }
     }
-
-}   // END CLASS
+}
