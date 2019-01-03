@@ -15,12 +15,13 @@ class CreateEvent4: UIViewController {
 
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var locationField: UITextField!
-    @IBOutlet weak var slider: UISlider!
     @IBOutlet weak var pickerView: UIDatePicker!
     
     let locationManager = CLLocationManager()
     
     var ref: DatabaseReference?
+    var distance: Double = 0.0
+    var observedLocation: Array<String>?
     
     
     
@@ -46,14 +47,7 @@ class CreateEvent4: UIViewController {
         ref = Database.database().reference()
         // Do any additional setup after loading the view.
     }
-    @IBAction func dragged(_ sender: Any) {
-        if slider.value != slider.maximumValue {
-            slider.value = 0
-        }
-        else {
-            print("eat my dick")
-        }
-    }
+
     
     func updateLocation(_ location: MKPlacemark) {
         locationCenter = location
@@ -70,6 +64,35 @@ class CreateEvent4: UIViewController {
             annotation.subtitle = "\(city) \(state)"  //if there is a city and a state, then include that as the subtitle of the pin
         }
         mapView.addAnnotation(annotation)   //officially adds this annotation
+        
+        // Deletes users if they are out of the desired radius.
+        for id in CreateEvent2.invitedArr {
+            self.ref?.child("Users").child(id).observeSingleEvent(of: .value, with: { (snapshot) in
+                
+                let value  = snapshot.value as! [String: Any]
+                let strLoc = value["location"] as! String
+                let locArr = strLoc.components(separatedBy: " ")
+                let pi = Double.pi
+                let l1 = Double(locArr[0])
+                let l2 = Double(locArr[1])
+                let lat1 = l1! * pi/180
+                let long1 = l2! * pi/180
+                let lat2 = Double((self.locationCenter?.coordinate.latitude)!) * pi/180
+                let long2 = Double((self.locationCenter?.coordinate.longitude)!) * pi/180
+                let dlon = long2 - long1
+                let dlat = lat2 - lat1
+                let a = pow(sin(dlat/2),2) + cos(lat1) * cos(lat2) * pow(sin(dlon/2), 2)
+                let c = 2 * asin(min(1, sqrt(a)))
+                let d = 3959 * c
+                print("distttt", d)
+                if d > 10 {
+                    print("got here at least")
+                    CreateEvent2.invitedArr.remove(id)
+                }
+                CreateEvent1.Event.eventInfo["availableTo"] = Array(CreateEvent2.invitedArr)
+            })
+        }
+        
     }
     
     
@@ -85,13 +108,37 @@ class CreateEvent4: UIViewController {
         CreateEvent1.Event.eventInfo["time"] = pickerView.date.description
         let coord = locationCenter!.coordinate.latitude.description + " " + locationCenter!.coordinate.longitude.description
         CreateEvent1.Event.eventInfo["location"] = coord
+        CreateEvent1.Event.eventInfo["host"] = SignUp1.User.uid
+        CreateEvent1.Event.eventInfo["locationName"] = locationField.text
         
         //creates an id that it uses twice
         let id = UUID().uuidString
         self.ref?.child("Events").child(id).setValue(CreateEvent1.Event.eventInfo)
-        ref?.child("Users").child(SignUp1.User.uid).child("Events").child(id).setValue(CreateEvent1.Event.eventInfo)
+        if !CreateEvent1.Event.isPublic! {
+            ref?.child("Users").child(SignUp1.User.uid).child("Events").child(id).setValue("Event")
+            
+            let arr = CreateEvent1.Event.eventInfo["availableTo"] as! [String]
+            for user in arr {
+                if user.first != "-" {
+                    ref?.child("Users").child(user).child("Events").child(id).setValue("Event")
+                }
+                else {
+                    print("Do something for groups")
+                }
+            }
+            ref?.child("Events").child(id).child("attendees").childByAutoId().setValue(SignUp1.User.uid)
+        }
+        else {
+            self.ref?.child("Public Events").child((CreateEvent1.Event.eventInfo["eventType"] as! String)).child(id).setValue(CreateEvent1.Event.eventInfo)
+        }
         performSegue(withIdentifier: "toHome", sender: self)
     }
+    
+//    func get_dist(_ id: String) {
+//        var locArr = [String]()
+//
+//    }
+    
     
     /*
     // MARK: - Navigation

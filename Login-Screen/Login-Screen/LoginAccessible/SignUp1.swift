@@ -295,7 +295,7 @@ class SignUp1: UIViewController {
         
         if textField == confirmPasswordTextView {
             if confirmPasswordTextView.text!.count > 5 {
-                confirmPasswordImage.image = #imageLiteral(resourceName: "CheckCircleBlueTrans")
+                //confirmPasswordImage.image = #imageLiteral(resourceName: "CheckCircleBlueTrans")
             }
             else {
                 confirmPasswordImage.image = #imageLiteral(resourceName: "verified")
@@ -374,7 +374,7 @@ class SignUp1: UIViewController {
         }
         
         if termsButton.currentImage == checkImage {
-            termsButton.setImage(#imageLiteral(resourceName: "CheckedBox copy2"), for: .normal)
+            termsButton.setImage(#imageLiteral(resourceName: "CheckboxValid2 copy"), for: .normal)
         }
         else {
             termsButton.setImage(#imageLiteral(resourceName: "unchecked"), for: .normal)
@@ -435,7 +435,7 @@ class SignUp1: UIViewController {
                         }
                 }
                 else {
-                    self.errorMessage = self.error_dict["Invalid Username"]!
+                    self.errorMessage = self.error_dict["Invalid Username"] as? String ?? "Something went wrong"
                 }
             }
                 else {

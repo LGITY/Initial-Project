@@ -39,7 +39,15 @@ class CreateEvent3: UIViewController {
     
     
     @IBAction func nextButton(_ sender: Any) {
-        CreateEvent1.Event.eventInfo["numParticipants"] = CreateEvent3.text.text as? String ?? "∞"
+        
+        // Add the correct number of participants assuming the user himself joins.
+        if CreateEvent3.text.text == "∞" {
+                CreateEvent1.Event.eventInfo["numParticipants"] = CreateEvent3.text.text as! String
+        }
+        else {
+            let numParticipants = Int((CreateEvent3.text.text as! String))!
+            CreateEvent1.Event.eventInfo["numParticipants"] = String((numParticipants - 1))
+        }
         self.performSegue(withIdentifier: "toCE4" , sender: self)
     }
     

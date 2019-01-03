@@ -64,6 +64,8 @@ class CreateEvent1: UIViewController {
         static var time: Date?
         static var place: CLLocationCoordinate2D?
         
+        static var isPublic: Bool?
+        
     }
     
     
@@ -100,10 +102,6 @@ class CreateEvent1: UIViewController {
             
             self.activityList = tList.sorted()
         })
-        
-        print("user_id: ",SignUp1.User.uid)
-       //
-    self.ref?.child("Users").child((SignUp1.User.uid)).child("location").setValue((manager.location?.coordinate.latitude))
         
         
         // Do any additional setup after loading the view.

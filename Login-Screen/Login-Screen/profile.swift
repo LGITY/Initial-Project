@@ -196,12 +196,14 @@ class profile: UIViewController, UITableViewDelegate, UITableViewDataSource {
         
         ref?.child("Users").child(currentUser).child("groups").observeSingleEvent(of: .value, with: { (snapshot) in
             // Get user value
-            let value = snapshot.value as! NSDictionary
+            let value = snapshot.value as? NSDictionary
             //let groups = value["groups"]
             //var tempList = [String]()
-            for key in value {
-                print("element found")
-                self.gList.append(key.key as? String ?? "")
+            if let val = value {
+                for key in val {
+                    print("element found")
+                    self.gList.append(key.key as? String ?? "")
+                }
             }
             //self.gList = tempList
             // ...
