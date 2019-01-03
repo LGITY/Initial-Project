@@ -15,7 +15,7 @@ class GroupCell: UITableViewCell {
     @IBOutlet weak var label: UILabel!
     @IBOutlet weak var verticalStack: UIStackView!
     
-    var members: [String] = [String]()
+    var members: Dictionary<String, AnyObject>?
     var name = ""
     var gid = ""
     var inited = false
@@ -28,7 +28,7 @@ class GroupCell: UITableViewCell {
         ref = Database.database().reference()
     }
     
-    func commonInit(_ id: String, name: String, members: [String]) {
+    func commonInit(_ id: String, name: String, members: Dictionary<String, AnyObject>) {
         gid = id
         self.name = name
         let tName = name.capitalized
@@ -45,15 +45,12 @@ class GroupCell: UITableViewCell {
     func configMembers() {
         var i = 0
         var tooMany = false
-        for member in self.members {
+        for member in self.members!.keys {
             if i < 5 {
                 var pic: String?
-                ref?.child("Users").child(member).observeSingleEvent(of: .value, with: { (snapshot) in
-                    // Get user value
-                    let value = snapshot.value as? NSDictionary
+                    let value = self.members![member]
                     let link = value?["prof-pic"] as? String
                     let name = (value?["first"] as? String ?? "") + " " + (value?["last"] as? String ?? "")
-                    //let name = "Fernando"
                     pic = link
                     let urlPath = pic
                     if let profUrl = urlPath {
@@ -69,20 +66,10 @@ class GroupCell: UITableViewCell {
                                 let image = UIImage(data: data!)
                                 let imageView = UIImageView(image: image)
                                 let view = UIView()
-                                //view.frame = CGRect(x: 0, y: 0, width: 10, height: 10)
                                 view.addSubview(imageView)
-                                //view.contentMode =
-                                //setup image view
-                                //imageView.clipsToBounds = true
-                                //imageView.sizeToFill()
-                                //imageView.frame = CGRect(x: 0, y: 0, width: 20, height: 20)
                                 imageView.contentMode = .scaleAspectFill
                                 imageView.clipsToBounds = true
-                                //imageView.widthAnchor.constraint(equalTo: .width, multiplier: 0.1)
-                                
-                                //let lbl = UILabel(frame: CGRect(x: 0, y: 0, width: imageView.frame.width, height: 20))
                                 let lbl = UILabel()
-                                //lbl.sizeToFit()
                                 lbl.frame = CGRect(x: 0, y: 0, width: 5, height: 5)
                                 lbl.setContentCompressionResistancePriority(UILayoutPriority(rawValue: 1000), for: .horizontal)
                                 lbl.text = name
@@ -91,14 +78,9 @@ class GroupCell: UITableViewCell {
                                 lbl.textColor = UIColor(red:0.11, green:0.17, blue:0.27, alpha:1.0)
                                 
                                 
-                                //view.clipsToBounds = true
-                                //let c1 = NSLayoutConstraint(item: imageView, attribute: NSLayoutAttribute.centerX, relatedBy: NSLayoutRelation.equal, toItem: view, attribute: NSLayoutAttribute.centerX, multiplier: 1, constant: 0)
-                                //let c2 = NSLayoutConstraint(item: imageView, attribute: NSLayoutAttribute.centerY, relatedBy: NSLayoutRelation.equal, toItem: view, attribute: NSLayoutAttribute.centerY, multiplier: 1, constant: 0)
                                 let c3 = NSLayoutConstraint(item: imageView, attribute: NSLayoutAttribute.width, relatedBy: NSLayoutRelation.equal, toItem: nil, attribute: NSLayoutAttribute.notAnAttribute, multiplier: 1, constant: 30)
                                 let c4 = NSLayoutConstraint(item: imageView, attribute: NSLayoutAttribute.height, relatedBy: NSLayoutRelation.equal, toItem: nil, attribute: NSLayoutAttribute.notAnAttribute, multiplier: 1, constant: 30)
-                                //view.addConstraint(c1)
-                                //view.addConstraint(c2)
-                                
+
                                 let stack = UIStackView()
                                 
                                 stack.addArrangedSubview(imageView)
@@ -113,17 +95,12 @@ class GroupCell: UITableViewCell {
                                 stack.distribution = .fillEqually
                                 stack.contentMode = .left
                                 
-                                
-                                //stack.alignment = .center
-                                //stack.semanticContentAttribute = .forceLeftToRight
-                                
                                 self.verticalStack.addArrangedSubview(stack)
                             }
                             
                             }.resume()
                     }
                     i += 1
-                })
             }
             else {
                 tooMany = true

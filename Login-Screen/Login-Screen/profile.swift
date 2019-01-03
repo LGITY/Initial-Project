@@ -129,21 +129,41 @@ class profile: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
         for stack in stackArray {
             stack.isHidden = true
-            print("hidden !!! ")
         }
         // REGISTERS NIBS
-
+        let tabbar = tabBarController as! tabBarController
+        userInfo = tabbar.userInfo
+        var userId: String
+        if toFriend == nil
+        {
+            userId = userInfo.id
+        }
+        else
+        {
+            userId = toFriend!
+        }
+        //conditional for whether or not there should be a back button on the nav bar
         if pastUsers == []
         {
-            debugPrint("Hiding back button")
             self.navigationItem.leftBarButtonItem=nil
             self.navigationItem.hidesBackButton = true
         }
         else
         {
-            print("Not hiding back button")
             let addButton = UIBarButtonItem(image: #imageLiteral(resourceName: "BackArrowIcon"), style: .done, target: self, action: #selector(backButton))
             self.navigationItem.leftBarButtonItem = addButton
+            self.navigationItem.hidesBackButton = false
+        }
+        //conditional for whether or not there should be the settings button on the nav bar
+        if userId != userInfo.id
+        {
+            self.navigationItem.rightBarButtonItem=nil
+            self.navigationItem.hidesBackButton = true
+        }
+        else
+        {
+            let rightButton = UIBarButtonItem(image: #imageLiteral(resourceName: "SettingsIcon"), style: .done, target: self, action: nil)
+            self.navigationItem.rightBarButtonItem = rightButton
             self.navigationItem.hidesBackButton = false
         }
         //Set up FRIEND Table View Controller
@@ -161,19 +181,10 @@ class profile: UIViewController, UITableViewDelegate, UITableViewDataSource {
         friendTable.showsVerticalScrollIndicator = false
         
         //getting user information from tab bar controller
-        let tabbar = tabBarController as! tabBarController
-        userInfo = tabbar.userInfo
+
         //if this is the first time going to profile screen, grab id from tabbar object
 
-        var userId: String
-        if toFriend == nil
-        {
-            userId = userInfo.id
-        }
-        else
-        {
-            userId = toFriend!
-        }
+
         print("USER ID fetching data for: ", userId)
         self.groupsTable.delegate = self
         self.groupsTable.dataSource = self
@@ -365,10 +376,10 @@ class profile: UIViewController, UITableViewDelegate, UITableViewDataSource {
                         // Get user value
                         let value = snapshot.value as! NSDictionary
                         tName = value["name"] as! String
-                        var tMembers = [String]()
+                        var tMembers : Dictionary<String, AnyObject> = [:]
                         self.ref?.child("Groups").child(self.gList[indexPath.item-1]).observeSingleEvent(of: .value, with: { (snapshot) in
                                 let value = snapshot.value as? NSDictionary
-                                tMembers = value?["members"] as! [String]
+                                tMembers = value?["members"] as! Dictionary<String, AnyObject>
                                 cell.commonInit(self.gList[indexPath.item-1], name: tName, members: tMembers)
                             })
 
