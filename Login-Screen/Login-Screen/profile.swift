@@ -101,7 +101,7 @@ class profile: UIViewController, UITableViewDelegate, UITableViewDataSource {
     //Reference that links up the database from firebase
     var ref: DatabaseReference!
     //Variable that stores the friends list. Every time a friend list is created
-    var fList: [String] = [] {
+    var fList: Dictionary<String, AnyObject> = [:] {
         didSet {
             print("Hey there")
             friendTable.reloadData()
@@ -109,7 +109,7 @@ class profile: UIViewController, UITableViewDelegate, UITableViewDataSource {
     }
     
     //creates the variable that stores the event list
-    var eList: NSDictionary?
+    var eList: Dictionary<String, AnyObject>?
     
     //creates the variable that stores the group list
     var gList: [String] = [String]() {
@@ -146,7 +146,6 @@ class profile: UIViewController, UITableViewDelegate, UITableViewDataSource {
             self.navigationItem.leftBarButtonItem = addButton
             self.navigationItem.hidesBackButton = false
         }
-
         //Set up FRIEND Table View Controller
         friendTable.delegate = self
         friendTable.dataSource = self
@@ -199,32 +198,11 @@ class profile: UIViewController, UITableViewDelegate, UITableViewDataSource {
         self.loadNavigationBar()
         
         //loads background pic for profile and shit
+        
         self.loadProfBackground()
         
         //creates a reference to the firebase database
         self.ref = Database.database().reference()
-        currentUser = User(id: userId, activities: nil, friends: nil, groups: nil)
-        currentUser.updateInfo{
-        //Set up GROUP Table View Controller
-        self.setupView { (result) in
-        }
-        self.fList = self.currentUser.friends!
-        self.usrName.text = self.currentUser.first! + " " + self.currentUser.last!
-        self.usrName.textAlignment = .center
-        self.usrName.textColor = UIColor.white
-        self.ref?.child("Users").child(self.currentUser.id).child("groups").observeSingleEvent(of: .value, with: { (snapshot) in
-            // Get user value
-            let value = snapshot.value as? NSDictionary
-
-            if let val = value {
-                for key in val {
-                    print("element found")
-                    self.gList.append(key.key as? String ?? "")
-                }
-            }
-
-        })
-        
         //load segmented control
         //passes in a pointer to this view controller that allows for manipulation of it
         self.segmentedControl.fullInit(view: self)
@@ -241,6 +219,26 @@ class profile: UIViewController, UITableViewDelegate, UITableViewDataSource {
         
         self.scrollView.showsHorizontalScrollIndicator = false
         self.scrollView.isDirectionalLockEnabled = true
+        
+        self.profPic.contentMode = .scaleToFill
+        self.profPic.layer.backgroundColor = UIColor.white.withAlphaComponent(0.40).cgColor
+        self.profPic.layer.cornerRadius = self.profPic.frame.size.width/2
+        self.profPic.clipsToBounds = true
+        self.profPic.isHidden = false
+        currentUser = User(id: userId, activities: nil, friends: nil, groups: nil)
+        currentUser.updateInfo{
+        //Set up GROUP Table View Controller
+        self.setupView { (result) in
+        }
+        self.usrName.text = self.currentUser.first! + " " + self.currentUser.last!
+        self.usrName.textAlignment = .center
+        self.usrName.textColor = UIColor.white
+
+        for group in (self.currentUser.groups)!.keys
+        {
+            self.gList.append(group)
+        }
+        
         }
         
     
@@ -275,32 +273,9 @@ class profile: UIViewController, UITableViewDelegate, UITableViewDataSource {
     }
     
     func setupView(_ completion: (Bool) -> Void) {
-        self.ref?.child("Users").observe(.value, with: { (snapshot) in
-            let toSet:NSMutableDictionary = [:]
-            let oValue = snapshot.value as? NSDictionary
-            
-            for key in (oValue?.keyEnumerator())! {
-                // Get user value
-                let tKey = key as! String
-                print(tKey)
-                self.ref?.child("Users").child(tKey).observe(.value, with: { (snapshot) in
-                    // Get user value
-                    let value = snapshot.value as? NSDictionary
-                    let username = value?["username"] as? String ?? ""
-                    print(username)
-                    toSet[username] = tKey
-                })
-            }
-            SignUp1.User.allUsers = toSet
             print("finished execution of all users")
-        // THIS CODE SEGMENT IMPORTS ALL RELEVANT INFORMATION ABOUT THE USER. NEEDS TO BE SOMEWHERE THAT IS RUN EVERY TIME THE APP LAUNCHES
-            self.ref?.child("Users").child(self.currentUser.id).observe(.value, with: { (snapshot) in
-            // Get user value
-            let value = snapshot.value as? NSDictionary
-            SignUp1.User.userInfo = value as! NSMutableDictionary
-            self.fList = SignUp1.User.userInfo["friendList"] as? [String] ?? [String]()
-            
-            let urlPath = SignUp1.User.userInfo["prof-pic"] as? String
+            self.fList = self.currentUser.friends!
+            let urlPath = self.currentUser.profPic
             if let profUrl = urlPath {
                 let surl = URL(string: profUrl)
                 let url = URLRequest(url: surl!)
@@ -316,35 +291,25 @@ class profile: UIViewController, UITableViewDelegate, UITableViewDataSource {
                     
                     }.resume()
             }
-            self.profPic.contentMode = .scaleToFill
-            self.profPic.layer.backgroundColor = UIColor.white.withAlphaComponent(0.40).cgColor
-            self.profPic.layer.cornerRadius = self.profPic.frame.size.width/2
-            self.profPic.clipsToBounds = true
-            self.profPic.isHidden = false
+
             
             //load profile picture label
-            let fst = SignUp1.User.userInfo["first"] as? String ?? ""
-            let lst = SignUp1.User.userInfo["last"] as? String ?? ""
+            let fst = self.currentUser.first!
+            let lst = self.currentUser.last!
             self.usrName.text = fst + " " + lst
             self.usrName.textAlignment = .center
             self.usrName.textColor = UIColor.white
             
             //set up friends label
             self.friendsLabel.textColor = UIColor.white
-            
-            print(self.fList)
-            print("THIS IS THE USER INFORMATION BITCH")
+
             self.friendsLabel.text = String(self.fList.count) + " FRIENDS"
-            
-            
+        
             //set up events label
             self.eventsLabel.textColor = UIColor.white
-            self.eList = SignUp1.User.userInfo["Events"] as? NSDictionary ?? [:]
+            self.eList = self.currentUser.events!
             self.eventsLabel.text = String(self.eList!.count) + " EVENTS"
             self.setupInterests()
-            print("set this ish up")
-        })
-        })
     }
     
     @objc func respondToSwipeGesture(sender: UIGestureRecognizer) {
@@ -367,7 +332,6 @@ class profile: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if tableView == friendTable {
-            print(self.fList.count)
             return self.fList.count
         }
         else {
@@ -379,28 +343,14 @@ class profile: UIViewController, UITableViewDelegate, UITableViewDataSource {
         if tableView == friendTable {
             //dequeus the cell that we created and styled in the xib file for reuse
             let cell = tableView.dequeueReusableCell(withIdentifier: "friendsCell", for: indexPath) as! friendsCell
-            let usr = fList[indexPath.item]
-            print("fetching user: " + usr)
-            let uid = SignUp1.User.allUsers[usr] as? String ??  usr
-            print("fetching UID: " + uid)
-            var localName = ""
-            var localUsername = ""
-            if uid != "" {
-                print("success")
-                self.ref?.child("Users").child(uid).observe(.value, with: { (snapshot) in
-                    // Get user value
-                    let value = snapshot.value as? NSDictionary
-                    localUsername = value?["username"] as? String ?? ""
-                    localName = (value?["first"] as? String ?? "") + " " + (value?["last"] as? String ?? "")
-                    cell.commonInit(name: localName, username: localUsername)
-                })
-            }
-            print("Username:: " + localUsername)
-            print("Name:: " + localName)
+            let usr = Array(fList.keys)[indexPath.item]
+            let dict = fList[usr] as? NSDictionary
+            let localUsername = dict!["username"] as! String
+            let localName = (dict!["first"] as? String)! + " " + (dict!["last"] as? String)!
+            cell.commonInit(name: localName, username: localUsername)
             return cell
         }
         else {
-            print("TABLE CELL CREATED")
             if indexPath.item == 0 {
                 //dequeus the cell that we created and styled in the xib file for reuse
                 let cell = tableView.dequeueReusableCell(withIdentifier: "AddGroup", for: indexPath) as! AddGroup
@@ -441,8 +391,6 @@ class profile: UIViewController, UITableViewDelegate, UITableViewDataSource {
         return 1
     }
     
-    
-    
     //make sure to change this function to make it robust to clicks out of range
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if tableView == groupsTable {
@@ -450,7 +398,7 @@ class profile: UIViewController, UITableViewDelegate, UITableViewDataSource {
             self.performSegue(withIdentifier: "toGroupSpec", sender: self)
         }
         else {
-            self.toFriend = SignUp1.User.allUsers[fList[indexPath.item]] as? String ?? fList[indexPath.item]
+            self.toFriend = Array(fList.keys)[indexPath.item]
             pastUsers.append(currentUser.id)
             self.currentUser = User(id: self.toFriend!, activities: nil, friends: nil, groups: nil)
             self.performSegue(withIdentifier: "toTransition", sender: self)

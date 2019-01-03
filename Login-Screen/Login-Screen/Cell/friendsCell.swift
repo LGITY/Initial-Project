@@ -14,15 +14,13 @@ class friendsCell: UITableViewCell {
     @IBOutlet weak var usernameLabel: UILabel!
     @IBOutlet weak var friendsLabel: UILabel!
     
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
-        
-        //Make this shit happen bitch
-        
     }
     
-    func commonInit(name: String = "", username: String = "") {
+    func commonInit(name: String = "", username: String = "")
+    {
         self.selectionStyle = UITableViewCellSelectionStyle.none
         nameLabel.text = name
         usernameLabel.text = username
