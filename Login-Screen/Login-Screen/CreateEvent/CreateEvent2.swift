@@ -50,6 +50,7 @@ class CreateEvent2: UIViewController, UIPickerViewDataSource, UIPickerViewDelega
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        CreateEvent2.invitedArr.removeAll()
         pickerView.dataSource = self
         pickerView.delegate = self
         invitesView.isHidden = true
@@ -113,10 +114,11 @@ class CreateEvent2: UIViewController, UIPickerViewDataSource, UIPickerViewDelega
     func loadFriends() {
         ref?.child("Users").child(SignUp1.User.uid).child("friendList").observeSingleEvent(of: .value, with: { (snapshot) in
             // Get user value
-            let value = snapshot.value as? [String]
+            let value = snapshot.value as? [String: Any]
             var tempArr: [String] = [String]()
             if let val = value {
-                for friend in val {
+                for friend in val.keys {
+                    //let
                     tempArr.append(friend)
                 }
             }
@@ -230,7 +232,7 @@ class CreateEvent2: UIViewController, UIPickerViewDataSource, UIPickerViewDelega
         
             let usr = self.friendList[indexPath.item]
             print("fetching user: " + usr)
-            let uid = SignUp1.User.allUsers[usr] as? String ??  usr
+            let uid = usr
             cell.fullInit(memberList: CreateEvent2.memberList, userID: uid, user: true)
         }
         
@@ -254,17 +256,13 @@ class CreateEvent2: UIViewController, UIPickerViewDataSource, UIPickerViewDelega
         
         CreateEvent1.Event.eventInfo["availableTo"] = Array(CreateEvent2.invitedArr)
         CreateEvent1.Event.eventInfo["privacyType"] = pickerChoice
+        if pickerChoice == "Nearby Players" {
+            CreateEvent1.Event.isPublic = true
+        }
+        else {
+            CreateEvent1.Event.isPublic = false
+        }
         self.performSegue(withIdentifier: "next2", sender: self)
-        CreateEvent2.invitedArr.removeAll()
     }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

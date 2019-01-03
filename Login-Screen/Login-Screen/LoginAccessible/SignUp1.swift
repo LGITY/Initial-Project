@@ -374,7 +374,7 @@ class SignUp1: UIViewController {
         }
         
         if termsButton.currentImage == checkImage {
-            termsButton.setImage(#imageLiteral(resourceName: "CheckedBox copy2"), for: .normal)
+            termsButton.setImage(#imageLiteral(resourceName: "CheckboxValid2 copy"), for: .normal)
         }
         else {
             termsButton.setImage(#imageLiteral(resourceName: "unchecked"), for: .normal)

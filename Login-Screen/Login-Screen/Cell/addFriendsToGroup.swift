@@ -58,6 +58,7 @@ class addFriendsToGroup: UITableViewCell {
                         }
                         
                         }.resume()
+                    
                 }
 
             })

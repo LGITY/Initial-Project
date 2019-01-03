@@ -2737,7 +2737,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="m5J-dI-FfP"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Profile" image="male" id="vv7-ct-yhp"/>
+                    <tabBarItem key="tabBarItem" title="Profile" image="profile-icon" id="vv7-ct-yhp"/>
                     <size key="freeformSize" width="1125" height="667"/>
                     <connections>
                         <outlet property="backgroundImage" destination="0Ci-fk-mbq" id="LEZ-lC-R5P"/>
@@ -3637,10 +3637,12 @@
         <scene sceneID="6kJ-CJ-tnM">
             <objects>
                 <tabBarController id="1yF-ji-d6C" customClass="tabBarController" customModule="Login_Screen" customModuleProvider="target" sceneMemberID="viewController">
-                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="MGl-Rw-N8V">
+                    <tabBar key="tabBar" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="MGl-Rw-N8V">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="tintColor" red="0.12941176469999999" green="0.69803921570000005" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="selectedImageTintColor" red="0.12941176469999999" green="0.69803921570000005" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     </tabBar>
                     <connections>
                         <segue destination="yNx-42-JAp" kind="relationship" relationship="viewControllers" id="2VC-YJ-P5A"/>
@@ -3707,28 +3709,26 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Jr-Qm-eqL">
-                                <rect key="frame" x="0.0" y="330.5" width="375" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="QVj-Rb-xow">
+                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                            </mapView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="2Jr-Qm-eqL" firstAttribute="centerX" secondItem="gec-ei-lIx" secondAttribute="centerX" id="EhX-sh-3g0"/>
-                            <constraint firstItem="2Jr-Qm-eqL" firstAttribute="centerY" secondItem="gec-ei-lIx" secondAttribute="centerY" id="Pa3-AC-htu"/>
-                            <constraint firstItem="2Jr-Qm-eqL" firstAttribute="width" secondItem="eeA-04-RQJ" secondAttribute="width" id="mSb-Gi-EM0"/>
+                            <constraint firstItem="QVj-Rb-xow" firstAttribute="height" secondItem="gec-ei-lIx" secondAttribute="height" id="gE4-bb-1ty"/>
+                            <constraint firstItem="QVj-Rb-xow" firstAttribute="width" secondItem="eeA-04-RQJ" secondAttribute="width" id="hti-Qk-dMG"/>
+                            <constraint firstItem="QVj-Rb-xow" firstAttribute="centerX" secondItem="gec-ei-lIx" secondAttribute="centerX" id="tmN-bj-fuB"/>
+                            <constraint firstItem="QVj-Rb-xow" firstAttribute="centerY" secondItem="gec-ei-lIx" secondAttribute="centerY" id="yWb-jA-KKv"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="gec-ei-lIx"/>
                     </view>
                     <connections>
-                        <outlet property="label" destination="2Jr-Qm-eqL" id="vwb-QL-2Ks"/>
+                        <outlet property="mapView" destination="QVj-Rb-xow" id="WEQ-VJ-5EJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ANm-Tg-6ez" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1374" y="1496"/>
+            <point key="canvasLocation" x="1373.5999999999999" y="1495.5022488755624"/>
         </scene>
         <!--comments-->
         <scene sceneID="hMi-7h-mCp">
@@ -4328,7 +4328,7 @@
         <scene sceneID="GcQ-nj-rDH">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="EHy-j4-VSG" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Create" image="plus1x" id="v87-Di-G25"/>
+                    <tabBarItem key="tabBarItem" title="Create" image="CreateEventIcon" id="v87-Di-G25"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="DjB-ZK-7Pd">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
@@ -4412,7 +4412,7 @@
         <scene sceneID="hNe-Z7-7NW">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="yNx-42-JAp" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Home" image="Home" id="PyR-42-EBa"/>
+                    <tabBarItem key="tabBarItem" title="Home" image="home-icon" id="PyR-42-EBa"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="B4B-Db-pSf">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
@@ -4430,7 +4430,7 @@
     </scenes>
     <resources>
         <image name="BackArrowIconwhite" width="5.7600002288818359" height="5.7600002288818359"/>
-        <image name="Home" width="32" height="32"/>
+        <image name="CreateEventIcon" width="15.359999656677246" height="15.359999656677246"/>
         <image name="PlusOneLogoWHITETRANS (1)" width="504" height="360"/>
         <image name="Random" width="5000" height="5000"/>
         <image name="RingsshareEventfriends" width="480" height="480"/>
@@ -4438,25 +4438,25 @@
         <image name="checked-1" width="299" height="289"/>
         <image name="do-not-disturb-rounded-sign" width="25.600000381469727" height="25.600000381469727"/>
         <image name="flag (1)" width="25.600000381469727" height="25.600000381469727"/>
+        <image name="home-icon" width="24" height="24"/>
         <image name="locked" width="51.200000762939453" height="51.200000762939453"/>
-        <image name="male" width="25.600000381469727" height="25.600000381469727"/>
         <image name="menu-button-of-three-horizontal-lines" width="25.600000381469727" height="25.600000381469727"/>
         <image name="navyadd" width="24" height="24"/>
         <image name="notification" width="25.600000381469727" height="25.600000381469727"/>
         <image name="notification (1)" width="25.600000381469727" height="25.600000381469727"/>
-        <image name="plus1x" width="24" height="24"/>
+        <image name="profile-icon" width="25.600000381469727" height="25.600000381469727"/>
         <image name="unchecked" width="51.200000762939453" height="51.200000762939453"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="i0e-68-rOn"/>
-        <segue reference="8VJ-i5-cHf"/>
+        <segue reference="axv-p1-Sv9"/>
         <segue reference="tXf-EJ-KcX"/>
         <segue reference="t86-Ef-XMX"/>
         <segue reference="0D4-u8-UGN"/>
-        <segue reference="Lzc-uk-Lc2"/>
+        <segue reference="Q7A-Tl-bNP"/>
         <segue reference="wHO-sJ-eLD"/>
         <segue reference="6fQ-VG-Y1c"/>
-        <segue reference="AQ4-5n-cEC"/>
+        <segue reference="4w9-KA-3Oc"/>
         <segue reference="1d9-Lb-xWv"/>
     </inferredMetricsTieBreakers>
 </document>

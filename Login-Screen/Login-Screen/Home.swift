@@ -73,6 +73,10 @@ class Home: UIViewController, UITableViewDelegate, UITableViewDataSource, CLLoca
         mainTableView.showsHorizontalScrollIndicator = false
         mainTableView.showsVerticalScrollIndicator = false
         
+        // Sets background color to match separator color.
+        //mainTableView.backgroundColor = UIColor(red:0.33, green:0.34, blue:0.36, alpha:1)
+        //mainTableView.sectionIndexBackgroundColor = UIColor(red:0.93, green:0.93, blue:0.93, alpha:1.0)
+        
         // Observes available events.
         ref?.child("Users").child(SignUp1.User.uid).child("Events").observeSingleEvent(of: .value, with: { (snapshot) in
             let value = snapshot.value as? [String: String]
@@ -104,7 +108,7 @@ class Home: UIViewController, UITableViewDelegate, UITableViewDataSource, CLLoca
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "toGeo" {
             let dest = segue.destination as! GeoSport
-            dest.labelText = transitionInfo
+            dest.sport = transitionInfo!
         }
         if segue.identifier == "toComments" {
             let dest = segue.destination as! CommentsView
@@ -176,7 +180,7 @@ extension Home {
             let comments = determineComments(eid)
             
             // This looks more complex than it is. Basically just retyping a couple times for each piece of data.
-            cell.fullInit((availablePosts[eid] as! [String: Any])["host"] as! String , evID: eid, activity: (availablePosts[eid] as! [String: Any])["eventType"] as! String, eventName: (availablePosts[eid] as! [String: Any])["eventName"] as! String, numberParticipants: Int((availablePosts[eid] as! [String: Any])["numParticipants"] as! String)!, time: (availablePosts[eid] as! [String: Any])["time"] as! String, loc: (availablePosts[eid] as! [String: Any])["locationName"] as! String, numComments: comments, parentView: self)
+            cell.fullInit((availablePosts[eid] as! [String: Any])["host"] as! String , evID: eid, activity: (availablePosts[eid] as! [String: Any])["eventType"] as! String, eventName: (availablePosts[eid] as! [String: Any])["eventName"] as! String, numberParticipants: Int((availablePosts[eid] as! [String: Any])["numParticipants"] as! String)!, time: (availablePosts[eid] as! [String: Any])["time"] as! String, loc: (availablePosts[eid] as! [String: Any])["locationName"] as! String, numComments: comments, parentView: self, indexPath: indexPath)
             
             return cell
         }

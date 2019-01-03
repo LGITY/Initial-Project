@@ -29,6 +29,8 @@
 		703F098F212E8364005D6E98 /* GroupCreation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 703F098E212E8364005D6E98 /* GroupCreation.swift */; };
 		7041161D213B489A00E22789 /* GroupSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7041161C213B489A00E22789 /* GroupSpec.swift */; };
 		704272F320F8653300D11DBA /* LoginFormatted.swift in Sources */ = {isa = PBXBuildFile; fileRef = 704272F220F8653300D11DBA /* LoginFormatted.swift */; };
+		7046BDF521DD291600FAB310 /* attendeesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7046BDF321DD291600FAB310 /* attendeesCell.swift */; };
+		7046BDF621DD291600FAB310 /* attendeesCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7046BDF421DD291600FAB310 /* attendeesCell.xib */; };
 		704D596E210FEF8A007D6731 /* SignUp4.swift in Sources */ = {isa = PBXBuildFile; fileRef = 704D596D210FEF8A007D6731 /* SignUp4.swift */; };
 		70561B6F212F2138007D9A27 /* addFriendsToGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70561B6D212F2138007D9A27 /* addFriendsToGroup.swift */; };
 		70561B70212F2138007D9A27 /* addFriendsToGroup.xib in Resources */ = {isa = PBXBuildFile; fileRef = 70561B6E212F2138007D9A27 /* addFriendsToGroup.xib */; };
@@ -101,6 +103,8 @@
 		703F098E212E8364005D6E98 /* GroupCreation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupCreation.swift; sourceTree = "<group>"; };
 		7041161C213B489A00E22789 /* GroupSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupSpec.swift; sourceTree = "<group>"; };
 		704272F220F8653300D11DBA /* LoginFormatted.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginFormatted.swift; sourceTree = "<group>"; };
+		7046BDF321DD291600FAB310 /* attendeesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = attendeesCell.swift; sourceTree = "<group>"; };
+		7046BDF421DD291600FAB310 /* attendeesCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = attendeesCell.xib; sourceTree = "<group>"; };
 		704D596D210FEF8A007D6731 /* SignUp4.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUp4.swift; sourceTree = "<group>"; };
 		70561B6D212F2138007D9A27 /* addFriendsToGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = addFriendsToGroup.swift; sourceTree = "<group>"; };
 		70561B6E212F2138007D9A27 /* addFriendsToGroup.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = addFriendsToGroup.xib; sourceTree = "<group>"; };
@@ -301,6 +305,8 @@
 				70D711E021D1F42A00978BF9 /* CommentsCell.xib */,
 				70D711E321D358A900978BF9 /* MoreCell.swift */,
 				70D711E421D358A900978BF9 /* MoreCell.xib */,
+				7046BDF321DD291600FAB310 /* attendeesCell.swift */,
+				7046BDF421DD291600FAB310 /* attendeesCell.xib */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -394,6 +400,7 @@
 				70561B70212F2138007D9A27 /* addFriendsToGroup.xib in Resources */,
 				70D54F2521178BD8009E1088 /* AddFriendCell.xib in Resources */,
 				706F6FD521CEE7BE0067E5B0 /* inMyAreaCell.xib in Resources */,
+				7046BDF621DD291600FAB310 /* attendeesCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -468,6 +475,7 @@
 				1239257320D2EFA9002D68D1 /* MainNavigationController.swift in Sources */,
 				703F098C212E7881005D6E98 /* AddGroup.swift in Sources */,
 				7083AD9220FC5435005D72B1 /* PrivacyPolicy.swift in Sources */,
+				7046BDF521DD291600FAB310 /* attendeesCell.swift in Sources */,
 				70A10BD4210D63D40003119E /* tabBarController.swift in Sources */,
 				70A112DD217E8E72001C9543 /* CreateEvent4.swift in Sources */,
 				70561B6F212F2138007D9A27 /* addFriendsToGroup.swift in Sources */,
