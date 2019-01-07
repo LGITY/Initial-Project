@@ -20,6 +20,8 @@ class CommentsCell: UITableViewCell {
     
     var commentID : String?
     var ref: DatabaseReference?
+    var isPublic: Bool?
+    var eventType: String?
     var parentView: CommentsView? {
         didSet {
             determineLikes()
@@ -45,7 +47,9 @@ class CommentsCell: UITableViewCell {
         
     }
     
-    func fullInit(_ userID : String, commentID: String, comment: String, time: String, likes: String, parent: CommentsView) {
+    func fullInit(_ userID : String, commentID: String, comment: String, time: String, likes: String, isPublic: Bool? = false, eventType: String? = nil, parent: CommentsView) {
+        self.isPublic = isPublic
+        self.eventType = eventType
         self.commentID = commentID
         ref?.child("Users").child(userID).observeSingleEvent(of: .value, with: { (snapshot) in
             let value = snapshot.value as! [String : Any]
@@ -58,20 +62,38 @@ class CommentsCell: UITableViewCell {
     }
     
     func determineLikes() {
-        self.ref?.child("Events").child(parentView!.eid!).child("comments").child(commentID!).observeSingleEvent(of: .value, with: { (snapshot) in
-            let value = snapshot.value as! [String: Any]
-            if value.keys.contains("likes") {
-                let likes = value["likes"] as! [String : String]
-                if likes.keys.contains(SignUp1.User.uid) {
-                    self.liked = true
-                    self.likeButton.tintColor = UIColor(red:0.13, green:0.70, blue:1.00, alpha:1.0)
+        if !isPublic! {
+            self.ref?.child("Events").child(parentView!.eid!).child("comments").child(commentID!).observeSingleEvent(of: .value, with: { (snapshot) in
+                let value = snapshot.value as! [String: Any]
+                if value.keys.contains("likes") {
+                    let likes = value["likes"] as! [String : String]
+                    if likes.keys.contains(SignUp1.User.uid) {
+                        self.liked = true
+                        self.likeButton.tintColor = UIColor(red:0.13, green:0.70, blue:1.00, alpha:1.0)
+                    }
+                    self.numLikes.text = String(likes.count)
                 }
-                self.numLikes.text = String(likes.count)
-            }
-            else {
-                self.numLikes.text = "0"
-            }
-        })
+                else {
+                    self.numLikes.text = "0"
+                }
+            })
+        }
+        else {
+            self.ref?.child("Public Events").child(self.eventType!).child(parentView!.eid!).child("comments").child(commentID!).observeSingleEvent(of: .value, with: { (snapshot) in
+                let value = snapshot.value as! [String: Any]
+                if value.keys.contains("likes") {
+                    let likes = value["likes"] as! [String : String]
+                    if likes.keys.contains(SignUp1.User.uid) {
+                        self.liked = true
+                        self.likeButton.tintColor = UIColor(red:0.13, green:0.70, blue:1.00, alpha:1.0)
+                    }
+                    self.numLikes.text = String(likes.count)
+                }
+                else {
+                    self.numLikes.text = "0"
+                }
+            })
+        }
     }
     
     func downloadPic() {
@@ -101,13 +123,24 @@ class CommentsCell: UITableViewCell {
     
     @IBAction func like(_ sender: Any) {
         if !liked {
-            self.ref?.child("Events").child(parentView!.eid!).child("comments").child(self.commentID!).child("likes").child(SignUp1.User.uid).setValue("like")
+            if !isPublic! {
+                self.ref?.child("Events").child(parentView!.eid!).child("comments").child(self.commentID!).child("likes").child(SignUp1.User.uid).setValue("like")
+            }
+            else {
+                self.ref?.child("Public Events").child(self.eventType!).child(parentView!.eid!).child("comments").child(self.commentID!).child("likes").child(SignUp1.User.uid).setValue("like")
+
+            }
             self.liked = true
             self.numLikes.text = String(Int(self.numLikes.text!)! + 1)
             self.likeButton.tintColor = UIColor(red:0.13, green:0.70, blue:1.00, alpha:1.0)
         }
         else {
-            self.ref?.child("Events").child(parentView!.eid!).child("comments").child(self.commentID!).child("likes").child(SignUp1.User.uid).removeValue()
+            if !isPublic! {
+                self.ref?.child("Events").child(parentView!.eid!).child("comments").child(self.commentID!).child("likes").child(SignUp1.User.uid).removeValue()
+            }
+            else {
+                self.ref?.child("Public Events").child(self.eventType!).child(parentView!.eid!).child("comments").child(self.commentID!).child("likes").child(SignUp1.User.uid).setValue("like")
+            }
             self.liked = false
             self.numLikes.text = String(Int(self.numLikes.text!)! - 1)
             self.likeButton.tintColor = UIColor.lightGray

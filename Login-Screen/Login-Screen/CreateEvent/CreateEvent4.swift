@@ -113,8 +113,8 @@ class CreateEvent4: UIViewController {
         
         //creates an id that it uses twice
         let id = UUID().uuidString
-        self.ref?.child("Events").child(id).setValue(CreateEvent1.Event.eventInfo)
         if !CreateEvent1.Event.isPublic! {
+            self.ref?.child("Events").child(id).setValue(CreateEvent1.Event.eventInfo)
             ref?.child("Users").child(SignUp1.User.uid).child("Events").child(id).setValue("Event")
             
             let arr = CreateEvent1.Event.eventInfo["availableTo"] as! [String]
@@ -130,6 +130,7 @@ class CreateEvent4: UIViewController {
         }
         else {
             self.ref?.child("Public Events").child((CreateEvent1.Event.eventInfo["eventType"] as! String)).child(id).setValue(CreateEvent1.Event.eventInfo)
+            ref?.child("Public Events").child((CreateEvent1.Event.eventInfo["eventType"] as! String)).child(id).child("attendees").childByAutoId().setValue(SignUp1.User.uid)
         }
         performSegue(withIdentifier: "toHome", sender: self)
     }

@@ -58,8 +58,9 @@ class HomePostCell: UITableViewCell, UITableViewDelegate, UITableViewDataSource,
     }
     
     var eid: String = ""
-    
-    var parentViewController: Home?
+    var eventType: String?
+    var isPublic: Bool?
+    var parentViewController: UIViewController?
     var indexPath: IndexPath?
     
     
@@ -94,6 +95,9 @@ class HomePostCell: UITableViewCell, UITableViewDelegate, UITableViewDataSource,
         colView.showsHorizontalScrollIndicator = false
         colView.showsVerticalScrollIndicator = false
         colView.alwaysBounceVertical = false
+        
+        let toSet = "> 0 going"
+        self.showAttendeesButton.setTitle(toSet, for: .normal)
         
         
     }
@@ -132,26 +136,43 @@ class HomePostCell: UITableViewCell, UITableViewDelegate, UITableViewDataSource,
             self.profPic.layer.cornerRadius = self.profPic.frame.size.width/2
             self.profPic.clipsToBounds = true
             self.profPic.isHidden = false
-        
-            ref?.child("Events").child(self.eid).child("attendees").observeSingleEvent(of: .value, with: { (snapshot) in
-                let value = snapshot.value as? NSDictionary
-                if let value2 = value {
-                    if (value2.allValues as! [String]).contains(SignUp1.User.uid) {
-                        self.setUpJoined()
+            if !isPublic! {
+                ref?.child("Events").child(self.eid).child("attendees").observeSingleEvent(of: .value, with: { (snapshot) in
+                    let value = snapshot.value as? NSDictionary
+                    if let value2 = value {
+                        if (value2.allValues as! [String]).contains(SignUp1.User.uid) {
+                            self.setUpJoined()
+                        }
+                        self.attendeesArr = value2.allValues as! [String]
+                        let toSet = "> " + String(value2.count) + " going"
+                        self.showAttendeesButton.setTitle(toSet, for: .normal)
                     }
-                    self.attendeesArr = value2.allValues as! [String]
-                    let toSet = "> " + String(value2.count) + " going"
-                    self.showAttendeesButton.setTitle(toSet, for: .normal)
-                }
-                
-            })
+                    
+                })
+            }
+            else {
+                ref?.child("Public Events").child(self.eventType!).child(self.eid).child("attendees").observeSingleEvent(of: .value, with: { (snapshot) in
+                    let value = snapshot.value as? NSDictionary
+                    if let value2 = value {
+                        if (value2.allValues as! [String]).contains(SignUp1.User.uid) {
+                            self.setUpJoined()
+                        }
+                        self.attendeesArr = value2.allValues as! [String]
+                        let toSet = "> " + String(value2.count) + " going"
+                        self.showAttendeesButton.setTitle(toSet, for: .normal)
+                    }
+                    
+                })
+            }
         
         
         
     }
     
-    func fullInit(_ host: String, evID: String, activity: String, eventName: String, numberParticipants: Int, time: String, loc: String, numComments: Int, parentView: Home, indexPath: IndexPath) {
+    func fullInit(_ host: String, evID: String, activity: String, eventName: String, numberParticipants: Int, time: String, loc: String, numComments: Int, isPublic: Bool? = false, parentView: UIViewController, indexPath: IndexPath) {
         self.eid = evID
+        self.eventType = activity
+        self.isPublic = isPublic
         self.uid = host
         self.indexPath = indexPath
         //activityLabel.text = activity
@@ -191,8 +212,14 @@ class HomePostCell: UITableViewCell, UITableViewDelegate, UITableViewDataSource,
             print("!! close this event !!")
         }
         limitedSpaceLabel.text = String(newParticipants) + " spots"
-        ref?.child("Events").child(eid).child("numParticipants").setValue(String(newParticipants))
-        ref?.child("Events").child(eid).child("attendees").childByAutoId().setValue(SignUp1.User.uid)
+        if !isPublic! {
+            ref?.child("Events").child(eid).child("numParticipants").setValue(String(newParticipants))
+            ref?.child("Events").child(eid).child("attendees").childByAutoId().setValue(SignUp1.User.uid)
+        }
+        else {
+            ref?.child("Public Events").child(self.eventType!).child(eid).child("numParticipants").setValue(String(newParticipants))
+            ref?.child("Public Events").child(self.eventType!).child(eid).child("attendees").childByAutoId().setValue(SignUp1.User.uid)
+        }
         
         print("JOINED")
 
@@ -225,14 +252,22 @@ class HomePostCell: UITableViewCell, UITableViewDelegate, UITableViewDataSource,
         }
         self.attendeesShowing = !self.attendeesShowing
         self.isSelected = !self.isSelected
-        self.parentViewController!.mainTableView.beginUpdates()
-        self.parentViewController!.mainTableView.endUpdates()
+        
+        // For home.
+        (self.parentViewController as? Home)?.mainTableView?.beginUpdates()
+        (self.parentViewController as? Home)?.mainTableView?.endUpdates()
+        
+        // For in my area.
+        (self.parentViewController as? GeoSport)?.tableView?.beginUpdates()
+        (self.parentViewController as? GeoSport)?.tableView?.endUpdates()
         
     }
     
     
     @IBAction func commentButton(_ sender: Any) {
-        parentViewController?.transitionInfo = eid
+        (parentViewController as? Home)?.transitionInfo = eid
+        (parentViewController as? GeoSport)?.transitionInfo = eid
+        (parentViewController as? GeoSport)?.eventType = self.eventType
         parentViewController?.performSegue(withIdentifier: "toComments", sender: parentViewController)
         
     }

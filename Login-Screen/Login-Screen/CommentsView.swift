@@ -17,6 +17,8 @@ class CommentsView: UIViewController, UITableViewDelegate, UITableViewDataSource
     
     var eid: String?
     var ref: DatabaseReference?
+    var isPublic: Bool = false
+    var eventType: String?
     
     var commentList: [String: [String:Any]] = [:]
     
@@ -49,21 +51,41 @@ class CommentsView: UIViewController, UITableViewDelegate, UITableViewDataSource
     }
     
     func fetchComments() {
-        ref?.child("Events").child(eid!).observeSingleEvent(of: .value, with: { (snapshot) in
-            let value = snapshot.value as! [String : Any]
-            if value.keys.contains("comments") {
-                let unsorted = value["comments"] as! [String: [String:Any]]
-                self.commentList = unsorted
-                let keys = Array(unsorted.keys)
-                let sorted = keys.sorted(by: { (key1, key2) -> Bool in
-                    let val1 = self.commentList[key1]!["time"] as! String
-                    let val2 = self.commentList[key2]!["time"] as! String
-                    return val1 < val2
-                })
-                self.commentKeys = sorted
-                
-            }
-        })
+        print("blah")
+        if !isPublic {
+            self.ref?.child("Events").child(eid!).observeSingleEvent(of: .value, with: { (snapshot) in
+                let value = snapshot.value as! [String : Any]
+                if value.keys.contains("comments") {
+                    let unsorted = value["comments"] as! [String: [String:Any]]
+                    self.commentList = unsorted
+                    let keys = Array(unsorted.keys)
+                    let sorted = keys.sorted(by: { (key1, key2) -> Bool in
+                        let val1 = self.commentList[key1]!["time"] as! String
+                        let val2 = self.commentList[key2]!["time"] as! String
+                        return val1 < val2
+                    })
+                    self.commentKeys = sorted
+                    
+                }
+            })
+        }
+        else {
+            self.ref?.child("Public Events").child(self.eventType!).child(eid!).observeSingleEvent(of: .value, with: { (snapshot) in
+                let value = snapshot.value as! [String : Any]
+                if value.keys.contains("comments") {
+                    let unsorted = value["comments"] as! [String: [String:Any]]
+                    self.commentList = unsorted
+                    let keys = Array(unsorted.keys)
+                    let sorted = keys.sorted(by: { (key1, key2) -> Bool in
+                        let val1 = self.commentList[key1]!["time"] as! String
+                        let val2 = self.commentList[key2]!["time"] as! String
+                        return val1 < val2
+                    })
+                    self.commentKeys = sorted
+                    
+                }
+            })
+        }
     }
     
     @IBAction func sendButton(_ sender: Any) {
@@ -73,7 +95,12 @@ class CommentsView: UIViewController, UITableViewDelegate, UITableViewDataSource
             infoDict["text"] = textField.text!
             infoDict["time"] = String(NSDate().timeIntervalSince1970)
             //infoDict["likes"] = "0"
-            ref?.child("Events").child(eid!).child("comments").childByAutoId().setValue(infoDict)
+            if !isPublic {
+                ref?.child("Events").child(eid!).child("comments").childByAutoId().setValue(infoDict)
+            }
+            else {
+                ref?.child("Public Events").child(self.eventType!).child(eid!).child("comments").childByAutoId().setValue(infoDict)
+            }
         }
         fetchComments()
         textField.text = ""
@@ -104,7 +131,7 @@ extension CommentsView {
             numLikes = (commentList[thisKey]!["likes"] as! [String : String]).count
         }
         
-        cell.fullInit(uid, commentID: thisKey, comment: comment, time: time, likes: String(numLikes), parent: self)
+        cell.fullInit(uid, commentID: thisKey, comment: comment, time: time, likes: String(numLikes), isPublic: self.isPublic, eventType: self.eventType as? String ?? "", parent: self)
         print("HERE!!")
         return cell
     }

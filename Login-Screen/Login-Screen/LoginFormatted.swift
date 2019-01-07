@@ -119,7 +119,7 @@ class LoginFormatted: UIViewController {
         facebookBox.layer.masksToBounds = true
         //loads the facebook logo next to the button
         facebookImage.contentMode = .scaleAspectFit
-        facebookImage.image = #imageLiteral(resourceName: "facebookNew")
+        facebookImage.image = #imageLiteral(resourceName: "facebook")
         
         //Hides error text
         loginError.text = ""

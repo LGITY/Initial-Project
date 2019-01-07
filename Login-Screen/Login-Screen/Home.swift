@@ -116,6 +116,14 @@ class Home: UIViewController, UITableViewDelegate, UITableViewDataSource, CLLoca
         }
     }
     
+    
+    @IBAction func moreTab(_ sender: Any) {
+        print("Toggle More Tab")
+        NotificationCenter.default.post(name: NSNotification.Name("ToggleMoreTab"), object: nil)
+        
+    }
+    
+    
 }
 
 

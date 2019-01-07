@@ -39,13 +39,13 @@ class MoreCell: UITableViewCell {
             })
             
             parentView?.moreTable.isHidden = true
-            parentView?.parentViewController!.mainTableView.reloadData()
+            //parentView?.parentViewController!.mainTableView.reloadData()
         }
         else {
             print("edit!")
             parentView?.moreTable.isHidden = true
             parentView?.parentViewController!.viewDidLoad()
-            parentView?.parentViewController!.mainTableView.reloadData()
+            //parentView?.parentViewController!.mainTableView.reloadData()
         }
     }
 }
